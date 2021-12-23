@@ -1,0 +1,28 @@
+[alias]
+  co = checkout
+  cp = cherry-pick
+  unstage = reset HEAD --
+  last = log -1 HEAD
+  st = status
+  stashdiff = stash show -p
+  qlog = log --oneline --decorate --graph -15
+  irb = rebase -i
+[commit]
+  verbose = true
+[core]
+  excludesFile = ~/.gitignore
+  pager = less -F -X
+[diff]
+  noprefix = true
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[pull]
+  rebase = false
+[rebase]
+  autosquash = true
+[user]
+  name = Tyler Bodway
+  email = 9326912+tylerbodway@users.noreply.github.com

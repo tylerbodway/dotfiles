@@ -9,7 +9,13 @@
     ~/.config:
       recursive: true
 
-- link: {}
+- link:
+    ~/.editorconfig:
+    ~/.gemrc:
+    ~/.gitconfig:
+    ~/.gitignore:
+    ~/.hushlogin:
+    ~/.zshrc:
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
