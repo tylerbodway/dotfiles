@@ -17,5 +17,12 @@
     ~/.hushlogin:
     ~/.zshrc:
 
+- create:
+    ~/.ssh:
+      mode: 0700
+    ~/Code:
+    ~/Projects:
+    ~/Drive:
+
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
