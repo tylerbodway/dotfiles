@@ -24,13 +24,11 @@
     ~/Projects:
     ~/Drive:
 
+- brewfile:
+    - brew/Brewfile
+
 - shell:
   -
     command: git submodule update --init --recursive
     description: Installing git submodules
     quiet: true
-  -
-    command: brew bundle install --file $DOTFILES/brew/Brewfile
-    description: Installing Homebrew dependencies
-    stdout: true
-    stderr: true

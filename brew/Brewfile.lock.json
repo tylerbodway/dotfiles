@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "b96bcaa4e83c7eead639721a5d238e6fac0f5a67"
+        "revision": "844b94c8a691ba9ba1b522fda3ad7577f20b3db7"
       },
       "homebrew/cask-versions": {
         "revision": "5b64171190c3ef08b581fdfb9add46ac6ff1f9b2"
@@ -175,6 +175,20 @@
             }
           }
         }
+      },
+      "spaceship": {
+        "version": "3.16.1",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "all": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/spaceship/blobs/sha256:bb64ffc3bdd3af35ba1cf05d938b2a04c5ef82404fba5ac62abdd91031f67bc5",
+              "sha256": "bb64ffc3bdd3af35ba1cf05d938b2a04c5ef82404fba5ac62abdd91031f67bc5"
+            }
+          }
+        }
       }
     },
     "cask": {
@@ -275,7 +289,7 @@
         }
       },
       "tableplus": {
-        "version": "4.5.0,396",
+        "version": "4.5.2,402",
         "options": {
           "full_name": "tableplus"
         }
@@ -305,7 +319,7 @@
       "monterey": {
         "HOMEBREW_VERSION": "3.3.9",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "05df0a33337cbbb796b64e8a37f966fda6f55d38",
+        "Homebrew/homebrew-core": "16bbac6fd6c6e2b5886ad1357d225a91709b0ecc",
         "CLT": "13.2.0.0.1.1638488800",
         "Xcode": "13.1",
         "macOS": "12.1"
