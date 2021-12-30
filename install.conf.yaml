@@ -23,6 +23,7 @@
     ~/Code:
     ~/Projects:
     ~/Drive:
+    ~/.nvm:
 
 - brewfile:
     - brew/Brewfile

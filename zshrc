@@ -2,6 +2,7 @@
 export EDITOR="code --wait"
 export DOTFILES=$HOME/dotfiles
 export RBENV_ROOT=$HOME/.rbenv
+export NVM_DIR="$HOME/.nvm"
 export NVM_LAZY=1
 
 # PATH
@@ -75,3 +76,5 @@ cdpath=($HOME/Code $HOME/Projects)
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$($HOME/Code/pco/bin/pco init -)"
+
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
