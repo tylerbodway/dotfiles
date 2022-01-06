@@ -1,5 +1,3 @@
-[commit]
-  gpgsign = true
 [user]
   email = tyler@planningcenter.com
-  signingKey = 08C55CC78775D69C
+  signingKey = tyler@planningcenter.com

@@ -9,6 +9,7 @@
   irb = rebase -i
 [commit]
   verbose = true
+  gpgsign = true
 [core]
   excludesFile = ~/.gitignore
   pager = less -F -X
@@ -28,5 +29,6 @@
 [user]
   name = Tyler Bodway
   email = 9326912+tylerbodway@users.noreply.github.com
+  signingKey = 9326912+tylerbodway@users.noreply.github.com
 [includeIf "gitdir:~/Code/"]
   path = ~/Code/.gitconfig_include
