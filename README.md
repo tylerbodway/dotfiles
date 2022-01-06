@@ -12,23 +12,18 @@ Being a developer mainly on macOS, this assumes [zsh][zsh] as the default shell,
 and also be sure to have [brew][brew] installed for OS packages and applications.
 
 ### Install
-Clone the repository, and run the `./install.sh` script. You can also re-run the
+Clone the repository, and run the `./install` script. You can also re-run the
 script to apply any future updates.
 ```
 cd ~
-git clone https://github.com/tylerbodway/dotfiles
-dotfiles/install
+git clone https://github.com/tylerbodway/dotfiles && cd dotfiles
+./install
 ```
 
 To upgrade submodules to their latest versions, run:
 ```
 git submodule update --init --remote
 ```
-
-## License
-
-This software is hereby released into the public domain. That means you can do
-whatever you want with it without restriction. See `LICENSE.md` for details.
 
 [dotbot]: https://github.com/anishathalye/dotbot
 [zsh]: https://www.zsh.org/
