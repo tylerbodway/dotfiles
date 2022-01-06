@@ -2,13 +2,13 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "844b94c8a691ba9ba1b522fda3ad7577f20b3db7"
+        "revision": "86d3ebdd866c314bc42ae86750b3090cad5286e2"
       },
       "homebrew/cask-versions": {
-        "revision": "5b64171190c3ef08b581fdfb9add46ac6ff1f9b2"
+        "revision": "bee0705a639c4af917cf118cf484b0d0c63d9ca6"
       },
       "homebrew/cask-drivers": {
-        "revision": "4bb60c5ac27af2a5b6e04d1beedd339fab14a2cf"
+        "revision": "740537e2450cc770c516cb3fe990daf86e387ada"
       }
     },
     "brew": {
@@ -105,15 +105,15 @@
         }
       },
       "nvm": {
-        "version": "0.39.1",
+        "version": "0.39.1_1",
         "bottle": {
           "rebuild": 0,
           "root_url": "https://ghcr.io/v2/homebrew/core",
           "files": {
             "all": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/nvm/blobs/sha256:a73ac4601e1858ed91a5691f04938311452750b4ba2737170709e43a08054e6d",
-              "sha256": "a73ac4601e1858ed91a5691f04938311452750b4ba2737170709e43a08054e6d"
+              "url": "https://ghcr.io/v2/homebrew/core/nvm/blobs/sha256:6e14c8a2bf94212545c1ebac9a722df168c318d0e8af2fc75b729a07fea54efe",
+              "sha256": "6e14c8a2bf94212545c1ebac9a722df168c318d0e8af2fc75b729a07fea54efe"
             }
           }
         }
@@ -189,11 +189,50 @@
             }
           }
         }
+      },
+      "awscli": {
+        "version": "2.4.8",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "arm64_monterey": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:4dd05682773b14cef095850b064ecd5bbe550b7b62c443b36123b466d9c49df2",
+              "sha256": "4dd05682773b14cef095850b064ecd5bbe550b7b62c443b36123b466d9c49df2"
+            },
+            "arm64_big_sur": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:2208d304b4fc6505da783e1cd648f1b42c68c5693263cbc0cc16bb94d9fc6556",
+              "sha256": "2208d304b4fc6505da783e1cd648f1b42c68c5693263cbc0cc16bb94d9fc6556"
+            },
+            "monterey": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:6622dab45870dc5be0bcd3c47a4ec22428de848080cf1b088e05a5ebe944ad90",
+              "sha256": "6622dab45870dc5be0bcd3c47a4ec22428de848080cf1b088e05a5ebe944ad90"
+            },
+            "big_sur": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:7682163e44c5806d670717622cb0694ef74952e2cc147d7444606a78a3b83b08",
+              "sha256": "7682163e44c5806d670717622cb0694ef74952e2cc147d7444606a78a3b83b08"
+            },
+            "catalina": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:ddafe359be29ed0731da7fd9ffb813a8b5940c334bc85180e4a5cda737826215",
+              "sha256": "ddafe359be29ed0731da7fd9ffb813a8b5940c334bc85180e4a5cda737826215"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/awscli/blobs/sha256:ff2cb6c3053c81a759733c36a33b748cd4af7c6755c9139ec46fe6a161b015e5",
+              "sha256": "ff2cb6c3053c81a759733c36a33b748cd4af7c6755c9139ec46fe6a161b015e5"
+            }
+          }
+        }
       }
     },
     "cask": {
       "1password-beta": {
-        "version": "8.5.0-57.BETA",
+        "version": "8.5.0-79.BETA",
         "options": {
           "full_name": "1password-beta"
         }
@@ -247,7 +286,7 @@
         }
       },
       "nordvpn": {
-        "version": "7.1.0,174",
+        "version": "7.1.1,175",
         "options": {
           "full_name": "nordvpn"
         }
@@ -259,7 +298,7 @@
         }
       },
       "paw": {
-        "version": "3.3.2,3003002002",
+        "version": "3.3.3,3003003001",
         "options": {
           "full_name": "paw"
         }
@@ -301,7 +340,7 @@
         }
       },
       "zoom": {
-        "version": "5.9.0.3377",
+        "version": "5.9.1.3506",
         "options": {
           "full_name": "zoom"
         }
@@ -319,7 +358,7 @@
       "monterey": {
         "HOMEBREW_VERSION": "3.3.9",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "16bbac6fd6c6e2b5886ad1357d225a91709b0ecc",
+        "Homebrew/homebrew-core": "aee4becffc9c8d38c5eb73d325f3212024a67b0d",
         "CLT": "13.2.0.0.1.1638488800",
         "Xcode": "13.1",
         "macOS": "12.1"
