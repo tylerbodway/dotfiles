@@ -78,3 +78,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$($HOME/Code/pco/bin/pco init -)"
 
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+
+# GPG Keys
+export GPG_TTY=$(tty)
+case "$OSTYPE" in
+  darwin*) gpg-agent --daemon --use-standard-socket &>/dev/null ;;
+esac
