@@ -13,6 +13,7 @@
     ~/.editorconfig:
     ~/.gemrc:
     ~/.gitconfig:
+    ~/Code/.gitconfig_include: gitconfig_company
     ~/.gitignore:
     ~/.hushlogin:
     ~/.zshrc:
