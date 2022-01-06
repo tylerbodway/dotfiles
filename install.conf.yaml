@@ -9,15 +9,6 @@
     ~/.config:
       recursive: true
 
-- link:
-    ~/.editorconfig:
-    ~/.gemrc:
-    ~/.gitconfig:
-    ~/Code/.gitconfig_include: gitconfig_company
-    ~/.gitignore:
-    ~/.hushlogin:
-    ~/.zshrc:
-
 - create:
     ~/.ssh:
       mode: 0700
@@ -25,6 +16,18 @@
     ~/Projects:
     ~/Drive:
     ~/.nvm:
+
+- link:
+    ~/cloud-box:
+      force: true
+      path: ~/Code
+    ~/.editorconfig:
+    ~/.gemrc:
+    ~/.gitconfig:
+    ~/Code/.gitconfig_include: gitconfig_company
+    ~/.gitignore:
+    ~/.hushlogin:
+    ~/.zshrc:
 
 - brewfile:
     - brew/Brewfile
