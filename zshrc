@@ -1,16 +1,16 @@
 export EDITOR="code --wait"
 export DOTFILES=$HOME/dotfiles
+export ZSH="$HOME/.oh-my-zsh"
 export RBENV_ROOT=$HOME/.rbenv
 export NVM_DIR="$HOME/.nvm"
 export NVM_LAZY=1
 export GPG_TTY=$(tty)
 
+export PATH=/opt/homebrew/bin:$PATH
 export PATH=$PATH:$HOME/bin
 
 # Prompt
-fpath=( "$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath )
-autoload -U promptinit; promptinit
-prompt spaceship
+ZSH_THEME="spaceship"
 # https://spaceship-prompt.sh/options/
 SPACESHIP_USER_COLOR="blue"
 SPACESHIP_CHAR_SYMBOL="$ "
@@ -37,14 +37,16 @@ SPACESHIP_PROMPT_ORDER=(
   char
 )
 
+plugins=(git ruby rails nvm)
+
 setopt auto_cd
 cdpath=($HOME/Code $HOME/Projects)
+
+source $ZSH/oh-my-zsh.sh
 
 eval "$(rbenv init - zsh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$($HOME/Code/pco/bin/pco init -)"
-
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 
 alias ll="ls -la"
 alias zedit="code $DOTFILES/zshrc"

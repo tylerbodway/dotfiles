@@ -12,7 +12,6 @@ brew "grc"
 brew "nvm"
 brew "rbenv"
 brew "rbenv-aliases"
-brew "spaceship"
 brew "yarn"
 
 cask "1password-beta"
