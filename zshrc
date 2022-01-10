@@ -2,12 +2,7 @@ export EDITOR="code --wait"
 export DOTFILES=$HOME/dotfiles
 export ZSH="$HOME/.oh-my-zsh"
 export RBENV_ROOT=$HOME/.rbenv
-export NVM_DIR="$HOME/.nvm"
-export NVM_LAZY=1
 export GPG_TTY=$(tty)
-
-export PATH=/opt/homebrew/bin:$PATH
-export PATH=$PATH:$HOME/bin
 
 # Prompt
 ZSH_THEME="spaceship"
@@ -37,15 +32,16 @@ SPACESHIP_PROMPT_ORDER=(
   char
 )
 
-plugins=(git ruby rails nvm)
+plugins=(git ruby rails)
 
 setopt auto_cd
 cdpath=($HOME/Code $HOME/Projects)
 
 source $ZSH/oh-my-zsh.sh
 
-eval "$(rbenv init - zsh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(rbenv init - zsh)"
+eval "$(fnm env --use-on-cd)"
 eval "$($HOME/Code/pco/bin/pco init -)"
 
 alias ll="ls -la"
