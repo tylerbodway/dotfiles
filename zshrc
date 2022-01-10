@@ -4,6 +4,8 @@ export ZSH="$HOME/.oh-my-zsh"
 export RBENV_ROOT=$HOME/.rbenv
 export GPG_TTY=$(tty)
 
+export PATH=$HOME/bin:$PATH
+
 # Prompt
 ZSH_THEME="spaceship"
 # https://spaceship-prompt.sh/options/

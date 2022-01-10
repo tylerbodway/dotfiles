@@ -12,11 +12,15 @@
 - create:
     ~/.ssh:
       mode: 0700
+    ~/bin:
     ~/Code:
     ~/Projects:
     ~/Drive:
 
 - link:
+    ~/bin/:
+      glob: true
+      path: bin/*
     ~/cloud-box:
       force: true
       path: ~/Code
@@ -35,4 +39,8 @@
   -
     command: git submodule update --init --recursive
     description: Installing git submodules
+    quiet: true
+  -
+    command: chmod 755 ~/bin/*
+    description: Ensuring ~/bin scripts are executable
     quiet: true
