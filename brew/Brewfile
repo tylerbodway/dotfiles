@@ -12,6 +12,7 @@ brew "gnupg"
 brew "grc"
 brew "rbenv"
 brew "rbenv-aliases"
+brew "watchman"
 brew "yarn"
 
 cask "1password-beta"
