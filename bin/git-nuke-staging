@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 # git nuke-staging
 
+source "$DOTFILES/zsh/colored-echo.sh"
+
 echo ""
 read "prompt?⚠️  Are you sure you'd like to push a fresh staging? [Y/n]: "
 echo ""
@@ -21,7 +23,7 @@ if [[ "$prompt" =~ ^[Yy]$ ]]; then
   # Push fresh staging to origin
   git push --set-upstream origin staging
 
-  echo "💥  Staging has been nuked"
+  success_echo "💥  Staging has been nuked"
 else
-  echo "👎  Nuke canceled"
+  status_echo "👎  Nuke canceled"
 fi
