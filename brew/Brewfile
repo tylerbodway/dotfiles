@@ -25,7 +25,7 @@ cask "elgato-control-center"
 cask "firefox-developer-edition"
 cask "iterm2"
 # cask "keybase" # Doesn't support M1 yet AFAIK
-cask "logitech-options"
+# cask "logitech-options" # using Logi Options+ Beta, doesn't have cask ATM
 cask "nordvpn"
 cask "notion"
 cask "paw"
