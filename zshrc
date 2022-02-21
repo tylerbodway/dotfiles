@@ -5,6 +5,7 @@ export RBENV_ROOT=$HOME/.rbenv
 export GPG_TTY=$(tty)
 
 export PATH=$HOME/bin:$PATH
+export PATH="./bin:$PATH"
 
 # Prompt
 ZSH_THEME="spaceship"
