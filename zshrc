@@ -48,6 +48,7 @@ eval "$(fnm env --use-on-cd)"
 eval "$($HOME/Code/pco/bin/pco init -)"
 
 alias ll="ls -la"
+alias dotedit="code $DOTFILES"
 alias zedit="code $DOTFILES/zshrc"
 alias devlog="tail -f log/development.log"
 alias bay="bundle && yarn"
