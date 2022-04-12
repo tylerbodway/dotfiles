@@ -21,6 +21,7 @@
     ~/bin/:
       glob: true
       path: bin/*
+      force: true
     ~/cloud-box:
       force: true
       path: ~/Code
