@@ -15,7 +15,7 @@ brew "rbenv-aliases"
 brew "watchman"
 brew "yarn"
 
-cask "1password-beta"
+cask "1password"
 cask "bartender"
 cask "brave-browser"
 cask "cleanmymac"
@@ -24,8 +24,7 @@ cask "docker"
 cask "elgato-control-center"
 cask "firefox-developer-edition"
 cask "iterm2"
-# cask "keybase" # Doesn't support M1 yet AFAIK
-# cask "logitech-options" # using Logi Options+ Beta, doesn't have cask ATM
+cask "logi-options-plus"
 cask "nordvpn"
 cask "notion"
 cask "paw"
