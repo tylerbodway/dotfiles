@@ -1,0 +1,34 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+
+- create:
+    ~/bin:
+
+- link:
+    ~/bin/:
+      glob: true
+      path: bin/*
+    ~/.editorconfig:
+    ~/.gemrc:
+    ~/.gitconfig:
+    ~/Code/.gitconfig_include: gitconfig_company
+    ~/.gitignore:
+    ~/.hushlogin:
+    ~/.zshrc:
+
+- shell:
+  -
+    command: brew install gcc grc fnm
+    description: Installing brew packages
+    quiet: true
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command: chmod 755 ~/bin/*
+    description: Ensuring ~/bin scripts are executable
+    quiet: true
+
