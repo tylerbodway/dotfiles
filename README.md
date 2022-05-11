@@ -17,9 +17,14 @@ script to apply any future updates.
 ```
 cd ~
 git clone https://github.com/tylerbodway/dotfiles && cd dotfiles
-./install
+./install <profile>
 ```
 
+#### Profiles
+There can be separate profiles with their own configurations in the `profiles`
+folder. The installation script will use `macos` by default.
+
+#### Git Submodules
 To upgrade submodules to their latest versions, run:
 ```
 git submodule update --init --remote
