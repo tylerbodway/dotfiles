@@ -8,6 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 export RBENV_ROOT=$HOME/.rbenv
 export GPG_TTY=$(tty)
 export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.rbenv/shims:$PATH
 source $DOTFILES/zsh/prompt.sh
 source $ZSH/oh-my-zsh.sh
 
