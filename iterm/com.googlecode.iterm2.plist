@@ -448,13 +448,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.85882353782653809</real>
+				<real>0.8666666666666667</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.72156864404678345</real>
+				<real>0.83137254901960789</real>
 				<key>Red Component</key>
-				<real>0.16078431904315948</real>
+				<real>0.33333333333333331</real>
 			</dict>
 			<key>Ansi 15 Color</key>
 			<dict>
@@ -500,39 +500,39 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.78431373834609985</real>
+				<real>0.8043212890625</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.44705882668495178</real>
+				<real>0.62069390235831179</real>
 				<key>Red Component</key>
-				<real>0.14117647707462311</real>
+				<real>0.21003958955407143</real>
 			</dict>
 			<key>Ansi 5 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>1</real>
+				<real>0.99607843137254903</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.4070281982421875</real>
+				<real>0.61960784313725492</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.79607843137254897</real>
 			</dict>
 			<key>Ansi 6 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.80392158031463623</real>
+				<real>0.808685302734375</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.65882354974746704</real>
+				<real>0.78016876894073628</real>
 				<key>Red Component</key>
-				<real>0.066666670143604279</real>
+				<real>0.38410577550530434</real>
 			</dict>
 			<key>Ansi 7 Color</key>
 			<dict>
@@ -1018,7 +1018,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SFMonoNerdFontC-Regular 13</string>
+			<string>SFMonoPowerline-Regular 13</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
