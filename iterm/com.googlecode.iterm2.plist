@@ -1222,6 +1222,10 @@
 	<integer>1</integer>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
+	<key>TerminalMargin</key>
+	<integer>18</integer>
+	<key>TerminalVMargin</key>
+	<integer>4</integer>
 	<key>UseBorder</key>
 	<false/>
 	<key>VisualIndicatorForEsc</key>
