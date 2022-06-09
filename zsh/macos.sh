@@ -1,7 +1,6 @@
 alias dock-spacer="defaults write com.apple.dock persistent-apps -array-add '{\"tile-type\"=\"small-spacer-tile\";}' && killall Dock"
 alias dotedit="code $DOTFILES"
 alias zedit="code $DOTFILES/zshrc"
-alias ssh-clear-hosts="rm ~/.ssh/known_hosts ~/.ssh/known_hosts.old"
 alias worble="ruby ~/Projects/worble/worble.rb"
 
 alias cb-start="pco cloud-box start"
@@ -11,6 +10,6 @@ alias cb-groups="code --folder-uri vscode-remote://ssh-remote+cloud-box/home/ubu
 alias cb-work="cb-start && cb-ip && sleep 10 && cb-groups"
 alias cb-nuke="pco cloud-box nuke --skip-confirm"
 alias cb-prov="pco cloud-box provision --auto --fast"
-alias cb-new="cb-nuke && cb-prov && ssh-clear-hosts"
+alias cb-new="cb-nuke && cb-prov"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
