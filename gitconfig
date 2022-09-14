@@ -32,3 +32,5 @@
   signingKey = 9326912+tylerbodway@users.noreply.github.com
 [includeIf "gitdir:~/Code/"]
   path = ~/Code/.gitconfig_include
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
