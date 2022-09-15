@@ -20,7 +20,7 @@
 - link:
     ~/bin/:
       glob: true
-      path: bin/*
+      path: bin/**
       force: true
     ~/cloud-box:
       force: true
@@ -38,6 +38,6 @@
 
 - shell:
   -
-    command: chmod 755 ~/bin/*
+    command: chmod -R 755 ~/bin
     description: Ensuring ~/bin scripts are executable
     quiet: true
