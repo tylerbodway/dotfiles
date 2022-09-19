@@ -1,0 +1,53 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
+
+- create:
+    ~/.ssh:
+      mode: 0700
+    ~/Projects:
+    ~/Drive:
+
+- link:
+    ~/bin/:
+      path: bin/**
+      glob: true
+    ~/.gitconfig:
+    ~/Code/.gitconfig_include: gitconfig_company
+    ~/.gitignore:
+    ~/.editorconfig:
+    ~/.gemrc:
+    ~/.hushlogin:
+    ~/.zshrc:
+
+- link:
+    ~/bin/:
+      path: profiles/macos/bin/**
+      glob: true
+    ~/.gitconfig_include:
+      path: profiles/macos/gitconfig
+    ~/.zshrc_include:
+      path: profiles/macos/zshrc
+    ~/cloud-box:
+      force: true
+      path: ~/Code
+    ~/.pcorc: profiles/macos/pcorc
+    ~/.1password: "~/Library/Group Containers/2BUA8C4S2C.com.1password/t"
+
+- brewfile:
+    - brew/Brewfile
+    - profiles/macos/brew/Brewfile
+
+- shell:
+  -
+    command: chmod -R 755 ~/bin
+    description: Ensuring ~/bin scripts are executable
+    quiet: true

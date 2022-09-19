@@ -6,7 +6,6 @@ export EDITOR="code --wait"
 export DOTFILES=$HOME/dotfiles
 export ZSH="$HOME/.oh-my-zsh"
 export RBENV_ROOT=$HOME/.rbenv
-export GPG_TTY=$(tty)
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.rbenv/shims:$PATH
 source $DOTFILES/zsh/prompt.sh
@@ -16,10 +15,8 @@ alias ll="ls -la"
 alias bay="bundle && yarn"
 alias devlog="tail -f log/development.log"
 
-case "$OSTYPE" in
-  darwin*) source $DOTFILES/zsh/macos.sh ;;
-  linux*)  source $DOTFILES/zsh/linux.sh ;;
-esac
+# Include profile specific configuration
+source $HOME/.zshrc_include
 
 eval "$(fnm env --use-on-cd)"
 eval "$($HOME/Code/pco/bin/pco init -)"

@@ -2,44 +2,36 @@
     link:
       create: true
       relink: true
-
-- clean:
-    ~/:
       force: true
-    ~/.config:
-      recursive: true
-
-- create:
-    ~/.ssh:
-      mode: 0700
-    ~/bin:
-    ~/Code:
-    ~/Projects:
-    ~/Drive:
 
 - link:
-    ~/.1password:
-      path: "~/Library/Group Containers/2BUA8C4S2C.com.1password/t"
     ~/bin/:
-      glob: true
       path: bin/**
-      force: true
-    ~/cloud-box:
-      force: true
-      path: ~/Code
-    ~/.editorconfig:
-    ~/.gemrc:
+      glob: true
     ~/.gitconfig:
     ~/Code/.gitconfig_include: gitconfig_company
     ~/.gitignore:
+    ~/.editorconfig:
+    ~/.gemrc:
     ~/.hushlogin:
     ~/.zshrc:
 
+- link:
+    ~/bin/:
+      path: profiles/linux/bin/**
+      glob: true
+    ~/.gitconfig_include:
+      path: profiles/linux/gitconfig
+    ~/.zshrc_include:
+      path: profiles/linux/zshrc
+
 - brewfile:
     - brew/Brewfile
+    - profiles/linux/brew/Brewfile
 
 - shell:
   -
     command: chmod -R 755 ~/bin
     description: Ensuring ~/bin scripts are executable
     quiet: true
+

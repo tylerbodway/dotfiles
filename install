@@ -4,7 +4,7 @@ set -e
 
 PROFILES_DIR="profiles"
 PROFILE=${1:-macos}
-CONFIG="${PROFILES_DIR}/${PROFILE}.conf.yaml"
+CONFIG="${PROFILES_DIR}/${PROFILE}/install.conf.yaml"
 
 DOTBOT_DIR="dotbot"
 DOTBOT_BIN="bin/dotbot"

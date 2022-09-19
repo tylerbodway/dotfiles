@@ -1,0 +1,44 @@
+# https://github.com/Homebrew/homebrew-bundle
+
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/cask-drivers"
+
+brew "awscli"
+brew "git-lfs"
+brew "gnupg"
+brew "rbenv"
+brew "rbenv-aliases"
+brew "watchman"
+brew "yarn"
+
+cask "1password"
+cask "asana"
+cask "bartender"
+cask "brave-browser"
+cask "cleanmymac"
+cask "cleanshot"
+cask "docker"
+cask "elgato-control-center"
+cask "firefox-developer-edition"
+cask "iterm2"
+cask "logi-options-plus"
+cask "nordvpn"
+cask "notion"
+cask "raycast"
+cask "slack"
+cask "spotify"
+cask "synology-drive"
+cask "tableplus"
+cask "visual-studio-code"
+cask "zoom"
+
+# mas-cli was not able to install Apple Silicon apps last time I checked:
+# https://github.com/mas-cli/mas/issues/321
+
+# brew "mas"
+
+# mas "iA Writer", id: 775737590
+# mas "Things", id: 904280696
+# mas "Trello", id: 1278508951
+# mas "Spark", id: 1176895641
