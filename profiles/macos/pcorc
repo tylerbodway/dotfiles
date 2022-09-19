@@ -1,4 +1,0 @@
-export PCO_CLOUDBOX_EC2_REGION=us-east-2
-export PCO_GITHUB_USERNAME=tylerbodway
-export PCO_DEFAULT_BOX_NAME_SUFFIX=tyler-bodway
-export PCO_CLOUDBOX_AFTER_PROVISION_SCRIPT_PATH=~/bin/cloud-box-post-provision.sh

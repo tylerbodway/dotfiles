@@ -39,7 +39,6 @@
     ~/cloud-box:
       force: true
       path: ~/Code
-    ~/.pcorc: profiles/macos/pcorc
     ~/.1password: "~/Library/Group Containers/2BUA8C4S2C.com.1password/t"
 
 - brewfile:
@@ -47,6 +46,11 @@
     - profiles/macos/brew/Brewfile
 
 - shell:
+  -
+    command: "grep -qxF 'export PCO_CLOUDBOX_AFTER_PROVISION_SCRIPT_PATH=~/bin/cloud-box-post-provision.sh' ~/.pcorc ||
+      echo 'export PCO_CLOUDBOX_AFTER_PROVISION_SCRIPT_PATH=~/bin/cloud-box-post-provision.sh' >> ~/.pcorc"
+    description: Adding post-provision script to ~/.pcorc
+    quiet: true
   -
     command: chmod -R 755 ~/bin
     description: Ensuring ~/bin scripts are executable
