@@ -17,9 +17,9 @@
     ~/.zshrc:
 
 - link:
-    ~/bin/:
-      path: profiles/linux/bin/**
-      glob: true
+    # ~/bin/:
+    #   path: profiles/linux/bin/**
+    #   glob: true
     ~/.gitconfig_include:
       path: profiles/linux/gitconfig
     ~/.zshrc_include:
