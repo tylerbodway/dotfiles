@@ -29,7 +29,7 @@
 [user]
   name = Tyler Bodway
   email = 9326912+tylerbodway@users.noreply.github.com
-  signingKey = 9326912+tylerbodway@users.noreply.github.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMn/Rl7U44dZDp2ak/X84DwYxxTn5xl3Sf8SAivxd0nf
 [includeIf "gitdir:~/Code/"]
   path = ~/Code/.gitconfig_include
 [blame]
