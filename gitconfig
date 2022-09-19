@@ -20,6 +20,10 @@
   smudge = git-lfs smudge -- %f
   process = git-lfs filter-process
   required = true
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [init]
   defaultBranch = main
 [pull]
@@ -33,4 +37,4 @@
 [includeIf "gitdir:~/Code/"]
   path = ~/Code/.gitconfig_include
 [blame]
-	ignoreRevsFile = .git-blame-ignore-revs
+  ignoreRevsFile = .git-blame-ignore-revs
