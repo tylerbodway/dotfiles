@@ -2,13 +2,13 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "3f471dedcb23b952a3301096323c599f9d35800b"
+        "revision": "52370b74ea0d53fd7a3e9259b00268db9337ad93"
       },
       "homebrew/cask-versions": {
-        "revision": "c98d041376d1130cf87e77dc0c5cc426c3e3c38c"
+        "revision": "d812d06659047c9903fefb9ae20195514c602134"
       },
       "homebrew/cask-drivers": {
-        "revision": "373a7fa284354e94e6e80db62294162e826b033e"
+        "revision": "72304f6a2d7094999359b79e7e3094a08d645338"
       }
     },
     "brew": {
@@ -425,7 +425,7 @@
         }
       },
       "spotify": {
-        "version": "1.1.93.896,3ae3b4f3,10",
+        "version": "1.1.94.870,f994cb0b,16",
         "options": {
           "full_name": "spotify"
         }
@@ -443,7 +443,7 @@
         }
       },
       "visual-studio-code": {
-        "version": "1.71.1",
+        "version": "1.71.2",
         "options": {
           "full_name": "visual-studio-code"
         }
@@ -489,9 +489,9 @@
   "system": {
     "macos": {
       "monterey": {
-        "HOMEBREW_VERSION": "3.6.1",
+        "HOMEBREW_VERSION": "3.6.2",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "a8959706b4aed0c974816cb1eba9522397307930",
+        "Homebrew/homebrew-core": "10815cd191ca1b53a3e5050db102efb4e8f330e5",
         "CLT": "14.0.0.0.1.1661618636",
         "Xcode": "14.0",
         "macOS": "12.6"
