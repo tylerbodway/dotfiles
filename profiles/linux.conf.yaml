@@ -21,7 +21,7 @@
 
 - shell:
   -
-    command: brew install gcc grc fnm
+    command: brew install fnm gcc git grc
     description: Installing brew packages
     quiet: true
     stdin: true
