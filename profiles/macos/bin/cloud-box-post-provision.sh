@@ -43,7 +43,7 @@ printf "\n🚀 T-minus 0 seconds to a great prompt!\n"
 printf "\n==== Installing dotfiles ====\n\n"
 
 # clone dotfiles and enter directory
-git clone git@github.com:tylerbodway/dotfiles ~/dotfiles && cd ~/dotfiles
+git clone --recurse-submodules git@github.com:tylerbodway/dotfiles ~/dotfiles && cd ~/dotfiles
 # ensure newly installed brew command is available
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # run installation script in dotfiles
