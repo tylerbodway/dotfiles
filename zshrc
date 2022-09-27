@@ -13,7 +13,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias ll="ls -la"
 alias bay="bundle && yarn"
-alias devlog="tail -f log/development.log"
+alias devlog="tail -f log/development.log | bat --paging=never -l log"
 
 # Include profile specific configuration
 source $HOME/.zshrc_include

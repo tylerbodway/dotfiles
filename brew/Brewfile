@@ -1,5 +1,6 @@
 # https://github.com/Homebrew/homebrew-bundle
 
+brew "bat"
 brew "git"
 brew "grc"
 brew "fnm"
