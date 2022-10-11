@@ -30,6 +30,7 @@
   rebase = false
 [rebase]
   autosquash = true
+	updateRefs = true
 [user]
   name = Tyler Bodway
   email = 9326912+tylerbodway@users.noreply.github.com
