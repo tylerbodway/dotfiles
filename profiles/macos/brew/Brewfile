@@ -14,8 +14,6 @@ brew "yarn"
 
 cask "1password"
 cask "asana"
-cask "bartender"
-cask "brave-browser"
 cask "cleanmymac"
 cask "cleanshot"
 cask "docker"
