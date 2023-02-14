@@ -3,4 +3,3 @@
 brew "bat"
 brew "git"
 brew "grc"
-brew "fnm"

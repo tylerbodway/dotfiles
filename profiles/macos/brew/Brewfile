@@ -5,6 +5,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/cask-drivers"
 
 brew "awscli"
+brew "fnm"
 brew "git-lfs"
 brew "gnupg"
 brew "rbenv"
