@@ -18,5 +18,4 @@ alias devlog="tail -f log/development.log | bat --paging=never -l log"
 # Include profile specific configuration
 source $HOME/.zshrc_include
 
-eval "$(fnm env --use-on-cd)"
 eval "$($HOME/Code/pco/bin/pco init -)"
