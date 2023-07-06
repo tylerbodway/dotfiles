@@ -7,6 +7,8 @@
   stashdiff = stash show -p
   qlog = log --oneline --decorate --graph -15
   irb = rebase -i
+  pl = pull
+  ps = push
 [blame]
   ignoreRevsFile = .git-blame-ignore-revs
 [commit]
