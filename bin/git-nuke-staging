@@ -3,27 +3,37 @@
 
 source "$DOTFILES/zsh/colored-echo.sh"
 
-echo ""
-read "prompt?⚠️  Are you sure you'd like to push a fresh staging? [Y/n]: "
-echo ""
+# Ensure command is run within a git repository
+if [ -d .git ]; then
 
-if [[ "$prompt" =~ ^[Yy]$ ]]; then
-  # Assumes clean working tree
-  git checkout master
+  echo ""
+  read "prompt?⚠️  Are you sure you'd like to push a fresh staging? [Y/n]: "
+  echo ""
 
-  # Delete local staging branch
-  git branch -D staging
+  if [[ "$prompt" =~ ^[Yy]$ ]]; then
+    # Find the default branch name. Could be `master`, `main`, `next`, etc.
+    DEFAULT_BRANCH=`git remote show origin | sed -n '/HEAD branch/s/.*: //p'`
 
-  # Delete origin staging branch
-  git push origin :staging
+    # Ensure we're on default branch. Assumes clean working tree
+    git checkout $DEFAULT_BRANCH &> /dev/null
 
-  # Copy new local staging branch from master
-  git checkout -b staging master
+    # Delete local staging branch
+    git branch -D staging
 
-  # Push fresh staging to origin
-  git push --set-upstream origin staging
+    # Delete origin staging branch
+    git push origin :staging
 
-  success_echo "💥  Staging has been nuked"
+    # Copy new local staging branch from master
+    git checkout -b staging $DEFAULT_BRANCH
+
+    # Push fresh staging to origin
+    git push --set-upstream origin staging
+
+    success_echo "💥  Staging has been nuked"
+  else
+    status_echo "👎  Nuke canceled"
+  fi
+
 else
-  status_echo "👎  Nuke canceled"
-fi
+  warning_echo "You must be in a git repository to 🧹 it."
+fi;
