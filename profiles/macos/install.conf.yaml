@@ -32,6 +32,8 @@
     ~/bin/:
       path: profiles/macos/bin/**
       glob: true
+    ~/.asdfrc:
+      path: profiles/macos/asdfrc
     ~/.gitconfig_include:
       path: profiles/macos/gitconfig
     ~/.zshrc_include:

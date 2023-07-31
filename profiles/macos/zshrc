@@ -13,4 +13,4 @@ alias cb-prov="pco cloud-box provision --auto --fast"
 alias cb-new="cb-nuke && cb-prov"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(fnm env --use-on-cd)"
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
