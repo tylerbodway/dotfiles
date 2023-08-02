@@ -1,9 +1,5 @@
 # https://github.com/Homebrew/homebrew-bundle
 
-tap "homebrew/cask"
-tap "homebrew/cask-versions"
-tap "homebrew/cask-drivers"
-
 brew "asdf"
 brew "awscli"
 brew "coreutils"
