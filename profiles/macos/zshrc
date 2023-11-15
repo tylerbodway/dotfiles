@@ -4,6 +4,7 @@ alias zedit="code $DOTFILES/zshrc"
 alias worble="ruby ~/Projects/worble/worble.rb"
 alias ssh-clear-knowns="rm ~/.ssh/known_hosts ~/.ssh/known_hosts.old"
 
+alias cb-up="pco cloud-box up"
 alias cb-start="pco cloud-box start"
 alias cb-stop="pco cloud-box stop"
 alias cb-ip="pco cloud-box allow-my-ip"
