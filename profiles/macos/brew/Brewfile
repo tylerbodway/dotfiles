@@ -26,6 +26,7 @@ cask "slack"
 cask "spotify"
 cask "synology-drive"
 cask "tableplus"
+cask "tuple"
 cask "visual-studio-code"
 cask "zoom"
 
