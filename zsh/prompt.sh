@@ -14,13 +14,8 @@ SPACESHIP_PROMPT_ORDER=(
   dir
   host
   git
-  node
-  ruby
-  xcode
-  php
-  aws
-  exec_time
   line_sep
+  exec_time
   battery
   exit_code
   char
