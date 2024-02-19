@@ -9,8 +9,13 @@
   irb = rebase -i
   pl = pull
   ps = push
+  fps = push --force-with-lease
 [blame]
   ignoreRevsFile = .git-blame-ignore-revs
+[brach]
+  sort = -committerdate
+[column]
+  ui = auto
 [commit]
   verbose = true
   gpgsign = true
@@ -33,6 +38,8 @@
 [rebase]
   autosquash = true
   updateRefs = true
+[rerere]
+  enabled = true
 [user]
   name = Tyler Bodway
   email = 9326912+tylerbodway@users.noreply.github.com
