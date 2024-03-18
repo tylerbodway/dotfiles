@@ -1,5 +1,8 @@
 # https://github.com/Homebrew/homebrew-bundle
 
+tap "git-duet/tap"
+
 brew "bat"
 brew "git"
+brew "git-duet"
 brew "grc"
