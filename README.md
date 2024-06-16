@@ -17,7 +17,7 @@ the base configuration at [`install.conf.yaml`][install].
 Each OS/machine setup is stored in its own `profiles/` folder, which contains any specialized
 dotfiles and a `install.conf.yaml` configuration.
 
-> [!IMPORTANT]
+> [!NOTE]
 > You can prefix the path in any `install.conf.yaml` with the `@` symbol, which will automatically
 > be replaced with the selected profile's directory path.
 
