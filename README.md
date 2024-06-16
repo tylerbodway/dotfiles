@@ -3,7 +3,7 @@
 This repo holds my setup and configration files for any machine. I'm using
 [dotbot][] for bootstrapping installation because it's nifty 😊
 
-### Usage
+## Usage
 
 Clone the repository:
 ```bash
@@ -15,7 +15,7 @@ To install a profile, run the install script with a profile name (default is `ma
 ./install mac
 ```
 
-### Profiles
+## Profiles
 
 Global configurations that should apply to any machine live at the top level of this repo, and
 installation instructions live in `install.conf.yaml`.
@@ -29,7 +29,7 @@ with it's own files and `install.conf.yaml`.
 
 Both the global and profile-specific configurations will be installed.
 
-### License
+## License
 
 Copyright © Tyler Bodway. Released under the MIT License. See [LICENSE.md][license] for details.
 
