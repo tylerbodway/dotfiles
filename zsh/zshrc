@@ -19,4 +19,12 @@ source "$DOTFILES/gitmodules/spaceship-prompt/spaceship.zsh"
 
 eval "$($HOME/Code/pco/bin/pco init -)"
 
+alias c="clear"
+alias ll="ls -la --group-directories-first"
+
+alias dotedit="$EDITOR $DOTFILES"
+
+alias rnm="rm -rf node_modules"
+alias bay="bundle install && yarn install"
+
 source "$ZDOTDIR/.zshrc_include"
