@@ -22,4 +22,7 @@
       prefix: .
     ~/.config/zsh/.zprofile_include: @/zsh/zprofile
     ~/.config/zsh/.zshenv_include: @/zsh/zshenv
+    ~/.editorconfig:
+    ~/.gemrc:
+    ~/.hushlogin:
     ~/.zshenv:
