@@ -20,6 +20,9 @@ brew "mas" # https://github.com/mas-cli/mas
 # Password manager that keeps all passwords secure behind one password
 cask "1password" # https://1password.com/
 
+# GPU-accelerated terminal emulator
+cask "alacritty" # https://github.com/alacritty/alacritty/
+
 # Manage team projects and tasks
 cask "asana" # https://asana.com/
 

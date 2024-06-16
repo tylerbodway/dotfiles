@@ -10,3 +10,6 @@
 [submodule "dotbot-brew"]
 	path = gitmodules/dotbot-brew
 	url = https://github.com/d12frosted/dotbot-brew.git
+[submodule "gitmodules/alacritty-theme"]
+	path = gitmodules/alacritty-theme
+	url = https://github.com/alacritty/alacritty-theme

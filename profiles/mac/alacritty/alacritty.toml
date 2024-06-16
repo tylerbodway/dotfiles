@@ -1,0 +1,17 @@
+import = [
+  "$DOTFILES/gitmodules/alacritty-theme/themes/tokyo-night.toml",
+]
+
+[window]
+padding.x = 20
+padding.y = 20
+dynamic_padding = true
+opacity = 0.90
+blur = true
+decorations = "Transparent"
+startup_mode = "Maximized"
+option_as_alt = "Both"
+
+[font]
+normal.family = "GeistMono Nerd Font"
+size = 14
