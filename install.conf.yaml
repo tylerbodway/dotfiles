@@ -14,19 +14,22 @@
     ~/.config/git/:
       path: git/**
       glob: true
-    ~/.config/git/config_include: @/git/config
     ~/.config/spaceship/spaceship.zsh: zsh/spaceship.zsh
     ~/.config/zsh/:
       path: zsh/**
       glob: true
       prefix: .
       exclude: ["zsh/spaceship.zsh"]
-    ~/.config/zsh/.zprofile_include: @/zsh/zprofile
-    ~/.config/zsh/.zshenv_include: @/zsh/zshenv
     ~/.editorconfig:
     ~/.gemrc:
     ~/.hushlogin:
     ~/.zshenv:
+
+- link: # profile includes
+    ~/.config/git/config_include: @/git/config
+    ~/.config/zsh/.zprofile_include: @/zsh/zprofile
+    ~/.config/zsh/.zshenv_include: @/zsh/zshenv
+    ~/.config/zsh/.zshrc_include: @/zsh/zshrc
 
 - brewfile:
     - Brewfile
