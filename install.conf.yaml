@@ -1,0 +1,11 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: true
+
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
