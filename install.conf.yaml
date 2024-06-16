@@ -9,3 +9,8 @@
       force: true
     ~/.config:
       recursive: true
+
+- link:
+    ~/.config/git/:
+      path: git/**
+      glob: true

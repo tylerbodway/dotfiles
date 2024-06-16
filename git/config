@@ -1,0 +1,50 @@
+[alias]
+  pl = pull
+  ps = push
+  fps = push --force-with-lease
+  co = checkout
+  cp = cherry-pick
+  st = status
+  qlog = log --oneline --decorate --graph -15
+  last = log -1 HEAD
+  unstage = reset HEAD --
+  stashdiff = stash show -p
+  irb = rebase -i
+[blame]
+  ignoreRevsFile = .git-blame-ignore-revs
+[brach]
+  sort = -committerdate
+[column]
+  ui = auto
+[commit]
+  verbose = true
+  gpgsign = true
+[core]
+  excludesFile = ~/.config/git/ignore
+  pager = less -F -X
+[diff]
+  noprefix = true
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[gpg]
+  format = ssh
+[init]
+  defaultBranch = main
+[pull]
+  rebase = false
+[rebase]
+  autosquash = true
+  updateRefs = true
+[rerere]
+  enabled = true
+[user]
+  name = Tyler Bodway
+  email = 9326912+tylerbodway@users.noreply.github.com
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMn/Rl7U44dZDp2ak/X84DwYxxTn5xl3Sf8SAivxd0nf
+[include]
+  path = ~/.config/git/config_include
+[includeIf "gitdir:~/Code/"]
+  path = ~/Code/.config/git/config_company
