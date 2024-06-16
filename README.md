@@ -14,18 +14,22 @@ To install a profile, run the install script with a profile name (default is `ma
 ```bash
 ./install mac
 ```
+> [!NOTE]
+The installation script is meant to be idempotent. You can run it upon intial set up, and/or any
+time you make a change.
+>
 
 ## Profiles
 
 Global configurations that should apply to any machine live at the top level of this repo, and
 installation instructions live in `install.conf.yaml`.
 
-Any OS or machine specific customizations can live in a respective `profiles/<name>` folder
-with it's own files and `install.conf.yaml`.
+Separate OS or machine setups can be stored in a distinct `profiles/` folder
+with their own configuration files and `install.conf.yaml`.
 
-> [!NOTE]
-> Prefix paths in the profile's `install.conf.yaml` with the `@` symbol. The installation
-> script will automatically replace it with the actual path.
+> [!IMPORTANT]
+> Prefix paths in any profile's `install.conf.yaml` with the `@` symbol. The installation
+> script will automatically replace it with the profile's actual directory path.
 
 Both the global and profile-specific configurations will be installed.
 
