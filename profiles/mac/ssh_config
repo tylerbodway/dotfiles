@@ -1,0 +1,8 @@
+Host *
+  IdentityAgent "~/.1password/agent.sock"
+
+Host cloud-box
+  User ubuntu
+  HostName pco.test
+  ForwardAgent yes
+  StrictHostKeyChecking no
