@@ -14,6 +14,9 @@
     ~/.config/git/:
       path: git/**
       glob: true
+    ~/.config/nvim/:
+      path: nvim/**
+      glob: true
     ~/.config/spaceship/spaceship.zsh: zsh/spaceship.zsh
     ~/.config/zsh/:
       path: zsh/**
