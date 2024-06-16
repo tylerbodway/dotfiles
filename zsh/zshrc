@@ -1,0 +1,22 @@
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
+
+setopt auto_cd
+cdpath=($HOME/Code $HOME/Projects)
+
+fpath=($DOTFILES/gitmodules/zsh-completions/src $fpath)
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+bindkey "^[[A" history-search-backward
+bindkey "^[[B" history-search-forward
+
+autoload -U compinit; compinit
+
+source "$DOTFILES/gitmodules/spaceship-prompt/spaceship.zsh"
+
+eval "$($HOME/Code/pco/bin/pco init -)"
+
+source "$ZDOTDIR/.zshrc_include"

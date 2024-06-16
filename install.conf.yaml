@@ -14,3 +14,12 @@
     ~/.config/git/:
       path: git/**
       glob: true
+    ~/.config/git/config_include: @/git/config
+    ~/.config/spaceship/spaceship.zsh: spaceship.zsh
+    ~/.config/zsh/:
+      path: zsh/**
+      glob: true
+      prefix: .
+    ~/.config/zsh/.zprofile_include: @/zsh/zprofile
+    ~/.config/zsh/.zshenv_include: @/zsh/zshenv
+    ~/.zshenv:

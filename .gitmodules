@@ -1,3 +1,9 @@
 [submodule "dotbot"]
 	path = gitmodules/dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "spaceship-prompt"]
+	path = gitmodules/spaceship-prompt
+	url = https://github.com/spaceship-prompt/spaceship-prompt
+[submodule "zsh-completions"]
+	path = gitmodules/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
