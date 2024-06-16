@@ -7,3 +7,6 @@
 [submodule "zsh-completions"]
 	path = gitmodules/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "dotbot-brew"]
+	path = gitmodules/dotbot-brew
+	url = https://github.com/d12frosted/dotbot-brew.git

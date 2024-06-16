@@ -1,0 +1,90 @@
+# https://github.com/Homebrew/homebrew-bundle
+
+# === Packages ===
+
+# Extendable version manager with support for Ruby, Node.js, & more
+brew "asdf" # https://asdf-vm.com/
+
+# Official Amazon AWS command-line interface
+brew "awscli" # https://aws.amazon.com/cli/
+
+# GNU File, Shell, and Text utilities (asdf dependency)
+brew "coreutils" # https://www.gnu.org/software/coreutils
+
+# Mac App Store command-line interface
+brew "mas" # https://github.com/mas-cli/mas
+
+
+# === Applications ===
+
+# Password manager that keeps all passwords secure behind one password
+cask "1password" # https://1password.com/
+
+# Manage team projects and tasks
+cask "asana" # https://asana.com/
+
+# Tool to remove unnecessary files and folders from disk
+cask "cleanmymac" # https://macpaw.com/cleanmymac
+
+# Screen capturing tool
+cask "cleanshot" # https://getcleanshot.com/
+
+# Track and budget money
+cask "copilot" # https://copilot.money/
+
+# Web browser
+cask "firefox-developer-edition" # https://www.mozilla.org/firefox/developer/
+
+# Convert caps lock key to the hyper key
+cask "hyperkey" # https://hyperkey.app/
+
+# Focused markdown writing space
+mas "iA Writer", id: 775737590 # https://ia.net/writer
+
+# ZSA keyboard firmware flasher
+cask "keymapp" # https://www.zsa.io/flash
+
+# Software for Logitech devices
+cask "logi-options-plus" # https://www.logitech.com/en-us/software/logi-options-plus.html
+
+# Tool to control external monitor brightness & volume
+cask "monitorcontrol" # https://github.com/MonitorControl/MonitorControl
+
+# VPN client for secure internet access and private browsing
+cask "nordvpn" # https://nordvpn.com/
+
+# App to write, plan, collaborate, and get organised
+cask "notion" # https://www.notion.so/
+
+# Professional webcam software for the Opal C1
+cask "opal-composer" # https://opalcamera.com/opal-composer
+
+# Spotlight replacement productivity tool
+cask "raycast" # https://raycast.com/
+
+# Email client
+cask "readdle-spark" # https://sparkmailapp.com/
+
+# Team communication and collaboration software
+cask "slack" # https://slack.com/
+
+# Music streaming service
+cask "spotify" # https://www.spotify.com/
+
+# Sync and backup service to Synology NAS drives
+cask "synology-drive" # https://www.synology.com/
+
+# Native GUI tool for relational databases
+cask "tableplus" # https://tableplus.com/
+
+# Personal task manager
+mas "Things", id: 904280696 # https://culturedcode.com/things/
+
+# Remote pair programming app
+cask "tuple" # https://tuple.app/
+
+# Open-source code editor
+cask "visual-studio-code" # https://code.visualstudio.com/
+
+# Video communication and virtual meeting platform
+cask "zoom" # https://www.zoom.us/

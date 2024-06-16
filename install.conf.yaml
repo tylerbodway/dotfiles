@@ -26,3 +26,6 @@
     ~/.gemrc:
     ~/.hushlogin:
     ~/.zshenv:
+
+- brewfile:
+    - Brewfile

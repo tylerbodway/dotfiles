@@ -7,6 +7,8 @@ DOTBOT_DIR="gitmodules/dotbot"
 DOTBOT_BIN="bin/dotbot"
 DOTBOT="${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}"
 
+DOTBOT_BREW_DIR="gitmodules/dotbot-brew"
+
 PROFILES_DIR="profiles"
 PROFILE=${1:-mac}
 PROFILE_DIR="${PROFILES_DIR}/${PROFILE}"
@@ -19,4 +21,4 @@ CONFIG="${COMBINED_CONFIG//@/${PROFILE_DIR}}"
 cd "${BASEDIR}"
 git submodule update --init --recursive --remote
 
-"${DOTBOT}" -d "${BASEDIR}" -c <(echo -e "$CONFIG") "${@:2}"
+"${DOTBOT}" -d "${BASEDIR}" --plugin-dir "${DOTBOT_BREW_DIR}" -c <(echo -e "$CONFIG") "${@:2}"
