@@ -4,6 +4,7 @@ export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 export HISTFILE="$ZDOTDIR/.zhistory"
 export HISTSIZE=1000
 export SAVEHIST=999
+export SHELL_SESSIONS_DISABLE=1
 
 export TERM="xterm-256color"
 
