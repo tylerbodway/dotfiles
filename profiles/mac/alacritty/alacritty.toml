@@ -1,5 +1,5 @@
 import = [
-  "$DOTFILES/gitmodules/alacritty-theme/themes/tokyo-night.toml",
+  "~/.config/alacritty/theme.toml",
 ]
 
 [window]
