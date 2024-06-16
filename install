@@ -3,7 +3,7 @@
 set -e
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DOTBOT_DIR="dotbot"
+DOTBOT_DIR="gitmodules/dotbot"
 DOTBOT_BIN="bin/dotbot"
 DOTBOT="${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}"
 
