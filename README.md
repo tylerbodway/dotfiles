@@ -5,6 +5,11 @@ This repo holds my setup and configration files for any machine. I'm using
 
 ### Usage
 
+Clone the repository:
+```bash
+git clone https://github.com/tylerbodway/dotfiles.git ~/.dotfiles
+```
+
 To install a profile, run the install script with a profile name (default is `mac`):
 ```bash
 ./install mac
