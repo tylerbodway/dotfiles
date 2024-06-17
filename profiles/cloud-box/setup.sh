@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -x # print commands being run
+
 # Download latest apt package lists
 sudo apt-get update
 
@@ -7,7 +9,7 @@ sudo apt-get update
 sudo apt-get install build-essential
 
 # Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # Ensure brew command is available
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -19,8 +21,8 @@ sudo apt install -y zsh
 sudo chsh $(whoami) -s /usr/bin/zsh
 
 # Clone dotfiles repo
-git clone --recurse-submodules git@github.com:tylerbodway/dotfiles ~/.dotfiles
+git clone --recurse-submodules git@github.com:tylerbodway/dotfiles $HOME/.dotfiles
 
 # Run installation script
-cd ~/.dotfiles
+cd $HOME/.dotfiles
 ./install cloud-box
