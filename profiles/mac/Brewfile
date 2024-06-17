@@ -20,9 +20,6 @@ brew "mas" # https://github.com/mas-cli/mas
 # Password manager that keeps all passwords secure behind one password
 cask "1password" # https://1password.com/
 
-# GPU-accelerated terminal emulator
-cask "alacritty" # https://github.com/alacritty/alacritty/
-
 # Manage team projects and tasks
 cask "asana" # https://asana.com/
 
@@ -46,6 +43,9 @@ mas "iA Writer", id: 775737590 # https://ia.net/writer
 
 # ZSA keyboard firmware flasher
 cask "keymapp" # https://www.zsa.io/flash
+
+# GPU-based terminal emulator
+cask "kitty" # https://github.com/kovidgoyal/kitty
 
 # Software for Logitech devices
 cask "logi-options-plus" # https://www.logitech.com/en-us/software/logi-options-plus.html

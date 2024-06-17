@@ -1,7 +1,7 @@
 - link:
     ~/.1password: "~/Library/Group Containers/2BUA8C4S2C.com.1password/t"
-    ~/.config/alacritty/:
-      path: @/alacritty/**
+    ~/.config/kitty/:
+      path: @/kitty/**
       glob: true
     ~/.ssh/config: @/ssh_config
 
