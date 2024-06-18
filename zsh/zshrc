@@ -23,8 +23,8 @@ alias c="clear"
 alias cat="bat --theme=tokyonight --style=changes,rule,numbers"
 alias ls="eza"
 alias ll="eza -la --group-directories-first --no-permissions --no-filesize --no-user --no-time"
-alias llg="ll --tree --git --git-ignore"
-alias llp="ll --git-repos"
+alias llt="ll --tree --git --git-ignore"
+alias llg="ll --git-repos"
 
 alias dotedit="$EDITOR $DOTFILES"
 
