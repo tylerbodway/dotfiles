@@ -20,6 +20,7 @@ source "$DOTFILES/gitmodules/spaceship-prompt/spaceship.zsh"
 eval "$($HOME/Code/pco/bin/pco init -)"
 
 alias c="clear"
+alias cat="bat --theme=tokyonight --style=changes,rule,numbers"
 alias ls="eza"
 alias ll="eza -la --group-directories-first --no-permissions --no-filesize --no-user --no-time"
 alias llg="ll --tree --git --git-ignore"

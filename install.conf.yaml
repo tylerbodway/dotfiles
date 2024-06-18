@@ -11,6 +11,9 @@
       recursive: true
 
 - link:
+    ~/.config/bat/:
+      path: bat/**
+      glob: true
     ~/.config/git/:
       path: git/**
       glob: true
