@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-TERM=xterm-256color
+export TERM=xterm-256color
 BLUE=$(tput setaf 4)
 NC=$(tput sgr0)
 
