@@ -1,26 +1,34 @@
 #!/usr/bin/env bash
 
-set -x # print commands being run
+TERM=xterm-256color
+BLUE=$(tput setaf 4)
+NC=$(tput sgr0)
+
+run() {
+  local cmd=$1
+  echo -e "\n⚡ ${BLUE}${cmd}${NC}"
+  eval "${cmd}"
+}
 
 # Download latest apt package lists
-sudo apt-get update
+run 'sudo apt-get update'
 
 # Install Homebrew in non-interactive mode
-CI=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
+run 'CI=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
 
 # Ensure brew command is available
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+run 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
 
 # Install Git & ZSH
-brew install git zsh
+run 'brew install git zsh'
 
 # Change default shell to ZSH
-sudo chsh $(whoami) -s $(which zsh)
+run 'sudo chsh $(whoami) -s $(which zsh)'
 
 # Clone dotfiles repo
-git clone https://github.com/tylerbodway/dotfiles.git $HOME/.dotfiles
-cd $HOME/.dotfiles
-git submodule update --init --recursive
+run 'git clone https://github.com/tylerbodway/dotfiles.git $HOME/.dotfiles'
+run 'cd $HOME/.dotfiles'
+run 'git submodule update --init --recursive'
 
 # Run installation script
-./install cloud-box
+run './install cloud-box'
