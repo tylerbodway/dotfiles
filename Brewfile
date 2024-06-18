@@ -6,6 +6,9 @@ brew "bat" # https://github.com/sharkdp/bat
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl" # https://curl.se
 
+# Modern, maintained replacement for ls
+brew "eza" # https://github.com/eza-community/eza
+
 # Distributed revision control system
 brew "git" # https://git-scm.com
 
