@@ -15,6 +15,12 @@ brew "git-lfs" # https://git-lfs.github.com/
 # Colorize logfiles and command output
 brew "grc" # https://github.com/garabik/grc
 
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim" # https://neovim.io/
+
+# Search tool like grep and The Silver Searcher (for neovim)
+brew "ripgrep" # https://github.com/BurntSushi/ripgrep
+
 # UNIX shell (command interpreter)
 brew "zsh" # https://www.zsh.org/
 
