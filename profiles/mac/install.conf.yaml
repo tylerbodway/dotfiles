@@ -3,6 +3,7 @@
     ~/.config/kitty/:
       path: @/kitty/**
       glob: true
+      exclude: ["@/kitty/kitty.icns"]
     ~/.ssh/config: @/ssh_config
 
 - shell:
