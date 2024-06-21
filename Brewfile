@@ -21,6 +21,9 @@ brew "git-lfs" # https://git-lfs.github.com/
 # Colorize logfiles and command output
 brew "grc" # https://github.com/garabik/grc
 
+# Simple terminal UI for git commands
+brew "lazygit" # https://github.com/jesseduffield/lazygit/
+
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim" # https://neovim.io/
 

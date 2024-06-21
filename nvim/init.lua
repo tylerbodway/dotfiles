@@ -107,6 +107,25 @@ require('lazy').setup({
     },
   },
 
+  -- nvim v0.8.0
+  {
+    'kdheepak/lazygit.nvim',
+    cmd = {
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    keys = {
+      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+    },
+  },
+
   -- Show pending keybindings
   {
     'folke/which-key.nvim',
@@ -313,7 +332,6 @@ require('lazy').setup({
         rubocop = {},
         ruby_lsp = {},
         stimulus_ls = {},
-        syntax_tree = {},
         tailwindcss = {},
         tsserver = {},
         yamlls = {},
@@ -331,7 +349,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, tools)
 
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+      require('mason-tool-installer').setup { ensure_installed = tools }
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
