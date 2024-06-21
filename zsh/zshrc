@@ -10,8 +10,9 @@ fpath=($DOTFILES/gitmodules/zsh-completions/src $fpath)
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
-bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forward
+bindkey -v # vi mode
+bindkey "^[[A" history-search-backward # up arrow
+bindkey "^[[B" history-search-forward # down arrow
 
 autoload -U compinit; compinit
 
@@ -25,6 +26,7 @@ alias ls="eza"
 alias ll="eza -la --group-directories-first --no-permissions --no-filesize --no-user --no-time"
 alias llt="ll --tree --git --git-ignore"
 alias llg="ll --git-repos"
+alias nv="nvim"
 
 alias dotedit="$EDITOR $DOTFILES"
 
