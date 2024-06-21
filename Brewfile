@@ -1,5 +1,8 @@
 # https://github.com/Homebrew/homebrew-bundle
 
+# Extendable version manager with support for Ruby, Node.js, etc.
+brew "asdf" # https://asdf-vm.com/
+
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat" # https://github.com/sharkdp/bat
 

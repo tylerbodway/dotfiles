@@ -11,6 +11,7 @@
       recursive: true
 
 - link:
+    ~/.asdfrc:
     ~/.config/bat/:
       path: bat/**
       glob: true
