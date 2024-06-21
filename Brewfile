@@ -24,6 +24,9 @@ brew "neovim" # https://neovim.io/
 # Search tool like grep and The Silver Searcher (for neovim)
 brew "ripgrep" # https://github.com/BurntSushi/ripgrep
 
+# Internet file retriever
+brew "wget" # https://www.gnu.org/software/wget/
+
 # UNIX shell (command interpreter)
 brew "zsh" # https://www.zsh.org/
 
