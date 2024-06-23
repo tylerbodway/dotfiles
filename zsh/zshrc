@@ -27,7 +27,7 @@ alias ll="eza -la --group-directories-first --no-permissions --no-filesize --no-
 alias llt="ll --tree --git --git-ignore"
 alias llr="ll --git-repos"
 alias nv="nvim"
-alias nvrs="rm -rf $XDG_CONFIG_HOME/nvim $XDG_DATA_HOME/nvim $XDG_STATE_HOME/nvim && $DOTFILES/install mac --only=link"
+alias nvrs="rm -rf $XDG_CONFIG_HOME/nvim $XDG_DATA_HOME/nvim $XDG_STATE_HOME/nvim $XDG_CACHE_HOME/nvim && $DOTFILES/install mac --only=link"
 alias lg="lazygit"
 
 alias dotedit="$EDITOR $DOTFILES"
