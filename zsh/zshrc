@@ -18,8 +18,6 @@ autoload -U compinit; compinit
 
 source "$DOTFILES/gitmodules/spaceship-prompt/spaceship.zsh"
 
-eval "$($HOME/Code/pco/bin/pco init -)"
-
 alias c="clear"
 alias cat="bat --theme=tokyonight --style=changes,rule,numbers"
 alias ls="eza"
