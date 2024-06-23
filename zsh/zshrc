@@ -9,14 +9,13 @@ cdpath=($HOME/Code $HOME/Projects)
 fpath=($DOTFILES/gitmodules/zsh-completions/src $fpath)
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$DOTFILES/gitmodules/spaceship-prompt/spaceship.zsh"
 
 bindkey -v # vi mode
 bindkey "^[[A" history-search-backward # up arrow
 bindkey "^[[B" history-search-forward # down arrow
 
 autoload -U compinit; compinit
-
-source "$DOTFILES/gitmodules/spaceship-prompt/spaceship.zsh"
 
 alias c="clear"
 alias cat="bat --theme=tokyonight --style=changes,rule,numbers"
