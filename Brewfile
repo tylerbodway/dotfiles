@@ -33,6 +33,9 @@ brew "ripgrep" # https://github.com/BurntSushi/ripgrep
 # Internet file retriever
 brew "wget" # https://www.gnu.org/software/wget/
 
+# Pluggable terminal workspace, with terminal multiplexer
+brew "zellij" # https://zellij.dev
+
 # UNIX shell (command interpreter)
 brew "zsh" # https://www.zsh.org/
 
