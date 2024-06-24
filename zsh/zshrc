@@ -20,7 +20,7 @@ autoload -U compinit; compinit
 alias c="clear"
 alias cat="bat --theme=tokyonight --style=changes,rule,numbers"
 alias ls="eza"
-alias ll="eza -la --group-directories-first --no-permissions --no-filesize --no-user --no-time"
+alias ll="eza -la --group-directories-first --no-permissions --no-filesize --no-user --no-time -I .DS_Store"
 alias llt="ll --tree --git --git-ignore"
 alias llr="ll --git-repos"
 alias nv="nvim"
