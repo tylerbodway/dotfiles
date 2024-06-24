@@ -10,8 +10,13 @@
     ~/.config:
       recursive: true
 
+- create:
+    ~/.config/asdf:
+
 - link:
-    ~/.asdfrc:
+    ~/.config/asdf/:
+      path: asdf/**
+      glob: true
     ~/.config/bat/:
       path: bat/**
       glob: true

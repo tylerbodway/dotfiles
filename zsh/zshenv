@@ -16,6 +16,10 @@ export NPM_PATH="$XDG_CONFIG_HOME/node_modules"
 export NPM_BIN="$XDG_CONFIG_HOME/node_modules/bin"
 export NPM_CONFIG_PREFIX="$XDG_CONFIG_HOME/node_modules"
 
+export ASDF_DIR="$XDG_CONFIG_HOME/asdf"
+export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+export ASDF_CONFIG_FILE="$ASDF_DIR/asdfrc"
+
 export PATH="$HOME/bin:$PATH"
 
 source "$ZDOTDIR/.zshenv_include"
