@@ -10,12 +10,12 @@ export EDITOR="code --wait"
 
 export DOTFILES="$HOME/.dotfiles"
 
-export PATH="$HOME/bin:$PATH"
-
 export HOMEBREW_BUNDLE_NO_LOCK=1
 
 export NPM_PATH="$XDG_CONFIG_HOME/node_modules"
 export NPM_BIN="$XDG_CONFIG_HOME/node_modules/bin"
 export NPM_CONFIG_PREFIX="$XDG_CONFIG_HOME/node_modules"
+
+export PATH="$HOME/bin:$PATH"
 
 source "$ZDOTDIR/.zshenv_include"
