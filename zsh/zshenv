@@ -6,8 +6,6 @@ export HISTSIZE=1000
 export SAVEHIST=999
 export SHELL_SESSIONS_DISABLE=1
 
-export TERM="xterm-256color"
-
 export EDITOR="code --wait"
 
 export DOTFILES="$HOME/.dotfiles"
