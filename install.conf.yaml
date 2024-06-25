@@ -44,10 +44,10 @@
     ~/.zshenv:
 
 - link: # profile includes
-    ~/.config/git/config_include: @/git/config
-    ~/.config/zsh/.zprofile_include: @/zsh/zprofile
-    ~/.config/zsh/.zshenv_include: @/zsh/zshenv
-    ~/.config/zsh/.zshrc_include: @/zsh/zshrc
+    ~/.config/git/config_include: "@/git/config"
+    ~/.config/zsh/.zprofile_include: "@/zsh/zprofile"
+    ~/.config/zsh/.zshenv_include: "@/zsh/zshenv"
+    ~/.config/zsh/.zshrc_include: "@/zsh/zshrc"
 
 - brewfile:
     - Brewfile
