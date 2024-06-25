@@ -41,9 +41,6 @@ mas "iA Writer", id: 775737590 # https://ia.net/writer
 # ZSA keyboard firmware flasher
 cask "keymapp" # https://www.zsa.io/flash
 
-# GPU-based terminal emulator
-cask "kitty" # https://github.com/kovidgoyal/kitty
-
 # Software for Logitech devices
 cask "logi-options-plus" # https://www.logitech.com/en-us/software/logi-options-plus.html
 
@@ -85,6 +82,9 @@ cask "tuple" # https://tuple.app/
 
 # Open-source code editor
 cask "visual-studio-code" # https://code.visualstudio.com/
+
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm" # https://wezfurlong.org/wezterm/
 
 # Video communication and virtual meeting platform
 cask "zoom" # https://www.zoom.us/

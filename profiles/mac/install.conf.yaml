@@ -1,9 +1,9 @@
 - link:
     ~/.1password: "~/Library/Group Containers/2BUA8C4S2C.com.1password/t"
-    ~/.config/kitty/:
-      path: @/kitty/**
+    ~/.config/wezterm/:
+      path: @/wezterm/**
       glob: true
-      exclude: ["@/kitty/kitty.icns"]
+      exclude: ["@/wezterm/wezterm.app.icns"]
     ~/.ssh/config: @/ssh_config
 
 - shell:
