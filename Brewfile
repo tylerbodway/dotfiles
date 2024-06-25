@@ -44,3 +44,6 @@ brew "zsh-autosuggestions" # https://github.com/zsh-users/zsh-autosuggestions
 
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting" # https://github.com/zsh-users/zsh-syntax-highlighting
+
+# Better and friendly vi(vim) mode plugin for ZSH
+brew "zsh-vi-mode" # https://github.com/jeffreytse/zsh-vi-mode
