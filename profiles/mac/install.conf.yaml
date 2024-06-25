@@ -1,10 +1,10 @@
 - link:
     ~/.1password: "~/Library/Group Containers/2BUA8C4S2C.com.1password/t"
     ~/.config/wezterm/:
-      path: @/wezterm/**
+      path: "@/wezterm/**"
       glob: true
       exclude: ["@/wezterm/wezterm.app.icns"]
-    ~/.ssh/config: @/ssh_config
+    ~/.ssh/config: "@/ssh_config"
 
 - shell:
   -
@@ -15,4 +15,4 @@
     quiet: true
 
 - brewfile:
-    - @/Brewfile
+  - "@/Brewfile"
