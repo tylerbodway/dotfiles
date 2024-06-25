@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local mux = wezterm.mux
 local config = {}
 
 config.color_scheme = "Tokyo Night"
@@ -11,8 +10,8 @@ config.line_height = 1.1
 
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-config.initial_cols = 150
-config.initial_rows = 40
+config.initial_cols = 300
+config.initial_rows = 100
 config.window_padding = {
   left = 30,
   right = 30,
@@ -29,10 +28,5 @@ config.colors = {
     background = "#161621",
   },
 }
-
-wezterm.on("gui-startup", function()
-  local tab, pane, window = mux.spawn_window({})
-  window:gui_window():maximize()
-end)
 
 return config
