@@ -29,4 +29,6 @@ config.colors = {
   },
 }
 
+config.default_prog = { 'zsh', '-l', '-c', 'zellij -l default' }
+
 return config
