@@ -144,7 +144,8 @@ keybinds clear-defaults=true {
     shared_except "locked" {
         bind "Alt g" { SwitchToMode "Locked"; }
         bind "Alt q" { Quit; }
-        bind "Alt n" { NewPane; }
+        bind "Alt n" { NewPane "Right"; }
+        bind "Alt N" { NewPane "Down"; }
         bind "Alt x" { CloseFocus; }
         bind "Alt w" { ToggleFloatingPanes; }
         bind "Alt i" { MoveTab "Left"; }
