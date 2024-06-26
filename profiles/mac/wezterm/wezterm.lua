@@ -29,6 +29,6 @@ config.colors = {
   },
 }
 
-config.default_prog = { 'zsh', '-l', '-c', 'zellij -l default' }
+config.default_prog = { "zsh", "-l", "-c", "zellij -l compact" }
 
 return config
