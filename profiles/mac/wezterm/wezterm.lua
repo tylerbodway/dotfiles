@@ -4,19 +4,18 @@ local config = {}
 config.color_scheme = "Kanagawa Dragon"
 
 config.font = wezterm.font("GeistMono Nerd Font", { weight = "Medium" })
-config.font_size = 13.0
+config.font_size = 14.0
 config.line_height = 1.1
--- config.freetype_load_target = "Light"
 
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.initial_cols = 300
 config.initial_rows = 100
 config.window_padding = {
-  left = 30,
-  right = 30,
+  left = 10,
+  right = 10,
   top = 60,
-  bottom = 30,
+  bottom = 0,
 }
 
 config.tab_bar_at_bottom = true
