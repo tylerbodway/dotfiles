@@ -18,7 +18,8 @@ bindkey "^[[B" history-search-forward # down arrow
 autoload -U compinit; compinit
 
 alias c="clear"
-alias cat="bat --theme=tokyonight --style=changes,rule,numbers"
+alias bat="bat --theme=kanagawa-dragon --style=changes.rule,numbers"
+alias cat="bat"
 alias ls="eza"
 alias ll="eza -la --group-directories-first --no-permissions --no-filesize --no-user --no-time -I .DS_Store"
 alias llt="ll --tree --git --git-ignore"
