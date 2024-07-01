@@ -23,7 +23,7 @@ gui:
   # Height of the command log view
   commandLogSize: 6
 
-  # display the files as a flat list. this can still be toggled with the '~' key.
+  # display the files as a flat list. this can still be toggled with the backtick key.
   showFileTree: false
 
 # don't display introductory popups upon opening lazygit.
