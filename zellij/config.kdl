@@ -158,6 +158,7 @@ keybinds clear-defaults=true {
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
+        bind "Alt c" { Clear; }
         bind "Alt ?" {
           LaunchOrFocusPlugin "file:~/.config/zellij/plugins/forgot.wasm" {
             floating true
