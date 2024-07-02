@@ -6,7 +6,8 @@ export HISTSIZE=1000
 export SAVEHIST=999
 export SHELL_SESSIONS_DISABLE=1
 
-export EDITOR="code --wait"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 export DOTFILES="$HOME/.dotfiles"
 
