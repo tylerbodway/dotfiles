@@ -28,6 +28,7 @@ run 'sudo chsh $(whoami) -s $(which zsh)'
 # Clone dotfiles repo
 run 'git clone https://github.com/tylerbodway/dotfiles.git $HOME/.dotfiles'
 run 'cd $HOME/.dotfiles'
+run 'git remote set-url origin git@github.com:tylerbodway/dotfiles.git'
 run 'git submodule update --init --recursive'
 
 # Run installation script
