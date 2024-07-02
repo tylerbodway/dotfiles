@@ -1,0 +1,19 @@
+{
+  "keyMappings": "# Insert your preferred key mappings here.\n\n# disable vomnibar\nunmap o\nunmap O\nunmap b\nunmap B\nunmap T\n\n# opening links\nunmap f\nunmap F\nmap o LinkHints.activateMode\nmap O LinkHints.activateModeToOpenInNewTab",
+  "settingsVersion": "2.1.2",
+  "userDefinedLinkHintCss": "div > .vimiumHintMarker {\n  /* linkhint boxes */\n  background: #181616;\n  border: 1px solid #C8C093;\n  box-shadow: none;\n  padding: 2px 4px;\n}\n\ndiv > .vimiumHintMarker span {\n  /* linkhint text */\n  color: #CCCFCC;\n  font-size: 10px;\n  font-weight: 600;\n  text-shadow: none;\n  box-shadow: none;\n}\n\ndiv > .vimiumHintMarker > .matchingCharacter {\n  color: #C8C093;\n}",
+  "exclusionRules": [
+    {
+      "passKeys": "/tg",
+      "pattern": "https://github.com/*"
+    },
+    {
+      "passKeys": "/",
+      "pattern": "*"
+    },
+    {
+      "passKeys": "",
+      "pattern": "https?://www.vim-hero.com/*"
+    }
+  ]
+}
