@@ -20,6 +20,9 @@
     ~/.config/bat/:
       path: bat/**
       glob: true
+    ~/.config/btop/:
+      path: btop/**
+      glob: true
     ~/.config/git/:
       path: git/**
       glob: true

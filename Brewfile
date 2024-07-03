@@ -6,6 +6,9 @@ brew "asdf" # https://asdf-vm.com/
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat" # https://github.com/sharkdp/bat
 
+# Resource monitor
+brew "btop", # https://github.com/aristocratos/btop
+
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl" # https://curl.se
 
