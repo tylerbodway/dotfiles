@@ -7,7 +7,7 @@ brew "asdf" # https://asdf-vm.com/
 brew "bat" # https://github.com/sharkdp/bat
 
 # Resource monitor
-brew "btop", # https://github.com/aristocratos/btop
+brew "btop" # https://github.com/aristocratos/btop
 
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl" # https://curl.se
