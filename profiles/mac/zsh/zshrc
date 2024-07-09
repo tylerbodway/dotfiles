@@ -1,8 +1,12 @@
-alias cb-up="pco cloud-box up"
 alias cb-start="pco cloud-box start"
 alias cb-stop="pco cloud-box stop"
-alias cb-ssh="pco cloud-box ssh"
+alias cb-hosts="pco cloud-box update-hosts"
 alias cb-ip="pco cloud-box allow-my-ip"
+
+# quits zellij before opening ssh which will open its own zellij
+alias cb-ssh="wezterm cli spawn -- pco cloud-box ssh"
+alias cb-up="cb-start && cb-ip && cb-hosts && cb-ssh"
+
 alias cb-nuke="pco cloud-box nuke --skip-confirm"
 alias cb-prov="pco cloud-box provision --auto --fast"
 alias cb-new="cb-nuke && cb-prov && rm ~/.ssh/known_hosts ~/.ssh/known_hosts.old"

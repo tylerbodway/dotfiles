@@ -34,4 +34,6 @@ alias dotedit="$EDITOR $DOTFILES"
 alias rnm="rm -rf node_modules"
 alias bay="bundle install && yarn install"
 
+eval "$DOTFILES/zellij/autostart.zsh"
+
 source "$ZDOTDIR/.zshrc_include"

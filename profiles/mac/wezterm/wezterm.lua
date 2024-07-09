@@ -9,6 +9,9 @@ config.line_height = 1.1
 
 config.window_close_confirmation = "NeverPrompt"
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.enable_tab_bar = false
+config.prefer_to_spawn_tabs = true
+config.force_reverse_video_cursor = true
 config.initial_cols = 300
 config.initial_rows = 100
 config.window_padding = {
@@ -17,18 +20,6 @@ config.window_padding = {
   top = 60,
   bottom = 0,
 }
-
-config.tab_bar_at_bottom = true
-config.hide_tab_bar_if_only_one_tab = true
-config.show_new_tab_button_in_tab_bar = false
-config.use_fancy_tab_bar = false
-config.colors = {
-  tab_bar = {
-    background = "#161621",
-  },
-}
-
-config.force_reverse_video_cursor = true
 
 config.color_schemes = {
   ["Kanagawa Dragon"] = {
@@ -68,7 +59,5 @@ config.color_schemes = {
     indexed = { [16] = "#B6927B", [17] = "#B98D7B" },
   },
 }
-
-config.default_prog = { "zsh", "-l", "-c", "zellij -l compact" }
 
 return config
