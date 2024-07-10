@@ -181,5 +181,8 @@ keybinds clear-defaults=true {
     shared_except "move" "locked" {
         bind "Alt m" { SwitchToMode "Move"; }
     }
+    shared_except "scroll" "locked" {
+        bind "Alt u" { SwitchToMode "Scroll"; }
+    }
 }
 
