@@ -12,6 +12,7 @@ config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 config.enable_tab_bar = false
 config.prefer_to_spawn_tabs = true
 config.force_reverse_video_cursor = true
+config.send_composed_key_when_right_alt_is_pressed = false
 config.initial_cols = 300
 config.initial_rows = 100
 config.window_padding = {
