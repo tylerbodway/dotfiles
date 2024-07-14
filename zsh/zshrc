@@ -29,7 +29,7 @@ alias nv="nvim"
 alias nvrs="rm -rf $XDG_CONFIG_HOME/nvim $XDG_DATA_HOME/nvim $XDG_STATE_HOME/nvim $XDG_CACHE_HOME/nvim"
 alias lg="lazygit"
 
-alias dotedit="$EDITOR $DOTFILES"
+alias dotedit="cd $DOTFILES && $EDITOR"
 
 alias rnm="rm -rf node_modules"
 alias bay="bundle install && yarn install"
