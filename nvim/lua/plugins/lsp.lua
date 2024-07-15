@@ -15,6 +15,7 @@ return {
       syntax_tree = {
         cmd = { "bundle", "exec", "stree", "lsp" },
       },
+      emmet_language_server = {},
     },
   },
 }
