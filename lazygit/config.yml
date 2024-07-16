@@ -26,6 +26,10 @@ gui:
   # display the files as a flat list. this can still be toggled with the backtick key.
   showFileTree: false
 
+  theme:
+    selectedLineBgColor:
+      - "#223249"
+
 # don't display introductory popups upon opening lazygit.
 disableStartupPopups: true
 
