@@ -2,17 +2,23 @@ return {
   "kdheepak/lazygit.nvim",
   cmd = {
     "LazyGit",
-    "LazyGitConfig",
-    "LazyGitCurrentFile",
     "LazyGitFilter",
     "LazyGitFilterCurrentFile",
   },
   dependencies = {
+    "nvim-telescope/telescope.nvim",
     "nvim-lua/plenary.nvim",
   },
   keys = {
-    { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-    { "<leader>gf", "<cmd>LazyGitCurrentFile<cr>", desc = "LazyGit Current File" },
-    { "<leader>gl", "<cmd>LazyGitFilter<cr>", desc = "LazyGit Log" },
+    { "<leader>gg", "<cmd>LazyGit<cr>", desc = "Lazygit" },
+    { "<leader>gl", "<cmd>LazyGitFilter<cr>", desc = "Lazygit Log" },
+    { "<leader>gf", "<cmd>LazyGitFilterCurrentFile<cr>", desc = "Lazygit Log (Current File)" },
   },
+  config = function()
+    require("telescope").load_extension("lazygit")
+  end,
+  init = function()
+    vim.g.lazygit_floating_window_scaling_factor = 1
+    vim.g.lazygit_floating_window_use_plenary = 1
+  end,
 }
