@@ -27,7 +27,7 @@ alias llr="ll --git-repos"
 alias nvim="env TERM=wezterm nvim"
 alias nv="nvim"
 alias nvrs="rm -rf $XDG_CONFIG_HOME/nvim $XDG_DATA_HOME/nvim $XDG_STATE_HOME/nvim $XDG_CACHE_HOME/nvim"
-alias lg="lazygit"
+alias gg="lazygit"
 
 alias dotedit="cd $DOTFILES && $EDITOR"
 
