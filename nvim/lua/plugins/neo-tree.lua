@@ -12,6 +12,7 @@ return {
     enable_diagnostics = false,
     filesystem = {
       window = {
+        width = 30,
         mappings = {
           ["\\"] = "close_window",
         },
