@@ -1,5 +1,5 @@
-alias pbst "pco cloud-box start"
-alias pbsp "pco cloud-box stop"
+alias pbst="pco cloud-box start"
+alias pbsp="pco cloud-box stop"
 alias pbh="pco cloud-box update-hosts"
 alias pbip="pco cloud-box allow-my-ip"
 
