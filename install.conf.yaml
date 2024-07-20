@@ -44,9 +44,6 @@
     ~/.editorconfig:
     ~/.gemrc:
     ~/.hushlogin:
-    ~/.terminfo/:
-      path: terminfo/**
-      glob: true
     ~/.zshenv:
 
 - link: # profile includes

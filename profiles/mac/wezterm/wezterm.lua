@@ -61,4 +61,6 @@ config.color_schemes = {
   },
 }
 
+config.term = "wezterm"
+
 return config

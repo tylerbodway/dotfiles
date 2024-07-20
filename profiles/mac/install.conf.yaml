@@ -3,8 +3,9 @@
     ~/.config/wezterm/:
       path: "@/wezterm/**"
       glob: true
-      exclude: ["@/wezterm/wezterm.app.icns"]
+      exclude: ["@/wezterm/wezterm.app.icns", "@/wezterm/terminfo"]
     ~/.ssh/config: "@/ssh_config"
+    ~/.terminfo/77/wezterm: "@/wezterm/terminfo"
 
 - shell:
     - command: >
