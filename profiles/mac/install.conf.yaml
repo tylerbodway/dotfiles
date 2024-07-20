@@ -7,12 +7,11 @@
     ~/.ssh/config: "@/ssh_config"
 
 - shell:
-  -
-    command: >
-      line='export PCO_CLOUDBOX_AFTER_PROVISION_SCRIPT_PATH=$DOTFILES/profiles/cloud-box/setup.sh';
-      grep -qxF "$line" ~/.pcorc || echo "$line" >> ~/.pcorc
-    description: Saving cloud-box post-provision script to ~/.pcorc
-    quiet: true
+    - command: >
+        line='export PCO_CLOUDBOX_AFTER_PROVISION_SCRIPT_PATH=$DOTFILES/profiles/cloud-box/setup.sh';
+        grep -qxF "$line" ~/.pcorc || echo "$line" >> ~/.pcorc
+      description: Saving cloud-box post-provision script to ~/.pcorc
+      quiet: true
 
 - brewfile:
-  - "@/Brewfile"
+    - "@/Brewfile"
