@@ -10,7 +10,9 @@ fpath=($DOTFILES/gitmodules/zsh-completions/src $fpath)
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-source "$DOTFILES/gitmodules/spaceship-prompt/spaceship.zsh"
+
+source "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
+source "$XDG_CONFIG_HOME/zsh/.p10k.zsh"
 
 bindkey "^[[A" history-search-backward # up arrow
 bindkey "^[[B" history-search-forward # down arrow
