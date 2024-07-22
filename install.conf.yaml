@@ -32,7 +32,6 @@
     ~/.config/nvim/:
       path: nvim/**
       glob: true
-    ~/.config/spaceship/spaceship.zsh: zsh/spaceship.zsh
     ~/.config/zellij/:
       path: zellij/**
       glob: true
@@ -40,7 +39,6 @@
       path: zsh/**
       glob: true
       prefix: .
-      exclude: ["zsh/spaceship.zsh"]
     ~/.editorconfig:
     ~/.gemrc:
     ~/.hushlogin:

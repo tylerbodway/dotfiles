@@ -30,6 +30,9 @@ brew "lazygit" # https://github.com/jesseduffield/lazygit/
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim" # https://neovim.io/
 
+# Prompt theme for zsh
+brew "powerlevel10k" # https://github.com/romkatv/powerlevel10k
+
 # Search tool like grep and The Silver Searcher (for neovim)
 brew "ripgrep" # https://github.com/BurntSushi/ripgrep
 
