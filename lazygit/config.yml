@@ -35,3 +35,7 @@ disableStartupPopups: true
 
 # don't display a confirmation when subprocess terminates.
 promptToReturnFromSubprocess: false
+
+git:
+  # do not spawn a separate process when using GPG
+  overrideGpg: true
