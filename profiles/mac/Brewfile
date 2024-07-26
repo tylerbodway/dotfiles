@@ -30,7 +30,7 @@ cask "cleanshot" # https://getcleanshot.com/
 cask "copilot" # https://copilot.money/
 
 # Web browser
-cask "firefox-developer-edition" # https://www.mozilla.org/firefox/developer/
+cask "firefox@developer-edition" # https://www.mozilla.org/firefox/developer/
 
 # Convert caps lock key to the hyper key
 cask "hyperkey" # https://hyperkey.app/
