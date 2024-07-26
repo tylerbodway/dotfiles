@@ -88,3 +88,8 @@ cask "wezterm" # https://wezfurlong.org/wezterm/
 
 # Video communication and virtual meeting platform
 cask "zoom" # https://www.zoom.us/
+
+
+# === Fonts ===
+
+brew "font-geist-mono-nerd-font"
