@@ -4,23 +4,17 @@ local config = {}
 config.color_scheme = "Kanagawa Dragon"
 
 config.font = wezterm.font("GeistMono Nerd Font", { weight = "Medium" })
-config.font_size = 14.0
+config.font_size = 13.0
 config.line_height = 1.1
 
 config.window_close_confirmation = "NeverPrompt"
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.window_decorations = "RESIZE"
 config.enable_tab_bar = false
 config.prefer_to_spawn_tabs = true
 config.force_reverse_video_cursor = true
 config.send_composed_key_when_right_alt_is_pressed = false
 config.initial_cols = 300
 config.initial_rows = 100
-config.window_padding = {
-  left = 10,
-  right = 10,
-  top = 60,
-  bottom = 0,
-}
 
 config.color_schemes = {
   ["Kanagawa Dragon"] = {
