@@ -1,9 +1,6 @@
 - link:
     ~/.1password: "~/Library/Group Containers/2BUA8C4S2C.com.1password/t"
-    ~/.config/wezterm/:
-      path: "@/wezterm/**"
-      glob: true
-      exclude: ["@/wezterm/wezterm.app.icns", "@/wezterm/terminfo"]
+    ~/.config/wezterm/wezterm.lua: "@/wezterm/wezterm.lua"
     ~/.ssh/config: "@/ssh_config"
     ~/.terminfo/77/wezterm: "@/wezterm/terminfo"
 
