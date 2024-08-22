@@ -9,4 +9,4 @@ alias pbup="pbst && pbip && pbh && pbsh"
 
 alias pb-nuke="pco cloud-box nuke --skip-confirm"
 alias pb-prov="pco cloud-box provision --auto --fast"
-alias pbn="cb-nuke && cb-prov && rm ~/.ssh/known_hosts ~/.ssh/known_hosts.old"
+alias pbn="pb-nuke && pb-prov && rm ~/.ssh/known_hosts ~/.ssh/known_hosts.old"
