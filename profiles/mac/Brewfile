@@ -42,7 +42,7 @@ mas "iA Writer", id: 775737590 # https://ia.net/writer
 cask "keymapp" # https://www.zsa.io/flash
 
 # Software for Logitech devices
-cask "logi-options-plus" # https://www.logitech.com/en-us/software/logi-options-plus.html
+cask "logi-options+" # https://www.logitech.com/en-us/software/logi-options-plus.html
 
 # Tool to control external monitor brightness & volume
 cask "monitorcontrol" # https://github.com/MonitorControl/MonitorControl
