@@ -33,3 +33,6 @@ run 'git submodule update --init --recursive'
 
 # Run installation script
 run './install cloud-box'
+
+# Build bat cache for custom theme
+run '\bat cache --build'
