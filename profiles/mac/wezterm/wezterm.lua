@@ -4,7 +4,7 @@ local config = {}
 config.color_scheme = "Kanagawa Dragon"
 
 config.font = wezterm.font("GeistMono Nerd Font", { weight = "Medium" })
-config.font_size = 13.0
+config.font_size = 14.0
 config.line_height = 1.1
 
 config.window_close_confirmation = "NeverPrompt"
