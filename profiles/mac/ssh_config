@@ -6,3 +6,5 @@ Host cloud-box
   HostName pco.test
   ForwardAgent yes
   StrictHostKeyChecking no
+
+Include "$XDG_CONFIG_HOME/colima/ssh_config"
