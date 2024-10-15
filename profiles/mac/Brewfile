@@ -11,6 +11,9 @@ brew "awscli" # https://aws.amazon.com/cli/
 # GNU File, Shell, and Text utilities (asdf dependency)
 brew "coreutils" # https://www.gnu.org/software/coreutils
 
+# Load/unload environment variables based on $PWD (pco-box dependency)
+brew "direnv" # https://direnv.net/
+
 # Mac App Store command-line interface
 brew "mas" # https://github.com/mas-cli/mas
 
