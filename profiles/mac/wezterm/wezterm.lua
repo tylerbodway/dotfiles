@@ -16,8 +16,8 @@ config.send_composed_key_when_right_alt_is_pressed = false
 config.initial_cols = 300
 config.initial_rows = 100
 config.window_padding = {
-  left = "3cell",
-  right = "3cell",
+  left = "2cell",
+  right = "2cell",
   top = "1cell",
   bottom = 0,
 }
