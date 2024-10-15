@@ -18,4 +18,5 @@ export HOMEBREW_BUNDLE_NO_LOCK=1
 
 export PATH="$HOME/bin:$PATH"
 
-source "$ZDOTDIR/.zshenv_include"
+include_path="$ZDOTDIR/.zshenv_include"
+[ -f $include_path ] && source $include_path

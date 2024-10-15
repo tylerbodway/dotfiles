@@ -1,1 +1,2 @@
-source "$ZDOTDIR/.zprofile_include"
+include_path="$ZDOTDIR/.zprofile_include"
+[ -f $include_path ] && source $include_path

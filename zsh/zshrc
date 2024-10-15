@@ -36,4 +36,5 @@ alias bay="bundle install && yarn install"
 
 eval "$DOTFILES/zellij/autostart.zsh"
 
-source "$ZDOTDIR/.zshrc_include"
+include_path="$ZDOTDIR/.zshrc_include"
+[ -f $include_path ] && source $include_path
