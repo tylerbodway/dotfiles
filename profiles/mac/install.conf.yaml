@@ -1,6 +1,7 @@
 - link:
     ~/.1password: "~/Library/Group Containers/2BUA8C4S2C.com.1password/t"
     ~/.config/wezterm/wezterm.lua: "@/wezterm/wezterm.lua"
+    ~/.config/direnv/direnv.toml: "@/direnv/direnv.toml"
     ~/.ssh/config: "@/ssh_config"
     ~/.terminfo/77/wezterm: "@/wezterm/terminfo"
 
