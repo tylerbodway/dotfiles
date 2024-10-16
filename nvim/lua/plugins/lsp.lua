@@ -18,6 +18,13 @@ return {
         cmd = { "bundle", "exec", "stree", "lsp" },
       },
       emmet_language_server = {},
+      jsonls = {
+        settings = {
+          format = {
+            enable = false,
+          },
+        },
+      },
     },
   },
 }
