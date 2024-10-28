@@ -32,6 +32,9 @@
     ~/.config/nvim/:
       path: nvim-lazyvim/**
       glob: true
+    ~/.config/nvim-kickstart/:
+      path: nvim-kickstart/**
+      glob: true
     ~/.config/zellij/:
       path: zellij/**
       glob: true
