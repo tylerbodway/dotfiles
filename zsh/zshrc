@@ -34,6 +34,8 @@ alias gg="lazygit"
 alias rnm="rm -rf node_modules"
 alias bay="bundle install && yarn install"
 
+source "$DOTFILES/zsh/rails.plugin.zsh"
+
 eval "$DOTFILES/zellij/autostart.zsh"
 
 include_path="$ZDOTDIR/.zshrc_include"
