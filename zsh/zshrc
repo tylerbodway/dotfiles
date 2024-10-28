@@ -20,16 +20,16 @@ bindkey "^[[B" history-search-forward # down arrow
 autoload -U compinit; compinit
 
 alias c="clear"
-alias bat="bat --theme=kanagawa-dragon --style=changes,rule,numbers"
-alias cat="bat"
+alias cat="bat --theme=kanagawa-dragon --style=changes,rule,numbers"
 alias ls="eza"
 alias ll="eza -la --group-directories-first --no-permissions --no-filesize --no-user --no-time -I .DS_Store"
 alias llt="ll --tree --git --git-ignore"
 alias llr="ll --git-repos"
-alias nvrs="rm -rf $XDG_CONFIG_HOME/nvim $XDG_DATA_HOME/nvim $XDG_STATE_HOME/nvim $XDG_CACHE_HOME/nvim"
-alias gg="lazygit"
 
-alias dotedit="cd $DOTFILES && $EDITOR"
+alias v="$EDITOR"
+alias vdot="cd $DOTFILES && $EDITOR"
+alias vreset="rm -rf $XDG_CONFIG_HOME/nvim $XDG_DATA_HOME/nvim $XDG_STATE_HOME/nvim $XDG_CACHE_HOME/nvim && $DOTFILES/install --only link"
+alias gg="lazygit"
 
 alias rnm="rm -rf node_modules"
 alias bay="bundle install && yarn install"
