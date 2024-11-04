@@ -2,22 +2,16 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     servers = {
-      solargraph = {
-        mason = false,
-        autostart = false,
-      },
       ruby_lsp = {
-        mason = false, -- gem install ruby-lsp
+        mason = false,
         init_options = {
           linters = { "rubocop" },
-          formatter = "rubocop",
+          formatter = "syntax_tree",
         },
       },
-      syntax_tree = {
-        mason = false, -- gem install syntax_tree
-        cmd = { "bundle", "exec", "stree", "lsp" },
-      },
+
       emmet_language_server = {},
+
       jsonls = {
         settings = {
           format = {
