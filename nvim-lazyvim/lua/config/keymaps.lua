@@ -11,7 +11,6 @@ vim.keymap.del("n", "<leader>gB")
 vim.keymap.del("n", "<leader>gc")
 vim.keymap.del("n", "<leader>ge")
 vim.keymap.del("n", "<leader>gs")
-vim.keymap.del("t", "<esc><esc>")
 
 -- floating terminal
 -- https://github.com/LazyVim/LazyVim/blob/c1b76ee235a2cccff6370ecfca57bdacd5fe6258/lua/lazyvim/config/keymaps.lua#L160-L165
