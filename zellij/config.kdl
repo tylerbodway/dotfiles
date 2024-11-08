@@ -25,6 +25,9 @@ ui {
     }
 }
 
+session_serialization false
+disable_session_metadata true
+
 keybinds clear-defaults=true {
     locked {
         bind "Alt g" { SwitchToMode "Normal"; }
