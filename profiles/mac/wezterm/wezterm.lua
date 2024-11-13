@@ -1,34 +1,35 @@
 local wezterm = require("wezterm")
 local config = {}
 
-config.color_scheme = "Kanagawa Dragon"
-
+-- Text
 config.font = wezterm.font("GeistMono Nerd Font", { weight = "Medium" })
 config.font_size = 14.0
 config.line_height = 1.1
 
-config.window_close_confirmation = "NeverPrompt"
-config.window_decorations = "RESIZE"
-config.enable_tab_bar = false
-config.prefer_to_spawn_tabs = true
-config.force_reverse_video_cursor = true
-config.send_composed_key_when_right_alt_is_pressed = false
+-- Window
 config.initial_cols = 300
 config.initial_rows = 100
 config.window_padding = {
-  left = "2cell",
-  right = "2cell",
-  top = "1cell",
+  left = "1.5cell",
+  right = "1.5cell",
+  top = "0.5cell",
   bottom = 0,
 }
+config.enable_tab_bar = false
+config.window_decorations = "RESIZE" -- disables title bar, but window is resizable
+config.force_reverse_video_cursor = true -- reverses color under cursor, rather than always use theme color
+config.send_composed_key_when_right_alt_is_pressed = false -- right option is treated like Alt, not AltGr
+config.window_close_confirmation = "NeverPrompt"
 
+-- Theme
+config.color_scheme = "Kanagawa Dragon"
 config.color_schemes = {
   ["Kanagawa Dragon"] = {
     foreground = "#c5c9c5",
     background = "#181616",
 
     cursor_bg = "#C8C093",
-    cursor_fg = "#C8C093",
+    cursor_fg = "#181616",
     cursor_border = "#C8C093",
 
     selection_fg = "#C8C093",
