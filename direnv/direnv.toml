@@ -1,5 +1,6 @@
 [global]
 hide_env_diff = true
+
 [whitelist]
 exact = [
   "~/Code/accounts",

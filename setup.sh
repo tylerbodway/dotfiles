@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
-export TERM=xterm-256color
-BLUE=$(tput setaf 4)
-NC=$(tput sgr0)
+export TERM="xterm-256color"
+BLUE="$(tput setaf 4)"
+NC="$(tput sgr0)"
 
 run() {
   local cmd=$1
@@ -19,19 +19,19 @@ until $(xcode-select --print-path &> /dev/null); do
 done
 
 # Install Homebrew
-run '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+run "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
 
 # Ensure brew command is available
 run 'eval "$(/opt/homebrew/bin/brew shellenv)"'
 
 # Clone dotfiles repo
-run 'git clone https://github.com/tylerbodway/dotfiles.git $HOME/.dotfiles'
-run 'cd $HOME/.dotfiles'
+run 'git clone https://github.com/tylerbodway/dotfiles.git ~/.dotfiles'
+run 'cd ~/.dotfiles'
 run 'git remote set-url origin git@github.com:tylerbodway/dotfiles.git'
 run 'git submodule update --init --recursive'
 
 # Run installation script
-run './install mac'
+run './install'
 
 # Build bat cache for custom theme
-run '\bat cache --build'
+run 'bat cache --build'

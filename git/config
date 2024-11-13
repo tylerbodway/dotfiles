@@ -31,6 +31,8 @@
   required = true
 [gpg]
   format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 [init]
   defaultBranch = main
 [pull]
@@ -44,7 +46,6 @@
   name = Tyler Bodway
   email = 9326912+tylerbodway@users.noreply.github.com
   signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMn/Rl7U44dZDp2ak/X84DwYxxTn5xl3Sf8SAivxd0nf
-[include]
-  path = ~/.config/git/config_include
+  
 [includeIf "gitdir:~/Code/"]
-  path = ~/Code/.config/git/config_company
+  path = ~/.config/git/config_company

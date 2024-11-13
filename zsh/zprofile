@@ -1,2 +1,4 @@
-include_path="$ZDOTDIR/.zprofile_include"
-[ -f $include_path ] && source $include_path
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($HOME/Code/pco/bin/pco init -)"
+source "$(brew --prefix asdf)/libexec/asdf.sh"
+source "$HOME/pco-box/env.sh"

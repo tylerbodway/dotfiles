@@ -2,23 +2,13 @@
 
 set -e
 
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+CONFIG="install.conf.yaml"
 DOTBOT_DIR="gitmodules/dotbot"
-DOTBOT_BIN="bin/dotbot"
-DOTBOT="${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}"
-
-DOTBOT_BREW_DIR="gitmodules/dotbot-brew"
-
-PROFILES_DIR="profiles"
-PROFILE=${1:-mac}
-PROFILE_DIR="${PROFILES_DIR}/${PROFILE}"
-
-BASE_CONFIG=$(cat "${BASEDIR}/install.conf.yaml")
-PROFILE_CONFIG=$(cat "${BASEDIR}/${PROFILE_DIR}/install.conf.yaml")
-COMBINED_CONFIG="${BASE_CONFIG}\n${PROFILE_CONFIG}"
-CONFIG="${COMBINED_CONFIG//@/${PROFILE_DIR}}"
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 cd "${BASEDIR}"
-git submodule update --init --recursive --remote
+git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
+git submodule update --init --recursive "${DOTBOT_DIR}"
 
-"${DOTBOT}" -d "${BASEDIR}" --plugin-dir "${DOTBOT_BREW_DIR}" -c <(echo -e "$CONFIG") "${@:2}"
+"${BASEDIR}/${DOTBOT_DIR}/bin/dotbot" --base-directory "${BASEDIR}" --config-file "${CONFIG}" --plugin-dir "gitmodules/dotbot-brew" "${@}"

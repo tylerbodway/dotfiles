@@ -1,4 +1,0 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
-source "/opt/homebrew/opt/asdf/libexec/asdf.sh"
-eval "$($HOME/Code/pco/bin/pco init -)"
-[ -d "$HOME/pco-box" ] && source "$HOME/pco-box/env.sh"

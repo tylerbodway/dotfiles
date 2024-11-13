@@ -6,13 +6,13 @@ setopt hist_verify
 setopt auto_cd
 cdpath=($HOME/Code $HOME/Projects)
 
-fpath=($DOTFILES/gitmodules/zsh-completions/src $fpath)
+fpath=($DOT/gitmodules/zsh-completions/src $fpath)
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
 source "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
-source "$XDG_CONFIG_HOME/zsh/.p10k.zsh"
+source "$ZDOTDIR/.p10k.zsh"
 
 bindkey "^[[A" history-search-backward # up arrow
 bindkey "^[[B" history-search-forward # down arrow
@@ -26,15 +26,14 @@ alias ll="eza -la --group-directories-first --no-permissions --no-filesize --no-
 alias llt="ll --tree --git --git-ignore"
 alias llr="ll --git-repos"
 
-alias v="$EDITOR"
-alias vdot="cd $DOTFILES && $EDITOR"
-alias vreset="rm -rf $XDG_CONFIG_HOME/nvim $XDG_DATA_HOME/nvim $XDG_STATE_HOME/nvim $XDG_CACHE_HOME/nvim && $DOTFILES/install mac --only=link"
+alias nv="$EDITOR"
+alias nvrs="rm -rf $XDG_CONFIG_HOME/nvim $XDG_DATA_HOME/nvim $XDG_STATE_HOME/nvim $XDG_CACHE_HOME/nvim && $DOT/install --only=link"
+alias dotedit="cd $DOT && $EDITOR"
 alias gg="lazygit"
 
 alias rnm="rm -rf node_modules"
 alias bay="bundle install && yarn install"
 
-source "$DOTFILES/zsh/rails.plugin.zsh"
+source "$ZDOTDIR/.plugin.rails.zsh"
 
-include_path="$ZDOTDIR/.zshrc_include"
-[ -f $include_path ] && source $include_path
+eval "$(direnv hook zsh)"

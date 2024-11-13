@@ -1,4 +1,0 @@
-alias br="box restart"
-
-source "$HOME/pco-box/env.sh"
-

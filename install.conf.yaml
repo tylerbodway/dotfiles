@@ -10,45 +10,29 @@
     ~/.config:
       recursive: true
 
-- create:
-    ~/.config/asdf:
-
 - link:
-    ~/.config/asdf/:
-      path: asdf/**
-      glob: true
-    ~/.config/bat/:
-      path: bat/**
-      glob: true
-    ~/.config/btop/:
-      path: btop/**
-      glob: true
+    ~/.config/asdf/asdfrc: asdf/asdfrc
+    ~/.config/bat/themes/kanagawa-dragon.tmTheme: bat/kanagawa-dragon.tmTheme
+    ~/.config/btop/btop.conf: btop/btop.conf
+    ~/.config/btop/themes/kanagawa-dragon.theme: btop/kanagawa-dragon.theme
+    ~/.config/direnv/direnv.toml: direnv/direnv.toml
     ~/.config/git/:
       path: git/**
       glob: true
-    ~/.config/lazygit/:
-      path: lazygit/**
-      glob: true
+    ~/.config/lazygit/config.yml: lazygit/config.yml
     ~/.config/nvim/:
       path: nvim/**
       glob: true
-    ~/.config/zellij/:
-      path: zellij/**
-      glob: true
+    ~/.config/wezterm/wezterm.lua: wezterm/wezterm.lua
+    ~/.config/zellij/config.kdl: zellij/config.kdl
     ~/.config/zsh/:
       path: zsh/**
       glob: true
       prefix: .
-    ~/.editorconfig:
-    ~/.gemrc:
-    ~/.hushlogin:
-    ~/.zshenv:
-
-- link: # profile includes
-    ~/.config/git/config_include: "@/git/config"
-    ~/.config/zsh/.zprofile_include: "@/zsh/zprofile"
-    ~/.config/zsh/.zshenv_include: "@/zsh/zshenv"
-    ~/.config/zsh/.zshrc_include: "@/zsh/zshrc"
+    ~/.editorconfig: editorconfig
+    ~/.ssh/config: ssh/config
+    ~/.terminfo/77/wezterm: wezterm/terminfo
+    ~/.zshenv: zshenv
 
 - brewfile:
     - Brewfile
