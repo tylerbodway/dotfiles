@@ -30,7 +30,7 @@
       path: lazygit/**
       glob: true
     ~/.config/nvim/:
-      path: nvim-lazyvim/**
+      path: nvim/**
       glob: true
     ~/.config/zellij/:
       path: zellij/**
