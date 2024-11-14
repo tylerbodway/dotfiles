@@ -3,10 +3,10 @@ pane_frames false
 session_serialization false
 disable_session_metadata true
 
-ui { 
-    pane_frames { 
-        hide_session_name true 
-    } 
+ui {
+    pane_frames {
+        hide_session_name true
+    }
 }
 
 theme "kanagawa-dragon"
@@ -106,7 +106,7 @@ keybinds clear-defaults=true {
         bind "u" { HalfPageScrollUp; }
     }
     search {
-        bind "Alt f" { SwitchToMode "Normal"; }
+        bind "Alt /" { SwitchToMode "Normal"; }
         bind "G" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
@@ -135,9 +135,10 @@ keybinds clear-defaults=true {
     shared_except "locked" {
         bind "Alt g" { SwitchToMode "Locked"; }
         bind "Alt q" { Quit; }
-        bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt w" { ToggleFloatingPanes; }
         bind "Alt n" { NewPane "Right"; }
         bind "Alt N" { NewPane "Down"; }
+        bind "Alt x" { CloseFocus; }
         bind "Alt H" { MoveTab "Left"; }
         bind "Alt L" { MoveTab "Right"; }
         bind "Alt h" "Alt Left" { MoveFocusOrTab "Left"; }
@@ -161,6 +162,9 @@ keybinds clear-defaults=true {
     shared_except "scroll" "locked" {
         bind "Alt s" { SwitchToMode "Scroll"; }
     }
+    shared_except "search" "locked" {
+        bind "Alt f" { SwitchToMode "Search"; }
+      }
     shared_except "tab" "locked" {
         bind "Alt t" { SwitchToMode "Tab"; }
     }
