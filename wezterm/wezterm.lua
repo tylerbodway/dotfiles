@@ -3,7 +3,7 @@ local config = {}
 
 -- Text
 config.font = wezterm.font("GeistMono Nerd Font", { weight = "Medium" })
-config.font_size = 14.0
+config.font_size = 14.5
 config.line_height = 1.1
 
 -- Window
