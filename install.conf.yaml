@@ -28,6 +28,9 @@
       glob: true
     ~/.config/wezterm/wezterm.lua: wezterm/wezterm.lua
     ~/.config/zellij/config.kdl: zellij/config.kdl
+    ~/.config/zellij/themes/:
+      path: zellij/themes/**
+      glob: true
     ~/.config/zsh/:
       path: zsh/**
       glob: true
