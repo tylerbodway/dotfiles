@@ -23,6 +23,9 @@
     ~/.config/nvim/:
       path: nvim/**
       glob: true
+    ~/.config/wezterm/colors/:
+      path: wezterm/colors/**
+      glob: true
     ~/.config/wezterm/wezterm.lua: wezterm/wezterm.lua
     ~/.config/zellij/config.kdl: zellij/config.kdl
     ~/.config/zsh/:
