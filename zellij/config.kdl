@@ -47,15 +47,6 @@ keybinds clear-defaults=true {
     }
     pane {
         bind "Alt p" { SwitchToMode "Normal"; }
-        bind "h" "Left" { MoveFocus "Left"; }
-        bind "l" "Right" { MoveFocus "Right"; }
-        bind "j" "Down" { MoveFocus "Down"; }
-        bind "k" "Up" { MoveFocus "Up"; }
-        bind "p" { SwitchFocus; }
-        bind "n" { NewPane; SwitchToMode "Normal"; }
-        // bind "d" { NewPane "Down"; SwitchToMode "Normal"; } // Use normal mode Alt+N
-        // bind "r" { NewPane "Right"; SwitchToMode "Normal"; } // Use normal mode Alt+n
-        bind "x" { CloseFocus; SwitchToMode "Normal"; }
         bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
         bind "z" { TogglePaneFrames; SwitchToMode "Normal"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
@@ -64,8 +55,7 @@ keybinds clear-defaults=true {
     }
     move {
         bind "Alt m" { SwitchToMode "Normal"; }
-        bind "n" "Tab" { MovePane; }
-        bind "p" { MovePaneBackwards; }
+        bind "b" { MovePaneBackwards; }
         bind "h" "Left" { MovePane "Left"; }
         bind "j" "Down" { MovePane "Down"; }
         bind "k" "Up" { MovePane "Up"; }
@@ -79,7 +69,6 @@ keybinds clear-defaults=true {
         bind "n" { NewTab; SwitchToMode "Normal"; }
         bind "x" { CloseTab; SwitchToMode "Normal"; }
         bind "s" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
-        bind "b" { BreakPane; SwitchToMode "Normal"; }
         bind "]" { BreakPaneRight; SwitchToMode "Normal"; }
         bind "[" { BreakPaneLeft; SwitchToMode "Normal"; }
         bind "1" { GoToTab 1; SwitchToMode "Normal"; }
@@ -91,12 +80,10 @@ keybinds clear-defaults=true {
         bind "7" { GoToTab 7; SwitchToMode "Normal"; }
         bind "8" { GoToTab 8; SwitchToMode "Normal"; }
         bind "9" { GoToTab 9; SwitchToMode "Normal"; }
-        bind "Tab" { ToggleTab; }
     }
     scroll {
         bind "Alt s" { SwitchToMode "Normal"; }
-        bind "e" { EditScrollback; SwitchToMode "Normal"; }
-        bind "s" { SwitchToMode "EnterSearch"; SearchInput 0; }
+        bind "g" { ScrollToTop; SwitchToMode "Normal"; }
         bind "G" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
@@ -106,7 +93,7 @@ keybinds clear-defaults=true {
         bind "u" { HalfPageScrollUp; }
     }
     search {
-        bind "Alt /" { SwitchToMode "Normal"; }
+        bind "Alt f" { SwitchToMode "Normal"; }
         bind "G" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
@@ -147,8 +134,7 @@ keybinds clear-defaults=true {
         bind "Alt k" "Alt Up" { MoveFocus "Up"; }
         bind "Alt =" "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
-        bind "Alt [" { PreviousSwapLayout; }
-        bind "Alt ]" { NextSwapLayout; }
+        bind "Alt e" { EditScrollback; }
         bind "Alt c" { Clear; }
     }
     shared_except "normal" "locked" {
@@ -171,5 +157,66 @@ keybinds clear-defaults=true {
     }
     shared_except "move" "locked" {
         bind "Alt m" { SwitchToMode "Move"; }
+    }
+
+    shared_except "locked" {
+        bind "Alt ?" {
+            LaunchOrFocusPlugin "https://github.com/karimould/zellij-forgot/releases/latest/download/zellij_forgot.wasm" {
+                "LOAD_ZELLIJ_BINDINGS" "false"
+                "lock" "Alt + g"
+                "unlock" "Alt + g"
+                "new vertical pane" "Alt + n"
+                "new horizontal pane" "Alt + N"
+                "toggle floating pane" "Alt + w"
+                "focus left" "Alt + h"
+                "focus down" "Alt + j"
+                "focus up" "Alt + k"
+                "focus down" "Alt + l"
+                "clear pane" "Alt + c"
+                "new tab" "Alt + t, n"
+                "rename tab" "Alt + t, r"
+                "go to tab number" "Alt + t, (1-9)"
+                "go to tab left" "Alt + t, h"
+                "go to tab right" "Alt + t, l"
+                "move tab left" "Alt + H"
+                "move tab right" "Alt + L"
+                "break tab to pane left" "Alt + t, ["
+                "break tab to pane right" "Alt + t, ]"
+                "toggle tab sync" "Alt + t, s"
+                "close tab" "Alt + t, x"
+                "toggle pane fullscreen" "Alt + p, f"
+                "toggle pane frames" "Alt + p, z"
+                "rename pane" "Alt + p, r"
+                "toggle embed/floating pane" "Alt + p, e"
+                "move pane left" "Alt + m, h"
+                "move pane down" "Alt + m, j"
+                "move pane up" "Alt + m, k"
+                "move pane right" "Alt + m, l"
+                "move floating pane forwards" "Alt + m, f"
+                "move floating pane backwards" "Alt + m, b"
+                "increase pane" "Alt + +"
+                "decrease pane" "Alt + -"
+                "increase pane left" "Alt + r, h"
+                "increase pane down" "Alt + r, j"
+                "increase pane up" "Alt + r, k"
+                "increase pane right" "Alt + r, l"
+                "decrease pane left" "Alt + r, H"
+                "decrease pane down" "Alt + r, J"
+                "decrease pane up" "Alt + r, K"
+                "decrease pane right" "Alt + r, L"
+                "close pane" "Alt + x"
+                "edit scrollback" "Alt + e"
+                "scroll to top" "Alt + s, g"
+                "scroll to bottom" "Alt + s, G"
+                "scroll page up" "Alt + s, B"
+                "scroll page down" "Alt + s, F"
+                "scroll half page up" "Alt + s, u"
+                "scroll half page down" "Alt + s, d"
+                "search" "Alt + f"
+                "toggle search case sensitive" "Alt + f, c"
+                "quit" "Alt + q"
+                floating true
+            }
+        }
     }
 }
