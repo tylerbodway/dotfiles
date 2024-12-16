@@ -36,6 +36,14 @@ brew "eza"
 # Modern, maintained replacement for ls
 # https://github.com/eza-community/eza
 
+brew "fd" # (neovim dependency)
+# Simple, fast and user-friendly alternative to find
+# https://github.com/sharkdp/fd
+
+brew "fzf" # (neovim dependency)
+# Command-line fuzzy finder written in Go
+# https://github.com/junegunn/fzf
+
 brew "git"
 # Distributed revision control system
 # https://git-scm.com
@@ -80,7 +88,7 @@ brew "zsh-autosuggestions"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 # https://github.com/zsh-users/zsh-autosuggestions
 
-brew "zsh-syntax-highlighting" 
+brew "zsh-syntax-highlighting"
 # Fish shell like syntax highlighting for zsh
 # https://github.com/zsh-users/zsh-syntax-highlighting
 
@@ -103,7 +111,7 @@ cask "cleanmymac"
 # Tool to remove unnecessary files and folders from disk
 # https://macpaw.com/cleanmymac
 
-cask "cleanshot" 
+cask "cleanshot"
 # Screen capturing tool
 # https://getcleanshot.com/
 
@@ -119,7 +127,7 @@ cask "hyperkey"
 # Convert caps lock key to the hyper key
 # https://hyperkey.app/
 
-cask "keymapp" 
+cask "keymapp"
 # ZSA keyboard firmware flasher
 # https://www.zsa.io/flash
 
@@ -127,7 +135,7 @@ cask "logi-options+"
 # Software for Logitech devices
 # https://www.logitech.com/en-us/software/logi-options-plus.html
 
-cask "monitorcontrol" 
+cask "monitorcontrol"
 # Tool to control external monitor brightness & volume
 # https://github.com/MonitorControl/MonitorControl
 
@@ -159,7 +167,7 @@ cask "spotify"
 # Music streaming service
 # https://www.spotify.com/
 
-cask "synology-drive" 
+cask "synology-drive"
 # Sync and backup service to Synology NAS drives
 # https://www.synology.com/
 
