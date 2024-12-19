@@ -4,6 +4,7 @@ return {
     servers = {
       ruby_lsp = {
         mason = false,
+        cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
         init_options = {
           linters = { "rubocop" },
           formatter = "syntax_tree",
