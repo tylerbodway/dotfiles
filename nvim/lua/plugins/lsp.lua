@@ -4,7 +4,9 @@ return {
     servers = {
       ruby_lsp = {
         mason = false,
-        cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
+        cmd_env = {
+          GEM_HOME = vim.env.RUBY_CONFDIR,
+        },
         init_options = {
           linters = { "rubocop" },
           formatter = "syntax_tree",
