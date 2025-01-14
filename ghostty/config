@@ -1,0 +1,20 @@
+theme = Kanagawa Dragon
+foreground = c5c9c5
+
+font-family = GeistMono Nerd Font
+font-size = 14
+font-thicken = true
+adjust-cell-height = 10%
+
+title = 👻 Ghostty
+window-width = 9999
+window-height = 9999
+window-padding-x = 10
+window-colorspace = display-p3
+
+macos-option-as-alt = true
+confirm-close-surface = false
+quit-after-last-window-closed = true
+shell-integration-features = no-cursor,sudo,no-title
+
+command = zsh -l -c zellij

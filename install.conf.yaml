@@ -16,6 +16,7 @@
     ~/.config/btop/btop.conf: btop/btop.conf
     ~/.config/btop/themes/kanagawa-dragon.theme: btop/kanagawa-dragon.theme
     ~/.config/direnv/direnv.toml: direnv/direnv.toml
+    ~/.config/ghostty/config: ghostty/config
     ~/.config/git/:
       path: git/**
       glob: true
@@ -23,7 +24,6 @@
     ~/.config/nvim/:
       path: nvim/**
       glob: true
-    ~/.config/wezterm/wezterm.lua: wezterm/wezterm.lua
     ~/.config/zellij/config.kdl: zellij/config.kdl
     ~/.config/zsh/:
       path: zsh/**
@@ -31,7 +31,6 @@
       prefix: .
     ~/.editorconfig: editorconfig
     ~/.ssh/config: ssh/config
-    ~/.terminfo/77/wezterm: wezterm/terminfo
     ~/.zshenv: zshenv
 
 - brewfile:

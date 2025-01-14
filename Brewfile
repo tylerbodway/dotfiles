@@ -123,6 +123,10 @@ cask "firefox@developer-edition"
 # Web browser
 # https://www.mozilla.org/firefox/developer/
 
+cask "ghostty"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+# https://ghostty.org
+
 cask "hyperkey"
 # Convert caps lock key to the hyper key
 # https://hyperkey.app/
@@ -182,10 +186,6 @@ cask "tuple"
 cask "visual-studio-code"
 # Open-source code editor
 # https://code.visualstudio.com/
-
-cask "wezterm"
-# GPU-accelerated cross-platform terminal emulator and multiplexer
-# https://wezfurlong.org/wezterm/
 
 cask "zoom"
 # Video communication and virtual meeting platform
