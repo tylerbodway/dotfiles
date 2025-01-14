@@ -160,7 +160,7 @@ keybinds clear-defaults=true {
     }
 
     shared_except "locked" {
-        bind "Alt ?" {
+        bind "Alt y" {
             LaunchOrFocusPlugin "https://github.com/karimould/zellij-forgot/releases/latest/download/zellij_forgot.wasm" {
                 "LOAD_ZELLIJ_BINDINGS" "false"
                 "lock" "Alt + g"
