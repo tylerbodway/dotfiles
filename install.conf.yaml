@@ -21,6 +21,7 @@
       path: git/**
       glob: true
     ~/.config/lazygit/config.yml: lazygit/config.yml
+    ~/.config/nix/nix.conf: nix/nix.conf
     ~/.config/nvim/:
       path: nvim/**
       glob: true
