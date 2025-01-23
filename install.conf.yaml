@@ -25,6 +25,7 @@
     ~/.config/nvim/:
       path: nvim/**
       glob: true
+    ~/.config/process-compose/theme.yaml: process-compose/theme.yaml
     ~/.config/zellij/config.kdl: zellij/config.kdl
     ~/.config/zsh/:
       path: zsh/**
