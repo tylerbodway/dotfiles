@@ -18,8 +18,9 @@ export EDITOR="$VISUAL"
 
 export DOT="$HOME/.dotfiles"
 
-export ASDF_CONFIG_FILE="$XDG_CONFIG_HOMEgg/asdf/asdfrc"
+export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
 export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
+export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/tool-versions"
 export GOPATH="$XDG_DATA_HOME/go"
 export HOMEBREW_BUNDLE_NO_LOCK=1
 
