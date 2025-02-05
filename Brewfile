@@ -48,6 +48,10 @@ brew "fzf" # (neovim dependency)
 # Command-line fuzzy finder written in Go
 # https://github.com/junegunn/fzf
 
+brew "gh"
+# GitHub command-line tool
+# https://cli.github.com
+
 brew "git"
 # Distributed revision control system
 # https://git-scm.com
