@@ -36,6 +36,10 @@ brew "eza"
 # Modern, maintained replacement for ls
 # https://github.com/eza-community/eza
 
+brew "fastfetch"
+# Like neofetch, but much faster because written mostly in C
+# https://github.com/fastfetch-cli/fastfetch
+
 brew "fd" # (neovim dependency)
 # Simple, fast and user-friendly alternative to find
 # https://github.com/sharkdp/fd
@@ -63,6 +67,10 @@ brew "mas"
 brew "neovim"
 # Ambitious Vim-fork focused on extensibility and agility
 # https://neovim.io/
+
+brew "posting"
+# Modern API client that lives in your terminal
+# https://github.com/darrenburns/posting
 
 brew "powerlevel10k"
 # Prompt theme for zsh
