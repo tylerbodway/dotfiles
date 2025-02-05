@@ -42,10 +42,6 @@ if [[ -d "$HOME/Code/pco" ]]; then
   eval "$($HOME/Code/pco/bin/pco init -)"
 fi
 
-if command -v asdf &> /dev/null; then
-  source "$(brew --prefix asdf)/libexec/asdf.sh"
-fi
-
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
 fi

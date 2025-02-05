@@ -21,7 +21,10 @@ export DOT="$HOME/.dotfiles"
 export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
 export ASDF_DATA_DIR="$XDG_DATA_HOME/asdf"
 export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/tool-versions"
+export PATH="${ASDF_DATA_DIR}/shims:$PATH"
+
 export GOPATH="$XDG_DATA_HOME/go"
+
 export HOMEBREW_BUNDLE_NO_LOCK=1
 
 if [[ -d "$HOME/pco-box" ]]; then
