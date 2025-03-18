@@ -27,6 +27,8 @@ export GOPATH="$XDG_DATA_HOME/go"
 
 export HOMEBREW_BUNDLE_NO_LOCK=1
 
+export DIRENV_LOG_FORMAT=$'\033[2mdirenv: %s\033[0m' # faint color
+
 if [[ -d "$HOME/pco-box" ]]; then
   source "$HOME/pco-box/env.sh"
 fi
