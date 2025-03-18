@@ -34,7 +34,7 @@
     ~/.editorconfig: editorconfig
     ~/.hushlogin: hushlogin
     ~/.ssh/config: ssh/config
-    ~/.zshenv: zshenv
+    ~/.zshenv: zsh/zshenv
 
 - brewfile:
     - Brewfile
