@@ -2,7 +2,7 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
--- Default is \ which I use for NeoTree
+-- Default is \ which I use for the file explorer
 vim.g.maplocalleader = ","
 
 vim.opt.swapfile = false
