@@ -36,10 +36,6 @@ brew "eza"
 # Modern, maintained replacement for ls
 # https://github.com/eza-community/eza
 
-brew "fastfetch"
-# Like neofetch, but much faster because written mostly in C
-# https://github.com/fastfetch-cli/fastfetch
-
 brew "fd" # (neovim dependency)
 # Simple, fast and user-friendly alternative to find
 # https://github.com/sharkdp/fd
@@ -119,6 +115,10 @@ cask "asana"
 # Manage team projects and tasks
 # https://asana.com/
 
+cask "brave-browser"
+# Web browser focusing on privacy
+# https://brave.com/
+
 cask "cleanmymac"
 # Tool to remove unnecessary files and folders from disk
 # https://macpaw.com/cleanmymac
@@ -194,10 +194,6 @@ cask "todoist"
 cask "tuple"
 # Remote pair programming app
 # https://tuple.app/
-
-cask "visual-studio-code"
-# Open-source code editor
-# https://code.visualstudio.com/
 
 cask "zoom"
 # Video communication and virtual meeting platform
