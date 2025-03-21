@@ -8,6 +8,13 @@ return {
       formatters = {
         file = { truncate = 72 },
       },
+      win = {
+        input = {
+          keys = {
+            ["<Esc>"] = { "close", mode = { "n", "i" } },
+          },
+        },
+      },
     },
     scratch = {
       ft = "markdown",
