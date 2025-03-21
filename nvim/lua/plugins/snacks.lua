@@ -5,6 +5,9 @@ return {
       sources = {
         files = { hidden = true },
       },
+      formatters = {
+        file = { truncate = 72 },
+      },
     },
     scratch = {
       ft = "markdown",
