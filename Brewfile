@@ -139,10 +139,6 @@ cask "ghostty"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 # https://ghostty.org
 
-cask "hyperkey"
-# Convert caps lock key to the hyper key
-# https://hyperkey.app/
-
 cask "keymapp"
 # ZSA keyboard firmware flasher
 # https://www.zsa.io/flash
