@@ -6,7 +6,7 @@ font-size = 14
 font-thicken = true
 adjust-cell-height = 10%
 
-title = "terminal"
+title = "Terminal"
 maximize = true
 window-padding-x = 10
 confirm-close-surface = false
