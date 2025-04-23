@@ -2,11 +2,11 @@ theme = Kanagawa Dragon
 foreground = c5c9c5
 
 font-family = GeistMono Nerd Font
-font-size = 14
+font-size = 13
 font-thicken = true
 adjust-cell-height = 10%
 
-title = "Terminal"
+title = " "
 maximize = true
 window-padding-x = 10
 confirm-close-surface = false
