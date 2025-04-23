@@ -7,5 +7,5 @@ Icon?
 dist
 /log/*
 /tmp/*
-
 .vscode
+*.paw
