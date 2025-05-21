@@ -10,6 +10,18 @@ return {
         width = 0.3,
       },
     },
+    keys = {
+      {
+        "<leader>aX",
+        function()
+          local chat = require("CopilotChat")
+          chat.reset()
+          chat.toggle()
+        end,
+        desc = "Clear and Close (CopilotChat)",
+        mode = { "n", "v" },
+      },
+    },
   },
   {
     "zbirenbaum/copilot.lua",
