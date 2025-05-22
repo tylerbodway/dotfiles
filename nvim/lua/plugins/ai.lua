@@ -2,7 +2,7 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {
-      model = "claude-3.7-sonnet",
+      model = "claude-sonnet-4",
       auto_insert_mode = false,
       show_help = false,
       question_header = " Tyler ",
