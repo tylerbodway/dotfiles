@@ -12,6 +12,10 @@ brew "awscli"
 # Official Amazon AWS command-line interface
 # https://aws.amazon.com/cli/
 
+brew "base64" # (codecompanion.nvim dependency)
+# Encode and decode base64 files
+# https://www.fourmilab.ch/webtools/base64/
+
 brew "bat"
 # Clone of cat(1) with syntax highlighting and Git integration
 # https://github.com/sharkdp/bat
