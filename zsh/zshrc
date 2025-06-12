@@ -33,6 +33,7 @@ alias nv="$EDITOR"
 alias nvrs="rm -rf $XDG_CONFIG_HOME/nvim $XDG_DATA_HOME/nvim $XDG_STATE_HOME/nvim $XDG_CACHE_HOME/nvim && $DOT/install --only=link"
 alias dotedit="cd $DOT && $EDITOR"
 alias gg="lazygit"
+alias claude="pco aws-login && claude"
 
 alias rnm="rm -rf node_modules"
 alias bay="bundle install && yarn install"
