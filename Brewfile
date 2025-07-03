@@ -167,6 +167,10 @@ cask "opal-composer"
 # Professional webcam software for the Opal C1
 # https://opalcamera.com/opal-composer
 
+cask "rapidapi"
+# HTTP client that helps testing and describing APIs
+# https://paw.cloud/
+
 cask "raycast"
 # Spotlight replacement productivity tool
 # https://raycast.com/
