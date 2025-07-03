@@ -18,4 +18,6 @@ macos-option-as-alt = true
 
 auto-update-channel = tip
 
+keybind = shift+enter=text:\n
+
 initial-command = zsh -l -c zellij
