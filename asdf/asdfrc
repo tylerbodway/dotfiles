@@ -1,4 +1,1 @@
-# By default, asdf looks for a `.tool-versions` file, but this also
-# supports files from other managers like `.(ruby|node)-version`
-legacy_version_file = yes
 always_keep_download = no
