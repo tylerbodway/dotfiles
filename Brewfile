@@ -131,7 +131,7 @@ cask "cleanshot"
 # Screen capturing tool
 # https://getcleanshot.com/
 
-cask "copilot"
+cask "copilot-money"
 # Track and budget money
 # https://copilot.money/
 
@@ -187,7 +187,7 @@ cask "synology-drive"
 # Sync and backup service to Synology NAS drives
 # https://www.synology.com/
 
-cask "todoist"
+cask "todoist-app"
 # To-do list
 # https://todoist.com/home
 
