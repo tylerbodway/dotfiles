@@ -155,10 +155,6 @@ cask "monitorcontrol"
 # Tool to control external monitor brightness & volume
 # https://github.com/MonitorControl/MonitorControl
 
-cask "nordvpn"
-# VPN client for secure internet access and private browsing
-# https://nordvpn.com/
-
 cask "notion"
 # App to write, plan, collaborate, and get organised
 # https://www.notion.so/
@@ -171,6 +167,22 @@ cask "opal-composer"
 # Professional webcam software for the Opal C1
 # https://opalcamera.com/opal-composer
 
+cask "proton-drive"
+# Client for Proton Drive
+# https://proton.me/drive
+
+cask "proton-mail"
+# Client for Proton Mail and Proton Calendar
+# https://proton.me/mail
+
+cask "proton-mail-bridge"
+# Bridges Proton Mail to email clients supporting IMAP and SMTP protocols
+# https://proton.me/mail/bridge
+
+cask "protonvpn"
+# VPN client focusing on security
+# https://protonvpn.com/
+
 cask "rapidapi"
 # HTTP client that helps testing and describing APIs
 # https://paw.cloud/
@@ -179,10 +191,6 @@ cask "raycast"
 # Spotlight replacement productivity tool
 # https://raycast.com/
 
-cask "readdle-spark"
-# Email client
-# https://sparkmailapp.com/
-
 cask "slack"
 # Team communication and collaboration software
 # https://slack.com/
@@ -190,10 +198,6 @@ cask "slack"
 cask "spotify"
 # Music streaming service
 # https://www.spotify.com/
-
-cask "synology-drive"
-# Sync and backup service to Synology NAS drives
-# https://www.synology.com/
 
 cask "todoist-app"
 # To-do list
