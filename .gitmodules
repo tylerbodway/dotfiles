@@ -6,10 +6,6 @@
 	path = gitmodules/spaceship-prompt
 	url = https://github.com/spaceship-prompt/spaceship-prompt
   ignore = dirty
-[submodule "zsh-completions"]
-	path = gitmodules/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions.git
-  ignore = dirty
 [submodule "dotbot-brew"]
 	path = gitmodules/dotbot-brew
 	url = https://github.com/d12frosted/dotbot-brew.git

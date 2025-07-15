@@ -100,6 +100,10 @@ brew "zsh-autosuggestions"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 # https://github.com/zsh-users/zsh-autosuggestions
 
+brew "zsh-completions"
+# Additional completion definitions for zsh
+# https://github.com/zsh-users/zsh-completions
+
 brew "zsh-syntax-highlighting"
 # Fish shell like syntax highlighting for zsh
 # https://github.com/zsh-users/zsh-syntax-highlighting

@@ -8,8 +8,8 @@ unsetopt nomatch # allows [ or ] wherever, like rake task args
 setopt auto_cd
 cdpath=($HOME/Code $HOME/Projects)
 
-fpath=($DOT/gitmodules/zsh-completions/src $fpath)
-autoload -U compinit; compinit
+fpath=($(brew --prefix)/share/zsh-completions $fpath)
+autoload -Uz compinit; compinit
 
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
