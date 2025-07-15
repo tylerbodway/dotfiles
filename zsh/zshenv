@@ -1,2 +1,3 @@
+unsetopt global_rcs
 export ZDOTDIR="$HOME/.config/zsh"
 
