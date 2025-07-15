@@ -3,42 +3,37 @@ setopt hist_expire_dups_first
 setopt hist_ignore_dups
 setopt hist_verify
 
+unsetopt nomatch # allows [ or ] wherever, like rake task args
+
 setopt auto_cd
 cdpath=($HOME/Code $HOME/Projects)
 
-unsetopt nomatch # allows [ or ] wherever, like rake task args
-
 fpath=($DOT/gitmodules/zsh-completions/src $fpath)
+autoload -U compinit; compinit
+
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
 
-source "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
-source "$ZDOTDIR/.p10k.zsh"
-
 bindkey "^[[A" history-search-backward # up arrow
 bindkey "^[[B" history-search-forward # down arrow
 
-autoload -U compinit; compinit
+source "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
+source "$ZDOTDIR/.p10k.zsh"
 
-alias c="clear"
+alias dotedit="cd $DOT && $EDITOR"
+alias nv="nvim"
+alias nvrs="rm -rf $XDG_CONFIG_HOME/nvim $XDG_DATA_HOME/nvim $XDG_STATE_HOME/nvim $XDG_CACHE_HOME/nvim && $DOT/install --only=link"
 alias cat="bat --theme=kanagawa-dragon --style=changes,rule,numbers"
 alias ls="eza"
 alias ll="eza -la --group-directories-first --no-permissions --no-filesize --no-user --no-time -I .DS_Store"
 alias llt="ll --tree --git --git-ignore"
 alias llr="ll --git-repos"
-alias groups="cd groups" # override coreutils command with auto cd
 
-alias nv="$EDITOR"
-alias nvrs="rm -rf $XDG_CONFIG_HOME/nvim $XDG_DATA_HOME/nvim $XDG_STATE_HOME/nvim $XDG_CACHE_HOME/nvim && $DOT/install --only=link"
-alias dotedit="cd $DOT && $EDITOR"
-alias gg="lazygit"
 alias claude="pco aws-login && claude"
-
+alias gg="lazygit"
 alias rnm="rm -rf node_modules"
 alias bay="bundle install && yarn install"
-
-source "$ZDOTDIR/.plugin.rails.zsh"
 
 if [[ -d "$HOME/Code/pco" ]]; then
   eval "$($HOME/Code/pco/bin/pco init -)"
