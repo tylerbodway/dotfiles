@@ -35,6 +35,9 @@ alias gg="lazygit"
 alias rnm="rm -rf node_modules"
 alias bay="bundle install && yarn install"
 
+alias groups="cd groups" # fixes conflict with coreutils command
+alias chat="cd chat" # fixes conflict with modem command
+
 if [[ -d "$HOME/Code/pco" ]]; then
   eval "$($HOME/Code/pco/bin/pco init -)"
 fi
