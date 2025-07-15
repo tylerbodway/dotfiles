@@ -11,7 +11,6 @@
       recursive: true
 
 - link:
-    ~/.config/asdf/asdfrc: asdf/asdfrc
     ~/.config/bat/themes/kanagawa-dragon.tmTheme: bat/kanagawa-dragon.tmTheme
     ~/.config/btop/btop.conf: btop/btop.conf
     ~/.config/btop/themes/kanagawa-dragon.theme: btop/kanagawa-dragon.theme

@@ -4,10 +4,6 @@
 
 # === Packages ===
 
-brew "asdf"
-# Extendable version manager with support for Ruby, Node.js, etc.
-# https://asdf-vm.com/
-
 brew "awscli"
 # Official Amazon AWS command-line interface
 # https://aws.amazon.com/cli/
@@ -23,10 +19,6 @@ brew "bat"
 brew "btop"
 # Resource monitor
 # https://github.com/aristocratos/btop
-
-brew "coreutils" # (asdf dependency)
-# GNU File, Shell, and Text utilities
-# https://www.gnu.org/software/coreutils
 
 brew "curl"
 # Get a file from an HTTP, HTTPS or FTP server
@@ -76,6 +68,10 @@ brew "posting"
 # Modern API client that lives in your terminal
 # https://github.com/darrenburns/posting
 
+brew "node"
+# Platform built on V8 to build network applications
+# https://nodejs.org/
+
 brew "powerlevel10k"
 # Prompt theme for zsh
 # https://github.com/romkatv/powerlevel10k
@@ -83,6 +79,10 @@ brew "powerlevel10k"
 brew "ripgrep" # (neovim dependency)
 # Search tool like grep and The Silver Searcher (for neovim)
 # https://github.com/BurntSushi/ripgrep
+
+brew "ruby"
+# Powerful, clean, object-oriented scripting language
+# https://www.ruby-lang.org/
 
 brew "wget"
 # Internet file retriever
