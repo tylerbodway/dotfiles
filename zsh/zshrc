@@ -30,7 +30,6 @@ alias ll="eza -la --group-directories-first --no-permissions --no-filesize --no-
 alias llt="ll --tree --git --git-ignore"
 alias llr="ll --git-repos"
 
-alias claude="pco aws-login && $CLAUDE_CONFIG_DIR/local/claude"
 alias gg="lazygit"
 alias rnm="rm -rf node_modules"
 alias bay="bundle install && yarn install"
