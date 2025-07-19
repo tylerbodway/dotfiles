@@ -11,9 +11,10 @@
       recursive: true
 
 - link:
-    ~/.config/bat/themes/kanagawa-dragon.tmTheme: bat/kanagawa-dragon.tmTheme
+    ~/.config/bat/themes/catppuccin-mocha.tmTheme: bat/catppuccin-mocha.tmTheme
+    ~/.config/bat/config: bat/config
     ~/.config/btop/btop.conf: btop/btop.conf
-    ~/.config/btop/themes/kanagawa-dragon.theme: btop/kanagawa-dragon.theme
+    ~/.config/btop/themes/catppuccin-mocha.theme: btop/catppuccin-mocha.theme
     ~/.config/direnv/direnv.toml: direnv/direnv.toml
     ~/.config/ghostty/config: ghostty/config
     ~/.config/git/:

@@ -26,9 +26,30 @@ gui:
   # display the files as a flat list. this can still be toggled with the backtick key.
   showFileTree: false
 
+  # catppuccin-mocha
   theme:
+    activeBorderColor:
+      - "#a6e3a1"
+      - bold
+    inactiveBorderColor:
+      - "#a6adc8"
+    optionsTextColor:
+      - "#89b4fa"
     selectedLineBgColor:
-      - "#223249"
+      - "#313244"
+    cherryPickedCommitBgColor:
+      - "#45475a"
+    cherryPickedCommitFgColor:
+      - "#a6e3a1"
+    unstagedChangesColor:
+      - "#f38ba8"
+    defaultFgColor:
+      - "#eef1fc"
+    searchingActiveBorderColor:
+      - "#f9e2af"
+
+  authorColors:
+    "*": "#b4befe"
 
 # don't display introductory popups upon opening lazygit.
 disableStartupPopups: true
