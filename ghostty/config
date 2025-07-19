@@ -1,6 +1,8 @@
 theme = catppuccin-mocha
 background = 171922
 foreground = eef1fc
+background-opacity = 0.96
+background-blur = true
 
 font-family = GeistMono Nerd Font
 font-size = 13
