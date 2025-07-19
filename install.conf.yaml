@@ -15,6 +15,7 @@
     ~/.config/bat/config: bat/config
     ~/.config/btop/btop.conf: btop/btop.conf
     ~/.config/btop/themes/catppuccin-mocha.theme: btop/catppuccin-mocha.theme
+    ~/.config/claude/settings.json: claude/settings.json
     ~/.config/direnv/direnv.toml: direnv/direnv.toml
     ~/.config/ghostty/config: ghostty/config
     ~/.config/git/:
