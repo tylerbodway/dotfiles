@@ -1,5 +1,6 @@
-theme = Kanagawa Dragon
-foreground = c5c9c5
+theme = catppuccin-mocha
+background = 171922
+foreground = eef1fc
 
 font-family = GeistMono Nerd Font
 font-size = 13

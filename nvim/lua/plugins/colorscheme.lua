@@ -1,16 +1,21 @@
 return {
   {
-    "rebelot/kanagawa.nvim",
-    lazy = true,
-    priority = 1000,
+    "catppuccin/nvim",
     opts = {
-      theme = "dragon",
+      flavor = "mocha",
+      color_overrides = {
+        mocha = {
+          base = "#171922",
+          text = "#eef1fc",
+          mantle = "#13151c",
+        },
+      },
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa-dragon",
+      colorscheme = "catppuccin",
     },
   },
 }
