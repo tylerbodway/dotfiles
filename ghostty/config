@@ -15,7 +15,6 @@ window-padding-x = 10
 confirm-close-surface = false
 quit-after-last-window-closed = true
 
-macos-icon = xray
 macos-titlebar-style = tabs
 macos-option-as-alt = true
 
