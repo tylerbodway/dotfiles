@@ -9,3 +9,5 @@ dist
 /tmp/*
 .vscode
 *.paw
+
+**/.claude/settings.local.json
