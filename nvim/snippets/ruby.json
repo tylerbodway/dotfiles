@@ -1,7 +1,0 @@
-{
-  "Test Case": {
-    "prefix": "tc",
-    "body": ["test \"${1:description}\" do", "\t${2:expectation}", "end"],
-    "description": "Test Case with Minitest"
-  }
-}
