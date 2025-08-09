@@ -27,7 +27,9 @@
       path: nvim/**
       glob: true
     ~/.config/process-compose/theme.yaml: process-compose/theme.yaml
-    ~/.config/zellij/config.kdl: zellij/config.kdl
+    ~/.config/zellij/:
+      path: zellij/**
+      glob: true
     ~/.config/zsh/:
       path: zsh/**
       glob: true

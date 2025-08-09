@@ -1,125 +1,4 @@
-theme "catppuccin-mocha-modified"
-themes {
-    catppuccin-mocha-modified {
-        text_unselected {
-            base 205 214 244
-            background 19 21 28
-            emphasis_0 250 179 135
-            emphasis_1 137 220 235
-            emphasis_2 166 227 161
-            emphasis_3 245 194 231
-        }
-        text_selected {
-            base 205 214 244
-            background 88 91 112
-            emphasis_0 250 179 135
-            emphasis_1 137 220 235
-            emphasis_2 166 227 161
-            emphasis_3 245 194 231
-        }
-        ribbon_selected {
-            base 19 21 28
-            background 166 227 161
-            emphasis_0 243 139 168
-            emphasis_1 250 179 135
-            emphasis_2 245 194 231
-            emphasis_3 137 180 250
-        }
-        ribbon_unselected {
-            base 19 21 28
-            background 109 119 161
-            emphasis_0 243 139 168
-            emphasis_1 205 214 244
-            emphasis_2 137 180 250
-            emphasis_3 245 194 231
-        }
-        table_title {
-            base 166 227 161
-            background 0
-            emphasis_0 250 179 135
-            emphasis_1 137 220 235
-            emphasis_2 166 227 161
-            emphasis_3 245 194 231
-        }
-        table_cell_selected {
-            base 205 214 244
-            background 88 91 112
-            emphasis_0 250 179 135
-            emphasis_1 137 220 235
-            emphasis_2 166 227 161
-            emphasis_3 245 194 231
-        }
-        table_cell_unselected {
-            base 205 214 244
-            background19 21 28
-            emphasis_0 250 179 135
-            emphasis_1 137 220 235
-            emphasis_2 166 227 161
-            emphasis_3 245 194 231
-        }
-        list_selected {
-            base 205 214 244
-            background 88 91 112
-            emphasis_0 250 179 135
-            emphasis_1 137 220 235
-            emphasis_2 166 227 161
-            emphasis_3 245 194 231
-        }
-        list_unselected {
-            base 205 214 244
-            background19 21 28
-            emphasis_0 250 179 135
-            emphasis_1 137 220 235
-            emphasis_2 166 227 161
-            emphasis_3 245 194 231
-        }
-        frame_selected {
-            base 166 227 161
-            background 0
-            emphasis_0 250 179 135
-            emphasis_1 137 220 235
-            emphasis_2 245 194 231
-            emphasis_3 0
-        }
-        frame_highlight {
-            base 250 179 135
-            background 0
-            emphasis_0 245 194 231
-            emphasis_1 250 179 135
-            emphasis_2 250 179 135
-            emphasis_3 250 179 135
-        }
-        exit_code_success {
-            base 166 227 161
-            background 0
-            emphasis_0 137 220 235
-            emphasis_1 19 21 28
-            emphasis_2 245 194 231
-            emphasis_3 137 180 250
-        }
-        exit_code_error {
-            base 243 139 168
-            background 0
-            emphasis_0 249 226 175
-            emphasis_1 0
-            emphasis_2 0
-            emphasis_3 0
-        }
-        multiplayer_user_colors {
-            player_1 245 194 231
-            player_2 137 180 250
-            player_3 0
-            player_4 249 226 175
-            player_5 137 220 235
-            player_6 0
-            player_7 243 139 168
-            player_8 0
-            player_9 0
-            player_10 0
-        }
-    }
-}
-
+theme "vague"
 default_layout "compact"
 pane_frames false
 session_serialization false
@@ -257,7 +136,7 @@ keybinds clear-defaults=true {
     }
     shared_except "search" "locked" {
         bind "Alt f" { SwitchToMode "Search"; }
-      }
+    }
     shared_except "tab" "locked" {
         bind "Alt t" { SwitchToMode "Tab"; }
     }
@@ -268,60 +147,60 @@ keybinds clear-defaults=true {
     shared_except "locked" {
         bind "Alt y" {
             LaunchOrFocusPlugin "https://github.com/karimould/zellij-forgot/releases/latest/download/zellij_forgot.wasm" {
-                "LOAD_ZELLIJ_BINDINGS" "false"
-                "lock" "Alt + g"
-                "unlock" "Alt + g"
-                "new vertical pane" "Alt + n"
-                "new horizontal pane" "Alt + N"
-                "toggle floating pane" "Alt + w"
-                "focus left" "Alt + h"
-                "focus down" "Alt + j"
-                "focus up" "Alt + k"
-                "focus down" "Alt + l"
-                "clear pane" "Alt + c"
-                "new tab" "Alt + t, n"
-                "rename tab" "Alt + t, r"
-                "go to tab number" "Alt + t, (1-9)"
-                "go to tab left" "Alt + t, h"
-                "go to tab right" "Alt + t, l"
-                "move tab left" "Alt + H"
-                "move tab right" "Alt + L"
-                "break tab to pane left" "Alt + t, ["
-                "break tab to pane right" "Alt + t, ]"
-                "toggle tab sync" "Alt + t, s"
-                "close tab" "Alt + t, x"
-                "toggle pane fullscreen" "Alt + p, f"
-                "toggle pane frames" "Alt + p, z"
-                "rename pane" "Alt + p, r"
-                "toggle embed/floating pane" "Alt + p, e"
-                "move pane left" "Alt + m, h"
-                "move pane down" "Alt + m, j"
-                "move pane up" "Alt + m, k"
-                "move pane right" "Alt + m, l"
-                "move floating pane forwards" "Alt + m, f"
-                "move floating pane backwards" "Alt + m, b"
-                "increase pane" "Alt + +"
-                "decrease pane" "Alt + -"
-                "increase pane left" "Alt + r, h"
-                "increase pane down" "Alt + r, j"
-                "increase pane up" "Alt + r, k"
-                "increase pane right" "Alt + r, l"
-                "decrease pane left" "Alt + r, H"
-                "decrease pane down" "Alt + r, J"
-                "decrease pane up" "Alt + r, K"
-                "decrease pane right" "Alt + r, L"
-                "close pane" "Alt + x"
-                "edit scrollback" "Alt + e"
-                "scroll to top" "Alt + s, g"
-                "scroll to bottom" "Alt + s, G"
-                "scroll page up" "Alt + s, B"
-                "scroll page down" "Alt + s, F"
-                "scroll half page up" "Alt + s, u"
-                "scroll half page down" "Alt + s, d"
-                "search" "Alt + f"
-                "toggle search case sensitive" "Alt + f, c"
-                "quit" "Alt + q"
-                floating true
+              "LOAD_ZELLIJ_BINDINGS" "false"
+              "lock" "Alt + g"
+              "unlock" "Alt + g"
+              "new vertical pane" "Alt + n"
+              "new horizontal pane" "Alt + N"
+              "toggle floating pane" "Alt + w"
+              "focus left" "Alt + h"
+              "focus down" "Alt + j"
+              "focus up" "Alt + k"
+              "focus down" "Alt + l"
+              "clear pane" "Alt + c"
+              "new tab" "Alt + t, n"
+              "rename tab" "Alt + t, r"
+              "go to tab number" "Alt + t, (1-9)"
+              "go to tab left" "Alt + t, h"
+              "go to tab right" "Alt + t, l"
+              "move tab left" "Alt + H"
+              "move tab right" "Alt + L"
+              "break tab to pane left" "Alt + t, ["
+              "break tab to pane right" "Alt + t, ]"
+              "toggle tab sync" "Alt + t, s"
+              "close tab" "Alt + t, x"
+              "toggle pane fullscreen" "Alt + p, f"
+              "toggle pane frames" "Alt + p, z"
+              "rename pane" "Alt + p, r"
+              "toggle embed/floating pane" "Alt + p, e"
+              "move pane left" "Alt + m, h"
+              "move pane down" "Alt + m, j"
+              "move pane up" "Alt + m, k"
+              "move pane right" "Alt + m, l"
+              "move floating pane forwards" "Alt + m, f"
+              "move floating pane backwards" "Alt + m, b"
+              "increase pane" "Alt + +"
+              "decrease pane" "Alt + -"
+              "increase pane left" "Alt + r, h"
+              "increase pane down" "Alt + r, j"
+              "increase pane up" "Alt + r, k"
+              "increase pane right" "Alt + r, l"
+              "decrease pane left" "Alt + r, H"
+              "decrease pane down" "Alt + r, J"
+              "decrease pane up" "Alt + r, K"
+              "decrease pane right" "Alt + r, L"
+              "close pane" "Alt + x"
+              "edit scrollback" "Alt + e"
+              "scroll to top" "Alt + s, g"
+              "scroll to bottom" "Alt + s, G"
+              "scroll page up" "Alt + s, B"
+              "scroll page down" "Alt + s, F"
+              "scroll half page up" "Alt + s, u"
+              "scroll half page down" "Alt + s, d"
+              "search" "Alt + f"
+              "toggle search case sensitive" "Alt + f, c"
+              "quit" "Alt + q"
+              floating true
             }
         }
     }
