@@ -49,16 +49,18 @@ require("mini.hipatterns").setup({
 require("mini.tabline").setup()
 
 -- with multiple buffers open, show tabline with bottom padding via winbar
-vim.api.nvim_create_autocmd({ "BufEnter", "BufDelete", "BufWinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
   callback = function()
-    local buf_count = #vim.fn.getbufinfo({ buflisted = 1 })
-    if buf_count > 1 then
-      vim.opt.showtabline = 2 -- always show
-      vim.opt.winbar = " "
-    else
-      vim.opt.showtabline = 0 -- hide
-      vim.opt.winbar = ""
-    end
+    vim.schedule(function()
+      local buf_count = #vim.fn.getbufinfo({ buflisted = 1 })
+      if buf_count > 1 then
+        vim.opt.showtabline = 2 -- always show
+        vim.opt.winbar = " "
+      else
+        vim.opt.showtabline = 0 -- hide
+        vim.opt.winbar = ""
+      end
+    end)
   end,
 })
 
