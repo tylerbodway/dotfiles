@@ -21,13 +21,15 @@ wk.setup({
 })
 
 wk.add({
+  { "<leader>a", group = "ai", mode = { "n", "v" } },
+  { "<leader>ag", group = "GitHub Copilot" },
   { "<leader>b", group = "buffer" },
-  { "<leader>c", group = "code" },
+  { "<leader>c", group = "code", mode = { "n", "v" } },
   { "<leader>f", group = "files" },
   { "<leader>g", group = "git" },
   { "<leader>q", group = "quit" },
   { "<leader>r", group = "refactoring" },
-  { "<leader>s", group = "search" },
+  { "<leader>s", group = "search", mode = { "n", "v" } },
   { "<leader>u", group = "ui" },
   { "<leader>w", group = "windows" },
   { "<leader>x", group = "diagnostics" },
