@@ -1,8 +1,13 @@
 -- Buffers / files
+vim.keymap.set({ "n", "i", "x", "s" }, "<C-s>", "<cmd>w<CR><Esc>", { desc = "Save file" })
 vim.keymap.set("n", "<S-h>", "<cmd>bprevious<CR>", { desc = "Prev buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>bn", "<cmd>enew<CR>", { desc = "New buffer" })
-vim.keymap.set({ "n", "i", "x", "s" }, "<C-s>", "<cmd>w<CR><Esc>", { desc = "Save file" })
+vim.keymap.set("n", "<leader>br", function()
+  vim.ui.input({ prompt = "Rename buffer: " }, function(name)
+    if name and name ~= "" then vim.cmd("file " .. name) end
+  end)
+end, { desc = "Rename buffer" })
 
 -- Splits / windows
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
