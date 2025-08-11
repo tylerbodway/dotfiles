@@ -68,6 +68,9 @@ vim.keymap.set("n", "<leader>e", function() Snacks.explorer() end, { desc = "Tog
 vim.keymap.set("n", "<leader>fe", function() Snacks.explorer.reveal() end, { desc = "Show in explorer" })
 vim.keymap.set("n", "<leader>fn", function() Snacks.rename.rename_file() end, { desc = "Rename file" })
 
+-- Git
+vim.keymap.set({ "n", "v" }, "<leader>gb", function() Snacks.git.blame_line() end, { desc = "Blame line" })
+
 -- Lazygit
 vim.keymap.set("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit" })
 vim.keymap.set("n", "<leader>gl", function() Snacks.lazygit.log_file() end, { desc = "Lazygit log (current file)" })
