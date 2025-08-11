@@ -1,7 +1,7 @@
 -- Language parser tool to power faster and more accurrate syntax highlighting
 vim.pack.add({ { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "master" } })
 
-require("nvim-treesitter").setup({
+require("nvim-treesitter.configs").setup({
   auto_install = true,
   highlight = { enable = true },
   indent = { enable = true },
