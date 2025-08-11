@@ -1,8 +1,6 @@
 -- A blazing fast and easy to configure neovim statusline plugin
 vim.pack.add({ "https://github.com/nvim-lualine/lualine.nvim" })
 
-local codecompanion = require("plugins.lualine.extensions.codecompanion")
-
 require("lualine").setup({
   options = {
     globalstatus = true,
@@ -13,7 +11,12 @@ require("lualine").setup({
     lualine_a = { "mode" },
     lualine_b = { "branch" },
     lualine_c = { { "filename", file_status = false, path = 1 }, "diagnostics", "diff" },
-    lualine_x = { { codecompanion }, "lsp_progress" },
+    lualine_x = {
+      {
+        require("plugins.lualine.extensions.codecompanion") --[[@as any]],
+      },
+      "lsp_status",
+    },
     lualine_y = { "filetype", "encoding", "progress" },
     lualine_z = { "location" },
   },
