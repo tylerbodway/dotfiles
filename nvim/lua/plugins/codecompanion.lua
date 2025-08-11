@@ -48,8 +48,8 @@ vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionChat Toggle<CR>", 
 vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<CR>", { desc = "Add AI chat context" })
 vim.keymap.set({ "n", "v" }, "<leader>ai", function()
   local mode = vim.fn.mode()
-  vim.ui.input({ prompt = "Ask AI 󱙺 " }, function(input)
-    if input ~= "" then
+  vim.ui.input({ prompt = "Ask AI 󱙺 ", win = { style = "above_cursor" } }, function(input)
+    if input and input ~= "" then
       if mode:match("[vV\22]") then
         vim.cmd("'<,'>CodeCompanion " .. input)
       else

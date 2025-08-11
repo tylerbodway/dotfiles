@@ -55,6 +55,16 @@ require("snacks").setup({
       height = 0.98,
       border = "rounded",
     },
+    above_cursor = {
+      relative = "cursor",
+      position = "float",
+      height = 1,
+      row = -3,
+      col = 0,
+      backdrop = false,
+      title_pos = "left",
+      border = "rounded",
+    },
   },
 })
 
