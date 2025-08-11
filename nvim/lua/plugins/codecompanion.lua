@@ -22,6 +22,9 @@ require("codecompanion").setup({
         },
       },
     },
+    diff = {
+      provider = "mini_diff",
+    },
   },
   strategies = {
     inline = {

@@ -45,6 +45,9 @@ require("mini.hipatterns").setup({
   },
 })
 
+-- Work with diff hunks.
+require("mini.diff").setup()
+
 -- Minimal and fast tabline showing listed buffers
 require("mini.tabline").setup()
 
