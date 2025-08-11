@@ -6,6 +6,7 @@ require("snacks").setup({
   bufdelete = { enabled = true },
   dashboard = {
     enabled = true,
+    width = 80,
     preset = {
       header = [[
  ████████    ██████   ██████  █████ █████ ████  █████████████
