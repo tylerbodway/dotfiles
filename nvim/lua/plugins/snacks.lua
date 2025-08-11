@@ -97,7 +97,12 @@ vim.keymap.set("n", "<leader>n", function() picker.notifications() end, { desc =
 -- find
 vim.keymap.set("n", "<leader>fb", function() picker.buffers() end, { desc = "Find buffers" })
 vim.keymap.set("n", "<leader>ff", function() picker.files() end, { desc = "Find files" })
-vim.keymap.set("n", "<leader>fr", function() picker.recent() end, { desc = "Find recent files" })
+vim.keymap.set(
+  "n",
+  "<leader>fr",
+  function() picker.recent({ filter = { cwd = true } }) end,
+  { desc = "Find recent files" }
+)
 vim.keymap.set(
   "n",
   "<leader>fs",
