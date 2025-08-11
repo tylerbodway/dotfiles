@@ -15,7 +15,7 @@ require("lualine").setup({
       {
         require("plugins.lualine.extensions.codecompanion") --[[@as any]],
       },
-      "lsp_status",
+      { "lsp_status", icon = "󰙅 ", ignore_lsp = { "copilot", "emmet_language_server", "eslint" } },
     },
     lualine_y = { "filetype", "encoding", "progress" },
     lualine_z = { "location" },
