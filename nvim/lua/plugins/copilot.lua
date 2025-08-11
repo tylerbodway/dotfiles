@@ -6,6 +6,8 @@ vim.pack.add({ "https://github.com/fang2hou/blink-copilot" })
 require("copilot").setup({
   suggestion = { enabled = false },
   panel = { enabled = false },
+  -- use global node rather than devbox project node, v20+ required
+  copilot_node_command = "/opt/homebrew/bin/node",
 })
 
 require("blink-copilot").setup({
