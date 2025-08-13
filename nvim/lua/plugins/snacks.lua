@@ -27,7 +27,13 @@ require("snacks").setup({
     sections = {
       { section = "header", padding = 3 },
       { section = "keys", padding = 2, gap = 1 },
-      { section = "recent_files", padding = 1, limit = 6, cwd = true },
+      {
+        section = "recent_files",
+        padding = 1,
+        limit = 6,
+        cwd = true,
+        filter = function(pathname) return not pathname:match(".git") end,
+      },
     },
   },
   explorer = { enabled = true },
