@@ -17,7 +17,9 @@
     ~/.config/btop/themes/catppuccin-mocha.theme: btop/catppuccin-mocha.theme
     ~/.config/claude/settings.json: claude/settings.json
     ~/.config/direnv/direnv.toml: direnv/direnv.toml
-    ~/.config/ghostty/config: ghostty/config
+    ~/.config/ghostty:
+      path: ghostty/**
+      glob: true
     ~/.config/git/:
       path: git/**
       glob: true
