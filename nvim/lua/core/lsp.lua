@@ -29,6 +29,7 @@ vim.lsp.enable({
   "lua_ls",
   "ruby_lsp",
   "vtsls",
+  "yamlls",
 })
 
 vim.keymap.set("n", "<leader>cl", "<cmd>LspInfo<CR>", { desc = "LSP info" })
