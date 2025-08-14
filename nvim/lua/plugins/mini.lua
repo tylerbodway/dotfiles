@@ -4,13 +4,24 @@ vim.pack.add({ "https://github.com/echasnovski/mini.nvim" })
 -- Icon provider
 local icons = require("mini.icons")
 icons.setup({
+  default = { directory = { hl = "MiniIconsYellow" } },
   extension = {
-    lua = { hl = "MiniIconsCyan" },
-    ts = { hl = "MiniIconsCyan" },
-    tsx = { hl = "MiniIconsCyan" },
+    conf = { glyph = "", hl = "MiniIconsGrey" },
     jsx = { hl = "MiniIconsBlue" },
     lock = { glyph = "", hl = "MiniIconsYellow" },
-    conf = { glyph = "", hl = "MiniIconsGrey" },
+    lua = { hl = "MiniIconsCyan" },
+    theme = { glyph = "", hl = "MiniIconsPurple" },
+    tmTheme = { glyph = "", hl = "MiniIconsPurple" },
+    ts = { hl = "MiniIconsCyan" },
+    tsx = { hl = "MiniIconsCyan" },
+  },
+  file = {
+    Brewfile = { glyph = "", hl = "MiniIconsYellow" },
+    config = { glyph = "", hl = "MiniIconsGrey" },
+    Claude = { glyph = "󰚩", hl = "MiniIconsOrange" },
+    devbox = { glyph = "", hl = "MiniIconsGrey" },
+    editorconfig = { glyph = "", hl = "MiniIconsCyan" },
+    Guardfile = { glyph = "󰶚", hl = "MiniIconsGrey" },
   },
 })
 icons.mock_nvim_web_devicons()
