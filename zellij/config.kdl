@@ -37,6 +37,7 @@ keybinds clear-defaults=true {
         bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "Normal"; }
         bind "r" { SwitchToMode "RenamePane"; PaneNameInput 0;}
+        bind "s" { NewPane "stacked"; SwitchToMode "normal"; }
     }
     move {
         bind "Alt m" { SwitchToMode "Normal"; }
@@ -68,8 +69,8 @@ keybinds clear-defaults=true {
     }
     scroll {
         bind "Alt s" { SwitchToMode "Normal"; }
-        bind "g" { ScrollToTop; SwitchToMode "Normal"; }
-        bind "G" { ScrollToBottom; SwitchToMode "Normal"; }
+        bind "t" { ScrollToTop; SwitchToMode "Normal"; }
+        bind "b" { ScrollToBottom; SwitchToMode "Normal"; }
         bind "j" "Down" { ScrollDown; }
         bind "k" "Up" { ScrollUp; }
         bind "F" "PageDown" "Right" "l" { PageScrollDown; }
@@ -158,7 +159,7 @@ keybinds clear-defaults=true {
               "focus left" "Alt + h"
               "focus down" "Alt + j"
               "focus up" "Alt + k"
-              "focus down" "Alt + l"
+              "focus right" "Alt + l"
               "clear pane" "Alt + c"
               "new tab" "Alt + t, n"
               "rename tab" "Alt + t, r"
@@ -171,9 +172,10 @@ keybinds clear-defaults=true {
               "break tab to pane right" "Alt + t, ]"
               "toggle tab sync" "Alt + t, s"
               "close tab" "Alt + t, x"
+              "new stacked pane" "Alt + p, s"
+              "rename pane" "Alt + p, r"
               "toggle pane fullscreen" "Alt + p, f"
               "toggle pane frames" "Alt + p, z"
-              "rename pane" "Alt + p, r"
               "toggle embed/floating pane" "Alt + p, e"
               "move pane left" "Alt + m, h"
               "move pane down" "Alt + m, j"
@@ -193,8 +195,10 @@ keybinds clear-defaults=true {
               "decrease pane right" "Alt + r, L"
               "close pane" "Alt + x"
               "edit scrollback" "Alt + e"
-              "scroll to top" "Alt + s, g"
-              "scroll to bottom" "Alt + s, G"
+              "scroll up line" "Alt + s, k"
+              "scroll down line" "Alt + s, j"
+              "scroll to top" "Alt + s, t"
+              "scroll to bottom" "Alt + s, b"
               "scroll page up" "Alt + s, B"
               "scroll page down" "Alt + s, F"
               "scroll half page up" "Alt + s, u"
