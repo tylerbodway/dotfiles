@@ -40,7 +40,7 @@ require("snacks").setup({
   picker = { enabled = true },
   indent = { enabled = true },
   input = { enabled = true },
-  lazygit = { enabled = true },
+  lazygit = { enabled = true, configure = false },
   notifier = { enabled = true },
   scope = {
     enabled = true,
@@ -58,9 +58,9 @@ require("snacks").setup({
   zen = { enabled = true },
   styles = {
     lazygit = {
-      width = 0.98,
-      height = 0.98,
-      border = "rounded",
+      width = 0,
+      height = 0.99,
+      border = "none",
     },
     above_cursor = {
       relative = "cursor",
