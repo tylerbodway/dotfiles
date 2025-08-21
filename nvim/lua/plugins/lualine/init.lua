@@ -4,7 +4,7 @@ vim.pack.add({ "https://github.com/nvim-lualine/lualine.nvim" })
 require("lualine").setup({
   options = {
     globalstatus = true,
-    disabled_filetypes = { "snacks_dashboard", "snacks_picker_list" },
+    disabled_filetypes = { "snacks_dashboard", "snacks_picker_list", "snacks_scratch" },
     component_separators = "",
   },
   sections = {

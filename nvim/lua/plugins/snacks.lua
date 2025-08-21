@@ -51,6 +51,7 @@ require("snacks").setup({
       },
     },
   },
+  scratch = { enabled = true, ft = "snacks_scratch" },
   scroll = { enabled = true },
   select = { enabled = true },
   statuscolumn = { enabled = true },
@@ -61,6 +62,13 @@ require("snacks").setup({
       width = 0,
       height = 0.99,
       border = "none",
+    },
+    scratch = {
+      width = 60,
+      height = 30,
+      row = 0,
+      col = vim.o.columns - 60,
+      wo = { signcolumn = "no" },
     },
     above_cursor = {
       relative = "cursor",
@@ -142,6 +150,9 @@ vim.keymap.set("n", "gI", function() picker.lsp_implementations() end, { desc = 
 vim.keymap.set("n", "gy", function() picker.lsp_type_definitions() end, { desc = "Go to type definition" })
 vim.keymap.set("n", "<leader>ss", function() picker.lsp_symbols() end, { desc = "Search symbols" })
 vim.keymap.set("n", "<leader>sS", function() picker.lsp_workspace_symbols() end, { desc = "Search workspace symbols" })
+
+-- Scratch
+vim.keymap.set("n", "<leader>.", function() Snacks.scratch() end, { desc = "Toggle scratch buffer" })
 
 -- Toggle
 Snacks.toggle.diagnostics({ name = "diagnostics" }):map("<leader>ud")
