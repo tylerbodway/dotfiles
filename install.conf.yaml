@@ -28,6 +28,9 @@
     ~/.config/nvim/:
       path: nvim/**
       glob: true
+    ~/.config/opencode/:
+      path: opencode/**
+      glob: true
     ~/.config/process-compose/theme.yaml: process-compose/theme.yaml
     ~/.config/zellij/:
       path: zellij/**
