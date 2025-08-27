@@ -64,6 +64,14 @@ brew "neovim"
 # Ambitious Vim-fork focused on extensibility and agility
 # https://neovim.io/
 
+brew "ollama"
+# Create, run, and share large language models (LLMs)
+# https://ollama.com
+
+brew "opencode"
+# The AI coding agent built for the terminal.
+# https://github.com/sst/opencode
+
 brew "posting"
 # Modern API client that lives in your terminal
 # https://github.com/darrenburns/posting
