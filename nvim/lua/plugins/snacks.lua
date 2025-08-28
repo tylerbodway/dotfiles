@@ -6,15 +6,8 @@ require("snacks").setup({
   bufdelete = { enabled = true },
   dashboard = {
     enabled = true,
-    width = 65,
+    width = 50,
     preset = {
-      header = [[
- ████████    ██████   ██████  █████ █████ ████  █████████████
-░░███░░███  ███░░███ ███░░███░░███ ░░███ ░░███ ░░███░░███░░███
- ░███ ░███ ░███████ ░███ ░███ ░███  ░███  ░███  ░███ ░███ ░███
- ░███ ░███ ░███░░░  ░███ ░███ ░░███ ███   ░███  ░███ ░███ ░███
- ████ █████░░██████ ░░██████   ░░█████    █████ █████░███ █████
-░░░░ ░░░░░  ░░░░░░   ░░░░░░     ░░░░░    ░░░░░ ░░░░░ ░░░ ░░░░░ ]],
       keys = {
         { icon = " ", key = "e", desc = "Explorer", action = ":lua Snacks.explorer()" },
         { icon = " ", key = "f", desc = "Find file", action = ":lua Snacks.dashboard.pick('files')" },
@@ -25,7 +18,30 @@ require("snacks").setup({
       },
     },
     sections = {
-      { section = "header", padding = 3 },
+      {
+        padding = 0,
+        align = "center",
+        -- stylua: ignore start
+        text = {
+          { "█▀▀▄ █▀▀ █▀▀█", hl = "Comment" }, { " █  █ █ █▀▀▄▀▀▄\n" },
+          { "█░░█ █▀▀ █░░█", hl = "Comment" }, { " █░░█ █ █░░█░░█\n" },
+          { "▀  ▀ ▀▀▀ ▀▀▀▀", hl = "Comment" }, { "  ▀▀  ▀ ▀  ▀  ▀" },
+        },
+        -- stylua: ignore end
+      },
+      {
+        padding = 3,
+        align = "center",
+        text = (function()
+          local version = "v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch
+          return {
+            {
+              string.rep(" ", 29 - string.len(version)) .. version,
+              hl = "NonText",
+            },
+          }
+        end)(),
+      },
       { section = "keys", padding = 2, gap = 1 },
       {
         section = "recent_files",
