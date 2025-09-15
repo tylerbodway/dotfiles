@@ -6,7 +6,7 @@ require("snacks").setup({
   bufdelete = { enabled = true },
   dashboard = {
     enabled = true,
-    width = 50,
+    width = 60,
     preset = {
       keys = {
         { icon = " ", key = "e", desc = "Explorer", action = ":lua Snacks.explorer()" },
