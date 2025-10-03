@@ -2,10 +2,6 @@
 	path = gitmodules/dotbot
 	url = https://github.com/anishathalye/dotbot
   ignore = dirty
-[submodule "spaceship-prompt"]
-	path = gitmodules/spaceship-prompt
-	url = https://github.com/spaceship-prompt/spaceship-prompt
-  ignore = dirty
 [submodule "dotbot-brew"]
 	path = gitmodules/dotbot-brew
 	url = https://github.com/d12frosted/dotbot-brew.git
