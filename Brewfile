@@ -1,16 +1,11 @@
 # Bundler for dependencies from Homebrew, Homebrew Cask, and Mac App Store
 # https://github.com/Homebrew/homebrew-bundle
 
-
 # === Packages ===
 
 brew "awscli"
 # Official Amazon AWS command-line interface
 # https://aws.amazon.com/cli/
-
-brew "base64" # (codecompanion.nvim dependency)
-# Encode and decode base64 files
-# https://www.fourmilab.ch/webtools/base64/
 
 brew "bat"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -72,14 +67,6 @@ brew "opencode"
 # The AI coding agent built for the terminal.
 # https://github.com/sst/opencode
 
-brew "posting"
-# Modern API client that lives in your terminal
-# https://github.com/darrenburns/posting
-
-brew "node"
-# Platform built on V8 to build network applications
-# https://nodejs.org/
-
 brew "powerlevel10k"
 # Prompt theme for zsh
 # https://github.com/romkatv/powerlevel10k
@@ -87,10 +74,6 @@ brew "powerlevel10k"
 brew "ripgrep" # (neovim dependency)
 # Search tool like grep and The Silver Searcher (for neovim)
 # https://github.com/BurntSushi/ripgrep
-
-brew "ruby"
-# Powerful, clean, object-oriented scripting language
-# https://www.ruby-lang.org/
 
 brew "wget"
 # Internet file retriever
@@ -186,10 +169,6 @@ cask "proton-drive"
 cask "proton-mail"
 # Client for Proton Mail and Proton Calendar
 # https://proton.me/mail
-
-cask "proton-mail-bridge"
-# Bridges Proton Mail to email clients supporting IMAP and SMTP protocols
-# https://proton.me/mail/bridge
 
 cask "protonvpn"
 # VPN client focusing on security
