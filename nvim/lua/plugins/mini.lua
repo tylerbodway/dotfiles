@@ -60,7 +60,11 @@ require("mini.hipatterns").setup({
 require("mini.diff").setup()
 
 -- Minimal and fast tabline showing listed buffers
-require("mini.tabline").setup()
+-- Defer setup until after startup to avoid issues with package installation
+vim.api.nvim_create_autocmd("VimEnter", {
+  once = true,
+  callback = function() require("mini.tabline").setup() end,
+})
 
 -- with multiple buffers open, show tabline with bottom padding via winbar
 vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
