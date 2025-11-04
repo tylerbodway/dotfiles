@@ -24,13 +24,22 @@ export HOMEBREW_NO_ANALYTICS=1
 
 export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
 
-# fzf theme: catppuccin-mocha
+# fzf theme: vague
 export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#171922,spinner:#F5E0DC,hl:#F38BA8 \
---color=fg:#eef1fc,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
---color=marker:#B4BEFE,fg+:#eef1fc,prompt:#CBA6F7,hl+:#F38BA8 \
---color=selected-bg:#45475A \
---color=border:#313244,label:#eef1fc"
+--color=fg:#cdcdcd \
+--color=bg:#141415 \
+--color=hl:#f3be7c \
+--color=fg+:#aeaed1 \
+--color=bg+:#252530 \
+--color=hl+:#f3be7c \
+--color=border:#606079 \
+--color=header:#6e94b2 \
+--color=gutter:#141415 \
+--color=spinner:#7fa563 \
+--color=info:#f3be7c \
+--color=pointer:#aeaed1 \
+--color=marker:#d8647e \
+--color=prompt:#bb9dbd"
 
 if [[ -d "$HOME/pco-box" ]]; then
   source "$HOME/pco-box/env.sh"
