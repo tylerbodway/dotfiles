@@ -4,6 +4,7 @@ pane_frames false
 session_serialization false
 disable_session_metadata true
 show_startup_tips false
+on_force_close "quit"
 
 ui {
     pane_frames {
