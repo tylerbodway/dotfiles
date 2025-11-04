@@ -53,7 +53,18 @@ require("snacks").setup({
     },
   },
   explorer = { enabled = true },
-  picker = { enabled = true },
+  picker = {
+    enabled = true,
+    win = {
+      input = {
+        keys = {
+          -- override alt keybindings as they conflict with zellij
+          ["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+          ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+        },
+      },
+    },
+  },
   indent = { enabled = true },
   input = { enabled = true },
   lazygit = { enabled = true, configure = false },
