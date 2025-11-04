@@ -190,9 +190,9 @@ cask "spotify"
 # Music streaming service
 # https://www.spotify.com/
 
-cask "todoist-app"
-# To-do list
-# https://todoist.com/home
+mas "Things 3", id: 904280696
+# Personal task manager
+# https://culturedcode.com/things/
 
 cask "tuple"
 # Remote pair programming app
