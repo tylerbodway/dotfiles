@@ -30,7 +30,6 @@ alias ll="eza -la --group-directories-first --no-permissions --no-filesize --no-
 alias llt="ll --tree --git --git-ignore"
 alias llr="ll --git-repos"
 
-alias claude="$XDG_CONFIG_HOME/claude/local/claude"
 alias oc="opencode"
 alias gg="lazygit"
 alias rnm="rm -rf node_modules"
