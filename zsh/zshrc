@@ -50,3 +50,7 @@ if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
 fi
 
+if command -v fzf &> /dev/null; then
+  eval "$(fzf --zsh)"
+fi
+
