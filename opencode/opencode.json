@@ -4,7 +4,11 @@
   "autoupdate": true,
   "permission": {
     "edit": "ask",
-    "bash": "ask"
+    "bash": {
+      "*": "allow",
+      "rm": "ask",
+      "git push": "ask",
+    }
   },
   "provider": {
     "ollama": {
