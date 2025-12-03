@@ -10,7 +10,7 @@
     "info": "#7e98e8",
     "text": "#cdcdcd",
     "textMuted": "#606079",
-    "background": "none",
+    "background": "#00000000",
     "backgroundPanel": "#1c1c24",
     "backgroundElement": "#252530",
     "border": "#878787",
