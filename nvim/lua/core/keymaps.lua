@@ -29,12 +29,12 @@ map("n", "<leader>ws", "<C-w>s", { desc = "Split window horizontally" })
 map("n", "<leader>wd", "<C-w>c", { desc = "Delete window" })
 
 -- Lines
-map("n", "<A-S-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move line down" })
-map("n", "<A-S-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move line up" })
-map("i", "<A-S-j>", "<Esc><cmd>move .+1<CR>==gi", { desc = "Move line down" })
-map("i", "<A-S-k>", "<Esc><cmd>move .-2<CR>==gi", { desc = "Move line up" })
-map("v", "<A-S-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<CR>gv=gv", { desc = "Move selection down" })
-map("v", "<A-S-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<CR>gv=gv", { desc = "Move selection up" })
+map("n", "<C-A-j>", ":m .+1<CR>==", { desc = "Move line down" })
+map("n", "<C-A-k>", ":m .-2<CR>==", { desc = "Move line up" })
+map("i", "<C-A-j>", "<Esc>:m .+1<CR>==gi", { desc = "Move line down" })
+map("i", "<C-A-k>", "<Esc>:m .-2<CR>==gi", { desc = "Move line up" })
+map("v", "<C-A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+map("v", "<C-A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 -- Indenting
 map("v", ">", ">gv", { desc = "Indent right" })
