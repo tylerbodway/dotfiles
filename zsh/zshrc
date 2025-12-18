@@ -35,6 +35,7 @@ alias find="fd"
 alias r="bin/rails"
 alias oc="opencode"
 alias gg="lazygit"
+alias db="devbox"
 alias rnm="rm -rf node_modules"
 alias bay="bundle install && yarn install"
 
