@@ -12,6 +12,7 @@ vim.lsp.config("jsonls", {
 })
 
 vim.lsp.config("ruby_lsp", {
+  filetypes = { "ruby" }, -- excludes eruby to avoid conflicts with herb_ls
   cmd_env = {
     GEM_HOME = vim.env.RUBY_CONFDIR,
   },
@@ -21,10 +22,22 @@ vim.lsp.config("ruby_lsp", {
   },
 })
 
+vim.lsp.config("herb_ls", {
+  settings = {
+    languageServerHerb = {
+      formatter = {
+        enabled = true,
+        maxLineLength = 100,
+      },
+    },
+  },
+})
+
 -- LSP setup
 vim.lsp.enable({
   "emmet_language_server",
   "eslint",
+  "herb_ls",
   "jsonls",
   "lua_ls",
   "ruby_lsp",

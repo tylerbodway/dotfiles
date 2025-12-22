@@ -1,4 +1,5 @@
 packages:
+  - "@herb-tools/language-server"
   - "@olrtg/emmet-language-server"
   - "@vtsls/language-server"
   - "prettier"
