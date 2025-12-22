@@ -17,8 +17,13 @@ vim.lsp.config("ruby_lsp", {
     GEM_HOME = vim.env.RUBY_CONFDIR,
   },
   init_options = {
-    formatter = "syntax_tree",
     linters = { "rubocop" },
+    formatter = (function()
+      if vim.fn.executable("rubotree") == 1 then return "rubotree" end -- https://github.com/planningcenter/edna?tab=readme-ov-file#rubotree
+      if vim.fn.executable("stree") == 1 then return "syntax_tree" end
+      if vim.fn.executable("rubocop") == 1 then return "rubocop" end
+      return "auto"
+    end)(),
   },
 })
 
