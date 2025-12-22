@@ -51,6 +51,10 @@ brew "lazygit"
 # Simple terminal UI for git commands
 # https://github.com/jesseduffield/lazygit/
 
+brew "lua-language-server"
+# Language Server for the Lua language
+# https://github.com/LuaLS/lua-language-server
+
 brew "mas"
 # Mac App Store command-line interface
 # https://github.com/mas-cli/mas
@@ -58,6 +62,10 @@ brew "mas"
 brew "neovim"
 # Ambitious Vim-fork focused on extensibility and agility
 # https://neovim.io/
+
+brew "node"
+# Open-source, cross-platform JavaScript runtime environment
+# https://nodejs.org/
 
 brew "ollama"
 # Create, run, and share large language models (LLMs)
@@ -75,9 +83,21 @@ brew "ripgrep" # (neovim dependency)
 # Search tool like grep and The Silver Searcher (for neovim)
 # https://github.com/BurntSushi/ripgrep
 
+brew "ruby"
+# Powerful, clean, object-oriented scripting language
+# https://www.ruby-lang.org/
+
+brew "stylua"
+# Opinionated Lua code formatter
+# https://github.com/JohnnyMorganz/StyLua
+
 brew "wget"
 # Internet file retriever
 # https://www.gnu.org/software/wget/
+
+brew "yq"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+# https://github.com/mikefarah/yq
 
 brew "zellij"
 # Pluggable terminal workspace, with terminal multiplexer

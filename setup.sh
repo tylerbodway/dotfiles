@@ -33,5 +33,3 @@ run 'git submodule update --init --recursive'
 # Run installation script
 run './install'
 
-# Build bat cache for custom theme
-run 'bat cache --build'

@@ -3,6 +3,10 @@
       create: true
       relink: true
       force: true
+    shell:
+      quiet: true
+      stdout: true
+      stderr: true
 
 - clean:
     ~/:
@@ -45,3 +49,14 @@
 
 - brewfile:
     - Brewfile
+
+- shell:
+    - command: git submodule update --init --recursive
+      description: Installing git submodules
+    - command: bat cache --build
+      description: Building bat cache for custom theme
+      stdout: false
+    - command: ./npm/install.sh
+      description: Installing javascript packages
+    - command: ./gem/install.sh
+      description: Installing ruby gems

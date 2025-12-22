@@ -45,5 +45,13 @@ fi
 
 if [[ -e "/opt/homebrew/bin/brew" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
+
+  # Use Homebrew Ruby instead of system Ruby
+  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+  # Add gem executables (version-agnostic)
+  export PATH="$(echo /opt/homebrew/lib/ruby/gems/*/bin):$PATH"
+  # For compilers to find Ruby
+  export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 fi
 
