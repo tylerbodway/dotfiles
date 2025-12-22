@@ -56,7 +56,7 @@
     - command: bat cache --build
       description: Building bat cache for custom theme
       stdout: false
-    - command: ./npm/install.sh
+    - command: ./npm/install
       description: Installing javascript packages
-    - command: ./gem/install.sh
+    - command: ./gem/install
       description: Installing ruby gems
