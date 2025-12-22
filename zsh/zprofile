@@ -22,8 +22,6 @@ export DIRENV_LOG_FORMAT=$'\033[2mdirenv: %s\033[0m' # faint color
 export HOMEBREW_BUNDLE_NO_LOCK=1
 export HOMEBREW_NO_ANALYTICS=1
 
-export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
-
 # fzf theme: vague
 export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdcdcd \
