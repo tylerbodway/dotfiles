@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@herb-tools/language-server": "latest",
+    "@olrtg/emmet-language-server": "latest",
+    "@vtsls/language-server": "latest",
+    "prettier": "latest",
+    "vscode-langservers-extracted": "latest",
+    "yaml-language-server": "latest"
+  }
+}

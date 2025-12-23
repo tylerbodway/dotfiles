@@ -1,4 +1,0 @@
-gems:
-  - "ruby-lsp"
-  - "rubocop"
-  - "syntax_tree"

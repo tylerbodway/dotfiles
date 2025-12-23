@@ -1,15 +1,13 @@
 - plugins:
     - dotbot-plugins/dotbot-brew/
+    - dotbot-plugins/npm.py
+    - dotbot-plugins/gem.py
 
 - defaults:
     link:
       create: true
       relink: true
       force: true
-    shell:
-      quiet: true
-      stdout: true
-      stderr: true
 
 - clean:
     ~/:
@@ -53,11 +51,13 @@
 - brewfile:
     - Brewfile
 
+- npm:
+    - package.json
+
+- gem:
+    - Gemfile
+
 - shell:
     - command: bat cache --build
       description: Building bat cache for custom theme
-      stdout: false
-    - command: ./npm/install
-      description: Installing javascript packages
-    - command: ./gem/install
-      description: Installing ruby gems
+      quiet: true
