@@ -51,8 +51,6 @@
     - Brewfile
 
 - shell:
-    - command: git submodule update --init --recursive
-      description: Installing git submodules
     - command: bat cache --build
       description: Building bat cache for custom theme
       stdout: false
