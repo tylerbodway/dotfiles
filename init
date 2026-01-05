@@ -1,35 +1,40 @@
 #!/usr/bin/env zsh
 
 export TERM="xterm-256color"
-BLUE="$(tput setaf 4)"
+BOLD="$(tput bold)"
+DIM="$(tput dim)"
 NC="$(tput sgr0)"
+
+step() {
+  local message=$1
+  echo -e "\n💻 ${BOLD}${message}${NC}..."
+}
 
 run() {
   local cmd=$1
-  echo -e "\n⚡ ${BLUE}${cmd}${NC}"
+  echo "${DIM}\$ ${cmd}${NC}"
   eval "${cmd}"
 }
 
-# Install Xcode Command Line Tools
+step "Installing Xcode Command Line Tools"
 run 'xcode-select --install'
-
 # Wait until Xcode Command Line Tools is finished installing
 until $(xcode-select --print-path &> /dev/null); do
   sleep 5;
 done
 
-# Install Homebrew
-run "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+step "Installing Homebrew"
+run '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
 
-# Ensure brew command is available
+step "Ensuring brew command is available"
 run 'eval "$(/opt/homebrew/bin/brew shellenv)"'
 
-# Clone dotfiles repo
+step "Setting up dotfiles repository"
 run 'git clone https://github.com/tylerbodway/dotfiles.git ~/.dotfiles'
 run 'cd ~/.dotfiles'
 run 'git remote set-url origin git@github.com:tylerbodway/dotfiles.git'
 run 'git submodule update --init --recursive'
 
-# Run installation script
+step "Running installation script"
 run './install'
 
