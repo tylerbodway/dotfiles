@@ -38,3 +38,6 @@ run 'git submodule update --init --recursive'
 step "Running installation script"
 run './install'
 
+step "Cleaning ZSH files"
+run 'rm ~/.zsh_history'
+run 'rm -rf ~/.zsh_sessions'
