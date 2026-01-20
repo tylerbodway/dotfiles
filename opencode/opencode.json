@@ -36,7 +36,7 @@
   "lsp": {
     "herb": {
       "command": ["herb-language-server", "--stdio"],
-      "extensions": [".erb"]
+      "extensions": [".erb", ".html"]
     },
     "jsonls": {
       "command": ["vscode-json-language-server", "--stdio"],
