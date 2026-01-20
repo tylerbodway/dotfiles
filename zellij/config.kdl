@@ -112,6 +112,7 @@ keybinds clear-defaults=true {
         bind "Alt w" { ToggleFloatingPanes; }
         bind "Alt n" { NewPane "Right"; }
         bind "Alt N" { NewPane "Down"; }
+        bind "Alt S" { NewPane "stacked"; }
         bind "Alt T" { NewTab; }
         bind "Alt x" { CloseFocus; }
         bind "Alt H" { MoveTab "Left"; }
@@ -155,6 +156,7 @@ keybinds clear-defaults=true {
               "unlock" "Alt + g"
               "new vertical pane" "Alt + n"
               "new horizontal pane" "Alt + N"
+              "new stacked pane" "Alt + S"
               "new tab" "Alt + T"
               "toggle floating pane" "Alt + w"
               "focus left" "Alt + h"
