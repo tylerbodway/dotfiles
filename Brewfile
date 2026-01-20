@@ -158,10 +158,6 @@ cask "ghostty"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 # https://ghostty.org
 
-cask "keymapp"
-# ZSA keyboard firmware flasher
-# https://www.zsa.io/flash
-
 cask "logi-options+"
 # Software for Logitech devices
 # https://www.logitech.com/en-us/software/logi-options-plus.html
