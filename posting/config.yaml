@@ -1,0 +1,7 @@
+theme: vague
+layout: vertical
+header:
+  show_host: false
+focus:
+  on_startup: collection
+  on_response: body

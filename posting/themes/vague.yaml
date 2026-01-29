@@ -1,0 +1,10 @@
+name: vague
+primary: "#f3be7c" # buttons, fixed table columns (blue)
+secondary: "#bebeda" # method selector, some minor labels (cyan)
+accent: "#8ba9c1" # header text, scrollbars, cursors, focus highlights (magenta)
+background: "#141415" # background colors
+surface: "#252530" # panels, etc
+panel: "#1C1C24"
+error: "#d8647e" # error messages (bright red)
+success: "#7fa563" # success messages (bright green)
+warning: "#f3be7c" # warning messages (bright yellow)

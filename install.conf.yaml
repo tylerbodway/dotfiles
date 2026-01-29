@@ -35,6 +35,8 @@
     ~/.config/opencode/:
       path: opencode/**
       glob: true
+    ~/.config/posting/config.yaml: posting/config.yaml
+    ~/.local/share/posting/themes/vague.yaml: posting/themes/vague.yaml
     ~/.config/process-compose/theme.yaml: process-compose/theme.yaml
     ~/.config/zellij/:
       path: zellij/**
