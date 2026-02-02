@@ -1,8 +1,3 @@
-- plugins:
-    - dotbot-plugins/dotbot-brew/
-    - dotbot-plugins/npm.py
-    - dotbot-plugins/gem.py
-
 - defaults:
     link:
       create: true
