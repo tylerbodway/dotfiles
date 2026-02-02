@@ -187,15 +187,22 @@ For each example, identify:
 
 ### Step 3: Create the Skill
 
-1. Create the directory: `.opencode/skills/<skill-name>/`
-2. Create `SKILL.md` with proper frontmatter
-3. Add any bundled resources (scripts/, references/, assets/)
+**For project-local skills:**
 
 ```bash
-# Example
 mkdir -p .opencode/skills/my-new-skill
 touch .opencode/skills/my-new-skill/SKILL.md
 ```
+
+**For global skills (via dotfiles):**
+
+```bash
+mkdir -p ~/.dotfiles/opencode/skills/my-new-skill
+touch ~/.dotfiles/opencode/skills/my-new-skill/SKILL.md
+# Then run ~/.dotfiles/install to symlink
+```
+
+Add any bundled resources (scripts/, references/, assets/) as needed.
 
 ### Step 4: Write SKILL.md
 
