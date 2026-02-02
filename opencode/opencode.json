@@ -33,6 +33,9 @@
   "permission": {
     "bash": {
       "*": "ask",
+      "bin/rails test *": "allow",
+      "bin/rspec *": "allow",
+      "bin/yarn test *": "allow",
       "box *": "ask",
       "box uninstall": "deny",
       "bundle exec rspec *": "allow",
