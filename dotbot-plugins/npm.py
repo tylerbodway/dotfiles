@@ -27,18 +27,18 @@ class Npm(dotbot.Plugin):
 
         for package_file in files:
             full_path = os.path.join(cwd, package_file)
-            
+
             if not os.path.exists(full_path):
                 self._log.warning(f"Package file not found: {package_file}")
                 success = False
                 continue
 
             self._log.info(f"Installing npm packages from {package_file}")
-            
+
             try:
                 with open(full_path, 'r') as f:
                     data = json.load(f)
-                
+
                 # Get packages from dependencies and devDependencies
                 packages = []
                 if 'dependencies' in data:
@@ -67,7 +67,7 @@ class Npm(dotbot.Plugin):
             self._log.action(f"`npm install` complete! {total_packages} package.json dependencies now installed.")
         else:
             self._log.error("Some npm packages were not successfully processed")
-        
+
         return success
 
     def _process_package(self, package, cwd):
@@ -94,9 +94,9 @@ class Npm(dotbot.Plugin):
                     cwd=cwd,
                     text=True
                 )
-                
+
                 if package in result.stdout:
-                    self._log.action(f"Installing {package}")
+                    self._log.action(f"Upgrading {package}")
                     install_cmd = f"npm install -g {package}@latest"
                     ret = subprocess.call(install_cmd, shell=True, stdout=devnull, cwd=cwd)
                     if ret != 0:

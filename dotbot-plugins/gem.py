@@ -27,17 +27,17 @@ class Gem(dotbot.Plugin):
 
         for gem_file in files:
             full_path = os.path.join(cwd, gem_file)
-            
+
             if not os.path.exists(full_path):
                 self._log.warning(f"Gem file not found: {gem_file}")
                 success = False
                 continue
 
             self._log.info(f"Installing gems from {gem_file}")
-            
+
             try:
                 gems = self._parse_gemfile(full_path)
-                
+
                 if not gems:
                     self._log.warning(f"No gems found in {gem_file}")
                     continue
@@ -56,27 +56,27 @@ class Gem(dotbot.Plugin):
             self._log.action(f"`gem install` complete! {total_gems} Gemfile dependencies now installed.")
         else:
             self._log.error("Some gems were not successfully processed")
-        
+
         return success
 
     def _parse_gemfile(self, file_path):
         """Parse gems from a Gemfile."""
         gems = []
-        
+
         with open(file_path, 'r') as f:
             for line in f:
                 line = line.strip()
-                
+
                 # Skip comments and empty lines
                 if not line or line.startswith('#'):
                     continue
-                
+
                 # Match gem 'name' or gem "name"
                 # Supports: gem 'name', gem "name", gem 'name', version: '1.0'
                 match = re.match(r"gem\s+['\"]([^'\"]+)['\"]", line)
                 if match:
                     gems.append(match.group(1))
-        
+
         return gems
 
     def _process_gem(self, gem, cwd):
@@ -103,9 +103,9 @@ class Gem(dotbot.Plugin):
                     cwd=cwd,
                     text=True
                 )
-                
+
                 if gem in result.stdout:
-                    self._log.action(f"Installing {gem}")
+                    self._log.action(f"Upgrading {gem}")
                     update_cmd = f"gem update {gem}"
                     ret = subprocess.call(update_cmd, shell=True, stdout=devnull, cwd=cwd)
                     if ret != 0:
