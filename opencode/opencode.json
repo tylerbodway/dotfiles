@@ -118,6 +118,22 @@
       "type": "remote",
       "url": "https://mcp.context7.com/mcp/oauth",
       "enabled": true
+    },
+    "redshift": {
+      "type": "local",
+      "command": [
+        "uv",
+        "--directory",
+        "/Users/tylerbodway/Code/mcp-servers/redshift",
+        "run",
+        "awslabs.redshift-mcp-server"
+      ],
+      "environment": {
+        "AWS_PROFILE": "pco-bi-query",
+        "AWS_REGION": "us-east-1",
+        "FASTMCP_LOG_LEVEL": "WARNING"
+      },
+      "enabled": false
     }
   },
   "plugin": ["@franlol/opencode-md-table-formatter@0.0.3"]
