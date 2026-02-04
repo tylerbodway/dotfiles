@@ -129,11 +129,12 @@
         "AWS_REGION": "us-east-1",
         "FASTMCP_LOG_LEVEL": "WARNING"
       },
-      "enabled": false
+      "enabled": true
     }
   },
   "tools": {
-    "asana_*": false
+    "asana_*": false,
+    "redshift_*": false
   },
   "plugin": ["@franlol/opencode-md-table-formatter@0.0.3"]
 }
