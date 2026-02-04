@@ -53,5 +53,8 @@ if [[ -e "/opt/homebrew/bin/brew" ]]; then
   # For compilers to find Ruby
   export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+
+  # Use installed python executables
+  export PATH="$XDG_DATA_HOME/../bin:$PATH"
 fi
 

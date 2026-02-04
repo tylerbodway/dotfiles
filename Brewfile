@@ -92,6 +92,10 @@ brew "stylua"
 # Opinionated Lua code formatter
 # https://github.com/JohnnyMorganz/StyLua
 
+brew "uv"
+# Extremely fast Python package installer and resolver, written in Rust
+# https://docs.astral.sh/uv/
+
 brew "wget"
 # Internet file retriever
 # https://www.gnu.org/software/wget/
