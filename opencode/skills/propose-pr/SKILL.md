@@ -1,6 +1,6 @@
 ---
 name: propose-pr
-description: Generate and propose a PR title and description, then open GitHub's new PR page.
+description: Generates a GitHub PR title and description, then opens and autofills the new PR page. Use when user asks you to propose a PR.
 ---
 
 ## What I do
@@ -29,28 +29,40 @@ I will NOT actually create or submit the PR - I only open the GitHub page with s
    - Parse owner and repo name from the URL
    - Get current branch with `git branch --show-current`
 
-2. **Check for PR template**:
-   - Look for `.github/PULL_REQUEST_TEMPLATE.md` or `.github/pull_request_template.md`
-   - If found, read it and use its structure for the description
+2. **Verify branch is pushed to origin**:
+   - Run `git fetch origin` to ensure remote refs are up to date
+   - Run `git rev-parse --verify origin/<branch>` to check if the branch exists on the remote
+   - If the branch is not pushed, notify the user and ask if they want you to push it with `git push -u origin <branch>`
+   - Do NOT proceed to open the PR URL until the branch exists on origin
 
-3. **Analyze changes**:
+3. **Check for PR template**:
+   - Look for `.github/PULL_REQUEST_TEMPLATE.md` or `.github/pull_request_template.md`
+   - If found, read the template file carefully
+
+4. **Analyze changes**:
    - Run `git log main..HEAD --oneline` (or appropriate base branch) to see commits
    - Run `git diff main...HEAD` to see the actual code changes
    - Understand what the PR is accomplishing
 
-4. **Generate PR content**:
+5. **Generate PR content**:
    - Create a concise, descriptive PR title (one line summary)
-   - Write a PR description that:
-     - Follows the template structure if one exists
-     - Summarizes what changed and why
-     - Includes relevant context from commits and diffs
-     - Uses proper markdown formatting
+   - Write a PR description:
+     - **If a PR template exists**: You MUST follow the template exactly. Keep all section headers from the template and fill in each section appropriately. Do not skip sections or restructure the template. If a section is not applicable, write "N/A" rather than omitting it.
+     - **If no template exists**: Write a description that summarizes what changed and why, includes relevant context from commits and diffs, and uses proper markdown formatting.
 
-5. **Build and open URL**:
+6. **Build and open URL**:
    - Construct the GitHub compare URL:
      `https://github.com/OWNER/REPO/compare/BASE...HEAD?expand=1&title=TITLE&body=DESCRIPTION`
    - URL-encode the title and body parameters properly
    - Open the URL using `open` (macOS) or appropriate command for the platform
+
+## Dependencies
+
+Before generating PR content, load the `technical-writing-voice` skill and follow its guidelines for:
+
+- PR title style
+- PR description voice and structure
+- Commit message references
 
 ## Notes
 
