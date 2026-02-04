@@ -114,11 +114,7 @@
       "url": "https://mcp.asana.com/sse",
       "enabled": true
     },
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp/oauth",
-      "enabled": true
-    },
+
     "redshift": {
       "type": "local",
       "command": [
