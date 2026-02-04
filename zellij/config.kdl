@@ -125,6 +125,7 @@ keybinds clear-defaults=true {
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt e" { EditScrollback; }
         bind "Alt c" { Clear; }
+        bind "Alt F" { ToggleFocusFullscreen; }
     }
     shared_except "normal" "locked" {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
@@ -177,7 +178,7 @@ keybinds clear-defaults=true {
               "close tab" "Alt + t, x"
               "new stacked pane" "Alt + p, s"
               "rename pane" "Alt + p, r"
-              "toggle pane fullscreen" "Alt + p, f"
+              "toggle pane fullscreen" "Alt + F"
               "toggle pane frames" "Alt + p, z"
               "toggle embed/floating pane" "Alt + p, e"
               "move pane left" "Alt + m, h"
