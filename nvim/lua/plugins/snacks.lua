@@ -115,6 +115,15 @@ vim.keymap.set("n", "<leader>bd", function() Snacks.bufdelete() end, { desc = "D
 vim.keymap.set("n", "<leader>bD", function() Snacks.bufdelete.all() end, { desc = "Delete all buffers" })
 vim.keymap.set("n", "<leader>bO", function() Snacks.bufdelete.other() end, { desc = "Delete other buffers" })
 
+-- Dashboard
+vim.keymap.set("n", "<C-Esc>", function()
+  for _, picker in ipairs(Snacks.picker.get({ source = "explorer" })) do
+    picker:close()
+  end
+  Snacks.bufdelete.all()
+  Snacks.dashboard()
+end, { desc = "Close all and show dashboard" })
+
 -- Explorer
 vim.keymap.set("n", "<leader>e", function() Snacks.explorer() end, { desc = "Toggle explorer" })
 vim.keymap.set("n", "<leader>fe", function() Snacks.explorer.reveal() end, { desc = "Show in explorer" })
