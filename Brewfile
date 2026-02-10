@@ -135,6 +135,10 @@ cask "1password"
 # Password manager that keeps all passwords secure behind one password
 # https://1password.com/
 
+cask "1password-cli"
+# Command-line interface for 1Password
+# https://developer.1password.com/docs/cli
+
 cask "asana"
 # Manage team projects and tasks
 # https://asana.com/

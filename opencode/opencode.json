@@ -75,6 +75,7 @@
   },
   "tools": {
     "asana_*": false,
+    "bugsnag_*": false,
     "redshift_*": false
   },
 
@@ -103,6 +104,15 @@
     "asana": {
       "type": "remote",
       "url": "https://mcp.asana.com/sse",
+      "enabled": true
+    },
+    "bugsnag": {
+      "type": "local",
+      "command": ["op", "run", "--", "npx", "-y", "@smartbear/mcp@latest"],
+      "environment": {
+        "OP_ACCOUNT": "planningcenter.1password.com",
+        "BUGSNAG_AUTH_TOKEN": "op://Employee/Bugsnag/zgyrvib7vbeua3xofovv5fjism"
+      },
       "enabled": true
     },
     "redshift": {
