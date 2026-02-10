@@ -120,7 +120,7 @@
       "command": [
         "uv",
         "--directory",
-        "/Users/tylerbodway/Code/mcp-servers/redshift",
+        "{env:HOME}/Code/mcp-servers/redshift",
         "run",
         "awslabs.redshift-mcp-server"
       ],

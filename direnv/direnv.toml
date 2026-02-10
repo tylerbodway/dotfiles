@@ -1,26 +1,2 @@
 [global]
 hide_env_diff = true
-
-[whitelist]
-exact = [
-  "~/Code/accounts",
-  "~/Code/api",
-  "~/Code/avatars",
-  "~/Code/calendar",
-  "~/Code/chat",
-  "~/Code/check-ins",
-  "~/Code/church-center",
-  "~/Code/ChurchCenterApp",
-  "~/Code/giving",
-  "~/Code/groups",
-  "~/Code/helpdesk",
-  "~/Code/home",
-  "~/Code/login",
-  "~/Code/notifications",
-  "~/Code/people",
-  "~/Code/publishing",
-  "~/Code/push-gateway",
-  "~/Code/registrations",
-  "~/Code/services",
-  "~/Code/webhooks",
-]
