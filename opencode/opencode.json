@@ -104,7 +104,7 @@
     "asana": {
       "type": "remote",
       "url": "https://mcp.asana.com/sse",
-      "enabled": true
+      "enabled": false
     },
     "bugsnag": {
       "type": "local",
@@ -113,7 +113,7 @@
         "OP_ACCOUNT": "planningcenter.1password.com",
         "BUGSNAG_AUTH_TOKEN": "op://Employee/Bugsnag/zgyrvib7vbeua3xofovv5fjism"
       },
-      "enabled": true
+      "enabled": false
     },
     "redshift": {
       "type": "local",
@@ -129,7 +129,7 @@
         "AWS_REGION": "us-east-1",
         "FASTMCP_LOG_LEVEL": "WARNING"
       },
-      "enabled": true
+      "enabled": false
     }
   },
   "plugin": ["@franlol/opencode-md-table-formatter@0.0.3"]
