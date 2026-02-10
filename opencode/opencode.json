@@ -25,6 +25,7 @@
       "*": "allow",
       "box *": "ask",
       "box uninstall *": "deny",
+      "brew *": "ask",
       "chmod *": "ask",
       "curl *": "deny",
       "git clean *": "ask",
