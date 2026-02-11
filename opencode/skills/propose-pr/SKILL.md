@@ -47,14 +47,16 @@ I will NOT actually create or submit the PR - I only open the GitHub page with s
 5. **Generate PR content**:
    - Create a concise, descriptive PR title (one line summary)
    - Write a PR description:
-     - **If a PR template exists**: You MUST follow the template exactly. Keep all section headers from the template and fill in each section appropriately. Do not skip sections or restructure the template. If a section is not applicable, write "N/A" rather than omitting it.
+     - **If a PR template exists**: You MUST follow the template exactly and fill in each section appropriately. If a section does not apply, feel free to omit it.
      - **If no template exists**: Write a description that summarizes what changed and why, includes relevant context from commits and diffs, and uses proper markdown formatting.
 
 6. **Build and open URL**:
-   - Construct the GitHub compare URL:
-     `https://github.com/OWNER/REPO/compare/BASE...HEAD?expand=1&title=TITLE&body=DESCRIPTION`
-   - URL-encode the title and body parameters properly
-   - Open the URL using `open` (macOS) or appropriate command for the platform
+   - Use the bundled script (relative to this skill's base directory) to construct the URL:
+     ```bash
+     <skill-base>/scripts/build-url.sh <owner> <repo> <base> <head> "<title>" "<body>"
+     ```
+   - The script handles URL-encoding and outputs the full GitHub compare URL
+   - Open with: `open "$(<skill-base>/scripts/build-url.sh ...)"`
 
 ## Dependencies
 
