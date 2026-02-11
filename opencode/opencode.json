@@ -3,7 +3,7 @@
   "theme": "vague",
   "autoupdate": true,
 
-  "model": "github-copilot/claude-opus-4.5",
+  "model": "github-copilot/claude-opus-4.6",
   "small_model": "github-copilot/claude-haiku-4.5",
   "provider": {
     "ollama": {
