@@ -5,6 +5,7 @@
     "@vtsls/language-server": "latest",
     "prettier": "latest",
     "vscode-langservers-extracted": "latest",
+    "chrome-devtools-mcp": "latest",
     "yaml-language-server": "latest"
   }
 }

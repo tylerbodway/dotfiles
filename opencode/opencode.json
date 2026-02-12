@@ -116,6 +116,17 @@
       },
       "enabled": false
     },
+    "devtools": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--executable-path=/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
+        "--no-usage-statistics"
+      ],
+      "enabled": false
+    },
     "redshift": {
       "type": "local",
       "command": [
