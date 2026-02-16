@@ -33,6 +33,7 @@
       "git reset *": "ask",
       "nc *": "deny",
       "netcat *": "deny",
+      "npm *": "ask",
       "pco *": "ask",
       "pco connect *": "deny",
       "pco console *": "deny",
@@ -44,7 +45,8 @@
       "ssh *": "deny",
       "su *": "deny",
       "sudo *": "deny",
-      "wget *": "deny"
+      "wget *": "deny",
+      "yarn *": "ask"
     },
     "read": {
       "*": "allow",
