@@ -1,0 +1,17 @@
+// Dev workspace: agent, git, and editor as stacked panes
+layout {
+  pane stacked=true {
+    pane name="editor" command="zsh" {
+      args "-ic" "nv"
+    }
+    pane name="git" command="zsh" {
+      args "-ic" "gg"
+    }
+    pane name="agent" expanded=true command="zsh" {
+      args "-ic" "oc"
+    }
+  }
+  pane size=1 borderless=true {
+    plugin location="zellij:compact-bar"
+  }
+}

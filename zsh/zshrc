@@ -43,6 +43,12 @@ alias groups="cd groups" # fixes conflict with coreutils command
 alias chat="cd chat" # fixes conflict with modem command
 alias calendar="cd calendar" # fixes conflict with unix command
 
+dev() {
+  zellij action new-tab --layout dev --name "${PWD##*/}"
+  zellij action go-to-previous-tab
+  zellij action close-tab
+}
+
 if [[ -d "$HOME/Code/pco" ]]; then
   export AWS_CLI_PATH="$(brew --prefix)/bin/aws"
   eval "$($HOME/Code/pco/bin/pco init -)"
