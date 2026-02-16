@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@fission-ai/openspec": "latest",
     "@herb-tools/language-server": "latest",
     "@olrtg/emmet-language-server": "latest",
     "@vtsls/language-server": "latest",
