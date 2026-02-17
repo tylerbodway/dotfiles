@@ -32,7 +32,9 @@
       glob: true
     ~/.config/posting/config.yaml: posting/config.yaml
     ~/.local/share/posting/themes/vague.yaml: posting/themes/vague.yaml
-    ~/.config/process-compose/theme.yaml: process-compose/theme.yaml
+    ~/.config/process-compose/:
+      path: process-compose/**
+      glob: true
     ~/.config/zellij/:
       path: zellij/**
       glob: true
