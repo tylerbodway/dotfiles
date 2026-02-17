@@ -59,6 +59,10 @@ brew "mas"
 # Mac App Store command-line interface
 # https://github.com/mas-cli/mas
 
+brew "mdserve"
+# Fast markdown preview server with live reload and theme support
+# https://github.com/jfernandez/mdserve
+
 brew "neovim"
 # Ambitious Vim-fork focused on extensibility and agility
 # https://neovim.io/
