@@ -79,6 +79,7 @@
   "tools": {
     "asana_*": false,
     "bugsnag_*": false,
+    "notion_*": false,
     "redshift_*": false
   },
 
@@ -127,6 +128,11 @@
         "--executable-path=/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
         "--no-usage-statistics"
       ],
+      "enabled": false
+    },
+    "notion": {
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp",
       "enabled": false
     },
     "redshift": {
