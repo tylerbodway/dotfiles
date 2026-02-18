@@ -73,7 +73,8 @@
       "**/.secrets/**": "deny",
       "**/credentials*": "deny",
       "**/*.pem": "deny",
-      "**/*.key": "deny"
+      "**/*.key": "deny",
+      "openspec/**": "allow"
     }
   },
   "tools": {
