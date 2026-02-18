@@ -126,7 +126,8 @@
         "-y",
         "chrome-devtools-mcp@latest",
         "--executable-path=/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
-        "--no-usage-statistics"
+        "--no-usage-statistics",
+        "--user-data-dir={env:XDG_STATE_HOME}/opencode/brave-profile"
       ],
       "enabled": false
     },
