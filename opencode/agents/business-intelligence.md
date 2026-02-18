@@ -46,3 +46,7 @@ Present query results as:
 - Start with schema exploration before writing complex queries
 - Ask clarifying questions if the request is ambiguous
 - Suggest follow-up queries that might provide additional insights
+
+## AWS Authentication
+
+If queries fail due to expired or missing AWS credentials, instruct the user to run `pco aws-login` to authenticate with the correct credentials.
