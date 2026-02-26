@@ -55,6 +55,11 @@ require("snacks").setup({
   explorer = { enabled = true },
   picker = {
     enabled = true,
+    sources = {
+      explorer = {
+        include = { ".docs", "docs/.*", "docs/**/.*" },
+      },
+    },
     win = {
       input = {
         keys = {
