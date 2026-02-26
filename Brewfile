@@ -151,6 +151,10 @@ cask "brave-browser"
 # Web browser focusing on privacy
 # https://brave.com/
 
+cask "claude-code"
+# Terminal based AI coding assistant
+# https://www.anthropic.com/claude-code
+
 cask "cleanmymac"
 # Tool to remove unnecessary files and folders from disk
 # https://macpaw.com/cleanmymac
