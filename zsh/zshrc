@@ -21,6 +21,7 @@ bindkey "^[[B" history-search-forward # down arrow
 source "$(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme"
 source "$ZDOTDIR/.p10k.zsh"
 
+alias dot="cd $DOT"
 alias dotedit="cd $DOT && $EDITOR"
 alias nv="nvim"
 alias nvrs="rm -rf $XDG_CONFIG_HOME/nvim $XDG_DATA_HOME/nvim $XDG_STATE_HOME/nvim $XDG_CACHE_HOME/nvim && $DOT/install --only=link"
