@@ -60,3 +60,7 @@ promptToReturnFromSubprocess: false
 git:
   # do not spawn a separate process when using GPG
   overrideGpg: true
+
+  # custom syntax aware diff tool
+  pagers:
+    - externalDiffCommand: difft --color=always

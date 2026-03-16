@@ -19,6 +19,10 @@ brew "curl"
 # Get a file from an HTTP, HTTPS or FTP server
 # https://curl.se
 
+brew "difftastic"
+# Diff that understands syntax
+# https://github.com/Wilfred/difftastic
+
 brew "direnv" # (pco-box/devbox dependency)
 # Load/unload environment variables based on $PWD
 # https://direnv.net/
