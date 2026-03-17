@@ -13,6 +13,12 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
+
+export GOPATH="$XDG_DATA_HOME/go"
+export GOBIN="$GOPATH/bin"
+export GOMODCACHE="$GOPATH/pkg/mod"
+export GOCACHE="$XDG_CACHE_HOME/go-build"
+
 export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 export DOT="$HOME/.dotfiles"
@@ -58,5 +64,8 @@ if [[ -e "/opt/homebrew/bin/brew" ]]; then
 
   # Use installed python executables
   export PATH="$XDG_DATA_HOME/../bin:$PATH"
+
+  # Go executables
+  export PATH="$GOBIN:$PATH"
 fi
 
