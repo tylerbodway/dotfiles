@@ -15,7 +15,7 @@ If a plan file is referenced (e.g., `@.opencode/projects/my_task/plan.md`), read
 
 ## Critical Rule
 
-**You MUST stop after each phase and wait for explicit human approval before starting the next phase.** Do NOT continue to the next phase on your own. Do NOT implement multiple phases in a single response. Each phase boundary is a hard stop — present your results and wait for the user to tell you to proceed.
+**You MUST stop after each phase and wait for explicit human approval before starting the next phase using the question tool.** Do NOT continue to the next phase on your own. Do NOT implement multiple phases in a single response. Each phase boundary is a hard stop — present your results, use the question tool, and wait for the user to tell you to proceed.
 
 ## Process
 
@@ -25,7 +25,7 @@ If a plan file is referenced (e.g., `@.opencode/projects/my_task/plan.md`), read
 2. **Implement** - Make the specified changes
 3. **Verify** - Run verification steps from the plan
 4. **Report** - Confirm success or describe issues
-5. **Stop and wait** - You are DONE for now. Present your progress summary and ask the user to approve before continuing. Do NOT proceed to the next phase until the user explicitly says to continue.
+5. **Stop and wait** - You are DONE for now. Present your progress summary and ask the user to approve before continuing using the question tool. Do NOT proceed to the next phase until the user explicitly says to continue.
 
 ### If Issues Arise
 
