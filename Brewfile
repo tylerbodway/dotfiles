@@ -15,6 +15,10 @@ brew "btop"
 # Resource monitor
 # https://github.com/aristocratos/btop
 
+brew "cloudflared"
+# Cloudflare Tunnel client
+# https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/
+
 brew "curl"
 # Get a file from an HTTP, HTTPS or FTP server
 # https://curl.se

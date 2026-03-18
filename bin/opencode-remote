@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# opencode-remote — Start OpenCode web server with a Cloudflare Tunnel.
+#
+# Usage:
+#   opencode-remote
+
+cleanup() {
+  [[ -n "${tunnel_pid:-}" ]] && kill "${tunnel_pid}" 2>/dev/null
+  [[ -n "${opencode_pid:-}" ]] && kill "${opencode_pid}" 2>/dev/null
+  wait 2>/dev/null
+}
+
+trap cleanup EXIT
+
+OPENCODE_SERVER_PASSWORD=$(op read "op://Private/OpenCode Server/password") \
+  opencode web --port 4096 &
+opencode_pid=$!
+
+cloudflared tunnel run opencode &
+tunnel_pid=$!
+
+wait -n
