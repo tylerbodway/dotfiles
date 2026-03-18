@@ -26,8 +26,6 @@ export PATH="$DOT/bin:$PATH"
 
 export DIRENV_LOG_FORMAT=$'\033[2mdirenv: %s\033[0m' # faint color
 
-export OPENSPEC_TELEMETRY=0
-
 export HOMEBREW_BUNDLE_NO_LOCK=1
 export HOMEBREW_NO_ANALYTICS=1
 
