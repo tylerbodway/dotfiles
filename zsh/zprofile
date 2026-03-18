@@ -22,6 +22,7 @@ export GOCACHE="$XDG_CACHE_HOME/go-build"
 export SSH_AUTH_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 export DOT="$HOME/.dotfiles"
+export PATH="$DOT/bin:$PATH"
 
 export DIRENV_LOG_FORMAT=$'\033[2mdirenv: %s\033[0m' # faint color
 
@@ -50,6 +51,7 @@ export FZF_DEFAULT_OPTS=" \
 if [[ -d "$HOME/pco-box" ]]; then
   source "$HOME/pco-box/env.sh"
 fi
+
 
 if [[ -e "/opt/homebrew/bin/brew" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"

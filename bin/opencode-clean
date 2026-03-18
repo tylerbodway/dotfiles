@@ -1,0 +1,270 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# opencode-clean — Remove accumulated OpenCode session data, logs, and MCP cruft.
+#
+# Usage:
+#   opencode-clean              # interactive dry-run first, then confirm
+#   opencode-clean --dry-run    # show what would be deleted
+#   opencode-clean --force      # skip confirmation
+#   opencode-clean --keep-days N  # keep sessions newer than N days (default: 7)
+
+readonly DATA_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/opencode"
+readonly STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/opencode"
+readonly CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/opencode"
+readonly DB_PATH="${DATA_DIR}/opencode.db"
+
+keep_days=7
+dry_run=false
+force=false
+
+usage() {
+  cat <<EOF
+Usage: opencode-clean [OPTIONS]
+
+Remove accumulated OpenCode session data, logs, snapshots, and MCP cruft.
+
+Options:
+  --dry-run         Show what would be deleted without deleting anything
+  --force           Skip confirmation prompt
+  --keep-days N     Keep sessions newer than N days (default: 7, 0 = remove all)
+  -h, --help        Show this help message
+
+Targets:
+  Sessions      SQLite DB rows + storage/ files older than --keep-days
+  Logs          All log files in ${DATA_DIR}/log/
+  Snapshots     All snapshot repos in ${DATA_DIR}/snapshot/
+  Tool output   Cached tool output in ${DATA_DIR}/tool-output/
+  Brave profile Browser profile used by devtools MCP in ${STATE_DIR}/brave-profile/
+EOF
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --dry-run)    dry_run=true; shift ;;
+    --force)      force=true; shift ;;
+    --keep-days)  keep_days="$2"; shift 2 ;;
+    -h|--help)    usage; exit 0 ;;
+    *)            echo "Unknown option: $1" >&2; usage; exit 1 ;;
+  esac
+done
+
+# --- helpers ----------------------------------------------------------------
+
+bytes_to_human() {
+  local bytes="$1"
+  if (( bytes >= 1073741824 )); then
+    printf "%.1fG" "$(echo "scale=1; ${bytes}/1073741824" | bc)"
+  elif (( bytes >= 1048576 )); then
+    printf "%.1fM" "$(echo "scale=1; ${bytes}/1048576" | bc)"
+  elif (( bytes >= 1024 )); then
+    printf "%.1fK" "$(echo "scale=1; ${bytes}/1024" | bc)"
+  else
+    printf "%dB" "${bytes}"
+  fi
+}
+
+dir_size_bytes() {
+  local path="$1"
+  if [[ -d "${path}" ]]; then
+    du -sk "${path}" 2>/dev/null | awk '{print $1 * 1024}'
+  else
+    echo 0
+  fi
+}
+
+total_freed=0
+
+report() {
+  local label="$1" size="$2"
+  if (( size > 0 )); then
+    printf "  %-24s %s\n" "${label}" "$(bytes_to_human "${size}")"
+    total_freed=$(( total_freed + size ))
+  else
+    printf "  %-24s %s\n" "${label}" "(empty)"
+  fi
+}
+
+remove_dir_contents() {
+  local path="$1"
+  if [[ -d "${path}" ]]; then
+    if "${dry_run}"; then
+      return
+    fi
+    rm -rf "${path:?}"/*
+  fi
+}
+
+remove_dir() {
+  local path="$1"
+  if [[ -d "${path}" ]]; then
+    if "${dry_run}"; then
+      return
+    fi
+    rm -rf "${path:?}"
+  fi
+}
+
+# --- preflight --------------------------------------------------------------
+
+if [[ ! -d "${DATA_DIR}" ]]; then
+  echo "OpenCode data directory not found: ${DATA_DIR}"
+  exit 1
+fi
+
+if pgrep -qx "opencode" 2>/dev/null; then
+  echo "Warning: OpenCode appears to be running. Close it before cleaning to avoid data corruption."
+  if ! "${force}"; then
+    exit 1
+  fi
+fi
+
+# --- calculate sizes --------------------------------------------------------
+
+echo "Scanning OpenCode data..."
+echo
+
+# 1. Old sessions (DB + storage files)
+cutoff_ms=$(( ($(date +%s) - keep_days * 86400) * 1000 ))
+
+if [[ -f "${DB_PATH}" ]]; then
+  old_session_count=$(sqlite3 "${DB_PATH}" "SELECT COUNT(*) FROM session WHERE time_updated < ${cutoff_ms};")
+  total_session_count=$(sqlite3 "${DB_PATH}" "SELECT COUNT(*) FROM session;")
+
+  # Collect old session IDs for storage cleanup
+  old_session_ids=$(sqlite3 "${DB_PATH}" "SELECT id FROM session WHERE time_updated < ${cutoff_ms};")
+else
+  old_session_count=0
+  total_session_count=0
+  old_session_ids=""
+fi
+
+# Estimate storage size for old sessions (session json files, message dirs, part dirs, diffs, todos)
+old_storage_bytes=0
+if [[ -n "${old_session_ids}" ]]; then
+  while IFS= read -r sid; do
+    # session json files (across all project dirs)
+    for f in "${DATA_DIR}/storage/session"/*/"${sid}.json"; do
+      [[ -f "${f}" ]] && old_storage_bytes=$(( old_storage_bytes + $(stat -f%z "${f}" 2>/dev/null || echo 0) ))
+    done
+    # message directory
+    if [[ -d "${DATA_DIR}/storage/message/${sid}" ]]; then
+      old_storage_bytes=$(( old_storage_bytes + $(du -sk "${DATA_DIR}/storage/message/${sid}" 2>/dev/null | awk '{print $1 * 1024}') ))
+    fi
+    # part directory
+    if [[ -d "${DATA_DIR}/storage/part/${sid}" ]]; then
+      old_storage_bytes=$(( old_storage_bytes + $(du -sk "${DATA_DIR}/storage/part/${sid}" 2>/dev/null | awk '{print $1 * 1024}') ))
+    fi
+    # session diff
+    if [[ -f "${DATA_DIR}/storage/session_diff/${sid}.json" ]]; then
+      old_storage_bytes=$(( old_storage_bytes + $(stat -f%z "${DATA_DIR}/storage/session_diff/${sid}.json" 2>/dev/null || echo 0) ))
+    fi
+    # todo
+    if [[ -f "${DATA_DIR}/storage/todo/${sid}.json" ]]; then
+      old_storage_bytes=$(( old_storage_bytes + $(stat -f%z "${DATA_DIR}/storage/todo/${sid}.json" 2>/dev/null || echo 0) ))
+    fi
+  done <<< "${old_session_ids}"
+fi
+
+logs_bytes=$(dir_size_bytes "${DATA_DIR}/log")
+snapshots_bytes=$(dir_size_bytes "${DATA_DIR}/snapshot")
+tool_output_bytes=$(dir_size_bytes "${DATA_DIR}/tool-output")
+brave_bytes=$(dir_size_bytes "${STATE_DIR}/brave-profile")
+
+# --- report -----------------------------------------------------------------
+
+if (( keep_days > 0 )); then
+  echo "Sessions older than ${keep_days} days: ${old_session_count} of ${total_session_count}"
+else
+  echo "Sessions: ${old_session_count} of ${total_session_count} (removing all)"
+fi
+echo
+
+echo "Space to reclaim:"
+report "Session data" "${old_storage_bytes}"
+report "Logs" "${logs_bytes}"
+report "Snapshots" "${snapshots_bytes}"
+report "Tool output" "${tool_output_bytes}"
+report "Brave profile (MCP)" "${brave_bytes}"
+echo "  ────────────────────────────────"
+printf "  %-24s %s\n" "Total" "$(bytes_to_human "${total_freed}")"
+echo
+
+if "${dry_run}"; then
+  echo "(dry run — nothing was deleted)"
+  exit 0
+fi
+
+if (( total_freed == 0 )); then
+  echo "Nothing to clean."
+  exit 0
+fi
+
+# --- confirm ----------------------------------------------------------------
+
+if ! "${force}"; then
+  printf "Proceed with cleanup? [y/N] "
+  read -r answer
+  if [[ "${answer}" != [yY] ]]; then
+    echo "Aborted."
+    exit 0
+  fi
+fi
+
+# --- clean ------------------------------------------------------------------
+
+echo "Cleaning..."
+
+# 1. Remove old sessions from DB (cascade deletes messages, parts, todos, etc.)
+if [[ -f "${DB_PATH}" ]] && (( old_session_count > 0 )); then
+  sqlite3 "${DB_PATH}" "DELETE FROM session WHERE time_updated < ${cutoff_ms};"
+  sqlite3 "${DB_PATH}" "VACUUM;"
+  echo "  Removed ${old_session_count} sessions from database"
+fi
+
+# 2. Remove old session storage files
+if [[ -n "${old_session_ids}" ]]; then
+  removed_files=0
+  while IFS= read -r sid; do
+    # session json files
+    for f in "${DATA_DIR}/storage/session"/*/"${sid}.json"; do
+      [[ -f "${f}" ]] && rm -f "${f}" && (( removed_files++ ))
+    done
+    # message directory
+    [[ -d "${DATA_DIR}/storage/message/${sid}" ]] && rm -rf "${DATA_DIR}/storage/message/${sid}" && (( removed_files++ ))
+    # part directory
+    [[ -d "${DATA_DIR}/storage/part/${sid}" ]] && rm -rf "${DATA_DIR}/storage/part/${sid}" && (( removed_files++ ))
+    # session diff
+    [[ -f "${DATA_DIR}/storage/session_diff/${sid}.json" ]] && rm -f "${DATA_DIR}/storage/session_diff/${sid}.json" && (( removed_files++ ))
+    # todo
+    [[ -f "${DATA_DIR}/storage/todo/${sid}.json" ]] && rm -f "${DATA_DIR}/storage/todo/${sid}.json" && (( removed_files++ ))
+  done <<< "${old_session_ids}"
+  echo "  Removed storage files for old sessions"
+fi
+
+# 3. Logs
+if [[ -d "${DATA_DIR}/log" ]] && (( logs_bytes > 0 )); then
+  remove_dir_contents "${DATA_DIR}/log"
+  echo "  Cleared logs"
+fi
+
+# 4. Snapshots
+if [[ -d "${DATA_DIR}/snapshot" ]] && (( snapshots_bytes > 0 )); then
+  remove_dir_contents "${DATA_DIR}/snapshot"
+  echo "  Cleared snapshots"
+fi
+
+# 5. Tool output
+if [[ -d "${DATA_DIR}/tool-output" ]] && (( tool_output_bytes > 0 )); then
+  remove_dir_contents "${DATA_DIR}/tool-output"
+  echo "  Cleared tool output"
+fi
+
+# 6. Brave profile
+if [[ -d "${STATE_DIR}/brave-profile" ]] && (( brave_bytes > 0 )); then
+  remove_dir "${STATE_DIR}/brave-profile"
+  echo "  Removed Brave profile"
+fi
+
+echo
+echo "Done. Reclaimed ~$(bytes_to_human "${total_freed}")."
