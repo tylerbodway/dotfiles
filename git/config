@@ -21,6 +21,7 @@
   gpgsign = true
 [core]
   excludesFile = ~/.config/git/ignore
+  hooksPath = ~/.config/git/hooks
   pager = less -F -X
 [diff]
   noprefix = true

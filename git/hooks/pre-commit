@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+
+# Delegation shim: forwards to repo-local pre-commit hook if it exists.
+# Required because core.hooksPath overrides per-repo .git/hooks/.
+
+LOCAL_HOOK="$(git rev-parse --git-dir)/hooks/pre-commit"
+if [ -x "${LOCAL_HOOK}" ]; then
+  exec "${LOCAL_HOOK}" "$@"
+fi
