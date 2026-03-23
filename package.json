@@ -6,6 +6,7 @@
     "prettier": "latest",
     "vscode-langservers-extracted": "latest",
     "chrome-devtools-mcp": "latest",
+    "opkg": "latest",
     "yaml-language-server": "latest"
   }
 }

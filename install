@@ -16,4 +16,5 @@ git submodule update --init --recursive "${DOTBOT_DIR}"
   --plugin dotbot-plugins/dotbot-brew/ \
   --plugin dotbot-plugins/npm.py \
   --plugin dotbot-plugins/gem.py \
+  --plugin dotbot-plugins/openpackage.py \
   "${@}"
