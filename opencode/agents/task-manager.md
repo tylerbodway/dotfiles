@@ -3,7 +3,6 @@ description: Task manager for Asana - query, summarize, create, and update tasks
 mode: subagent
 tools:
   asana_*: true
-  task: true
   read: false
   glob: false
   grep: false

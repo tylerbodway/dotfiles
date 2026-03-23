@@ -3,7 +3,6 @@ description: Bug manager for Bugsnag - analyze errors, identify trends, and tria
 mode: subagent
 tools:
   bugsnag_*: true
-  task: true
   read: false
   glob: false
   grep: false
