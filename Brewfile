@@ -187,10 +187,6 @@ cask "logi-options+"
 # Software for Logitech devices
 # https://www.logitech.com/en-us/software/logi-options-plus.html
 
-cask "monitorcontrol"
-# Tool to control external monitor brightness & volume
-# https://github.com/MonitorControl/MonitorControl
-
 cask "notion"
 # App to write, plan, collaborate, and get organised
 # https://www.notion.so/
@@ -198,10 +194,6 @@ cask "notion"
 cask "notion-calendar"
 # Calendar for professionals and teams
 # https://www.notion.com/product/calendar
-
-cask "opal-composer"
-# Professional webcam software for the Opal C1
-# https://opalcamera.com/opal-composer
 
 cask "proton-drive"
 # Client for Proton Drive
