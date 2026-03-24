@@ -184,8 +184,11 @@ Global npm packages provide additional servers (see `package.json`).
 
 ## Important Notes for Agents
 
-1. **Symlinks**: Files are symlinked from this repo to their destinations.
-   Edit source files here, not the symlinked destinations.
+1. **Symlinks**: Files in this repo (`~/.dotfiles/`) are symlinked into `~/.config/` and other
+   destinations by dotbot (see `install.conf.yaml` for the full mapping). For example,
+   `~/.dotfiles/nvim/` is the source for `~/.config/nvim/`, `~/.dotfiles/ghostty/` for
+   `~/.config/ghostty/`, etc. **Always read and edit files in `~/.dotfiles/`, never in `~/.config/`.**
+   The working directory is already `~/.dotfiles`, so use relative paths within this repo.
 
 2. **Dotbot submodule**: The `dotbot/` directory is a git submodule.
    Don't modify files within it.
