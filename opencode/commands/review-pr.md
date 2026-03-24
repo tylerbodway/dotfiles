@@ -6,6 +6,10 @@ subtask: true
 
 You are conducting a comprehensive code review for GitHub Pull Request #$1.
 
+**Additional reviewer concerns**: $2
+
+If additional reviewer concerns are provided above, keep them in mind throughout the entire review. Address them within the relevant existing sections of the report where they naturally fit (e.g., security concerns in the Security Review, correctness concerns in Critical Issues or Major Concerns, etc.). Only add a separate **🔍 Additional Concerns** section to the report if a concern doesn't naturally belong in any of the standard sections.
+
 ## Step 1: Validate and Gather PR Information
 
 First, verify the PR exists and gather basic information:
