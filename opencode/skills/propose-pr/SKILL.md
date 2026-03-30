@@ -60,11 +60,7 @@ I will NOT actually create or submit the PR - I only open the GitHub page with s
 
 ## Dependencies
 
-Before generating PR content, load the `technical-writing-voice` skill and follow its guidelines for:
-
-- PR title style
-- PR description voice and structure
-- Commit message references
+Before generating PR content, load the `writing-voice` skill and follow its guidelines.
 
 ## Notes
 
