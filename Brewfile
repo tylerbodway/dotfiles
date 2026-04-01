@@ -51,6 +51,10 @@ brew "git"
 # Distributed revision control system
 # https://git-scm.com
 
+brew "go"
+# Open source programming language to build simple/reliable/efficient software
+# https://go.dev/
+
 brew "grc"
 # Colorize logfiles and command output
 # https://github.com/garabik/grc
@@ -87,6 +91,10 @@ tap "anomalyco/tap"
 brew "opencode"
 # The AI coding agent built for the terminal.
 # https://github.com/sst/opencode
+
+brew "posting"
+# Modern API client that lives in your terminal
+# https://github.com/darrenburns/posting
 
 brew "powerlevel10k"
 # Prompt theme for zsh
@@ -214,6 +222,10 @@ cask "rapidapi"
 cask "raycast"
 # Spotlight replacement productivity tool
 # https://raycast.com/
+
+cask "session-manager-plugin" # (pco-box dependency)
+# Session Manager plugin for the AWS CLI
+# https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html
 
 cask "slack"
 # Team communication and collaboration software
