@@ -42,8 +42,6 @@
   updateRefs = true
 [rerere]
   enabled = true
-[url "git@github.com:"]
-  insteadOf = https://github.com/
 [user]
   name = Tyler Bodway
   email = 9326912+tylerbodway@users.noreply.github.com
