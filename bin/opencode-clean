@@ -112,13 +112,6 @@ if [[ ! -d "${DATA_DIR}" ]]; then
   exit 1
 fi
 
-if pgrep -qx "opencode" 2>/dev/null; then
-  echo "Warning: OpenCode appears to be running. Close it before cleaning to avoid data corruption."
-  if ! "${force}"; then
-    exit 1
-  fi
-fi
-
 # --- calculate sizes --------------------------------------------------------
 
 echo "Scanning OpenCode data..."
