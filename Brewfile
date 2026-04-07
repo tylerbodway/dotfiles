@@ -112,6 +112,10 @@ brew "stylua"
 # Opinionated Lua code formatter
 # https://github.com/JohnnyMorganz/StyLua
 
+brew "tree-sitter-cli" # (neovim dependency)
+# CLI for developing, testing, and using Tree-sitter parsers
+# https://tree-sitter.github.io/
+
 brew "uv"
 # Extremely fast Python package installer and resolver, written in Rust
 # https://docs.astral.sh/uv/
