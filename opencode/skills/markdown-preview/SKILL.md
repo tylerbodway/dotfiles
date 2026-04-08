@@ -27,43 +27,29 @@ Do NOT use for short conversational answers, single code snippets, trivial one-p
 
 `mdserve` must be installed. If the command is not found, STOP and ask the user to install it before proceeding.
 
+IMPORTANT: `mdserve` is a long-running server process. You MUST use the `pty_spawn` tool which exists for this purpose. NEVER use the `bash` tool as it will time out and abort.
+
 ## Instructions
 
 ### 1. Write the markdown file
 
 Create or edit the file (e.g., `plan.md`) with the content needed.
 
-### 2. Check for port conflicts
+### 2. Start the preview server
 
-Before starting the server, check if the default port is in use:
-
-```
-ss -tlnp | grep :3000
-```
-
-If port 3000 is occupied, use `--port` to pick another (e.g., 3001).
-
-### 3. Start the preview server
-
-Launch `mdserve` as a background session with `--open` to auto-open the browser:
+Use the `pty_spawn` tool to launch `mdserve` as a background PTY session.
 
 **Single file:**
 
-```
-pty_spawn: command="mdserve", args=["--open", "plan.md"], title="Markdown Preview"
-```
-
-**With alternate port:**
-
-```
-pty_spawn: command="mdserve", args=["--open", "plan.md", "--port", "3001"], title="Markdown Preview"
-```
+- command: `mdserve`
+- args: `["--open", "plan.md"]`
+- title: `"Plan Preview"`
 
 **Directory mode** (for multiple related files, serve the parent directory so the user can navigate between them):
 
-```
-pty_spawn: command="mdserve", args=["--open", "docs/"], title="Markdown Preview"
-```
+- command: `mdserve`
+- args: `["--open", "docs/"]`
+- title: `"Docs Preview"`
 
 ### 4. Tell the user the URL
 
@@ -75,11 +61,12 @@ Edit the file as needed. Changes reload automatically in the browser. Continue i
 
 ### 6. Stop the server when done
 
-When the task is finished and the preview is no longer needed, stop the session:
+When the task is finished and the preview is no longer needed, use `pty_write` to send Ctrl+C:
 
-```
-pty_write: id="TASK_ID", data="\x03"
-```
+- id: the session ID returned by `pty_spawn`
+- data: `"\x03"`
+
+Then use `pty_kill` with `cleanup: true` to clean up the session.
 
 ## Mermaid diagrams
 
