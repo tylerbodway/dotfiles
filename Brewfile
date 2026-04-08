@@ -88,7 +88,7 @@ brew "ollama"
 # https://ollama.com
 
 tap "anomalyco/tap"
-brew "opencode"
+brew "anomalyco/tap/opencode"
 # The AI coding agent built for the terminal.
 # https://github.com/sst/opencode
 
