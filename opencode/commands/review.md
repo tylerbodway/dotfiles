@@ -1,7 +1,6 @@
 ---
 description: Review code changes (diff, commit, branch, or PR)
 agent: plan
-subtask: true
 ---
 
 You are conducting a comprehensive code review.
