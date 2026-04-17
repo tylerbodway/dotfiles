@@ -7,13 +7,13 @@ It is bootstrapped by [dotbot][] because it's nifty ✨
 
 ## Usage
 
-### Initialization
+### Bootstrapping
 
-To set up a fresh macOS install, the `./init` script will automatically
+To set up a fresh macOS install, the `./bootstrap` script will automatically
 install system requirements, clone the repo, and run the `./install` script.
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tylerbodway/dotfiles/main/init)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tylerbodway/dotfiles/main/bootstrap)"
 ```
 
 ### Installation

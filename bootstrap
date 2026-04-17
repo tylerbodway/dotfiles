@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+DOTFILES_REPO_NWO="tylerbodway/dotfiles"
+DOTFILES_DIR="${HOME}/.dotfiles"
+
 export TERM="xterm-256color"
 BOLD="$(tput bold)"
 DIM="$(tput dim)"
@@ -16,23 +19,23 @@ run() {
   eval "${cmd}"
 }
 
-step "Installing Xcode Command Line Tools"
+step "Installing Xcode Command Line Tools for Git"
 run 'xcode-select --install'
 # Wait until Xcode Command Line Tools is finished installing
 until $(xcode-select --print-path &> /dev/null); do
   sleep 5;
 done
 
-step "Installing Homebrew"
+step "Installing Homebrew for OS packages and applications"
 run '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
 
 step "Ensuring brew command is available"
 run 'eval "$(/opt/homebrew/bin/brew shellenv)"'
 
 step "Setting up dotfiles repository"
-run 'git clone https://github.com/tylerbodway/dotfiles.git ~/.dotfiles'
-run 'cd ~/.dotfiles'
-run 'git remote set-url origin git@github.com:tylerbodway/dotfiles.git'
+run "git clone https://github.com/${DOTFILES_REPO_NWO}.git ${DOTFILES_DIR}"
+run "cd ${DOTFILES_DIR}"
+run "git remote set-url origin git@github.com:${DOTFILES_REPO_NWO}.git"
 run 'git submodule update --init --recursive'
 
 step "Running installation script"
