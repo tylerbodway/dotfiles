@@ -86,11 +86,12 @@ Analyze the changes across these dimensions:
 - Are there deviations from project conventions that need addressing?
 - Are naming conventions consistent with the project?
 
-### Simplicity
+### System Design
 
 - Is the solution as simple as possible while meeting requirements?
 - Unnecessary complexity or over-engineering?
 - Violations of YAGNI?
+- Do the changes warrant rethinking abstractions?
 
 ### Performance (only flag if obviously problematic)
 
@@ -119,7 +120,7 @@ Analyze the changes across these dimensions:
 - Only review the changes. Do not review pre-existing code that wasn't modified.
 - Don't flag something as a bug if you're unsure. Investigate first.
 - Don't invent hypothetical problems. If an edge case matters, explain the realistic scenario where it breaks.
-- If you need more context, use the Explore agent, Exa Code Context, or Exa Web Search to verify before flagging.
+- If you need more context, use the Explore agent to verify before flagging.
 - If you still can't verify, say "I'm not sure about X" rather than flagging it as a definite issue.
 
 **Don't be a zealot about style.** When checking against conventions:
@@ -130,6 +131,8 @@ Analyze the changes across these dimensions:
 - Don't flag style preferences as issues unless they clearly violate established project conventions.
 
 ## Step 4: Generate Review Report
+
+IMPORTANT: If there is no meaningful feedback in a section, DO NOT include it. For example: if there are no security concerns, omit the "Security Review".
 
 ### Summary
 
@@ -177,12 +180,12 @@ Analyze the changes across these dimensions:
 
 ### Overall Assessment
 
-- **Risk Level**: Low / Medium / High
+- **Risk Level**: ✅ Low / 🚧 Medium / 🚨 High
 - **Confidence**: How confident are you in the safety of these changes?
 - **Recommendation**:
-  - **Approve**: Safe to merge with no blocking issues
-  - **Request Changes**: Blocking issues must be addressed
-  - **Needs Discussion**: Architectural or design questions to resolve
+  - **👍 Approve**: Safe to merge with no blocking issues
+  - **👎 Request Changes**: Blocking issues must be addressed
+  - **💬 Needs Discussion**: Architectural or design questions to resolve
 - Reasoning behind the recommendation
 
 ### Actionable Recommendations
