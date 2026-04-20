@@ -3,10 +3,6 @@
 
 # === Packages ===
 
-brew "awscli"
-# Official Amazon AWS command-line interface
-# https://aws.amazon.com/cli/
-
 brew "bat"
 # Clone of cat(1) with syntax highlighting and Git integration
 # https://github.com/sharkdp/bat

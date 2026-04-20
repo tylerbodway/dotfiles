@@ -51,7 +51,6 @@ dev() {
 }
 
 if [[ -d "$HOME/Code/pco" ]]; then
-  export AWS_CLI_PATH="$(brew --prefix)/bin/aws"
   eval "$($HOME/Code/pco/bin/pco init -)"
 fi
 
