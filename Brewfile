@@ -191,6 +191,10 @@ cask "ghostty"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 # https://ghostty.org
 
+cask "linear-linear"
+# App to manage software development and track bugs
+# https://linear.app/
+
 cask "logi-options+"
 # Software for Logitech devices
 # https://www.logitech.com/en-us/software/logi-options-plus.html
