@@ -81,6 +81,7 @@
   "tools": {
     "asana_*": false,
     "bugsnag_*": false,
+    "linear_*": false,
     "notion_*": false,
     "redshift_*": false
   },
