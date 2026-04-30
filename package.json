@@ -2,6 +2,7 @@
   "dependencies": {
     "@herb-tools/language-server": "latest",
     "@olrtg/emmet-language-server": "latest",
+    "@stylelint/language-server": "latest",
     "@vtsls/language-server": "latest",
     "prettier": "latest",
     "vscode-langservers-extracted": "latest",

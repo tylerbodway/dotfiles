@@ -94,6 +94,10 @@
     "jsonls": {
       "command": ["vscode-json-language-server", "--stdio"],
       "extensions": [".json", ".jsonc"]
+    },
+    "stylelint": {
+      "command": ["stylelint-language-server", "--stdio"],
+      "extensions": [".css", ".scss", ".less"]
     }
   },
   "formatter": {
@@ -107,6 +111,10 @@
     "rubotree": {
       "command": ["rubotree", "$FILE"],
       "extensions": [".rb", ".rake", ".gemspec", ".ru"]
+    },
+    "stylelint": {
+      "command": ["stylelint", "--fix", "$FILE"],
+      "extensions": [".css", ".scss", ".less"]
     },
     "stylua": {
       "command": ["stylua", "$FILE"],

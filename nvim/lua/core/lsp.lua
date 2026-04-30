@@ -46,6 +46,7 @@ vim.lsp.enable({
   "jsonls",
   "lua_ls",
   "ruby_lsp",
+  "stylelint_lsp",
   "vtsls",
   "yamlls",
 })
@@ -74,5 +75,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "gK", vim.lsp.buf.signature_help, { buffer = ev.buf, desc = "Signature help" })
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "Code action" })
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = ev.buf, desc = "Rename symbol" })
+
+    -- stylelint_lsp doesn't implement textDocument/formatting, so conform's
+    -- lsp_format fallback can't drive it. Instead, run its source.fixAll
+    -- code action on save (mirrors VS Code's editor.codeActionsOnSave).
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+    if client and client.name == "stylelint_lsp" then
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = vim.api.nvim_create_augroup("UserStylelintFixOnSave_" .. ev.buf, { clear = true }),
+        buffer = ev.buf,
+        callback = function()
+          local gaf = vim.g.autoformat
+          local baf = vim.b[ev.buf].autoformat
+          if baf == false or (baf == nil and not gaf) then return end
+
+          vim.lsp.buf.code_action({
+            context = { only = { "source.fixAll.stylelint" }, diagnostics = {} },
+            apply = true,
+          })
+        end,
+      })
+    end
   end,
 })
