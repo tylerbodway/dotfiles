@@ -1,6 +1,7 @@
 ---
 description: Review code changes (diff, commit, branch, or PR)
 agent: plan
+model: github-copilot/claude-opus-4.7
 ---
 
 You are conducting a comprehensive code review.

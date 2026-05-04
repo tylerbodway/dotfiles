@@ -1,5 +1,6 @@
 ---
 description: Plan a change - design and document a PR-sized change ready to build
+model: github-copilot/claude-opus-4.7
 ---
 
 Plan a change. Make design decisions, document trade-offs, and produce a `plan.md` ready for `/build` to break down into tickets.
