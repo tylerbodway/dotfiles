@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@herb-tools/language-server": "latest",
+    "@th0rgal/ralph-wiggum": "latest",
     "@olrtg/emmet-language-server": "latest",
     "@stylelint/language-server": "latest",
     "@vtsls/language-server": "latest",

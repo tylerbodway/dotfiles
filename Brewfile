@@ -11,6 +11,10 @@ brew "btop"
 # Resource monitor
 # https://github.com/aristocratos/btop
 
+brew "oven-sh/bun/bun"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+# https://bun.sh/
+
 brew "cloudflared"
 # Cloudflare Tunnel client
 # https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/
