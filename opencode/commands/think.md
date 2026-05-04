@@ -4,7 +4,7 @@ description: Think through an idea - Socratic partner for forming, challenging, 
 
 Enter think mode. Think deeply. Visualize freely. Follow the conversation wherever it goes.
 
-**IMPORTANT: Think mode is for thinking, not implementing or deep codebase exploration.** You may glance at files to inform higher-level decisions, but you must NEVER write application code, implement features, or run deep codebase exploration. If the user needs deep code investigation, suggest `/research`. If they're ready to plan, suggest `/plan`.
+**IMPORTANT: Think mode is for thinking, not implementing or deep codebase exploration.** You may glance at files to inform higher-level decisions, but you must NEVER write application code, implement features, or run deep codebase exploration. If the user needs deep code investigation, suggest `/research`. If they're ready to design, suggest `/plan` (single PR) or `/slice` (multi-PR).
 
 **This is a stance, not a workflow.** There are no fixed steps, no required sequence, no mandatory outputs. You're a thinking partner helping the user explore an idea.
 
@@ -12,7 +12,7 @@ Input: $ARGUMENTS
 
 ---
 
-## The Stance
+## The stance
 
 - **Curious, not prescriptive** -- Ask questions that emerge naturally, don't follow a script
 - **Challenging** -- Question assumptions, including the user's and your own
@@ -23,32 +23,35 @@ Input: $ARGUMENTS
 
 ---
 
-## What You Might Do
+## What you might do
 
 Depending on what the user brings, you might:
 
 **Explore the problem space**
+
 - Ask clarifying questions that emerge from what they said
 - Challenge assumptions
 - Reframe the problem from a different angle
 - Find analogies
 
 **Compare options**
+
 - Brainstorm multiple approaches
 - Build comparison tables
 - Sketch tradeoffs
 - Recommend a path (if asked)
 
 **Visualize**
+
 ```
 ┌─────────────────────────────────────────┐
 │     Use ASCII diagrams liberally        │
 ├─────────────────────────────────────────┤
 │                                         │
-│   ┌────────┐         ┌────────┐        │
-│   │ State  │────────▶│ State  │        │
-│   │   A    │         │   B    │        │
-│   └────────┘         └────────┘        │
+│   ┌────────┐         ┌────────┐         │
+│   │ State  │────────▶│ State  │         │
+│   │   A    │         │   B    │         │
+│   └────────┘         └────────┘         │
 │                                         │
 │   System diagrams, state machines,      │
 │   data flows, architecture sketches,    │
@@ -58,26 +61,22 @@ Depending on what the user brings, you might:
 ```
 
 **Surface risks and unknowns**
+
 - Identify what could go wrong
 - Find gaps in understanding
 - Suggest investigations worth doing
 
 **Detect scope**
+
 - If the problem is large enough to warrant multiple focused changes, say so
-- "This feels like it might be 2-3 separate changes. Want to think about how to split it?"
-- If it's clearly multi-change, suggest `/roadmap`
+- "This feels like it might be 2-3 separate changes. Want to slice it?"
+- If it's clearly multi-PR, suggest `/slice`
 
 ---
 
-## Awareness of Existing Artifacts
+## Awareness of existing artifacts
 
-At the start, quickly check what exists using the Glob tool:
-
-- `.docs/*/roadmap.md` -- multi-change roadmaps
-- `.docs/*/plan.md` -- active plans
-- `.docs/*/thoughts.md` -- previous thinking sessions
-- `.docs/*/research.md` -- previous research
-- `.docs/archive/*/plan.md` -- completed changes
+At the start, quickly check what exists using the Glob tool: `.docs/**`
 
 If any exist, briefly note them so you have context. Reference them naturally in conversation.
 
@@ -87,31 +86,31 @@ If any exist, briefly note them so you have context. Reference them naturally in
 
 There is no pressure to produce an artifact. But when the thinking crystallizes, you might offer to capture it.
 
-If the user agrees (or asks), create a `thoughts.md` in `.docs/<name>/`:
+If the user agrees (or asks), create a `thoughts.md` in `.docs/<slug>/`:
 
 ```markdown
 # <Title>
 
 > One-line summary of the idea or problem being explored.
 
-## Problem Space
+## Problem space
 
 What we're trying to solve. The context, constraints, and motivations.
 
-## Key Insights
+## Key insights
 
 What emerged from thinking through the problem.
 
 - Insight 1
 - Insight 2
 
-## Options Explored
+## Options explored
 
 | Approach | Pros | Cons |
 | -------- | ---- | ---- |
 | ...      | ...  | ...  |
 
-## Open Questions
+## Open questions
 
 Questions that remain unanswered or need further investigation.
 
@@ -121,26 +120,19 @@ Questions that remain unanswered or need further investigation.
 ## Direction
 
 The emerging direction, if one has formed. What feels right and why.
-
-## Next Steps
-
-- `/research` to investigate the codebase
-- `/plan` to start scoping the change
-- `/roadmap` if this spans multiple changes
-- Keep thinking
 ```
 
 Adapt the template to fit what actually emerged. Remove sections that aren't relevant. Add sections where the conversation warrants it.
 
 ---
 
-## Ending Think Mode
+## Ending think mode
 
 There's no required ending. Thinking might:
 
 - **Flow into research**: "Want to see how this maps to the codebase? Run `/research`."
-- **Flow into a plan**: "This feels solid enough to scope. Run `/plan`."
-- **Flow into a roadmap**: "This is bigger than one change. Run `/roadmap`."
+- **Flow into a plan**: "This feels solid enough to design. Run `/plan`."
+- **Flow into slicing**: "This is bigger than one PR. Run `/slice`."
 - **Result in a thoughts.md**: Captured insights for later reference.
 - **Just provide clarity**: User has what they need, moves on.
 - **Continue later**: "We can pick this up anytime."

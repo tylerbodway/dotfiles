@@ -1,10 +1,8 @@
 ---
-description: Plan a change - scope, design, and document a change ready for implementation
+description: Plan a change - design and document a PR-sized change ready to build
 ---
 
-Plan a change -- scope it, make key design decisions, and produce a plan ready for `/implement`.
-
-This takes any combination of prior artifacts (`thoughts.md`, `research.md`, a spec, a roadmap reference) or a fresh prompt and produces a `plan.md` (or multiple `plan-{topic}.md` files for complex changes) that covers what, why, how, and the tradeoffs involved.
+Plan a change. Make design decisions, document trade-offs, and produce a `plan.md` ready for `/build` to break down into tickets.
 
 Input: $ARGUMENTS
 
@@ -15,11 +13,13 @@ Input: $ARGUMENTS
 The user's request should include a change name (kebab-case) OR a description of what they want to build. If neither is provided, ask.
 
 They may also reference:
-- A `thoughts.md` from a `/think` session
-- A `research.md` from a `/research` session
-- A `roadmap.md` entry from a `/roadmap` session
+
+- An `intake.md` from `/intake`
+- A `thoughts.md` from `/think`
+- A `research.md` from `/research`
+- A `slices.md` entry from `/slice`
 - A spec or other document
-- Or just describe what they want from scratch
+- Or just describe the change from scratch
 
 ---
 
@@ -27,92 +27,105 @@ They may also reference:
 
 ### 1. Understand what to plan
 
-If no clear input is provided, ask:
-> "What change do you want to plan? Describe what you want to build or fix."
+If no clear input is provided, ask what change they want to plan. Derive a kebab-case **slug** from the change description (e.g., "add user auth" → `add-user-auth`). The slug becomes:
 
-From their description, derive a kebab-case name (e.g., "add user authentication" -> `add-user-auth`).
+- The folder name: `.docs/<slug>/` (or, for one of several plans under an initiative, the filename suffix: `plan-<slug>.md`)
+- The git branch: `tb/<slug>`
+- The `tk` tag for tickets: `<slug>`
 
-**Do NOT proceed without understanding what the user wants to build.**
+Confirm the slug with the user if there's ambiguity.
 
 ### 2. Check for existing context
 
-Use the Glob tool to check:
+Use the Glob tool:
 
-- `.docs/<name>/` -- does this change folder already exist?
-- `.docs/<name>/thoughts.md` -- prior thinking to build on?
-- `.docs/<name>/research.md` -- prior codebase research?
-- `.docs/*/roadmap.md` -- is there a parent roadmap?
+- `.docs/<slug>/` — does the folder exist?
+- `.docs/<slug>/intake.md`, `thoughts.md`, `research.md`, `slices.md` — prior work to build on?
+- `.docs/*/slices.md` — is this plan part of a larger initiative?
 
-**If a plan already exists**, ask the user if they want to revise it or start fresh.
+If a plan already exists, ask whether to revise or start fresh.
 
-**If prior artifacts exist** (`thoughts.md`, `research.md`), read them for context. The plan should build on prior work, not ignore it.
+If prior artifacts exist, read them. Build on the work, don't ignore it.
 
-**If a roadmap references this change**, read the roadmap for broader context. The plan should reference the parent roadmap.
+If a `slices.md` references this change, note the parent and inherit any seam agreements and the slice's trust marker.
 
 ### 3. Research the codebase
 
-If no `research.md` exists, do lightweight codebase investigation before writing the plan:
-- Search for relevant files, patterns, and existing implementations
-- Identify integration points and dependencies
-- Surface constraints or complexity that should inform the plan
+If `research.md` exists, use it as the primary source plus targeted lookups.
 
-If `research.md` already exists, use it as the primary source and supplement with targeted lookups as needed.
+Otherwise do a lightweight investigation: relevant files, integration points, constraints. Use the `explore` subagent via the Task tool.
 
-Use the Task tool with the `explore` subagent for any codebase exploration.
+### 4. Detect oversized scope
 
-### 4. Create the change directory
+If the change is too large for a single PR — multiple distinct subsystems, week-plus of work, multiple natural seams — stop and suggest `/slice`:
+
+> "This is bigger than a PR. Run `/slice` to break it into vertical slices."
+
+Don't force the user to switch, but flag it clearly.
+
+### 5. Choose the file location
+
+- **Standalone plan**: `.docs/<slug>/plan.md`
+- **One of several plans under an initiative**: `.docs/<initiative-name>/plan-<slug>.md`
+
+For multi-plan initiatives, the folder is the initiative's folder; each plan is a sibling file.
+
+Create the folder if needed:
 
 ```bash
-mkdir -p .docs/<name>
+mkdir -p .docs/<folder>
 ```
 
-### 5. Create plan.md
+### 6. Write the plan
 
-Write `.docs/<name>/plan.md` using this template:
+Use this template. Adapt freely — remove sections that don't apply, add sections where content warrants it.
 
 ```markdown
 # <Change Title>
 
 > One-line summary of what this change accomplishes.
 
-**Roadmap**: `<roadmap-name>` (if applicable, omit if none)
+Branch: tb/<slug>
+Tag: <slug>
+Trust: auto | review | pair
+
+**Initiative**: `<initiative-name>` (if part of a `slices.md`, omit otherwise)
 
 ## Context
 
-Why this change is needed. What problem it solves. Link to parent roadmap if applicable.
+Why this change is needed. What problem it solves.
 
 ## Scope
 
 ### In scope
+
 - ...
 
 ### Out of scope
+
 - ...
 
 ## Approach
 
-High-level technical approach. How the change will be implemented.
+High-level technical approach.
 
-## Key Decisions
+## Key decisions
 
-### <Decision 1>
+### <Decision>
+
 - **Choice**: What was decided
 - **Why**: Reasoning
 - **Tradeoff**: What was given up
 
-### <Decision 2>
-- ...
-
 ## Architecture
 
-_Diagrams, data flows, component relationships. Use ASCII diagrams where helpful._
+_Diagrams, data flows, component relationships. ASCII where helpful._
 
-## Files & Components
+## Files and components
 
-Key files/components that will be created or modified:
-- `path/to/file` -- what changes and why
+- `path/to/file` — what changes and why
 
-## Alternatives Considered
+## Alternatives considered
 
 | Approach | Pros | Cons |
 | -------- | ---- | ---- |
@@ -120,71 +133,55 @@ Key files/components that will be created or modified:
 
 **Decision**: Which approach and why.
 
-## Risks & Open Questions
+## Risks
 
 - ...
 
-## Seam Notes
+## Seam notes
 
-_If this change touches boundaries shared with other people or systems, document them here. Otherwise, remove this section._
+_Only if this change touches boundaries shared with other people or systems._
 
-- **Scope boundary**: Who owns what
-- **Agreements**: What contracts or interfaces must hold
-- **Dependencies**: What other work must land first or coordinate
+- **Boundary**: Who owns what
+- **Agreements**: Contracts that must hold
+- **Dependencies**: Other work that must land first or coordinate
 ```
 
-Adapt the template to fit the change. Remove sections that aren't relevant. Add sections where the content warrants it.
+The `Branch:`, `Tag:`, and `Trust:` lines in the header are **required**. `/build` reads them to know where to commit, how to tag tickets, and the default trust marker for tickets.
 
-### 6. Complex plans -- multiple files
-
-If the plan is too large or covers distinct topics that are better separated:
-
-- Create `plan-{topic}.md` files instead of a single `plan.md`
-- Each file follows the same template structure
-- Add a brief `plan.md` that serves as an index linking to the topic files
-
-This should be rare. Prefer a single `plan.md` unless the complexity genuinely warrants splitting.
+- Branch convention: `tb/<slug>`
+- Tag convention: `<slug>`
+- Trust default: `review` (use `auto` for low-risk mechanical work, `pair` for seam-touching or irreversible work). When the choice isn't obvious, load the `trust-ladder` skill and use the rung framework to reason it out.
 
 ### 7. Summarize
 
-After creating the plan, show:
-- Change name and location
-- Brief summary of scope and approach
-- Key decisions made
-- Open risks or questions
-- If part of a roadmap, note which one
-- Prompt: "Run `/implement` to start building, or `/research` to investigate further."
+After writing, show:
+
+- Slug, branch, tag, trust marker
+- File location
+- Scope summary, key decisions, open risks
+- If part of an initiative, name the parent
+- Prompt: "Run `/build` to break this into tickets and start building."
 
 ---
 
-## Roadmap Detection
+## Seam Awareness
 
-If during planning you realize the scope is too large for a single change:
+If the change touches shared boundaries:
 
-1. Tell the user: "This feels like it should be a roadmap with multiple changes."
-2. Offer to run `/roadmap` instead to break it into focused pieces.
-3. If the user agrees, stop and let them invoke `/roadmap`.
-4. If the user wants to continue anyway, proceed but note the risk of scope creep.
+- Include the **Seam Notes** section
+- Call out interfaces and contracts in the architecture section
+- Flag coordination needs
 
----
-
-## Seam Awareness (Adaptive)
-
-If the change touches boundaries shared with other people or systems:
-- Include the "Seam Notes" section in `plan.md`
-- Call out interfaces and contracts that others depend on in the architecture section
-- Flag areas where coordination is needed
-
-For solo projects, skip seam sections entirely.
+For solo work, skip seam content entirely.
 
 ---
 
 ## Guardrails
 
-- Always research the codebase (or reference existing `research.md`) before writing the plan
-- Build on prior artifacts (`thoughts.md`, `research.md`) when they exist -- don't ignore prior work
-- If context is critically unclear, ask the user -- but prefer making reasonable decisions to keep momentum
-- If a plan with that name already exists, ask what to do
-- Verify the artifact file exists after writing
-- Never write application code -- this is planning only
-- Reference parent roadmap if one exists
+- Always research the codebase (or use existing `research.md`) before writing.
+- Build on prior artifacts. Don't ignore `intake.md`, `thoughts.md`, `research.md`, or a parent `slices.md`.
+- Always include `Branch:`, `Tag:`, and `Trust:` in the header.
+- Detect oversized scope and suggest `/slice` rather than producing a sprawling plan.
+- Never write application code — this is design only.
+- Never touch git or `tk` — `/build` does that.
+- Verify the file exists after writing.

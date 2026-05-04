@@ -1,14 +1,18 @@
 ---
 name: trust-ladder
-description: Classify work by the appropriate level of AI autonomy. Use when planning changes, annotating scopes or tasks, or deciding how much human oversight a given piece of work needs.
+description: Decide how much AI autonomy fits a unit of work. Use when assigning a `Trust:` marker in a plan or slice, deciding what kind of collaboration to have on a given task, or thinking about when to invest in verification infrastructure to enable more autonomy.
 ---
 
 # Trust Ladder
 
-Classify each unit of work (a slice, a task, a chore) by how much autonomy
-the AI should take and how much human oversight is warranted. The goal is not
-to maximize autonomy. The goal is to match the level of oversight to the risk,
-ambiguity, and verification cost of the work.
+Match the level of human oversight to the risk, ambiguity, and verification
+cost of the work. The goal is not to maximize autonomy — it's to choose the
+right collaboration mode for what's in front of you.
+
+Tyler's plans use a simplified three-marker system (`auto | review | pair`)
+in headers and on tickets. This skill provides the underlying reasoning:
+the five-rung framework that informs which marker fits, and the criteria for
+moving between them.
 
 ## The Rungs
 
@@ -84,20 +88,28 @@ When deciding which rung fits a unit of work, weigh these factors:
 A unit of work belongs on the **lowest rung where any factor raises concern**.
 When in doubt, go one rung lower.
 
-## Output Format
+## Mapping to plan markers
 
-When annotating a slice, task, or chore, use a one-line annotation:
+Plans declare `Trust: auto | review | pair` in the header; tickets inherit
+the marker as a `tk` label. The three markers collapse the five rungs:
 
-```
-Rung N -- <brief rationale>
-```
+| Marker     | Rungs | Behavior in `/build`                                                                  |
+| ---------- | ----- | ------------------------------------------------------------------------------------- |
+| **pair**   | 1–2   | Surface material decisions before acting; review every line. Default for risky work.  |
+| **review** | 2–3   | AI implements, human reviews diff after each ticket. Default when in doubt.           |
+| **auto**   | 4–5   | AI implements and commits autonomously; human reviews at PR boundary or async notify. |
 
-Examples:
+The rung framework is the _why_; the marker is the _what_. Use rung reasoning
+to argue for the marker, then write the marker in the header. Capturing rung
+rationale in `## Notes` of the plan is optional but useful when a choice is
+non-obvious ("Auto despite touching auth — every change is behind a feature
+flag and CI covers the regression set").
 
-- `Rung 2 -- new domain model, needs line-by-line review`
-- `Rung 3 -- follows existing CRUD pattern, good test coverage on this controller`
-- `Rung 4 -- mechanical gem bump, CI will catch regressions`
-- `Rung 5 -- scheduled Dependabot-style update, fully automated verification`
+## When the marker is genuinely ambiguous
+
+Annotate with both, e.g. `Trust: review (auto for boilerplate tickets)`.
+`/build` and `tk-workflow` honor the per-ticket marker, so most of a plan can
+move fast while one or two risky tickets pause for review.
 
 ## Climbing the Ladder Over Time
 
@@ -112,3 +124,11 @@ met. The investments that unlock higher rungs:
 
 Track which categories sit on which rung. When you invest in verification
 infrastructure, revisit the classification. The ladder is not static.
+
+## When this skill applies outside the workflow
+
+The framework is useful any time you're collaborating with AI on code, not
+just inside `/plan` and `/build`. Quick chat-mode work, exploratory spikes,
+and one-off scripts all benefit from naming the collaboration mode out loud:
+"Let's do this rung 1" sets expectations clearly without the ceremony of a
+plan header.

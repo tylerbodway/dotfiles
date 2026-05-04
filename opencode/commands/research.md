@@ -15,6 +15,7 @@ Input: $ARGUMENTS
 The user provides one or more of:
 
 - A description of what they want to research
+- A reference to an `intake.md` from `/intake`
 - A reference to a `thoughts.md` from a `/think` session
 - A spec or document to investigate against the codebase
 - A specific question about how the codebase handles something
@@ -27,15 +28,17 @@ If the input is unclear, ask what area of the codebase they want to understand.
 
 ### 1. Understand what to research
 
-Read any referenced artifacts (`thoughts.md`, specs, prior plans). Identify the areas that will require the most exploration. If the user has specific questions, note them.
+Read any referenced artifacts (`intake.md`, `thoughts.md`, specs, prior plans). Identify the areas that will require the most exploration. If the user has specific questions, note them.
 
 ### 2. Check for existing context
 
 Use the Glob tool to check:
 
+- `.docs/<slug>/intake.md` -- did this start from `/intake`?
 - `.docs/*/research.md` -- has this area been researched before?
 - `.docs/*/thoughts.md` -- is there prior thinking to build on?
-- `.docs/*/plan.md` -- has this already been planned?
+- `.docs/*/plan.md`, `.docs/*/plan-*.md` -- has this already been planned?
+- `.docs/*/slices.md` -- is this part of a larger initiative?
 
 If relevant artifacts exist, read them for context.
 
@@ -50,12 +53,12 @@ Use the Task tool with the `explore` subagent to investigate how the idea maps t
 
 Be thorough but purposeful. The goal is to understand the landscape well enough to write an informed plan, not to audit the entire codebase.
 
-### 4. Identify potential scope boundaries
+### 4. Identify potential slice boundaries
 
 Based on exploration, identify where the work might naturally split:
 
 - Natural boundaries between different areas of the codebase
-- Areas that could be built independently with clear interfaces between them
+- Vertical slices that could be built independently with clear seams between them
 - Dependencies that would force sequencing
 
 ### 5. Surface open questions
@@ -69,13 +72,14 @@ List questions that need resolution before planning:
 
 Separate genuine open questions from things you can resolve with more exploration. Do the exploration first.
 
-### 6. Draft initial design ideas
+### 6. Sketch options, not solutions
 
-For areas you understand well, sketch initial design thinking:
+For areas you understand well, surface the _space of possible approaches_ — not a chosen design. Planning is where decisions get made; research is where the agent informs them.
 
-- General direction, not detailed implementation
-- Flag where you're uncertain or where multiple approaches seem viable
+- Name two or three viable directions, with trade-offs
+- Flag uncertainty explicitly; resist the urge to recommend
 - Pay particular attention to boundaries and integration points
+- If only one approach is viable, say so and explain why — but don't dress up a single option as "options"
 
 ### 7. Write research.md
 
@@ -92,33 +96,33 @@ mkdir -p .docs/<name>
 
 > One-line summary of what was researched and why.
 
-## Codebase Landscape
+## Codebase landscape
 
 How the idea maps to the existing code. Key modules, patterns, and conventions that are relevant. Keep it concise -- this section orients the reader, not exhaustively documents the code.
 
-## Touch Points
+## Touch points
 
 Files and components that will likely be involved:
 
 - `path/to/file` -- what it does and why it's relevant
 - `path/to/other` -- what it does and why it's relevant
 
-## Potential Scope Boundaries
+## Potential slice boundaries
 
-Where the work might naturally split. For each potential boundary, note what would be on each side and what would cross the boundary.
+Where the work might naturally split into vertical, shippable slices. For each potential boundary, note what would be on each side and what would cross the boundary (the seam).
 
-## Open Questions
+## Open questions
 
 Questions that need resolution before or during planning.
 
 - Question 1 -- why it matters
 - Question 2 -- why it matters
 
-## Initial Design Ideas
+## Design options
 
-Rough design thinking for the areas explored. Flag uncertainty and alternatives.
+Two or three viable directions for the work, with trade-offs. Not a recommendation — that's `/plan`'s job.
 
-## Constraints and Risks
+## Constraints and risks
 
 Technical constraints, dependencies, or risks discovered during exploration. Things that should inform planning.
 ```
@@ -128,22 +132,25 @@ Adapt the template to fit what you found. Remove sections that aren't relevant. 
 ### 8. Summarize
 
 After writing the artifact, show:
+
 - What was researched and what was found
 - Key insights or surprises
 - Open questions that need resolution
-- Suggested next step: "Run `/plan` to scope the change, or `/roadmap` if this spans multiple changes."
+- Suggested next step: `/plan` to design a single-PR change, or `/slice` if this spans multiple PRs.
 
 ---
 
-## Seam Awareness (Adaptive)
+## Seams
 
 If the research reveals that the work touches boundaries shared with other people or systems:
 
-- Note scope boundaries: "This touches the API contract between X and Y."
+- Note scope boundaries: "This touches the API contract between X and Y." or "This touches the frontend system where the UX engineer should weigh-in"
 - Identify seam risks: "Changing this data shape affects other consumers."
 - Flag coordination needs in the research artifact
 
-Don't force seam thinking. Solo work on a personal project doesn't need seam analysis. Shared codebases with multiple contributors do.
+Don't force seam thinking. Solo work doesn't need seam analysis. Shared codebases and projects with multiple contributors do.
+
+Leave this section out if it does not apply.
 
 ---
 

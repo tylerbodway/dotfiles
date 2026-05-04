@@ -15,4 +15,5 @@ dist
 .docs/
 docs/.*
 docs/**/.*
+.tickets/
 .ralph/
