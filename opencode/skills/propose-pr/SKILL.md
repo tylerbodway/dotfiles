@@ -48,6 +48,7 @@ I will NOT actually create or submit the PR - I only open the GitHub page with s
    - Create a concise, descriptive PR title (one line summary)
    - Write a PR description:
      - **If a PR template exists**: You MUST follow the template exactly and fill in each section appropriately. If a section does not apply, feel free to omit it.
+     - **Preserve all markup as-is**: If the template uses HTML tags (e.g., `<details>`, `<summary>`, `<h3>`), keep them as HTML — do NOT convert them to Markdown equivalents.
      - **If no template exists**: Write a description that summarizes what changed and why, includes relevant context from commits and diffs, and uses proper markdown formatting.
 
 6. **Build and open URL**:
