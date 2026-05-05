@@ -1,7 +1,5 @@
 # AGENTS.md
 
-This document provides guidance for AI coding agents working in this dotfiles repository.
-
 ## Repository Overview
 
 This is a personal macOS dotfiles repository managed with [dotbot](https://github.com/anishathalye/dotbot).
@@ -44,70 +42,6 @@ It configures applications, command-line tools, and development environment sett
 └── [other app configs]
 ```
 
-## Code Style Guidelines
-
-### General Formatting
-
-- **Indentation**: 2 spaces (no tabs)
-- **Charset**: UTF-8
-- **Line endings**: LF
-- **Final newline**: Always include
-- **Trailing whitespace**: Trim (except in Markdown)
-
-These rules are defined in `.editorconfig` and apply to all files.
-
-### Lua (Neovim Config)
-
-Format with StyLua using `.stylua.toml`:
-
-```bash
-stylua nvim/
-```
-
-Style settings:
-
-- Column width: 120 characters
-- Indent: 2 spaces
-- Quote style: Auto-prefer double quotes
-- Call parentheses: Always
-- Collapse simple statements: Always
-
-Conventions:
-
-- Use `vim.keymap.set()` for keymaps with descriptive `desc` field
-- Use `vim.opt.*` for options, `vim.g.*` for globals
-- Organize into `core/` (base config) and `plugins/` (plugin setup)
-- Use `vim.pack.add()` for plugin management
-- Leader key is Space, local leader is Backslash
-
-### Python (Dotbot Plugins)
-
-- Follow PEP 8 style guidelines
-- Use f-strings for string formatting
-- Class-based plugins extending `dotbot.Plugin`
-- Handle errors gracefully with try/except
-- Use `self._log` for logging (info, warning, error, action)
-
-### Shell (Zsh/Bash)
-
-- Use `#!/usr/bin/env bash` shebang for portability
-- Use `set -e` for fail-fast behavior
-- Quote variables: `"${VAR}"` not `$VAR`
-- Use lowercase for local variables, UPPERCASE for exports
-- Prefer `$(command)` over backticks
-
-### YAML Configuration
-
-- 2-space indentation
-- Use descriptive comments for non-obvious settings
-- Group related configurations together
-
-### Git Configuration
-
-- Commit signing enabled (SSH via 1Password)
-- Default branch: `main`
-- Git aliases defined in `git/config`
-
 ## File Organization Patterns
 
 ### Neovim Plugin Files
@@ -146,62 +80,13 @@ class PluginName(dotbot.Plugin):
         return success
 ```
 
-## Environment Variables
+## Brewfile entries
 
-Key environment variables set in `zsh/zprofile`:
+Each line: package, then a comment with a description and URL from `brew info <package>`.
 
-- `EDITOR`/`VISUAL`: nvim
-- `DOT`: ~/.dotfiles
-- `XDG_CONFIG_HOME`: ~/.config
-- `XDG_DATA_HOME`: ~/.local/share
-- `XDG_STATE_HOME`: ~/.local/state
-- `XDG_CACHE_HOME`: ~/.cache
+## Important notes
 
-## Key Tools & Aliases
-
-| Alias  | Command    | Purpose                |
-| ------ | ---------- | ---------------------- |
-| `nv`   | `nvim`     | Neovim editor          |
-| `gg`   | `lazygit`  | Git TUI                |
-| `oc`   | `opencode` | AI coding agent        |
-| `cat`  | `bat`      | Syntax-highlighted cat |
-| `ls`   | `eza`      | Modern ls replacement  |
-| `grep` | `rg`       | Ripgrep search         |
-| `find` | `fd`       | Fast find alternative  |
-
-## LSP Servers
-
-Configured in `nvim/lua/core/lsp.lua`:
-
-- **Lua**: lua_ls
-- **Ruby**: ruby_lsp (with rubocop linting)
-- **JavaScript/TypeScript**: vtsls, eslint
-- **HTML/ERB**: herb_ls, emmet_language_server
-- **JSON**: jsonls
-- **YAML**: yamlls
-
-Global npm packages provide additional servers (see `package.json`).
-
-## Important Notes for Agents
-
-1. **Symlinks**: Files in this repo (`~/.dotfiles/`) are symlinked into `~/.config/` and other
-   destinations by dotbot (see `install.conf.yaml` for the full mapping). For example,
-   `~/.dotfiles/nvim/` is the source for `~/.config/nvim/`, `~/.dotfiles/ghostty/` for
-   `~/.config/ghostty/`, etc. **Always read and edit files in `~/.dotfiles/`, never in `~/.config/`.**
-   The working directory is already `~/.dotfiles`, so use relative paths within this repo.
-
-2. **Dotbot submodule**: The `dotbot/` directory is a git submodule.
-   Don't modify files within it.
-
-3. **Testing changes**: After editing, run `./install` to apply changes.
-   Use the `--only` flag if editing a singular section of `install.conf.yaml`.
-
-4. **Brewfile format**: Each entry has the package, then a comment with description and URL.
-   Use the URL and description provided by `brew info <package-name>`
-
-5. **No tests**: This is a configuration repo without a test suite.
-
-6. **Secrets**: Never commit sensitive data.
-   Use 1Password secret management strategies if necessary.
-
-7. **Platform**: macOS-specific (Apple Silicon). Some configs assume Homebrew at `/opt/homebrew`.
+- **Always edit files under `~/.dotfiles`**, never under `~/.config`. The config dirs are symlinks created by dotbot.
+- **Apply changes** by running `./install` (or `./install --only=<plugin>`)
+- **macOS Silicon only.** Homebrew lives at `/opt/homebrew`
+- Leave the `dotbot/` directory alone. It is a git submodule.

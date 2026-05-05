@@ -1,6 +1,6 @@
 ---
 name: writing-voice
-description: Write using principels from "The Elements of Style" and Tyler's personal voice for prose any humans will read. Use when writing or editing documentation, plans, summaries, replies, explanations, commit messages, PR descriptions, UI text, or general prose.
+description: Write using principles from "The Elements of Style" and Tyler's personal voice for prose any humans will read. Use when writing or editing documentation, plans, summaries, replies, explanations, commit messages, PR descriptions, UI text, or general prose.
 ---
 
 # Writing Voice

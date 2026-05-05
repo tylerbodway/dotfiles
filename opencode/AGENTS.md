@@ -1,7 +1,5 @@
 # Global Rules
 
-Personal rules that apply across all OpenCode sessions.
-
 ## User Background
 
 The user's name is Tyler. He is a remote web developer living in Northwest
