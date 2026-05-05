@@ -13,19 +13,21 @@ Execute one ticket at a time from a plan's `tk` queue. Each ticket becomes one c
 - **Slug**: the shared identifier for a plan's branch and ticket tag. Lowercase, hyphenated.
 - **Ticket**: a `tk` ticket tagged with the plan's slug. Represents one commit-sized change.
 - **Ready**: a ticket with status `open` or `in_progress` whose dependencies are all `closed`.
-- **Trust marker**: `tk` label of `trust:auto`, `trust:review`, or `trust:pair` controlling pause behavior.
+- **Trust marker**: `tk` tag of `trust:auto`, `trust:review`, or `trust:pair` controlling pause behavior. Stored via `--tags` — `tk` has no `--label` flag.
 
 ## Command surface
 
 Only these `tk` commands are needed:
 
-| Command                            | Purpose                           |
-| ---------------------------------- | --------------------------------- |
-| `tk ready -T <slug>`               | List unblocked tickets for a plan |
-| `tk show <id>`                     | Read a ticket                     |
-| `tk start <id>`                    | Mark in_progress                  |
-| `tk add-note <id>` (or pipe stdin) | Append a timestamped working note |
-| `tk close <id>`                    | Mark closed                       |
+| Command                                                                                    | Purpose                               |
+| ------------------------------------------------------------------------------------------ | ------------------------------------- |
+| `tk create "<title>" --tags <slug>,trust:<marker> --priority <0-4> --description "<text>"` | Create a ticket                       |
+| `tk dep <id> <dep-id>`                                                                     | Add dependency (id depends on dep-id) |
+| `tk ready -T <slug>`                                                                       | List unblocked tickets for a plan     |
+| `tk show <id>`                                                                             | Read a ticket                         |
+| `tk start <id>`                                                                            | Mark in_progress                      |
+| `tk add-note <id>` (or pipe stdin)                                                         | Append a timestamped working note     |
+| `tk close <id>`                                                                            | Mark closed                           |
 
 Partial IDs work (`tk show a3f` matches `ar-a3f2`).
 
@@ -35,13 +37,14 @@ For each ticket, in order:
 
 1. **Verify branch.** Current branch must be `tb/<slug>`. If not, stop and surface to the user.
 2. **`tk start <id>`**.
-3. **Read the ticket** with `tk show <id>`. Note the trust marker (`trust:auto|review|pair` label). Read the relevant section of the plan for design context.
+3. **Read the ticket** with `tk show <id>`. Note the trust marker (`trust:auto|review|pair` tag). Read the relevant section of the plan for design context.
 4. **Make the change.** Stay within the ticket's scope. The plan is the design source of truth — do not invent new design decisions.
    - **For `trust:pair` tickets**, surface material decisions before acting (e.g., "About to drop column `users.legacy_token`. Confirm?"). Brief diffs of intended changes are fine.
    - **For `trust:review` and `trust:auto`**, proceed without per-step approval but stay within scope.
 5. **Verify.** Run the project's tests, build, and lint per repo conventions. Fix in place if they fail.
-6. **Commit.** Subject format: `<change> (<id>)`. Example: `Extract TokenRefresher service (ar-a3f2)`.
+6. **Commit.** Subject format: `<change>`. Example: `Extract TokenRefresher service`.
    - Imperative mood, sentence case, no trailing period.
+   - No ticket numbers or IDs in the subject line.
    - Body when a reviewer would ask "why this way?" — see `git-commits` skill.
 7. **`tk add-note <id>`** with a one-line summary and the commit SHA. Pipe via stdin:
    ```
@@ -85,7 +88,7 @@ Use `tk add-note` liberally for anything a future agent (or you, in a fresh sess
 - Surprises in the codebase.
 - Commit SHAs.
 - Why a verification step was skipped or modified.
-- Trust-marker overrides ("Treated this as pair despite the auto label because the test surface was thin").
+- Trust-marker overrides ("Treated this as pair despite the auto tag because the test surface was thin").
 
 Notes accumulate at the bottom of the ticket and are timestamped automatically.
 
