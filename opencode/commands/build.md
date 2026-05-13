@@ -87,7 +87,7 @@ Identify dependencies. A ticket depends on another only when it cannot start unt
 - A schema migration ticket inside an otherwise `review` slice may bump to `pair`.
 - A pure docs/comment ticket inside a `review` slice may drop to `auto`.
 
-Markers are stored as `tk` labels. See **Trust Markers** below.
+Markers are stored as `tk` tags (alongside the slug tag). See **Trust Markers** below.
 
 Present the proposed breakdown:
 
@@ -111,8 +111,7 @@ For each approved ticket, in order:
 
 ```bash
 tk create "<title>" \
-  --tags <slug> \
-  --label trust:<auto|review|pair> \
+  --tags <slug>,trust:<auto|review|pair> \
   --priority <p> \
   --description "<one-line description>"
 ```
@@ -231,7 +230,7 @@ Do not invent fixes outside the ticket's scope. Do not edit the plan or `slices.
 
 ## Trust markers
 
-Markers are stored as `tk` labels (`trust:auto`, `trust:review`, `trust:pair`). They control the agent's per-ticket pause behavior. They do not change what the agent does — only how often it asks before proceeding.
+Markers are stored as `tk` tags (`trust:auto`, `trust:review`, `trust:pair`) alongside the slug tag — `tk` has no separate label concept. They control the agent's per-ticket pause behavior. They do not change what the agent does — only how often it asks before proceeding.
 
 **Auto** is appropriate when:
 
