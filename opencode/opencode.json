@@ -26,6 +26,7 @@
       "box *": "ask",
       "box uninstall *": "deny",
       "brew *": "ask",
+      "bunx *": "deny",
       "chmod *": "ask",
       "curl *": "deny",
       "git clean *": "ask",
@@ -34,11 +35,13 @@
       "nc *": "deny",
       "netcat *": "deny",
       "npm *": "ask",
+      "npx *": "deny",
       "pco *": "ask",
       "pco connect *": "deny",
       "pco console *": "deny",
       "pco dbconnect *": "deny",
       "pco ssm *": "deny",
+      "pnpx *": "deny",
       "rm *": "ask",
       "scp *": "deny",
       "sftp *": "deny",
@@ -46,7 +49,8 @@
       "su *": "deny",
       "sudo *": "deny",
       "wget *": "deny",
-      "yarn *": "ask"
+      "yarn *": "ask",
+      "yarn dlx": "deny"
     },
     "read": {
       "*": "allow",
