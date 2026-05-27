@@ -85,6 +85,11 @@
       "*.key": "deny",
       ".opencode/**": "allow",
       ".docs/**": "allow"
+    },
+    "external_directory": {
+      "*": "ask",
+      "~/Code/*": "allow",
+      "/tmp/*": "allow"
     }
   },
   "tools": {
