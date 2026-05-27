@@ -1,6 +1,5 @@
 ---
 description: Think through an idea - Socratic partner for forming, challenging, and honing broad ideas before they're ready for research or planning
-model: github-copilot/claude-opus-4.7
 ---
 
 Enter think mode. Think deeply. Visualize freely. Follow the conversation wherever it goes.
