@@ -46,7 +46,11 @@ Chain commands when they:
 - should stop on failure 
 - produce input or prerequisites for the next command
 
-## Coding Standards
+## Code Exploration
+
+**ALWAYS** use the `gh` CLI for context on GitHub repos, pull requests, discussions, etc.
+
+## Code Standards
 
 ### Keep It Green
 
