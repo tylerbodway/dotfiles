@@ -3,8 +3,6 @@
   "theme": "vague",
   "autoupdate": true,
 
-  "model": "github-copilot/claude-opus-4.6",
-  "small_model": "github-copilot/claude-haiku-4.5",
   "provider": {
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",
@@ -19,84 +17,14 @@
       }
     }
   },
+
+  "model": "github-copilot/claude-opus-4.6",
+  "small_model": "github-copilot/claude-haiku-4.5",
+
   "agent": {
     "explore": {
       "model": "github-copilot/claude-sonnet-4.6"
     }
-  },
-
-  "permission": {
-    "bash": {
-      "*": "allow",
-      "box *": "ask",
-      "box uninstall *": "deny",
-      "brew *": "ask",
-      "bunx *": "deny",
-      "chmod *": "ask",
-      "curl *": "deny",
-      "git clean *": "ask",
-      "git push *": "deny",
-      "git reset *": "ask",
-      "nc *": "deny",
-      "netcat *": "deny",
-      "npm *": "ask",
-      "npx *": "deny",
-      "pco *": "ask",
-      "pco connect *": "deny",
-      "pco console *": "deny",
-      "pco dbconnect *": "deny",
-      "pco ssm *": "deny",
-      "pnpx *": "deny",
-      "rm *": "ask",
-      "scp *": "deny",
-      "sftp *": "deny",
-      "ssh *": "deny",
-      "su *": "deny",
-      "sudo *": "deny",
-      "wget *": "deny",
-      "yarn *": "ask",
-      "yarn dlx": "deny"
-    },
-    "read": {
-      "*": "allow",
-      ".env": "deny",
-      ".env.*": "deny",
-      ".env.local": "deny",
-      "secrets/**": "deny",
-      ".secrets/**": "deny",
-      "credentials*": "deny",
-      "*.pem": "deny",
-      "*.key": "deny",
-      "*_rsa": "deny",
-      "*_dsa": "deny",
-      "*_ecdsa": "deny",
-      "*_ed25519": "deny",
-      ".ssh/**": "deny"
-    },
-    "edit": {
-      "*": "ask",
-      ".env": "deny",
-      ".env.*": "deny",
-      ".env.local": "deny",
-      "secrets/**": "deny",
-      ".secrets/**": "deny",
-      "credentials*": "deny",
-      "*.pem": "deny",
-      "*.key": "deny",
-      ".opencode/**": "allow",
-      ".docs/**": "allow"
-    },
-    "external_directory": {
-      "*": "ask",
-      "~/Code/*": "allow",
-      "/tmp/*": "allow"
-    }
-  },
-  "tools": {
-    "bugsnag_*": false,
-    "linear_*": false,
-    "notion_*": false,
-    "redshift_*": false
   },
 
   "lsp": {
@@ -113,6 +41,7 @@
       "extensions": [".css", ".scss", ".less"]
     }
   },
+
   "formatter": {
     "herb": {
       "command": ["herb-format", "$FILE"],
@@ -184,8 +113,85 @@
       "enabled": false
     }
   },
+
+  "permission": {
+    "bash": {
+      "*": "allow",
+      "box *": "ask",
+      "box uninstall *": "deny",
+      "brew *": "ask",
+      "bunx *": "deny",
+      "chmod *": "ask",
+      "curl *": "deny",
+      "git clean *": "ask",
+      "git push *": "deny",
+      "git reset *": "ask",
+      "nc *": "deny",
+      "netcat *": "deny",
+      "npm *": "ask",
+      "npx *": "deny",
+      "pco *": "ask",
+      "pco connect *": "deny",
+      "pco console *": "deny",
+      "pco dbconnect *": "deny",
+      "pco ssm *": "deny",
+      "pnpx *": "deny",
+      "rm *": "ask",
+      "scp *": "deny",
+      "sftp *": "deny",
+      "ssh *": "deny",
+      "su *": "deny",
+      "sudo *": "deny",
+      "wget *": "deny",
+      "yarn *": "ask",
+      "yarn dlx": "deny"
+    },
+    "read": {
+      "*": "allow",
+      ".env": "deny",
+      ".env.*": "deny",
+      ".env.local": "deny",
+      "secrets/**": "deny",
+      ".secrets/**": "deny",
+      "credentials*": "deny",
+      "*.pem": "deny",
+      "*.key": "deny",
+      "*_rsa": "deny",
+      "*_dsa": "deny",
+      "*_ecdsa": "deny",
+      "*_ed25519": "deny",
+      ".ssh/**": "deny"
+    },
+    "edit": {
+      "*": "ask",
+      ".env": "deny",
+      ".env.*": "deny",
+      ".env.local": "deny",
+      "secrets/**": "deny",
+      ".secrets/**": "deny",
+      "credentials*": "deny",
+      "*.pem": "deny",
+      "*.key": "deny",
+      ".opencode/**": "allow",
+      ".docs/**": "allow"
+    },
+    "external_directory": {
+      "*": "ask",
+      "~/Code/*": "allow",
+      "/tmp/*": "allow"
+    }
+  },
+
+  "tools": {
+    "bugsnag_*": false,
+    "linear_*": false,
+    "notion_*": false,
+    "redshift_*": false
+  },
+
   "plugin": [
     "@franlol/opencode-md-table-formatter@0.0.3",
+    "opencode-claude-auth@latest",
     "opencode-pty",
     "opencode-notify"
   ]
