@@ -2,7 +2,6 @@
   "$schema": "https://opencode.ai/config.json",
   "theme": "vague",
   "autoupdate": true,
-
   "provider": {
     "ollama": {
       "npm": "@ai-sdk/openai-compatible",
@@ -17,57 +16,104 @@
       }
     }
   },
-
   "model": "github-copilot/claude-opus-4.6",
   "small_model": "github-copilot/claude-haiku-4.5",
-
   "agent": {
     "explore": {
       "model": "github-copilot/claude-sonnet-4.6"
     }
   },
-
   "lsp": {
     "herb": {
-      "command": ["herb-language-server", "--stdio"],
-      "extensions": [".erb", ".html"]
+      "command": [
+        "herb-language-server",
+        "--stdio"
+      ],
+      "extensions": [
+        ".erb",
+        ".html"
+      ]
     },
     "jsonls": {
-      "command": ["vscode-json-language-server", "--stdio"],
-      "extensions": [".json", ".jsonc"]
+      "command": [
+        "vscode-json-language-server",
+        "--stdio"
+      ],
+      "extensions": [
+        ".json",
+        ".jsonc"
+      ]
     },
     "stylelint": {
-      "command": ["stylelint-language-server", "--stdio"],
-      "extensions": [".css", ".scss", ".less"]
+      "command": [
+        "stylelint-language-server",
+        "--stdio"
+      ],
+      "extensions": [
+        ".css",
+        ".scss",
+        ".less"
+      ]
     }
   },
-
   "formatter": {
     "herb": {
-      "command": ["herb-format", "$FILE"],
-      "extensions": [".erb"]
+      "command": [
+        "herb-format",
+        "$FILE"
+      ],
+      "extensions": [
+        ".erb"
+      ]
     },
     "rubocop": {
       "disabled": true
     },
     "rubotree": {
-      "command": ["rubotree", "$FILE"],
-      "extensions": [".rb", ".rake", ".gemspec", ".ru"]
+      "command": [
+        "rubotree",
+        "$FILE"
+      ],
+      "extensions": [
+        ".rb",
+        ".rake",
+        ".gemspec",
+        ".ru"
+      ]
     },
     "stylelint": {
-      "command": ["stylelint", "--fix", "$FILE"],
-      "extensions": [".css", ".scss", ".less"]
+      "command": [
+        "stylelint",
+        "--fix",
+        "$FILE"
+      ],
+      "extensions": [
+        ".css",
+        ".scss",
+        ".less"
+      ]
     },
     "stylua": {
-      "command": ["stylua", "$FILE"],
-      "extensions": [".lua"]
+      "command": [
+        "stylua",
+        "$FILE"
+      ],
+      "extensions": [
+        ".lua"
+      ]
     }
   },
-
   "mcp": {
     "bugsnag": {
       "type": "local",
-      "command": ["op", "run", "--", "npx", "-y", "@smartbear/mcp@latest"],
+      "command": [
+        "op",
+        "run",
+        "--",
+        "npx",
+        "-y",
+        "@smartbear/mcp@latest"
+      ],
       "environment": {
         "OP_ACCOUNT": "planningcenter.1password.com",
         "BUGSNAG_AUTH_TOKEN": "op://Employee/Bugsnag/zgyrvib7vbeua3xofovv5fjism"
@@ -113,7 +159,6 @@
       "enabled": false
     }
   },
-
   "permission": {
     "bash": {
       "*": "allow",
@@ -185,7 +230,6 @@
     "notion_*": "deny",
     "redshift_*": "deny"
   },
-
   "plugin": [
     "@franlol/opencode-md-table-formatter@0.0.3",
     "opencode-claude-auth@latest",
