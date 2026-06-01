@@ -168,10 +168,6 @@ cask "1password-cli"
 # Command-line interface for 1Password
 # https://developer.1password.com/docs/cli
 
-cask "asana"
-# Manage team projects and tasks
-# https://asana.com/
-
 cask "brave-browser"
 # Web browser focusing on privacy
 # https://brave.com/

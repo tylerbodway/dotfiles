@@ -136,11 +136,6 @@
   },
 
   "mcp": {
-    "asana": {
-      "type": "remote",
-      "url": "https://mcp.asana.com/sse",
-      "enabled": false
-    },
     "bugsnag": {
       "type": "local",
       "command": ["op", "run", "--", "npx", "-y", "@smartbear/mcp@latest"],
