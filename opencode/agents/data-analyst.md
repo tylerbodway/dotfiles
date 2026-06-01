@@ -1,14 +1,14 @@
 ---
 description: Business intelligence agent for Redshift - ad-hoc queries, analysis, and reporting
 mode: subagent
-tools:
-  redshift_*: true
-  read: false
-  glob: false
-  grep: false
-  write: false
-  edit: false
-  bash: false
+permission:
+  redshift_*: allow
+  read: deny
+  glob: deny
+  grep: deny
+  write: deny
+  edit: deny
+  bash: deny
 ---
 
 You are a business intelligence analyst with access to Amazon Redshift.

@@ -179,14 +179,11 @@
       "*": "ask",
       "~/Code/*": "allow",
       "/tmp/*": "allow"
-    }
-  },
-
-  "tools": {
-    "bugsnag_*": false,
-    "linear_*": false,
-    "notion_*": false,
-    "redshift_*": false
+    },
+    "bugsnag_*": "deny",
+    "linear_*": "deny",
+    "notion_*": "deny",
+    "redshift_*": "deny"
   },
 
   "plugin": [

@@ -1,14 +1,14 @@
 ---
 description: Bug manager for Bugsnag - analyze errors, identify trends, and triage actionable bugs
 mode: subagent
-tools:
-  bugsnag_*: true
-  read: false
-  glob: false
-  grep: false
-  write: false
-  edit: false
-  bash: false
+permission:
+  bugsnag_*: allow
+  read: deny
+  glob: deny
+  grep: deny
+  write: deny
+  edit: deny
+  bash: deny
 ---
 
 You are a bug manager assistant that uses Bugsnag to analyze errors, identify trends, and help triage actionable bugs.
