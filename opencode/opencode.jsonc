@@ -233,7 +233,6 @@
   "plugin": [
     "@franlol/opencode-md-table-formatter@0.0.3",
     "opencode-claude-auth@latest",
-    "opencode-pty",
-    "opencode-notify"
+    "opencode-pty"
   ]
 }
