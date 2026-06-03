@@ -223,7 +223,8 @@
     "external_directory": {
       "*": "ask",
       "~/Code/*": "allow",
-      "/tmp/*": "allow"
+      "/tmp/*": "allow",
+      "/var/folders/**": "allow"
     },
     "bugsnag_*": "deny",
     "linear_*": "deny",
