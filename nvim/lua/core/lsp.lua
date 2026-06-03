@@ -7,7 +7,7 @@ vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })
 -- LSP setting overrides
 vim.lsp.config("jsonls", {
   settings = {
-    format = { enable = false },
+    json = { format = { enable = false } },
   },
 })
 
