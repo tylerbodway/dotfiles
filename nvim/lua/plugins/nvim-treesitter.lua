@@ -17,7 +17,6 @@ require("nvim-treesitter").install({
   "javascript",
   "jsdoc",
   "json",
-  "jsonc",
   "kdl",
   "lua",
   "markdown",
