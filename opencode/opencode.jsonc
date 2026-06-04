@@ -189,9 +189,9 @@
       "sudo *": "deny",
       "wget *": "deny",
       "yarn *": "ask",
-      "yarn dlx": "deny",
-      "yarn lint": "allow",
-      "yarn test": "allow"
+      "yarn dlx *": "deny",
+      "yarn lint *": "allow",
+      "yarn test *": "allow"
     },
     "read": {
       "*": "allow",
