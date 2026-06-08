@@ -53,7 +53,9 @@ class Gem(dotbot.Plugin):
                 success = False
 
         if success:
-            self._log.action(f"`gem install` complete! {total_gems} Gemfile dependencies now installed.")
+            self._log.action(
+                f"`gem install` complete! {total_gems} Gemfile dependencies now installed."
+            )
         else:
             self._log.error("Some gems were not successfully processed")
 
@@ -63,12 +65,12 @@ class Gem(dotbot.Plugin):
         """Parse gems from a Gemfile."""
         gems = []
 
-        with open(file_path, 'r') as f:
+        with open(file_path, "r") as f:
             for line in f:
                 line = line.strip()
 
                 # Skip comments and empty lines
-                if not line or line.startswith('#'):
+                if not line or line.startswith("#"):
                     continue
 
                 # Match gem 'name' or gem "name"
@@ -81,33 +83,30 @@ class Gem(dotbot.Plugin):
 
     def _process_gem(self, gem, cwd):
         """Install or update a single gem."""
-        with open(os.devnull, 'w') as devnull:
+        with open(os.devnull, "w") as devnull:
             # Check if gem is installed
-            check_cmd = f"gem list -i '^{gem}$'"
             is_installed = subprocess.call(
-                check_cmd,
-                shell=True,
+                ["gem", "list", "-i", f"^{gem}$"],
                 stdout=devnull,
                 stderr=devnull,
-                cwd=cwd
+                cwd=cwd,
             )
 
             if is_installed == 0:
                 # Check if outdated
-                outdated_cmd = f"gem outdated {gem}"
                 result = subprocess.run(
-                    outdated_cmd,
-                    shell=True,
+                    ["gem", "outdated", gem],
                     stdout=subprocess.PIPE,
                     stderr=devnull,
                     cwd=cwd,
-                    text=True
+                    text=True,
                 )
 
                 if gem in result.stdout:
                     self._log.action(f"Upgrading {gem}")
-                    update_cmd = f"gem update {gem}"
-                    ret = subprocess.call(update_cmd, shell=True, stdout=devnull, cwd=cwd)
+                    ret = subprocess.call(
+                        ["gem", "update", gem], stdout=devnull, cwd=cwd
+                    )
                     if ret != 0:
                         self._log.error(f"Failed to install {gem}")
                         return False
@@ -115,8 +114,7 @@ class Gem(dotbot.Plugin):
                     print(f"Using {gem}")
             else:
                 self._log.action(f"Installing {gem}")
-                install_cmd = f"gem install {gem}"
-                ret = subprocess.call(install_cmd, shell=True, stdout=devnull, cwd=cwd)
+                ret = subprocess.call(["gem", "install", gem], stdout=devnull, cwd=cwd)
                 if ret != 0:
                     self._log.error(f"Failed to install {gem}")
                     return False

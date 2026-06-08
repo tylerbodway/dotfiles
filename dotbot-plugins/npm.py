@@ -36,15 +36,15 @@ class Npm(dotbot.Plugin):
             self._log.info(f"Installing npm packages from {package_file}")
 
             try:
-                with open(full_path, 'r') as f:
+                with open(full_path, "r") as f:
                     data = json.load(f)
 
                 # Get packages from dependencies and devDependencies
                 packages = []
-                if 'dependencies' in data:
-                    packages.extend(data['dependencies'].keys())
-                if 'devDependencies' in data:
-                    packages.extend(data['devDependencies'].keys())
+                if "dependencies" in data:
+                    packages.extend(data["dependencies"].keys())
+                if "devDependencies" in data:
+                    packages.extend(data["devDependencies"].keys())
 
                 if not packages:
                     self._log.warning(f"No packages found in {package_file}")
@@ -64,7 +64,9 @@ class Npm(dotbot.Plugin):
                 success = False
 
         if success:
-            self._log.action(f"`npm install` complete! {total_packages} package.json dependencies now installed.")
+            self._log.action(
+                f"`npm install` complete! {total_packages} package.json dependencies now installed."
+            )
         else:
             self._log.error("Some npm packages were not successfully processed")
 
@@ -72,33 +74,32 @@ class Npm(dotbot.Plugin):
 
     def _process_package(self, package, cwd):
         """Install or update a single npm package."""
-        with open(os.devnull, 'w') as devnull:
+        with open(os.devnull, "w") as devnull:
             # Check if package is installed
-            check_cmd = f"npm list -g --depth=0 {package}"
             is_installed = subprocess.call(
-                check_cmd,
-                shell=True,
+                ["npm", "list", "-g", "--depth=0", package],
                 stdout=devnull,
                 stderr=devnull,
-                cwd=cwd
+                cwd=cwd,
             )
 
             if is_installed == 0:
                 # Check if outdated
-                outdated_cmd = f"npm outdated -g {package}"
                 result = subprocess.run(
-                    outdated_cmd,
-                    shell=True,
+                    ["npm", "outdated", "-g", package],
                     stdout=subprocess.PIPE,
                     stderr=devnull,
                     cwd=cwd,
-                    text=True
+                    text=True,
                 )
 
                 if package in result.stdout:
                     self._log.action(f"Upgrading {package}")
-                    install_cmd = f"npm install -g {package}@latest"
-                    ret = subprocess.call(install_cmd, shell=True, stdout=devnull, cwd=cwd)
+                    ret = subprocess.call(
+                        ["npm", "install", "-g", f"{package}@latest"],
+                        stdout=devnull,
+                        cwd=cwd,
+                    )
                     if ret != 0:
                         self._log.error(f"Failed to install {package}")
                         return False
@@ -106,8 +107,11 @@ class Npm(dotbot.Plugin):
                     print(f"Using {package}")
             else:
                 self._log.action(f"Installing {package}")
-                install_cmd = f"npm install -g {package}@latest"
-                ret = subprocess.call(install_cmd, shell=True, stdout=devnull, cwd=cwd)
+                ret = subprocess.call(
+                    ["npm", "install", "-g", f"{package}@latest"],
+                    stdout=devnull,
+                    cwd=cwd,
+                )
                 if ret != 0:
                     self._log.error(f"Failed to install {package}")
                     return False
