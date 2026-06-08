@@ -1,5 +1,8 @@
 -- Performant, batteries-included completion plugin
-vim.pack.add({ "https://github.com/Saghen/blink.cmp" })
+vim.pack.add({
+  { src = "https://github.com/Saghen/blink.lib" },
+  { src = "https://github.com/Saghen/blink.cmp" },
+})
 
 -- Set of preconfigured snippets for different languages
 -- Auto-included by blink.cmp if available
