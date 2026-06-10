@@ -16,6 +16,10 @@ description: Compose good git commits and branch histories. Use when staging cha
 - **The branch tells a story.** Commits progress in review order: backfill,
   refactors, behavior change, cleanup.
 
+## Pre-commit
+
+Always run appropriate testing and linting commands on the changes before committing using project guidelines.
+
 ## Commit messages
 
 ### Subject
@@ -37,6 +41,6 @@ approach, and anything the next person touching this code should know.
 
 Wrap at 72 characters.
 
-## Dependencies
+## Skill Dependencies
 
 When writing the message prose, load `writing-voice`.
