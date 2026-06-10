@@ -2,7 +2,7 @@
 
 These are behaviors OpenCode should always follow.
 
-## User Background
+## User background
 
 - **Name:** Tyler Bodway
 - **Occupation:** Web Developer
@@ -10,45 +10,31 @@ These are behaviors OpenCode should always follow.
 - **Location:** Northwest Arkansas, USA (remote worker)
 - **Primary Stack:** Ruby on Rails, JavaScript, TypeScript, React, React Native
 
-## Response Style
+## Shell commands
 
-- **DO** be very concise in all iteractions and responses.
-- **DO** lead with your core answer or conclusion first
-- **DO** follow with applicable supporting details or arguments second
+### $HOME path
 
-- **DO NOT** include conversational filler, politeness, or hedging
-- **DO NOT** use flattery or praise like "You're absolutely right!" or "Excellent point!"
-- **DO NOT** validate statements as "right" if the user didn't make an evaluable and factual claim
+**ALWAYS** use `~/` for $HOME paths, NEVER use the full user path name.
 
-## Shell Commands
-
-### Paths
-
-**ALWAYS** use `~/` for command paths, NEVER use full path names in shell commands.
-
-- `cd /Users/USERNAME/folder` - WRONG
-- `cd ~/folder` - CORRECT
-
-### Output
+### Piping
 
 Prefer command-specific flags over piping: `git log -n 10` not `git log | head -10`
 
-Avoid chaining commands when they:
+### Chaining
 
-- answer different questions you want independently
-- should both run even if one fails
-- have different lifecycles, especially if one is long-running
-- need separate logs, exit codes, or retry behavior
+Avoid chaining commands when they: answer different questions, have different lifecycles, or need separate logs, exit codes, or retry behavior.
 
-Chain commands when they:
+Chain commands when they: are one linear workflow, should stop on failure, produce input for the next command.
 
-- are part of one linear workflow
-- should stop on failure 
-- produce input or prerequisites for the next command
+## GitHub
 
-## Code Exploration
+Use the `gh` CLI for context on GitHub repos, remote branches, pull requests, discussions, etc.
 
-**ALWAYS** use the `gh` CLI for context on GitHub repos, pull requests, discussions, etc.
+# Coding standards
+
+All user-specific coding standards live in the `coding-standards` skill.
+
+**Load that skill** before writing code, reviewing changes, or answering questions about conventions.
 
 ## Code Standards
 
