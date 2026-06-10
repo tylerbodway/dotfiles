@@ -104,6 +104,7 @@ Do NOT search the codebase or suggest implementation approaches. The `/research`
 ## Best Practices
 
 - Use `linear_list_issues` filters (`assignee`, `state`, `label`, `project`, `cycle`, `priority`, `team`) before falling back to broad `query` searches.
+- When reading sub-issues, also read the parent issue for context.
 - When creating issues, ask for team and project if not specified. Default the team to Groups.
 - When updating an issue, confirm the change before applying it.
 - When using `linear_save_issue` to update relations, remember `blockedBy`, `blocks`, and `relatedTo` are append-only. Use `removeBlockedBy`, `removeBlocks`, and `removeRelatedTo` to detach.
