@@ -14,6 +14,7 @@ conform.setup({
     javascriptreact = { "prettier" },
     typescriptreact = { "prettier" },
     json = { "prettier" },
+    jsonc = { "prettier" },
     css = { "prettier" },
     html = { "prettier" },
     markdown = { "prettier" },
