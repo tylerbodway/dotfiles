@@ -104,22 +104,6 @@
     }
   },
   "mcp": {
-    "bugsnag": {
-      "type": "local",
-      "command": [
-        "op",
-        "run",
-        "--",
-        "npx",
-        "-y",
-        "@smartbear/mcp@latest"
-      ],
-      "environment": {
-        "OP_ACCOUNT": "planningcenter.1password.com",
-        "BUGSNAG_AUTH_TOKEN": "op://Employee/Bugsnag/zgyrvib7vbeua3xofovv5fjism"
-      },
-      "enabled": false
-    },
     "devtools": {
       "type": "local",
       "command": [
@@ -228,7 +212,6 @@
       "/tmp/*": "allow",
       "/var/folders/**": "allow"
     },
-    "bugsnag_*": "deny",
     "linear_*": "deny",
     "notion_*": "deny",
     "redshift_*": "deny"
