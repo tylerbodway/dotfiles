@@ -11,7 +11,7 @@ brew "btop"
 # Resource monitor
 # https://github.com/aristocratos/btop
 
-brew "oven-sh/bun/bun"
+brew "oven-sh/bun/bun", trusted: true
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 # https://bun.sh/
 
@@ -87,8 +87,7 @@ brew "ollama"
 # Create, run, and share large language models (LLMs)
 # https://ollama.com
 
-tap "anomalyco/tap"
-brew "anomalyco/tap/opencode"
+brew "anomalyco/tap/opencode", trusted: true
 # The AI coding agent built for the terminal.
 # https://github.com/sst/opencode
 
@@ -112,8 +111,7 @@ brew "stylua"
 # Opinionated Lua code formatter
 # https://github.com/JohnnyMorganz/StyLua
 
-tap "wedow/tools"
-brew "wedow/tools/ticket"
+brew "wedow/tools/ticket", trusted: true
 # Fast, powerful, git-native ticket tracking in a single bash script
 # https://github.com/wedow/ticket
 
