@@ -30,6 +30,7 @@
     ~/.config/opencode/:
       path: opencode/**
       glob: true
+      exclude: [opencode/opencode.company.jsonc]
     ~/.config/posting/config.yaml: posting/config.yaml
     ~/.local/share/posting/themes/vague.yaml: posting/themes/vague.yaml
     ~/.config/process-compose/:
@@ -65,4 +66,11 @@
       quiet: true
     - command: bat cache --build
       description: Building bat cache for custom theme
+      quiet: true
+    - command: >-
+        source="$DOT/opencode/opencode.company.jsonc";
+        for dir in ~/Code/ ~/Code/*/; do
+          mkdir -p "$dir.opencode" && ln -sf "$source" "$dir.opencode/opencode.jsonc";
+        done
+      description: Symlinking company opencode config into projects
       quiet: true

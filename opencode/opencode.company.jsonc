@@ -1,0 +1,33 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "planning-center": {
+      "npm": "@ai-sdk/anthropic",
+      "name": "Planning Center",
+      "models": {
+        "claude-opus-4-8": {
+          "name": "Claude Opus 4.8",
+        },
+        "claude-opus-4-7": {
+          "name": "Claude Opus 4.7",
+        },
+        "claude-opus-4-6": {
+          "name": "Claude Opus 4.6",
+        },
+        "claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6",
+        },
+        "claude-haiku-4-5": {
+          "name": "Claude Haiku 4.5",
+        },
+      },
+    },
+  },
+  "model": "planning-center/claude-opus-4.6",
+  "small_model": "planning-center/claude-haiku-4.5",
+  "agent": {
+    "explore": {
+      "model": "planning-center/claude-sonnet-4.6",
+    },
+  },
+}
