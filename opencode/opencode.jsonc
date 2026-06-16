@@ -7,14 +7,14 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "Ollama",
       "options": {
-        "baseURL": "http://localhost:11434/v1"
+        "baseURL": "http://localhost:11434/v1",
       },
       "models": {
         "qwen3-coder": {
-          "name": "Qwen3 Coder"
-        }
-      }
-    }
+          "name": "Qwen3 Coder",
+        },
+      },
+    },
   },
   "model": "github-copilot/claude-opus-4.6",
   "small_model": "github-copilot/claude-haiku-4.5",
@@ -25,86 +25,43 @@
   },
   "lsp": {
     "herb": {
-      "command": [
-        "herb-language-server",
-        "--stdio"
-      ],
-      "extensions": [
-        ".erb",
-        ".html"
-      ]
+      "command": ["herb-language-server", "--stdio"],
+      "extensions": [".erb", ".html"],
     },
     "jsonls": {
-      "command": [
-        "vscode-json-language-server",
-        "--stdio"
-      ],
-      "extensions": [
-        ".json",
-        ".jsonc"
-      ]
+      "command": ["vscode-json-language-server", "--stdio"],
+      "extensions": [".json", ".jsonc"],
     },
     "stylelint": {
-      "command": [
-        "stylelint-language-server",
-        "--stdio"
-      ],
-      "extensions": [
-        ".css",
-        ".scss",
-        ".less"
-      ]
-    }
+      "command": ["stylelint-language-server", "--stdio"],
+      "extensions": [".css", ".scss", ".less"],
+    },
   },
   "formatter": {
     "herb": {
-      "command": [
-        "herb-format",
-        "$FILE"
-      ],
-      "extensions": [
-        ".erb"
-      ]
+      "command": ["herb-format", "$FILE"],
+      "extensions": [".erb"],
     },
     "rubocop": {
-      "disabled": true
+      "disabled": true, // avoids conflict with rubotree
     },
     "rubotree": {
-      "command": [
-        "rubotree",
-        "$FILE"
-      ],
-      "extensions": [
-        ".rb",
-        ".rake",
-        ".gemspec",
-        ".ru"
-      ]
+      // sequential rubocop/syntax_tree formatting
+      "command": ["rubotree", "$FILE"],
+      "extensions": [".rb", ".rake", ".gemspec", ".ru"],
     },
     "stylelint": {
-      "command": [
-        "stylelint",
-        "--fix",
-        "$FILE"
-      ],
-      "extensions": [
-        ".css",
-        ".scss",
-        ".less"
-      ]
+      "command": ["stylelint", "--fix", "$FILE"],
+      "extensions": [".css", ".scss", ".less"],
     },
     "stylua": {
-      "command": [
-        "stylua",
-        "$FILE"
-      ],
-      "extensions": [
-        ".lua"
-      ]
-    }
+      "command": ["stylua", "$FILE"],
+      "extensions": [".lua"],
+    },
   },
   "mcp": {
     "devtools": {
+      // agentic browser navigation, console, and screenshots
       "type": "local",
       "command": [
         "npx",
@@ -112,36 +69,39 @@
         "chrome-devtools-mcp@latest",
         "--executable-path=/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
         "--no-usage-statistics",
-        "--user-data-dir={env:XDG_STATE_HOME}/opencode/brave-profile"
+        "--user-data-dir={env:XDG_STATE_HOME}/opencode/brave-profile",
       ],
-      "enabled": false
+      "enabled": false,
     },
     "linear": {
+      // project management
       "type": "remote",
       "url": "https://mcp.linear.app/mcp",
-      "enabled": false
+      "enabled": false,
     },
     "notion": {
+      // documentation
       "type": "remote",
       "url": "https://mcp.notion.com/mcp",
-      "enabled": false
+      "enabled": false,
     },
     "redshift": {
+      // business intelligence
       "type": "local",
       "command": [
         "uv",
         "--directory",
         "{env:HOME}/Code/mcp-servers/redshift",
         "run",
-        "awslabs.redshift-mcp-server"
+        "awslabs.redshift-mcp-server",
       ],
       "environment": {
         "AWS_PROFILE": "pco-bi-query",
         "AWS_REGION": "us-east-1",
-        "FASTMCP_LOG_LEVEL": "WARNING"
+        "FASTMCP_LOG_LEVEL": "WARNING",
       },
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "permission": {
     "bash": {
@@ -175,7 +135,7 @@
       "yarn *": "ask",
       "yarn dlx *": "deny",
       "yarn lint *": "allow",
-      "yarn test *": "allow"
+      "yarn test *": "allow",
     },
     "read": {
       "*": "allow",
@@ -191,7 +151,7 @@
       "*_dsa": "deny",
       "*_ecdsa": "deny",
       "*_ed25519": "deny",
-      ".ssh/**": "deny"
+      ".ssh/**": "deny",
     },
     "edit": {
       "*": "ask",
@@ -204,21 +164,20 @@
       "*.pem": "deny",
       "*.key": "deny",
       ".opencode/**": "allow",
-      ".docs/**": "allow"
+      ".docs/**": "allow",
+      "/tmp/**": "allow",
+      "/var/folders/**": "allow",
     },
     "external_directory": {
       "*": "ask",
       "~/Code/*": "allow",
       "/tmp/*": "allow",
-      "/var/folders/**": "allow"
+      "/var/folders/**": "allow",
     },
-    "linear_*": "deny",
-    "notion_*": "deny",
-    "redshift_*": "deny"
   },
   "plugin": [
-    "@franlol/opencode-md-table-formatter@0.0.3",
+    "@franlol/opencode-md-table-formatter@0.0.3", // aligns column widths
+    "opencode-pty", // background processes
     "opencode-claude-auth@latest",
-    "opencode-pty"
-  ]
+  ],
 }
