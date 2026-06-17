@@ -30,29 +30,10 @@ Chain commands when they: are one linear workflow, should stop on failure, produ
 
 Use the `gh` CLI for context on GitHub repos, remote branches, pull requests, discussions, etc.
 
+Never publish or post on behalf of the user without explicit consent.
+
 # Coding standards
 
 All user-specific coding standards live in the `coding-standards` skill.
 
 **Load that skill** before writing code, reviewing changes, or answering questions about conventions.
-
-## Code Standards
-
-### Keep It Green
-
-Seek to keep the project in a green state which means tests accompany any behavior change and they pass on each commit or change.
-
-Also seek to keep LSP and linting diagnostics clean.
-
-If working on exploratory code where specifications aren't clear, you can skip this requirement to minimize clutter and focus on the code design ideas.
-
-### Test Running
-
-Only run tests relevant to the current changes or context. Only run all tests when explicitly told to check the full test suite.
-
-### Comments
-
-Always prefer self-documenting code and minimize explicit comments
-
-- **OK:** Complex or highly optimized algorithms, non-obvious rationale beyond the code, linting annotations, or JSDoc for public APIs
-- **NOT OK:** Restating or explaining what the code does

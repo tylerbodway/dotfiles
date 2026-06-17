@@ -1,6 +1,6 @@
 ---
 name: coding-standards
-description: User specific coding standards. Use whenever writing or reviewing code in any project, conducting a code review, or implementing any feature.
+description: User-specific coding standards. Use whenever writing or reviewing code in any project, conducting a code review, or implementing any feature.
 ---
 
 # Coding standards
@@ -10,7 +10,7 @@ description: User specific coding standards. Use whenever writing or reviewing c
 Always seek to keep projects in a "green" CI state:
 
 - Tests accompany any behavior change
-- Relevant tests, type checks, and linting are passing
+- Relevant tests, type checks, and linters are passing
 
 If working on exploratory or spike code, you can skip this requirement.
 
