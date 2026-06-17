@@ -43,11 +43,11 @@
       },
     },
   },
-  "model": "planning-center/claude-opus-4.6",
-  "small_model": "planning-center/claude-haiku-4.5",
+  "model": "planning-center/claude-opus-4-6",
+  "small_model": "planning-center/claude-haiku-4-5",
   "agent": {
     "explore": {
-      "model": "planning-center/claude-sonnet-4.6",
+      "model": "planning-center/claude-sonnet-4-6",
     },
   },
 }
