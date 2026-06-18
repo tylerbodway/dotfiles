@@ -171,6 +171,10 @@ Brief description
 - Keep these very concise and actionable
 ```
 
+### 6. Clean up git state
+
+Revert to the git state before this review. If you copied down the branch from origin for this review, remove it, and checkout the original branch. If you stashed local changes, bring them back.
+
 ## Review guidelines
 
 - **Be Constructive**: Explain the "why" behind feedback, not just "what" is wrong
