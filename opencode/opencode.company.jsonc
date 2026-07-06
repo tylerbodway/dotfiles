@@ -5,6 +5,17 @@
       "npm": "@ai-sdk/anthropic",
       "name": "Planning Center",
       "models": {
+        "claude-fable-5": {
+          "name": "Claude Fable 5",
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"],
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 128000,
+          },
+        },
         "claude-opus-4-8": {
           "name": "Claude Opus 4.8",
           "modalities": {
@@ -38,15 +49,15 @@
             "output": 128000,
           },
         },
-        "claude-sonnet-4-6": {
-          "name": "Claude Sonnet 4.6",
+        "claude-sonnet-5": {
+          "name": "Claude Sonnet 5",
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"],
           },
           "limit": {
             "context": 1000000,
-            "output": 64000,
+            "output": 128000,
           },
         },
         "claude-haiku-4-5": {
@@ -67,7 +78,7 @@
   "small_model": "planning-center/claude-haiku-4-5",
   "agent": {
     "explore": {
-      "model": "planning-center/claude-sonnet-4-6",
+      "model": "planning-center/claude-sonnet-5",
     },
   },
 }
