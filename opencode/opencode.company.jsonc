@@ -81,4 +81,49 @@
       "model": "planning-center/claude-sonnet-5",
     },
   },
+  "mcp": {
+    "linear": {
+      // project management
+      "type": "remote",
+      "url": "https://mcp.linear.app/mcp",
+      "enabled": false,
+    },
+    "notion": {
+      // documentation
+      "type": "remote",
+      "url": "https://mcp.notion.com/mcp",
+      "enabled": false,
+    },
+    "redshift": {
+      // business intelligence
+      "type": "local",
+      "command": [
+        "uv",
+        "--directory",
+        "{env:HOME}/Code/mcp-servers/redshift",
+        "run",
+        "awslabs.redshift-mcp-server",
+      ],
+      "environment": {
+        "AWS_PROFILE": "pco-bi-query",
+        "AWS_REGION": "us-east-1",
+        "FASTMCP_LOG_LEVEL": "WARNING",
+      },
+      "enabled": false,
+    },
+  },
+  "permission": {
+    "bash": {
+      "box *": "ask",
+      "box uninstall *": "deny",
+      "pco *": "ask",
+      "pco connect *": "deny",
+      "pco console *": "deny",
+      "pco dbconnect *": "deny",
+      "pco ssm *": "deny",
+    },
+    "external_directory": {
+      "~/Code/*": "allow",
+    },
+  },
 }

@@ -73,41 +73,10 @@
       ],
       "enabled": false,
     },
-    "linear": {
-      // project management
-      "type": "remote",
-      "url": "https://mcp.linear.app/mcp",
-      "enabled": false,
-    },
-    "notion": {
-      // documentation
-      "type": "remote",
-      "url": "https://mcp.notion.com/mcp",
-      "enabled": false,
-    },
-    "redshift": {
-      // business intelligence
-      "type": "local",
-      "command": [
-        "uv",
-        "--directory",
-        "{env:HOME}/Code/mcp-servers/redshift",
-        "run",
-        "awslabs.redshift-mcp-server",
-      ],
-      "environment": {
-        "AWS_PROFILE": "pco-bi-query",
-        "AWS_REGION": "us-east-1",
-        "FASTMCP_LOG_LEVEL": "WARNING",
-      },
-      "enabled": false,
-    },
   },
   "permission": {
     "bash": {
       "*": "allow",
-      "box *": "ask",
-      "box uninstall *": "deny",
       "brew *": "ask",
       "bunx *": "deny",
       "chmod *": "ask",
@@ -119,11 +88,6 @@
       "netcat *": "deny",
       "npm *": "ask",
       "npx *": "deny",
-      "pco *": "ask",
-      "pco connect *": "deny",
-      "pco console *": "deny",
-      "pco dbconnect *": "deny",
-      "pco ssm *": "deny",
       "pnpx *": "deny",
       "rm *": "ask",
       "scp *": "deny",
@@ -166,10 +130,6 @@
       ".opencode/**": "allow",
       ".docs/**": "allow",
       "/var/folders/kx/rzzvcjgj1t9_z8h1s58k2phw0000gn/T/opencode/**": "allow",
-    },
-    "external_directory": {
-      "*": "ask",
-      "~/Code/*": "allow",
     },
   },
   "plugin": [
