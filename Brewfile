@@ -111,10 +111,6 @@ brew "stylua"
 # Opinionated Lua code formatter
 # https://github.com/JohnnyMorganz/StyLua
 
-brew "wedow/tools/ticket", trusted: true
-# Fast, powerful, git-native ticket tracking in a single bash script
-# https://github.com/wedow/ticket
-
 brew "tree-sitter-cli" # (neovim dependency)
 # CLI for developing, testing, and using Tree-sitter parsers
 # https://tree-sitter.github.io/
