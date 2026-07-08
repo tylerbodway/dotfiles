@@ -134,6 +134,7 @@
   },
   "plugin": [
     "@franlol/opencode-md-table-formatter@0.0.3", // aligns column widths
+    "@tarquinen/opencode-dcp@3.1.13", // dynamic context pruning
     "opencode-pty@0.3.2", // background processes
     "opencode-claude-auth@1.5.4",
   ],
