@@ -60,6 +60,17 @@
             "output": 128000,
           },
         },
+        "claude-sonnet-4-6": {
+          "name": "Claude Sonnet 4.6",
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"],
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 128000,
+          },
+        },
         "claude-haiku-4-5": {
           "name": "Claude Haiku 4.5",
           "modalities": {
@@ -78,7 +89,10 @@
   "small_model": "planning-center/claude-haiku-4-5",
   "agent": {
     "explore": {
-      "model": "planning-center/claude-sonnet-5",
+      "model": "planning-center/claude-sonnet-4-6",
+    },
+    "general": {
+      "model": "planning-center/claude-sonnet-4-6",
     },
   },
   "mcp": {
