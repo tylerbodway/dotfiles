@@ -1,6 +1,6 @@
 ---
 name: markdown-preview
-description: Live-reload markdown preview in the browser via mdserve. Use when creating or editing substantial markdown (plans, architecture docs, reports, tables, Mermaid diagrams, multi-file docs) or when the user asks to preview/render markdown.
+description: Live-reload markdown preview in the browser via mdserve. Use when creating, editing, or reviewing markdown plans, architecture/design docs, reports, tables, Mermaid diagrams, multi-file docs, or when the user asks to preview/render markdown.
 ---
 
 ## What I do
