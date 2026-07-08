@@ -32,8 +32,11 @@ Use the `gh` CLI for context on GitHub repos, remote branches, pull requests, di
 
 Never publish or post on behalf of the user without explicit consent.
 
-# Coding standards
+## Code preferences
 
-All user-specific coding standards live in the `coding-standards` skill.
+### Comments
 
-**Load that skill** before writing code, reviewing changes, or answering questions about conventions.
+Always prefer self-documenting code and minimize explicit comments.
+
+GOOD: for complex or highly optimized algorithms, non-obvious rationale, linters, or API documentation.
+BAD: Restating or explaing what code does.

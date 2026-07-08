@@ -1,14 +1,14 @@
 ---
 name: implement
-description: Implement a piece of work based on a spec, plan, or set of tickets.
+description: Implement a piece of work based on a spec, plan, or task.
 ---
 
-Implement the work described by the user in the spec, plan, or tickets.
+1. Review the user-provided plan, spec, or task.
 
-Use `/tdd` where possible, at pre-agreed seams.
+2. Break the work into commit-sized tasks, use the `git-commits` skill.
 
-Run typechecking and linting regularly, single test files regularly, and the full set of affected tests once at the end.
+3. Implement each task, use the `tdd` skill where possible, committing to the current branch.
 
-Once done, use `/code-review` to review the work.
+4. Repeat until the requirements are satisfied.
 
-Commit your work to the current branch.
+5. Once done, use the `code-review` skill to review the work.
