@@ -12,14 +12,6 @@ description: Generates a GitHub PR title and description, then opens and autofil
 - Generate a PR description following the template structure (if available)
 - Construct and open the GitHub PR comparison URL with pre-filled title and description
 
-## When to use me
-
-Use this skill when you're ready to propose a pull request but want AI assistance with:
-
-- Writing a comprehensive PR description
-- Following the repository's PR template
-- Generating an appropriate PR title
-
 I will NOT actually create or submit the PR - I only open the GitHub page with suggestions so you can review and submit it yourself.
 
 ## Instructions
