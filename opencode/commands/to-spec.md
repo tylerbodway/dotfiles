@@ -7,6 +7,8 @@ This skill takes the current conversation context and codebase understanding and
 
 If the project tracker is unclear, ask the user where to store the spec.
 
+$ARGUMENTS
+
 ## Process
 
 1. Explore the repo to understand the current state of the codebase.
