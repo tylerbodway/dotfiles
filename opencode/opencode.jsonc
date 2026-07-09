@@ -16,11 +16,14 @@
       },
     },
   },
-  "model": "anthropic/claude-opus-4-6",
-  "small_model": "anthropic/claude-haiku-4-5",
+  "model": "opencode/glm-5.2",
+  "small_model": "opencode/deepseek-v4-flash-free",
   "agent": {
     "explore": {
-      "model": "anthropic/claude-sonnet-5",
+      "model": "opencode/kimi-k2.7-code",
+    },
+    "general": {
+      "model": "opencode/kimi-k2.7-code",
     },
   },
   // "lsp": {
@@ -136,6 +139,5 @@
     "@franlol/opencode-md-table-formatter@0.0.3", // aligns column widths
     "@tarquinen/opencode-dcp@3.1.13", // dynamic context pruning
     "opencode-pty@0.3.2", // background processes
-    "opencode-claude-auth@1.5.4",
   ],
 }
