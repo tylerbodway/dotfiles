@@ -12,20 +12,20 @@
       "model": "opencode/kimi-k2.7-code",
     },
   },
-  // "lsp": {
-  //   "herb": {
-  //     "command": ["herb-language-server", "--stdio"],
-  //     "extensions": [".erb", ".html"],
-  //   },
-  //   "jsonls": {
-  //     "command": ["vscode-json-language-server", "--stdio"],
-  //     "extensions": [".json", ".jsonc"],
-  //   },
-  //   "stylelint": {
-  //     "command": ["stylelint-language-server", "--stdio"],
-  //     "extensions": [".css", ".scss", ".less"],
-  //   },
-  // },
+  "lsp": {
+    "herb": {
+      "command": ["herb-language-server", "--stdio"],
+      "extensions": [".erb", ".html"],
+    },
+    "jsonls": {
+      "command": ["vscode-json-language-server", "--stdio"],
+      "extensions": [".json", ".jsonc"],
+    },
+    "stylelint": {
+      "command": ["stylelint-language-server", "--stdio"],
+      "extensions": [".css", ".scss", ".less"],
+    },
+  },
   "formatter": {
     "herb": {
       "command": ["herb-format", "$FILE"],
