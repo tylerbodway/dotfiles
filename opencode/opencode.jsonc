@@ -2,20 +2,6 @@
   "$schema": "https://opencode.ai/config.json",
   "theme": "vague",
   "autoupdate": false,
-  "provider": {
-    "ollama": {
-      "npm": "@ai-sdk/openai-compatible",
-      "name": "Ollama",
-      "options": {
-        "baseURL": "http://localhost:11434/v1",
-      },
-      "models": {
-        "qwen3-coder": {
-          "name": "Qwen3 Coder",
-        },
-      },
-    },
-  },
   "model": "opencode/glm-5.2",
   "small_model": "opencode/deepseek-v4-flash-free",
   "agent": {
