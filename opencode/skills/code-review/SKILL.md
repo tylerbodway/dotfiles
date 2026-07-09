@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Review the changes since a fixed point (commit, branch, tag, or merge-base) along multiple axes — Spec, Standards, System Design, Bugs, Security, Performance, Testing, Documentation. Runs reviews in parallel sub-agents and builds a final report. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to "review since X".
+description: Review the changes since a fixed point (commit, branch, tag, or merge-base) along multiple axes — Spec, Standards, System Design, Bugs, Security, Performance, Testing, Documentation. Runs reviews in parallel subagents and builds a final report. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to "review since X".
 ---
 
 You are conducting a comprehensive code review across multiple axes of the diff between `HEAD` and a fixed point the user supplies.
@@ -14,7 +14,7 @@ You are conducting a comprehensive code review across multiple axes of the diff 
 - **Testing** — is the code tested thoroughly and properly?
 - **Documentation** — do the changes necessitate new or modified documentation?
 
-All axes run as **parallel sub-agents** so they don't pollute each other's context, then this skill aggregates their findings.
+All axes run as **parallel subagents** so they don't pollute each other's context. Each tags its findings with a severity, and this skill aggregates them into a priority-ranked report — critical issues first, minor details last and optional.
 
 ## Process
 
@@ -24,17 +24,17 @@ Whatever the user said is the fixed point — a commit SHA, branch name, tag, `m
 
 Capture the diff command once: `git diff <fixed-point>...HEAD` (three-dot, so the comparison is against the merge-base). Also note the list of commits via `git log <fixed-point>..HEAD --oneline`.
 
-Before going further, confirm the fixed point resolves (`git rev-parse <fixed-point>`) and the diff is non-empty. A bad ref or empty diff should fail here — not inside two parallel sub-agents.
+Before going further, confirm the fixed point resolves (`git rev-parse <fixed-point>`) and the diff is non-empty. A bad ref or empty diff should fail here — not inside two parallel subagents.
 
 ### 2. Gather spec sources
 
-Diffs alone are not enough. Use explore sub-agents to read any supporting referenced material such as issues, plans, specs, docs, etc.
+Diffs alone are not enough. Use explore subagents to read any supporting referenced material such as issues, plans, specs, docs, etc.
 
-If nothing is found, ask the user where to find the spec. If they say there is't one, the **Spec** sub-agent can be skipped.
+If nothing is found, ask the user where to find the spec. If they say there is't one, the **Spec** subagent can be skipped.
 
 ### 3. Gather coding standards sources
 
-Use explore sub-agents to find anything in the repo that documents how code should be written, such as skills, `AGENTS.md`/`CLAUDE.md`, or `CONTRIBUTING.md`.
+Use explore subagents to find anything in the repo that documents how code should be written, such as skills, `AGENTS.md`/`CLAUDE.md`, or `CONTRIBUTING.md`.
 
 On top of whatever the repo documents, the **Standards** axis always carries the **smell baseline** below — a fixed set of code smells (based on _Refactoring_ by Fowler) that applies even when a repo documents nothing. Two rules bind it:
 
@@ -56,9 +56,31 @@ Each smell reads _what it is_ → _how to fix_; match it against the diff:
 - **Middle Man** — a class or function that mostly just delegates onward. → cut it, call the real target direct.
 - **Refused Bequest** — a subclass or implementer that ignores or overrides most of what it inherits. → drop the inheritance, use composition.
 
-### 4. Spawn sub-agents in parallel
+### 4. Spawn subagents in parallel
 
-Use general sub-agents to review the code across each axis:
+Use general subagents to review the code across each axis.
+
+#### Finding contract — binds every axis
+
+Every finding from every subagent must satisfy all four rules below. Anything that doesn't is dropped at aggregation, so don't waste a subagent's budget on it.
+
+- **Severity.** Tag each finding with exactly one:
+  - **Critical** — the change is broken or unsafe as written (malfunctions, data loss, a security hole, or a core spec requirement unmet). Must fix before merge.
+  - **Important** — a real defect or gap with clear, realistic impact. Should fix before merge; merging without it introduces known risk or debt.
+  - **Minor** — a worthwhile improvement with low impact. Won't block; address only if time permits.
+- **Validate before you report.** Don't flag what you can't verify. If an edge case matters, name the realistic scenario that triggers it. If you can't confirm a problem exists, drop it — never present an unverified hunch as a finding.
+- **Be specific.** Every finding names the file and line, states concretely what's wrong, the impact it has, and a direction for fixing it. "Consider improving X" without pointing at code is not a finding — drop it.
+- **Stay in scope.** Only flag what the diff introduces or touches. Don't review pre-existing unchanged code, and don't speculate about needs the spec doesn't have.
+
+**Format** — one finding per block, identical across axes so the report scans fast:
+
+```
+[Severity] Axis — one-line title
+path/to/file.ext:line
+What's wrong + the realistic impact + a fix direction (1–3 sentences).
+```
+
+Fewer verified findings beat many vague ones. If an axis turns up nothing that clears the bar, it returns nothing.
 
 #### Spec
 
@@ -70,7 +92,7 @@ Include the full diff command and commit list and the spec context you gathered 
 
 Quote the spec line for each finding. Under 400 words.
 
-If the spec is missing, skip this sub-agent.
+If the spec is missing, skip this subagent.
 
 #### Standards
 
@@ -87,11 +109,7 @@ Report against each place the diff violates a standard citing the code and the r
 - Async operations handled incorrectly (promises, error handling)
 - Unintentional behavior changes
 
-**Flag, validate, describe.** When determining whether to report a bug:
-
-- Don't flag something as a bug if you're unsure. Investigate first.
-- Don't invent hypothetical problems. If an edge case matters, explain the realistic scenario where it breaks.
-- If you still can't verify, say "I'm not sure about X" rather than flagging it as a definite issue.
+The finding contract's validate rule is especially load-bearing here — never report a suspected bug you haven't traced to a concrete code path.
 
 #### Security
 
@@ -135,6 +153,21 @@ Only flag in the final report if obviously problematic.
 
 ### 5. Aggregate final report
 
-Present the findings in a final report sectioned by axis either verbatim or lightly cleaned. **Do not** merge or re-rank findings — they are deliberately separate.
+Collect every subagent's findings. Enforce the finding contract one more time at aggregation — if a finding lacks a location, an impact, or verification, cut it regardless of which axis produced it.
 
-Always include code examples and file locations when relevant.
+Present the report in **two sections, in this order**:
+
+#### Priority findings
+
+Every **Critical** and **Important** finding across all axes. This is what to act on.
+
+- Sort Critical first, then Important.
+- Within each tier, group by axis so the reader sees the kind of issue at a glance.
+- Lead with a one-line count: `N critical · M important`.
+- Keep each finding in the format from step 4, verbatim or lightly cleaned. Do not soften a severity.
+
+#### Minor findings
+
+Every **Minor** finding, grouped by axis. **Optional reading** — only look if inclined. If there are none, omit the section entirely.
+
+If an axis produced no findings at any severity, it simply doesn't appear; don't pad with "No issues found."
