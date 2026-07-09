@@ -116,8 +116,13 @@
       "credentials*": "deny",
       "*.pem": "deny",
       "*.key": "deny",
+      "opencode/*": "allow",
       ".opencode/**": "allow",
       ".docs/**": "allow",
+      "/var/folders/kx/rzzvcjgj1t9_z8h1s58k2phw0000gn/T/opencode/*": "allow",
+    },
+    "external_directory": {
+      "*": "ask",
       "/var/folders/kx/rzzvcjgj1t9_z8h1s58k2phw0000gn/T/opencode/*": "allow",
     },
   },
