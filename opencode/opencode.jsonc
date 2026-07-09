@@ -118,7 +118,7 @@
       "*.key": "deny",
       ".opencode/**": "allow",
       ".docs/**": "allow",
-      "/var/folders/kx/rzzvcjgj1t9_z8h1s58k2phw0000gn/T/opencode/**": "allow",
+      "/var/folders/kx/rzzvcjgj1t9_z8h1s58k2phw0000gn/T/opencode/*": "allow",
     },
   },
   "plugin": [
