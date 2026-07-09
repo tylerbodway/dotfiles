@@ -43,4 +43,4 @@ Wrap at 72 characters.
 
 ## Skill Dependencies
 
-When writing the message prose, load `writing-voice`.
+When writing the message prose, use the `writing-voice` skill.
