@@ -14,9 +14,17 @@ You are conducting a comprehensive code review across multiple axes of the diff 
 - **Testing** — is the code tested thoroughly and properly?
 - **Documentation** — do the changes necessitate new or modified documentation?
 
-All axes run as **parallel subagents** so they don't pollute each other's context. Each tags its findings with a severity, and this skill aggregates them into a priority-ranked report — critical issues first, minor details last and optional.
+All axes run as **parallel subagents** so they don't pollute each other's context. Each subagent's findings are aggregated into a priority-ranked report.
 
-## Process
+## Review philosophy
+
+1. **Only report problems** — Any review output must only contain issues, concerns, and actionable suggestions. DO NOT mention things that are done correctly, or praise with flattery. Be helpful and matter-of-fact.
+2. **Investigate, don't guess** — When uncertain whether an issue actually exists, explore further and verify assumptions. A reviewer guessing wrong provides negative value.
+3. **Focus on what CI doesn't catch** — Don't bother with formatting, linting, type or test errors.
+4. **Be specific** — Reference file paths and line numbers, and code excerpts when helpful to visualize issues.
+5. **No repetition** — Each observations should only appear once. Combine ideas if they are directly related.
+
+## Review process
 
 ### 1. Pin the fixed point
 
@@ -60,31 +68,21 @@ Each smell reads _what it is_ → _how to fix_; match it against the diff:
 
 Use general subagents to review the code across each axis.
 
-#### Finding contract — binds every axis
+Every finding from every subagent must satisfy all four rules below. Anything that doesn't is dropped at aggregation, so don't waste a subagent's context on it.
 
-Every finding from every subagent must satisfy all four rules below. Anything that doesn't is dropped at aggregation, so don't waste a subagent's budget on it.
-
-- **Severity.** Tag each finding with exactly one:
-  - **Critical** — the change is broken or unsafe as written (malfunctions, data loss, a security hole, or a core spec requirement unmet). Must fix before merge.
-  - **Important** — a real defect or gap with clear, realistic impact. Should fix before merge; merging without it introduces known risk or debt.
-  - **Minor** — a worthwhile improvement with low impact. Won't block; address only if time permits.
+- **Severity.** Each observation must categorized with exactly one:
+  - **Critical:** The change is broken or unsafe as written (malfunctions, data loss, a security hole, or a core spec requirement unmet). Must fix before merge.
+  - **Major:** A real defect or gap with clear, realistic impact. Should fix before merge; merging without it introduces known risk or debt.
+  - **Minor:** A worthwhile improvement with low impact. Won't block; address only if time permits.
 - **Validate before you report.** Don't flag what you can't verify. If an edge case matters, name the realistic scenario that triggers it. If you can't confirm a problem exists, drop it — never present an unverified hunch as a finding.
 - **Be specific.** Every finding names the file and line, states concretely what's wrong, the impact it has, and a direction for fixing it. "Consider improving X" without pointing at code is not a finding — drop it.
 - **Stay in scope.** Only flag what the diff introduces or touches. Don't review pre-existing unchanged code, and don't speculate about needs the spec doesn't have.
-
-**Format** — one finding per block, identical across axes so the report scans fast:
-
-```
-[Severity] Axis — one-line title
-path/to/file.ext:line
-What's wrong + the realistic impact + a fix direction (1–3 sentences).
-```
 
 Fewer verified findings beat many vague ones. If an axis turns up nothing that clears the bar, it returns nothing.
 
 #### Spec
 
-Include the full diff command and commit list and the spec context you gathered in step 2.
+Include the full diff command, commit list, and the spec context you gathered in step 2.
 
 - Requirements the spec asked for that are missing or partial
 - Behaviour in the diff that wasn't asked for (scope creep)
@@ -96,9 +94,26 @@ If the spec is missing, skip this subagent.
 
 #### Standards
 
-Include the full diff command and commit list and any standards context you gathered in step 3.
+Include the full diff command, commit list, and any standards context you gathered in step 3.
 
-Report against each place the diff violates a standard citing the code and the rule or smell detected. Distinguish hard violations from judgement calls — documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words.
+On top of whatever the repo documents, use these basic **code smells** based on _Refactoring_ by Martin Fowler, each reads _what it is_ → _how to fix_:
+
+- **Mysterious Name** — a function, variable, or type whose name doesn't reveal what it does or holds. → rename it; if no honest name comes, the design's murky.
+- **Duplicated Code** — the same logic shape appears in more than one hunk or file in the change. → extract the shared shape, call it from both.
+- **Feature Envy** — a method that reaches into another object's data more than its own. → move the method onto the data it envies.
+- **Data Clumps** — the same few fields or params keep travelling together (a type wanting to be born). → bundle them into one type, pass that.
+- **Primitive Obsession** — a primitive or string standing in for a domain concept that deserves its own type. → give the concept its own small type.
+- **Repeated Switches** — the same `switch`/`if`-cascade on the same type recurs across the change. → replace with polymorphism, or one map both sites share.
+- **Shotgun Surgery** — one logical change forces scattered edits across many files in the diff. → gather what changes together into one module.
+- **Divergent Change** — one file or module is edited for several unrelated reasons. → split so each module changes for one reason.
+- **Speculative Generality** — abstraction, parameters, or hooks added for needs the spec doesn't have. → delete it; inline back until a real need shows.
+- **Message Chains** — long `a.b().c().d()` navigation the caller shouldn't depend on. → hide the walk behind one method on the first object.
+- **Middle Man** — a class or function that mostly just delegates onward. → cut it, call the real target direct.
+- **Refused Bequest** — a subclass or implementer that ignores or overrides most of what it inherits. → drop the inheritance, use composition.
+
+Repo standards always trump these baselines, suppress the smell in those cases. Each smell is a labeled heuristic ("possible Feature Envy"), never a hard violation.
+
+Report any standards violations citing the code and the rule or smell detected. Be sure to distinguish hard violations from judgement calls.
 
 #### Bugs
 
@@ -153,21 +168,34 @@ Only flag in the final report if obviously problematic.
 
 ### 5. Aggregate final report
 
-Collect every subagent's findings. Enforce the finding contract one more time at aggregation — if a finding lacks a location, an impact, or verification, cut it regardless of which axis produced it.
+Collect every subagent's findings. If a finding lacks a location, an impact, or verification, cut it regardless of which axis produced it. If a section lacks content, leave it out completely.
 
-Present the report in **two sections, in this order**:
+<report-example>
 
-#### Priority findings
+```md
+## Code Review: (title)
 
-Every **Critical** and **Important** finding across all axes. This is what to act on.
+### Summary
 
-- Sort Critical first, then Important.
-- Within each tier, group by axis so the reader sees the kind of issue at a glance.
-- Lead with a one-line count: `N critical · M important`.
-- Keep each finding in the format from step 4, verbatim or lightly cleaned. Do not soften a severity.
+What the changes accomplish in one sentence, and the overall verdict. Under 50 words.
 
-#### Minor findings
+### Critical
 
-Every **Minor** finding, grouped by axis. **Optional reading** — only look if inclined. If there are none, omit the section entirely.
+1. **[Axis]:** Finding title
 
-If an axis produced no findings at any severity, it simply doesn't appear; don't pad with "No issues found."
+Quick explanation of the finding, using code references and excerpts if helpful.
+
+2. **[Axis]:** Finding title
+
+Quick explanation of the finding, using code references and excerpts if helpful.
+
+### Major
+
+### Minor
+
+### Recommendation
+
+**🟢 Approve** / **🔴 Request Changes** / **💬 Needs Discussion**
+```
+
+</report-example>
