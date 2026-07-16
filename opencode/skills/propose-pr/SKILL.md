@@ -42,6 +42,7 @@ I will NOT actually create or submit the PR - I only open the GitHub page with s
      - **If a PR template exists**: You MUST follow the template exactly and fill in each section appropriately. If a section does not apply, feel free to omit it.
      - **Preserve all markup as-is**: If the template uses HTML tags (e.g., `<details>`, `<summary>`, `<h3>`), keep them as HTML — do NOT convert them to Markdown equivalents.
      - **If no template exists**: Write a description that summarizes what changed and why, includes relevant context from commits and diffs, and uses proper markdown formatting.
+     - **Do not repeat commits**: It's okay to describe high-level strategy or branch arcs, but do not repeat what commits already communicate. Never say "details are in the commits" — that's obvious.
 
 6. **Build and open URL**:
    - Use the bundled script (relative to this skill's base directory) to construct the URL:
