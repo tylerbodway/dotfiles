@@ -10,6 +10,7 @@
   unstage = reset HEAD --
   stashdiff = stash show -p
   irb = rebase -i
+  wt = worktree
 [blame]
   ignoreRevsFile = .git-blame-ignore-revs
 [brach]
