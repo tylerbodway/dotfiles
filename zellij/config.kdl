@@ -114,6 +114,7 @@ keybinds clear-defaults=true {
         bind "Alt N" { NewPane "Down"; }
         bind "Alt S" { NewPane "stacked"; }
         bind "Alt T" { NewTab; }
+        bind "Alt R" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "Alt x" { CloseFocus; }
         bind "Alt H" { MoveTab "Left"; }
         bind "Alt L" { MoveTab "Right"; }
@@ -166,7 +167,7 @@ keybinds clear-defaults=true {
               "focus right" "Alt + l"
               "clear pane" "Alt + c"
               "new tab" "Alt + t, n"
-              "rename tab" "Alt + t, r"
+              "rename tab" "Alt + r"
               "go to tab number" "Alt + t, (1-9)"
               "go to tab left" "Alt + t, h"
               "go to tab right" "Alt + t, l"
