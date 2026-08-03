@@ -42,6 +42,9 @@
       path: zsh/**
       glob: true
       prefix: .
+    ~/.local/bin:
+      path: bin/**
+      glob: true
     ~/.editorconfig: editorconfig
     ~/.hushlogin: hushlogin
     ~/.ssh/config: ssh/config
