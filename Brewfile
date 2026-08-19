@@ -202,10 +202,6 @@ cask "notion"
 # App to write, plan, collaborate, and get organised
 # https://www.notion.so/
 
-cask "notion-calendar"
-# Calendar for professionals and teams
-# https://www.notion.com/product/calendar
-
 cask "proton-drive"
 # Client for Proton Drive
 # https://proton.me/drive
