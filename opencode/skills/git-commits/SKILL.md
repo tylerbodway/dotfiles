@@ -40,7 +40,3 @@ prompted the change, alternatives considered, constraints that shaped the
 approach, and anything the next person touching this code should know.
 
 Wrap at 72 characters.
-
-## Skill Dependencies
-
-When writing the message prose, use the `writing-voice` skill.

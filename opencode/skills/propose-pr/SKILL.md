@@ -52,10 +52,6 @@ I will NOT actually create or submit the PR - I only open the GitHub page with s
    - The script handles URL-encoding and outputs the full GitHub compare URL
    - Open with: `open "$(<skill-base>/scripts/build-url.sh ...)"`
 
-## Dependencies
-
-Before generating PR content, load the `writing-voice` skill and follow its guidelines.
-
 ## Notes
 
 - If the base branch is not `main`, ask the user or try to detect it with `git symbolic-ref refs/remotes/origin/HEAD`
