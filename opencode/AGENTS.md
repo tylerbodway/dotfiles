@@ -39,4 +39,4 @@ Never publish or post on behalf of the user without explicit consent.
 Always prefer self-documenting code and minimize explicit comments.
 
 GOOD: for complex or highly optimized algorithms, non-obvious rationale, linters, or API documentation.
-BAD: Restating or explaing what code does.
+BAD: Restating or explaining what code does.
