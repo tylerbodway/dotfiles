@@ -12,10 +12,6 @@ These are behaviors OpenCode should always follow.
 
 ## Shell commands
 
-### $HOME path
-
-**ALWAYS** use `~/` for $HOME paths, NEVER use the full user path name.
-
 ### Piping
 
 Prefer command-specific flags over piping: `git log -n 10` not `git log | head -10`
