@@ -16,6 +16,11 @@ description: Compose good git commits and branch histories. Use when staging cha
 - **The branch tells a story.** Commits progress in review order: backfill,
   refactors, behavior change, cleanup.
 
+## Branch name
+
+When creating a new branch, use the format: `tb/<slug>[/issue-ID]`
+Examples: `tb/add-feature` or `tb/fix-bug/eng-123`
+
 ## Pre-commit
 
 Always run appropriate testing and linting commands on the changes before committing using project guidelines.
