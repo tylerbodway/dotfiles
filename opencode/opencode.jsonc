@@ -108,6 +108,7 @@
     },
     "edit": {
       "*": "ask",
+      "*/var/folders/*/T/**": "allow",
       ".env": "deny",
       ".env.*": "deny",
       ".env.local": "deny",
@@ -119,6 +120,10 @@
       "opencode/*": "allow",
       ".opencode/**": "allow",
       ".docs/**": "allow",
+    },
+    "external_directory": {
+      "*": "ask",
+      "*/var/folders/*/T/**": "allow",
     },
   },
   "plugin": [

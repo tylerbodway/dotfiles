@@ -37,6 +37,12 @@ Always prefer self-documenting code and minimize explicit comments.
 GOOD: for complex or highly optimized algorithms, non-obvious rationale, linters, or API documentation.
 BAD: Restating or explaining what code does.
 
+## Temporary files
+
+Scratch work goes in `$TMPDIR/opencode`: handoffs, PR bodies, repro scripts, extracted output, draft docs. Never the workspace, never `/tmp`.
+
+Name the file after the task (`pr-body.md`, `repro-dedup.rb`). Reuse it instead of making a new one per step, report the absolute path, and leave it behind when you finish. macOS clears the directory.
+
 ## Output Style
 
 When you write technical text (documentation, READMEs, runbooks, procedures, error messages, release notes, reports, commit messages, explanations to the user), obey these rules from ASD-STE100 Simplified Technical English:
