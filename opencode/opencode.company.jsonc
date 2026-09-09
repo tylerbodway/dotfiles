@@ -5,8 +5,8 @@
       "npm": "@ai-sdk/anthropic",
       "name": "Planning Center",
       "models": {
-        "claude-fable-5": {
-          "name": "Claude Fable 5",
+        "claude-fable-5-1": {
+          "name": "Claude Fable 5.1",
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"],
