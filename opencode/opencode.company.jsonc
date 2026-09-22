@@ -16,19 +16,8 @@
             "output": 128000,
           },
         },
-        "claude-opus-5": {
-          "name": "Claude Opus 5",
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 128000,
-          },
-        },
-        "claude-opus-4-6": {
-          "name": "Claude Opus 4.6",
+        "claude-opus-5-5": {
+          "name": "Claude Opus 5.5",
           "modalities": {
             "input": ["text", "image", "pdf"],
             "output": ["text"],
