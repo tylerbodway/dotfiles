@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Vague Theme for Chromium",
+  "description": "A cool, dark, low contrast theme for Chromium. Pastel yet vivid, like a fleeting memory...",
+  "version": "1.0",
+  "theme": {
+    "colors": {
+      "frame": [20, 20, 21],
+      "frame_inactive": [20, 20, 21],
+      "frame_incognito": [20, 20, 21],
+      "frame_incognito_inactive": [20, 20, 21],
+      "bookmark_text": [205, 205, 205],
+      "tab_background_text": [205, 205, 205],
+      "tab_background_text_inactive": [96, 96, 121],
+      "tab_background_text_incognito": [205, 205, 205],
+      "tab_background_text_incognito_inactive": [96, 96, 121],
+      "tab_text": [205, 205, 205],
+      "toolbar": [37, 37, 48],
+      "toolbar_button_icon": [205, 205, 205],
+      "omnibox_background": [20, 20, 21],
+      "omnibox_text": [205, 205, 205],
+      "ntp_background": [20, 20, 21],
+      "ntp_link": [174, 174, 209],
+      "ntp_text": [205, 205, 205]
+    }
+  }
+}
