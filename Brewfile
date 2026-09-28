@@ -202,10 +202,6 @@ cask "notion"
 # App to write, plan, collaborate, and get organised
 # https://www.notion.so/
 
-cask "proton-drive"
-# Client for Proton Drive
-# https://proton.me/drive
-
 cask "proton-mail"
 # Client for Proton Mail and Proton Calendar
 # https://proton.me/mail
@@ -217,6 +213,10 @@ cask "protonvpn"
 cask "rapidapi"
 # HTTP client that helps testing and describing APIs
 # https://paw.cloud/
+
+cask "synology-drive"
+# Sync and backup service to Synology NAS drives
+# https://www.synology.com/
 
 cask "raycast"
 # Spotlight replacement productivity tool
