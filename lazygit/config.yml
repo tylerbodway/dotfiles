@@ -19,29 +19,31 @@ gui:
   commandLogSize: 6
   # display the files as a flat list. this can still be toggled with the backtick key.
   showFileTree: false
-  # catppuccin-mocha
+  # Theme: vague
+  authorColors:
+    "*": "#f3be7c"
   theme:
     activeBorderColor:
-      - "#a6e3a1"
-      - bold
+      - "#aeaed1"
+      - "bold"
     inactiveBorderColor:
-      - "#a6adc8"
+      - "#606079"
     optionsTextColor:
-      - "#89b4fa"
+      - "#606079"
     selectedLineBgColor:
-      - "#313244"
-    cherryPickedCommitBgColor:
-      - "#45475a"
+      - "#252530"
     cherryPickedCommitFgColor:
-      - "#a6e3a1"
+      - "#d8647e"
+    cherryPickedCommitBgColor:
+      - "bg"
+    markedBaseCommitFgColor:
+      - "#f3be7c"
+    markedBaseCommitBgColor:
+      - "bg"
     unstagedChangesColor:
-      - "#f38ba8"
+      - "#d8647e"
     defaultFgColor:
-      - "#eef1fc"
-    searchingActiveBorderColor:
-      - "#f9e2af"
-  authorColors:
-    "*": "#b4befe"
+      - "#cdcdcd"
 # don't display introductory popups upon opening lazygit.
 disableStartupPopups: true
 # don't display a confirmation when subprocess terminates.
