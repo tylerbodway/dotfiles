@@ -3,6 +3,10 @@
 
 # === Packages ===
 
+brew "awscli"
+# Official Amazon AWS command-line interface
+# https://aws.amazon.com/cli/
+
 brew "bat"
 # Clone of cat(1) with syntax highlighting and Git integration
 # https://github.com/sharkdp/bat
@@ -198,6 +202,10 @@ cask "logi-options+"
 # Software for Logitech devices
 # https://www.logitech.com/en-us/software/logi-options-plus.html
 
+cask "markedit"
+# Markdown editor
+# https://github.com/MarkEdit-app/MarkEdit
+
 cask "notion"
 # App to write, plan, collaborate, and get organised
 # https://www.notion.so/
@@ -217,6 +225,10 @@ cask "rapidapi"
 cask "synology-drive"
 # Sync and backup service to Synology NAS drives
 # https://www.synology.com/
+
+cask "tailscale-app"
+# Mesh VPN based on WireGuard
+# https://tailscale.com/
 
 cask "raycast"
 # Spotlight replacement productivity tool
