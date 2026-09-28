@@ -91,7 +91,7 @@ brew "ollama"
 # Create, run, and share large language models (LLMs)
 # https://ollama.com
 
-brew "anomalyco/tap/opencode", trusted: true
+brew "anomalyco/tap/opencode-v2", trusted: true
 # The AI coding agent built for the terminal.
 # https://github.com/sst/opencode
 

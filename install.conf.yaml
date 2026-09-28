@@ -57,9 +57,6 @@
 - gem:
     - Gemfile
 
-- opkg:
-    - openpackage.json
-
 - shell:
     - command: chmod +x bin/*
       description: Making bin/ scripts executable

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "keybinds": {
+    "agent.cycle": "tab",
+    "session.tab.next": "ctrl+l",
+    "session.tab.previous": "ctrl+h",
+    "session.tab.close": ["ctrl+w", "<leader>w"]
+  },
+  "theme": {
+    "name": "vague",
+    "mode": "dark"
+  },
+  "animations": true,
+  "attention": {
+    "enabled": true
+  }
+}

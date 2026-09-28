@@ -1,30 +1,75 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "vague",
-  "autoupdate": false,
-  "model": "opencode/kimi-k3",
-  "small_model": "opencode/deepseek-v4-flash-free",
-  "agent": {
-    "explore": {
-      "model": "opencode/kimi-k2.7-code",
+  "model": "opencode/glm-5.3-flash",
+  "permissions": [
+    // global rules
+    { "action": "external_directory", "resource": "*", "effect": "ask" },
+    { "action": "shell", "resource": "*", "effect": "allow" },
+    { "action": "read", "resource": "*", "effect": "allow" },
+    { "action": "edit", "resource": "*", "effect": "ask" },
+
+    // potentially destructive or dangerous actions
+    { "action": "shell", "resource": "brew *", "effect": "ask" },
+    { "action": "shell", "resource": "bunx *", "effect": "deny" },
+    { "action": "shell", "resource": "chmod *", "effect": "ask" },
+    { "action": "shell", "resource": "curl *", "effect": "deny" },
+    { "action": "shell", "resource": "git clean *", "effect": "ask" },
+    { "action": "shell", "resource": "git push *", "effect": "deny" },
+    { "action": "shell", "resource": "git reset *", "effect": "ask" },
+    { "action": "shell", "resource": "nc *", "effect": "deny" },
+    { "action": "shell", "resource": "netcat *", "effect": "deny" },
+    { "action": "shell", "resource": "npm *", "effect": "ask" },
+    { "action": "shell", "resource": "npx *", "effect": "deny" },
+    { "action": "shell", "resource": "pnpx *", "effect": "deny" },
+    { "action": "shell", "resource": "rm *", "effect": "ask" },
+    { "action": "shell", "resource": "scp *", "effect": "deny" },
+    { "action": "shell", "resource": "sftp *", "effect": "deny" },
+    { "action": "shell", "resource": "ssh *", "effect": "deny" },
+    { "action": "shell", "resource": "su *", "effect": "deny" },
+    { "action": "shell", "resource": "sudo *", "effect": "deny" },
+    { "action": "shell", "resource": "wget *", "effect": "deny" },
+    { "action": "shell", "resource": "yarn *", "effect": "ask" },
+    { "action": "shell", "resource": "yarn dlx *", "effect": "deny" },
+    { "action": "shell", "resource": "yarn lint *", "effect": "allow" },
+    { "action": "shell", "resource": "yarn test *", "effect": "allow" },
+
+    // secrets
+    { "action": "read", "resource": ".env", "effect": "deny" },
+    { "action": "edit", "resource": ".env", "effect": "deny" },
+    { "action": "read", "resource": ".env.*", "effect": "deny" },
+    { "action": "edit", "resource": ".env.*", "effect": "deny" },
+    { "action": "read", "resource": ".env.local", "effect": "deny" },
+    { "action": "edit", "resource": ".env.local", "effect": "deny" },
+    { "action": "read", "resource": "secrets/**", "effect": "deny" },
+    { "action": "edit", "resource": "secrets/**", "effect": "deny" },
+    { "action": "read", "resource": ".secrets/**", "effect": "deny" },
+    { "action": "edit", "resource": ".secrets/**", "effect": "deny" },
+    { "action": "read", "resource": "credentials*", "effect": "deny" },
+    { "action": "edit", "resource": "credentials*", "effect": "deny" },
+    { "action": "read", "resource": "*.pem", "effect": "deny" },
+    { "action": "edit", "resource": "*.pem", "effect": "deny" },
+    { "action": "read", "resource": "*.key", "effect": "deny" },
+    { "action": "edit", "resource": "*.key", "effect": "deny" },
+    { "action": "read", "resource": "*_rsa", "effect": "deny" },
+    { "action": "read", "resource": "*_dsa", "effect": "deny" },
+    { "action": "read", "resource": "*_ecdsa", "effect": "deny" },
+    { "action": "read", "resource": "*_ed25519", "effect": "deny" },
+    { "action": "read", "resource": ".ssh/**", "effect": "deny" },
+
+    // agent config and artifacts
+    {
+      "action": "external_directory",
+      "resource": "*/var/folders/*/T/**",
+      "effect": "allow",
     },
-    "general": {
-      "model": "opencode/kimi-k2.7-code",
-    },
-  },
-  "lsp": {
-    "herb": {
-      "command": ["herb-language-server", "--stdio"],
-      "extensions": [".erb", ".html"],
-    },
-    "jsonls": {
-      "command": ["vscode-json-language-server", "--stdio"],
-      "extensions": [".json", ".jsonc"],
-    },
-    "stylelint": {
-      "command": ["stylelint-language-server", "--stdio"],
-      "extensions": [".css", ".scss", ".less"],
-    },
+    { "action": "edit", "resource": "*/var/folders/*/T/**", "effect": "allow" },
+    { "action": "edit", "resource": "opencode/*", "effect": "allow" },
+    { "action": "edit", "resource": ".opencode/**", "effect": "allow" },
+    { "action": "edit", "resource": ".docs/**", "effect": "allow" },
+  ],
+  "agents": {
+    "build": { "color": "#f3be7c" },
+    "plan": { "color": "#bb9dbd" },
   },
   "formatter": {
     "herb": {
@@ -39,97 +84,25 @@
       "command": ["rubotree", "$FILE"],
       "extensions": [".rb", ".rake", ".gemspec", ".ru"],
     },
-    "stylelint": {
-      "command": ["stylelint", "--fix", "$FILE"],
-      "extensions": [".css", ".scss", ".less"],
-    },
     "stylua": {
       "command": ["stylua", "$FILE"],
       "extensions": [".lua"],
     },
   },
   "mcp": {
-    "devtools": {
-      // agentic browser navigation, console, and screenshots
-      "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "chrome-devtools-mcp@latest",
-        "--executable-path=/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
-        "--no-usage-statistics",
-        "--user-data-dir={env:XDG_STATE_HOME}/opencode/brave-profile",
-      ],
-      "enabled": false,
+    "servers": {
+      "devtools": {
+        "type": "local",
+        "command": [
+          "npx",
+          "-y",
+          "chrome-devtools-mcp@latest",
+          "--executable-path=/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
+          "--no-usage-statistics",
+          "--user-data-dir={env:XDG_STATE_HOME}/opencode/brave-profile",
+        ],
+        "disabled": true,
+      },
     },
   },
-  "permission": {
-    "bash": {
-      "*": "allow",
-      "brew *": "ask",
-      "bunx *": "deny",
-      "chmod *": "ask",
-      "curl *": "deny",
-      "git clean *": "ask",
-      "git push *": "deny",
-      "git reset *": "ask",
-      "nc *": "deny",
-      "netcat *": "deny",
-      "npm *": "ask",
-      "npx *": "deny",
-      "pnpx *": "deny",
-      "rm *": "ask",
-      "scp *": "deny",
-      "sftp *": "deny",
-      "ssh *": "deny",
-      "su *": "deny",
-      "sudo *": "deny",
-      "wget *": "deny",
-      "yarn *": "ask",
-      "yarn dlx *": "deny",
-      "yarn lint *": "allow",
-      "yarn test *": "allow",
-    },
-    "read": {
-      "*": "allow",
-      ".env": "deny",
-      ".env.*": "deny",
-      ".env.local": "deny",
-      "secrets/**": "deny",
-      ".secrets/**": "deny",
-      "credentials*": "deny",
-      "*.pem": "deny",
-      "*.key": "deny",
-      "*_rsa": "deny",
-      "*_dsa": "deny",
-      "*_ecdsa": "deny",
-      "*_ed25519": "deny",
-      ".ssh/**": "deny",
-    },
-    "edit": {
-      "*": "ask",
-      "*/var/folders/*/T/**": "allow",
-      ".env": "deny",
-      ".env.*": "deny",
-      ".env.local": "deny",
-      "secrets/**": "deny",
-      ".secrets/**": "deny",
-      "credentials*": "deny",
-      "*.pem": "deny",
-      "*.key": "deny",
-      "opencode/*": "allow",
-      ".opencode/**": "allow",
-      ".docs/**": "allow",
-    },
-    "external_directory": {
-      "*": "ask",
-      "*/var/folders/*/T/**": "allow",
-    },
-  },
-  "plugin": [
-    "@franlol/opencode-md-table-formatter@0.0.3", // aligns column widths
-    "@tarquinen/opencode-dcp@3.1.13", // dynamic context pruning
-    "opencode-pty@0.3.2", // background processes
-    "opencode-zellij-indicator@0.7.0", // zellij tab naming and status
-  ],
 }

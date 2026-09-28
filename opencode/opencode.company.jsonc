@@ -1,13 +1,15 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "provider": {
+  "providers": {
     "planning-center": {
-      "npm": "@ai-sdk/anthropic",
       "name": "Planning Center",
+      "package": "@opencode/ai/providers/anthropic",
       "models": {
-        "claude-fable-5-1": {
-          "name": "Claude Fable 5.1",
-          "modalities": {
+        "claude-opus": {
+          "name": "Claude Opus",
+          "family": "claude-opus",
+          "capabilities": {
+            "tools": true,
             "input": ["text", "image", "pdf"],
             "output": ["text"],
           },
@@ -15,10 +17,18 @@
             "context": 1000000,
             "output": 128000,
           },
+          "cost": {
+            "input": 4,
+            "output": 20,
+            "cache_read": 0.2,
+            "cache_write": 5,
+          },
         },
-        "claude-opus-5-5": {
-          "name": "Claude Opus 5.5",
-          "modalities": {
+        "claude-sonnet": {
+          "name": "Claude Sonnet",
+          "family": "claude-sonnet",
+          "capabilities": {
+            "tools": true,
             "input": ["text", "image", "pdf"],
             "output": ["text"],
           },
@@ -26,21 +36,18 @@
             "context": 1000000,
             "output": 128000,
           },
-        },
-        "claude-sonnet-5": {
-          "name": "Claude Sonnet 5",
-          "modalities": {
-            "input": ["text", "image", "pdf"],
-            "output": ["text"],
-          },
-          "limit": {
-            "context": 1000000,
-            "output": 128000,
+          "cost": {
+            "input": 2,
+            "output": 10,
+            "cache_read": 0.2,
+            "cache_write": 2.5,
           },
         },
-        "claude-haiku-4-5": {
-          "name": "Claude Haiku 4.5",
-          "modalities": {
+        "claude-haiku": {
+          "name": "Claude Haiku",
+          "family": "claude-haiku",
+          "capabilities": {
+            "tools": true,
             "input": ["text", "image", "pdf"],
             "output": ["text"],
           },
@@ -48,74 +55,77 @@
             "context": 200000,
             "output": 64000,
           },
+          "cost": {
+            "input": 1,
+            "output": 5,
+            "cache_read": 0.1,
+            "cache_write": 1.25,
+          },
         },
       },
     },
   },
-  "model": "planning-center/claude-opus-5",
-  "small_model": "planning-center/claude-haiku-4-5",
-  "agent": {
-    "explore": {
-      "model": "planning-center/claude-sonnet-5",
-    },
+  "agents": {
     "general": {
-      "model": "planning-center/claude-sonnet-5",
+      "model": "planning-center/claude-sonnet#high",
+    },
+    "explore": {
+      "model": "planning-center/claude-sonnet#low",
     },
   },
+  "permissions": [
+    {
+      "action": "external_directory",
+      "resource": "~/Code/*",
+      "effect": "allow",
+    },
+    { "action": "shell", "resource": "box *", "effect": "ask" },
+    { "action": "shell", "resource": "box uninstall *", "effect": "deny" },
+    { "action": "shell", "resource": "pco *", "effect": "ask" },
+    { "action": "shell", "resource": "pco connect *", "effect": "deny" },
+    { "action": "shell", "resource": "pco console *", "effect": "deny" },
+    { "action": "shell", "resource": "pco dbconnect *", "effect": "deny" },
+    { "action": "shell", "resource": "pco ssm *", "effect": "deny" },
+  ],
   "mcp": {
-    "datadog": {
-      // app monitoring
-      "type": "remote",
-      "url": "https://mcp.datadoghq.com/v1/mcp",
-      "enabled": false,
-    },
-    "linear": {
-      // project management
-      "type": "remote",
-      "url": "https://mcp.linear.app/mcp",
-      "enabled": false,
-    },
-    "notion": {
-      // documentation
-      "type": "remote",
-      "url": "https://mcp.notion.com/mcp",
-      "enabled": false,
-    },
-    "redshift": {
-      // business intelligence
-      "type": "local",
-      "command": [
-        "uv",
-        "--directory",
-        "{env:HOME}/Code/mcp-servers/redshift",
-        "run",
-        "awslabs.redshift-mcp-server",
-      ],
-      "environment": {
-        "AWS_PROFILE": "pco-bi-query",
-        "AWS_REGION": "us-east-1",
-        "FASTMCP_LOG_LEVEL": "WARNING",
+    "servers": {
+      "datadog": {
+        "type": "remote",
+        "url": "https://mcp.datadoghq.com/v1/mcp",
+        "disabled": true,
       },
-      "enabled": false,
-    },
-    "sentry": {
-      "type": "remote",
-      "url": "https://mcp.sentry.dev/mcp",
-      "enabled": false,
+      "linear": {
+        "type": "remote",
+        "url": "https://mcp.linear.app/mcp",
+        "disabled": true,
+      },
+      "notion": {
+        "type": "remote",
+        "url": "https://mcp.notion.com/mcp",
+        "disabled": true,
+      },
+      "redshift": {
+        "type": "local",
+        "command": [
+          "uv",
+          "--directory",
+          "{env:HOME}/Code/mcp-servers/redshift",
+          "run",
+          "awslabs.redshift-mcp-server",
+        ],
+        "environment": {
+          "AWS_PROFILE": "pco-bi-query",
+          "AWS_REGION": "us-east-1",
+          "FASTMCP_LOG_LEVEL": "WARNING",
+        },
+        "disabled": true,
+      },
+      "sentry": {
+        "type": "remote",
+        "url": "https://mcp.sentry.dev/mcp",
+        "disabled": true,
+      },
     },
   },
-  "permission": {
-    "bash": {
-      "box *": "ask",
-      "box uninstall *": "deny",
-      "pco *": "ask",
-      "pco connect *": "deny",
-      "pco console *": "deny",
-      "pco dbconnect *": "deny",
-      "pco ssm *": "deny",
-    },
-    "external_directory": {
-      "~/Code/*": "allow",
-    },
-  },
+  "skills": ["~/Code/pco-box/skills"],
 }

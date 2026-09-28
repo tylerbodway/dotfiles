@@ -1,6 +1,0 @@
-{
-  "packages": [
-    "gh@planningcenter/pco-box/skills/dev-environment",
-    "gh@planningcenter/pco-box/skills/logs"
-  ]
-}
