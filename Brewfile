@@ -194,6 +194,10 @@ cask "ghostty"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 # https://ghostty.org
 
+cask "jordanbaird-ice"
+# Menu bar manager that hides/reveals menu bar icons
+# https://icemenubar.app/
+
 cask "linear"
 # App to manage software development and track bugs
 # https://linear.app/
