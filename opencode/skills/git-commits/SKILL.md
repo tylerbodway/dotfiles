@@ -24,7 +24,7 @@ Commits are how reviewers read a branch and how future maintainers learn why cha
 
 ## Branch name
 
-When creating a new branch, use the format: `tb/<slug>[/issue-ID]`
+When creating a new branch, always use the format: `tb/<slug>[/issue-ID]`
 Examples: `tb/add-feature` or `tb/fix-bug/eng-123`
 
 The issue ID in the branch name is what links the work to the tracker, so
@@ -91,6 +91,10 @@ Wrap at 72 characters.
 
 Write multi-line messages to a temp file and use `git commit -F <file>`, so
 wrapping and blank lines come out exactly as written.
+
+Don't reference issue IDs or links. If talking about work that will be done,
+say that simply. Git commits should stand alone regardless of the issue
+tracker we're currently using.
 
 Don't add AI attribution trailers such as `Co-authored-by` or "Generated
 with". The commits are the user's.
