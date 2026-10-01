@@ -72,6 +72,7 @@
     "build": { "color": "#f3be7c" },
     "plan": { "color": "#bb9dbd" },
   },
+  "plugins": ["@plannotator/opencode@latest"],
   "formatter": {
     "herb": {
       "command": ["herb-format", "$FILE"],
