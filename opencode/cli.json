@@ -12,6 +12,7 @@
   },
   "animations": true,
   "attention": {
-    "enabled": true
+    "notifications": true,
+    "sound": true
   }
 }
