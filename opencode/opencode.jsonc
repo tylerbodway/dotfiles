@@ -3,6 +3,7 @@
   "model": "opencode/glm-5.3-flash",
   "permissions": [
     // global rules
+    { "action": "question", "resource": "*", "effect": "deny" },
     { "action": "external_directory", "resource": "*", "effect": "ask" },
     { "action": "shell", "resource": "*", "effect": "allow" },
     { "action": "read", "resource": "*", "effect": "allow" },
