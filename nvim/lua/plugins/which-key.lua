@@ -21,8 +21,6 @@ wk.setup({
 })
 
 wk.add({
-  { "<leader>a", group = "ai", mode = { "n", "v" } },
-  { "<leader>ag", group = "GitHub Copilot" },
   { "<leader>b", group = "buffer" },
   { "<leader>c", group = "code", mode = { "n", "v" } },
   { "<leader>f", group = "files" },
