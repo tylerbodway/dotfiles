@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# herdr-focus-or-tab — Move focus to the neighboring herdr pane, or to the
+# adjacent tab when there's no pane in that direction (like zellij's
+# MoveFocusOrTab). Tabs don't wrap at the ends.
+#
+# Usage (from a herdr custom command keybinding):
+#   herdr-focus-or-tab left|right|up|down
+
+direction="${1:?Usage: herdr-focus-or-tab left|right|up|down}"
+herdr="${HERDR_BIN_PATH:-herdr}"
+
+pane_args=()
+[[ -n "${HERDR_ACTIVE_PANE_ID:-}" ]] && pane_args=(--pane "${HERDR_ACTIVE_PANE_ID}")
+
+reason=$("${herdr}" pane focus ${pane_args[@]+"${pane_args[@]}"} --direction "${direction}" | jq -r '.result.focus.reason // empty')
+[[ "${reason}" == "no_neighbor" ]] || exit 0
+
+case "${direction}" in
+  left)  offset=-1 ;;
+  right) offset=1 ;;
+  *)     exit 0 ;;
+esac
+
+workspace_args=()
+[[ -n "${HERDR_ACTIVE_WORKSPACE_ID:-}" ]] && workspace_args=(--workspace "${HERDR_ACTIVE_WORKSPACE_ID}")
+
+tab_id=$("${herdr}" tab list ${workspace_args[@]+"${workspace_args[@]}"} | jq -r --argjson offset "${offset}" '
+  .result.tabs as $tabs
+  | ($tabs | map(.focused) | index(true)) as $current
+  | ($current + $offset) as $target
+  | if $current != null and $target >= 0 and $target < ($tabs | length)
+    then $tabs[$target].tab_id
+    else empty
+    end
+')
+
+[[ -n "${tab_id}" ]] && "${herdr}" tab focus "${tab_id}" >/dev/null
+exit 0

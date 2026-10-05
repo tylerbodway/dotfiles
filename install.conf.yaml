@@ -20,6 +20,8 @@
     ~/.config/git/:
       path: git/**
       glob: true
+    ~/.config/herdr/config.toml: herdr/config.toml
+    ~/.config/herdr-automatic-rename/config.sh: herdr-automatic-rename/config.sh
     ~/.config/lazygit/config.yml: lazygit/config.yml
     ~/.config/nvim/:
       path: nvim/**
@@ -63,6 +65,11 @@
       quiet: true
     - command: bat cache --build
       description: Building bat cache for custom theme
+      quiet: true
+    - command: >-
+        herdr plugin list | grep -q herdr-automatic-rename ||
+        herdr plugin install qu8n/herdr-automatic-rename --yes
+      description: Installing herdr plugins
       quiet: true
     - command: >-
         source="$DOT/opencode/opencode.company.jsonc";

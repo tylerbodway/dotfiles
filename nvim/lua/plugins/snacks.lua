@@ -63,7 +63,7 @@ require("snacks").setup({
     win = {
       input = {
         keys = {
-          -- override alt keybindings as they conflict with zellij
+          -- override alt keybindings as they conflict with terminal multiplexer
           ["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
           ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
         },

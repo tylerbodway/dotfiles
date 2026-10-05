@@ -63,6 +63,10 @@ brew "grc"
 # Colorize logfiles and command output
 # https://github.com/garabik/grc
 
+brew "herdr"
+# Agent multiplexer that lives in your terminal
+# https://herdr.dev
+
 brew "lazygit"
 # Simple terminal UI for git commands
 # https://github.com/jesseduffield/lazygit/

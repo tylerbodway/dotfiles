@@ -1,0 +1,89 @@
+onboarding = false
+
+[worktrees]
+directory = "~/.local/share/herdr/worktrees"
+
+[ui]
+confirm_close = false
+status_indicators = "symbols"
+agent_panel_sort = "priority"
+sidebar_width = 30
+
+# Tabs are named by the herdr-automatic-rename plugin
+prompt_new_tab_name = false
+
+# Alt-based keybinds for window/tab/pane management,
+# avoids Ctrl+based keybinds for individual processes
+[keys]
+prefix = "alt+m"
+help = ["prefix+?", "alt+y"]
+detach = "alt+q"
+goto = "alt+g"
+toggle_sidebar = "alt+\\"
+
+# Workspaces & agents
+new_workspace = "prefix+n"
+rename_workspace = "prefix+r"
+close_workspace = "prefix+x"
+previous_agent = "alt+up"
+next_agent = "alt+down"
+
+# Tabs
+new_tab = "alt+shift+t"
+rename_tab = "alt+shift+r"
+close_tab = "alt+shift+x"
+move_tab_previous = "alt+shift+h"
+move_tab_next = "alt+shift+l"
+switch_tab = "alt+1..9"
+
+# Panes
+focus_pane_left = "" # alt+h custom command below
+focus_pane_right = "" # alt+l custom command below
+focus_pane_down = "alt+j"
+focus_pane_up = "alt+k"
+swap_pane_left = "prefix+h"
+swap_pane_down = "prefix+j"
+swap_pane_up = "prefix+k"
+swap_pane_right = "prefix+l"
+split_vertical = "alt+n"
+split_horizontal = "alt+shift+n"
+close_pane = "alt+x"
+rename_pane = "alt+r"
+zoom = "alt+shift+f"
+resize_mode = "alt+z"
+copy_mode = "alt+f"
+edit_scrollback = "alt+e"
+clear_pane = "alt+c"
+
+[ui.sidebar.spaces]
+rows = [
+  ["state_icon", "workspace"],
+  [{ token = "branch", fg = "#e8b589" }, "git_status"]
+]
+
+[ui.sidebar.agents]
+rows = [
+  [{ token = "tab", fg = "#cdcdcd", bold = true, dim = false }],
+  ["state_icon", "state_text", "agent"],
+  ["machine", "workspace"]
+]
+
+[[keys.command]]
+key = "alt+h"
+type = "shell"
+command = "$HOME/.local/bin/herdr-focus-or-tab left"
+description = "focus pane or tab left"
+
+[[keys.command]]
+key = "alt+l"
+type = "shell"
+command = "$HOME/.local/bin/herdr-focus-or-tab right"
+description = "focus pane or tab right"
+
+[[keys.command]]
+key = "alt+w"
+type = "popup"
+command = "exec \"${SHELL:-sh}\""
+description = "open quick terminal"
+width = "65%"
+height = "65%"

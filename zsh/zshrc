@@ -44,12 +44,6 @@ alias groups="cd groups" # fixes conflict with coreutils command
 alias chat="cd chat" # fixes conflict with modem command
 alias calendar="cd calendar" # fixes conflict with unix command
 
-dev() {
-  zellij action new-tab --layout dev --name "${PWD##*/}"
-  zellij action go-to-previous-tab
-  zellij action close-tab
-}
-
 if command -v direnv &> /dev/null; then
   eval "$(direnv hook zsh)"
 fi
@@ -57,4 +51,9 @@ fi
 if command -v fzf &> /dev/null; then
   eval "$(fzf --zsh)"
 fi
+
+# Renames herdr tabs as soon as a command starts (herdr-automatic-rename plugin)
+for _f in $HOME/.config/herdr/plugins/github/herdr-automatic-rename-*/shell/hook.zsh(N); do
+  source $_f; break
+done
 

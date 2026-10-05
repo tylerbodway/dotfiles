@@ -18,5 +18,3 @@ macos-option-as-alt = true
 
 keybind = shift+enter=text:\n
 mouse-shift-capture = never
-
-initial-command = zsh -l -c zellij
