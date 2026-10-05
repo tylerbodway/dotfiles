@@ -1,0 +1,134 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# herdr-dev-tabs — Open a standard set of tabs (opencode, lazygit, nvim) in
+# the current herdr workspace. Meant for a fresh workspace: the idle shell
+# tab you invoked it from becomes the opencode tab, so you end up with
+# exactly three tabs.
+#
+#   - Tabs that already exist (by label) are reused, never duplicated.
+#   - The current tab is taken over only when it's an idle shell; if it's
+#     running something, nothing gets closed and tabs are added alongside.
+#   - If every tab already exists, an idle current tab is closed so you're
+#     left with just the three dev tabs.
+#
+# Usage:
+#   herdr-dev-tabs                 # tabs in the active workspace
+#   herdr-dev-tabs --cwd PATH      # tabs in a specific directory
+#
+# From a herdr custom-command keybinding, HERDR_ACTIVE_PANE_ID and
+# HERDR_ACTIVE_WORKSPACE_ID identify where you invoked it; outside herdr,
+# the focused pane's workspace is used.
+
+herdr="${HERDR_BIN_PATH:-herdr}"
+
+# --cwd is forwarded to tab create so every tab opens in the same directory
+cwd=""
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --cwd)
+      cwd="${2:?Usage: herdr-dev-tabs [--cwd PATH]}"
+      shift 2
+      ;;
+    *)
+      echo "Usage: herdr-dev-tabs [--cwd PATH]" >&2
+      exit 2
+      ;;
+  esac
+done
+
+# Resolve the target workspace
+workspace="${HERDR_ACTIVE_WORKSPACE_ID:-}"
+if [[ -z "${workspace}" ]]; then
+  # Outside a keybinding there's no active-workspace env var; use the tab the
+  # client has focused (pane current follows the CLI's attached session, which
+  # isn't necessarily what's on screen)
+  workspace=$("${herdr}" tab list | jq -r '.result.tabs[] | select(.focused) | .workspace_id')
+fi
+if [[ -z "${workspace}" ]]; then
+  echo "herdr-dev-tabs: no running herdr workspace found" >&2
+  exit 1
+fi
+
+tab_args=(--workspace "${workspace}")
+[[ -n "${cwd}" ]] && tab_args+=(--cwd "${cwd}")
+
+# Resolve the current pane and tab, and what's running in the pane
+if [[ -n "${HERDR_ACTIVE_PANE_ID:-}" ]]; then
+  current_pane="${HERDR_ACTIVE_PANE_ID}"
+  current_tab=$("${herdr}" pane get "${current_pane}" | jq -r '.result.pane.tab_id')
+else
+  current_tab=$("${herdr}" tab list "${tab_args[@]}" | jq -r '.result.tabs[] | select(.focused) | .tab_id')
+  current_pane=$("${herdr}" pane list "${tab_args[@]}" \
+    | jq -r --arg tab "${current_tab}" '.result.panes[] | select(.tab_id == $tab) | (.pane_id)' \
+    | head -1)
+fi
+foreground=$("${herdr}" pane process-info --pane "${current_pane}" \
+  | jq -r '.result.process_info.foreground_processes[0].name // empty')
+
+case "${foreground}" in
+  "" | zsh | bash | fish | sh | dash | ksh | tcsh)
+    # Idle shell: the current tab is free to become the first dev tab
+    current_is_idle=1
+    ;;
+  *)
+    current_is_idle=0
+    ;;
+esac
+
+# Labels of existing tabs in this workspace. The herdr-automatic-rename
+# plugin prefixes tab labels with "[N] ", so match on the suffix.
+existing_labels=$("${herdr}" tab list "${tab_args[@]}" | jq -r '.result.tabs[].label')
+
+tab_exists() {
+  local label="$1" line
+  while IFS= read -r line; do
+    [[ "${line}" == *"${label}" ]] && return 0
+  done <<<"${existing_labels}"
+  return 1
+}
+
+# Sets last_tab_id to the tab id backing this app (existing, taken over, or
+# new). Called directly rather than in a command substitution so that the
+# current_is_idle mutation propagates.
+last_tab_id=""
+open_tab() {
+  local label="$1" command="$2" out pane_id
+
+  last_tab_id=""
+  if tab_exists "${label}"; then
+    echo "tab exists: ${label}"
+    last_tab_id=$("${herdr}" tab list "${tab_args[@]}" \
+      | jq -r --arg label "${label}" '.result.tabs[] | select(.label | endswith($label)) | .tab_id' \
+      | head -1)
+    return
+  fi
+
+  if [[ "${current_is_idle}" == 1 ]]; then
+    current_is_idle=0
+    last_tab_id="${current_tab}"
+    pane_id="${current_pane}"
+    echo "took over current tab: ${label}"
+  else
+    out=$("${herdr}" tab create "${tab_args[@]}" --label "${label}")
+    last_tab_id=$(jq -r '.result.tab.tab_id' <<<"${out}")
+    pane_id=$(jq -r '.result.root_pane.pane_id' <<<"${out}")
+    echo "opened tab: ${label}"
+  fi
+
+  "${herdr}" pane run "${pane_id}" "${command}"
+}
+
+open_tab "opencode" "opencode"
+opencode_tab="${last_tab_id}"
+open_tab "lazygit" "lazygit"
+open_tab "nvim" "nvim"
+
+# Close the current tab if it was idle and everything already existed
+if [[ "${current_is_idle}" == 1 ]]; then
+  echo "closed idle current tab"
+  "${herdr}" tab close "${current_tab}" >/dev/null
+fi
+
+# Land on the opencode tab
+[[ -n "${opencode_tab}" ]] && "${herdr}" tab focus "${opencode_tab}" >/dev/null

@@ -106,6 +106,12 @@ command = "$HOME/.local/bin/herdr-focus-or-tab right"
 description = "focus pane or tab right"
 
 [[keys.command]]
+key = "prefix+d"
+type = "shell"
+command = "$HOME/.local/bin/herdr-dev-tabs"
+description = "auto-open agent/git/editor tabs"
+
+[[keys.command]]
 key = "alt+w"
 type = "popup"
 command = "exec \"${SHELL:-sh}\""
