@@ -234,6 +234,10 @@ cask "tailscale-app"
 # Mesh VPN based on WireGuard
 # https://tailscale.com/
 
+cask "terminal-browser"
+# A browser that runs inside your terminal, renders via the kitty graphics protocol
+# https://github.com/zenbu-labs/terminal-browser
+
 cask "raycast"
 # Spotlight replacement productivity tool
 # https://raycast.com/

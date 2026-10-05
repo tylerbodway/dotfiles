@@ -112,3 +112,6 @@ command = "exec \"${SHELL:-sh}\""
 description = "open quick terminal"
 width = "65%"
 height = "65%"
+
+[experimental]
+kitty_graphics = true
