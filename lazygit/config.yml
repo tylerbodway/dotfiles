@@ -19,9 +19,6 @@ gui:
   commandLogSize: 6
   # display the files as a flat list. this can still be toggled with the backtick key.
   showFileTree: false
-  # Theme: vague
-  authorColors:
-    "*": "#f3be7c"
   theme:
     activeBorderColor:
       - "#aeaed1"
@@ -44,6 +41,9 @@ gui:
       - "#d8647e"
     defaultFgColor:
       - "#cdcdcd"
+    # Theme: vague
+    authorColors:
+      "*": "#f3be7c"
 # don't display introductory popups upon opening lazygit.
 disableStartupPopups: true
 # don't display a confirmation when subprocess terminates.
