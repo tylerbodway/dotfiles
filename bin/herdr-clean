@@ -1,0 +1,139 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# herdr-clean — Stop all herdr sessions and remove saved session state so the
+# next launch starts fresh. Keeps config.toml and installed plugins.
+#
+# Usage:
+#   herdr-clean              # show what will be removed, then confirm
+#   herdr-clean --dry-run    # show what would be removed
+#   herdr-clean --force      # skip confirmation
+
+readonly HERDR_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/herdr"
+readonly STATE_FILES=(
+  session.json
+  session-snapshots
+  session-backups
+  session-history.json
+  herdr.log
+  herdr-client.log
+  herdr-server.log
+)
+
+dry_run=false
+force=false
+
+usage() {
+  cat <<EOF
+Usage: herdr-clean [OPTIONS]
+
+Stop all herdr sessions and remove saved session state (layouts, snapshots,
+screen history, logs, and named sessions). Keeps config.toml and plugins.
+
+Options:
+  --dry-run         Show what would be removed without removing anything
+  --force           Skip confirmation prompt
+  -h, --help        Show this help message
+EOF
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --dry-run) dry_run=true; shift ;;
+    --force)   force=true; shift ;;
+    -h|--help) usage; exit 0 ;;
+    *)         echo "Unknown option: $1" >&2; usage; exit 1 ;;
+  esac
+done
+
+# --- preflight --------------------------------------------------------------
+
+if [[ "${HERDR_ENV:-}" == "1" ]]; then
+  echo "Run herdr-clean from outside herdr: stopping the server would kill this shell." >&2
+  exit 1
+fi
+
+if [[ ! -d "${HERDR_DIR}" ]]; then
+  echo "herdr directory not found: ${HERDR_DIR}"
+  exit 0
+fi
+
+sessions_json=$(herdr session list --json)
+running=$(jq -r '.sessions[] | select(.running) | .name' <<< "${sessions_json}")
+named=$(jq -r '.sessions[] | select(.default | not) | .name' <<< "${sessions_json}")
+
+targets=()
+for file in "${STATE_FILES[@]}"; do
+  for path in "${HERDR_DIR}/${file}" "${HERDR_DIR}/${file}".*; do
+    [[ -e "${path}" ]] && targets+=("${path}")
+  done
+done
+
+# --- report -----------------------------------------------------------------
+
+if [[ -z "${running}" && -z "${named}" && ${#targets[@]} -eq 0 ]]; then
+  echo "Nothing to clean."
+  exit 0
+fi
+
+if [[ -n "${running}" ]]; then
+  echo "Sessions to stop (all panes and running processes will exit):"
+  sed 's/^/  /' <<< "${running}"
+  echo
+fi
+
+if [[ -n "${named}" ]]; then
+  echo "Named sessions to delete:"
+  sed 's/^/  /' <<< "${named}"
+  echo
+fi
+
+if [[ ${#targets[@]} -gt 0 ]]; then
+  echo "Files to remove:"
+  printf '  %s\n' "${targets[@]#"${HERDR_DIR}/"}"
+  echo
+fi
+
+if "${dry_run}"; then
+  echo "(dry run — nothing was changed)"
+  exit 0
+fi
+
+# --- confirm ----------------------------------------------------------------
+
+if ! "${force}"; then
+  printf "Proceed with cleanup? [y/N] "
+  read -r answer
+  if [[ "${answer}" != [yY] ]]; then
+    echo "Aborted."
+    exit 0
+  fi
+fi
+
+# --- clean ------------------------------------------------------------------
+
+while IFS= read -r name; do
+  [[ -z "${name}" ]] && continue
+  herdr session stop "${name}" >/dev/null
+  echo "  Stopped session ${name}"
+done <<< "${running}"
+
+# Servers save session.json on shutdown, so wait for them to exit before removing it
+for _ in {1..50}; do
+  herdr session list --json | jq -e '[.sessions[] | select(.running)] | length == 0' >/dev/null && break
+  sleep 0.1
+done
+
+while IFS= read -r name; do
+  [[ -z "${name}" ]] && continue
+  herdr session delete "${name}" >/dev/null
+  echo "  Deleted session ${name}"
+done <<< "${named}"
+
+if [[ ${#targets[@]} -gt 0 ]]; then
+  rm -rf "${targets[@]}"
+  echo "  Removed saved session state"
+fi
+
+echo
+echo "Done. Next herdr launch starts fresh."
