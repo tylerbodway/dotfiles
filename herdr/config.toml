@@ -3,6 +3,30 @@ onboarding = false
 [worktrees]
 directory = "~/.local/share/herdr/worktrees"
 
+# Vague colorscheme
+[theme]
+name = "terminal"
+[theme.custom]
+accent = "#6e94b2"        # blue
+panel_bg = "reset"
+sidebar_bg = "reset"
+active_row_bg = "#252530" # graphite
+selection_bg = "#333738"  # onyx
+surface0 = "#252530"      # graphite
+surface1 = "#333738"      # onyx
+surface_dim = "#252530"   # graphite
+overlay0 = "#606079"      # muted
+overlay1 = "#c3c3d5"      # lilac
+text = "#cdcdcd"          # white
+subtext0 = "#90a0b5"      # lavender
+mauve = "#bb9dbd"         # magenta
+green = "#7fa563"         # green
+yellow = "#f3be7c"        # yellow
+red = "#d8647e"           # red
+blue = "#6e94b2"          # blue
+teal = "#9bb4bc"          # teal
+peach = "#e8b589"         # amber
+
 [ui]
 confirm_close = false
 status_indicators = "symbols"
@@ -11,6 +35,7 @@ sidebar_width = 30
 
 # Tabs are named by the herdr-automatic-rename plugin
 prompt_new_tab_name = false
+
 
 # Alt-based keybinds for window/tab/pane management,
 # avoids Ctrl+based keybinds for individual processes
