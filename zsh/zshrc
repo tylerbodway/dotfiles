@@ -33,6 +33,7 @@ alias llr="ll --git-repos"
 alias grep="rg"
 alias find="fd"
 
+alias hd="herdr"
 alias r="bin/rails"
 alias oc="opencode"
 alias gg="lazygit"
