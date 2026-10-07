@@ -32,6 +32,7 @@ confirm_close = false
 status_indicators = "symbols"
 agent_panel_sort = "priority"
 sidebar_width = 30
+pane_borders = "always"
 
 # Tabs are named by the herdr-automatic-rename plugin
 prompt_new_tab_name = false
@@ -90,7 +91,7 @@ rows = [
 rows = [
   [{ token = "tab", fg = "#cdcdcd", bold = true, dim = false }],
   ["state_icon", "state_text", "agent"],
-  ["machine", "workspace"]
+  ["machine", "workspace"],
 ]
 
 [[keys.command]]
