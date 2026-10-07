@@ -13,7 +13,7 @@
     { "action": "shell", "resource": "brew *", "effect": "ask" },
     { "action": "shell", "resource": "bunx *", "effect": "deny" },
     { "action": "shell", "resource": "chmod *", "effect": "ask" },
-    { "action": "shell", "resource": "curl *", "effect": "deny" },
+    { "action": "shell", "resource": "curl *", "effect": "ask" },
     { "action": "shell", "resource": "git clean *", "effect": "ask" },
     { "action": "shell", "resource": "git push *", "effect": "deny" },
     { "action": "shell", "resource": "git reset *", "effect": "ask" },
