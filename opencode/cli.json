@@ -4,13 +4,17 @@
     "agent.cycle": "tab",
     "session.tab.next": "ctrl+l",
     "session.tab.previous": "ctrl+h",
-    "session.tab.close": ["ctrl+w", "<leader>w"]
+    "session.tab.close": ["ctrl+w", "<leader>w"],
+    "session.sidebar.toggle": "ctrl+\\"
   },
   "theme": {
     "name": "vague",
     "mode": "dark"
   },
   "animations": true,
+  "session": {
+    "sidebar": "hide"
+  },
   "attention": {
     "notifications": true,
     "sound": true
