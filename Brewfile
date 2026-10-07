@@ -214,13 +214,13 @@ cask "notion"
 # App to write, plan, collaborate, and get organised
 # https://www.notion.so/
 
+cask "nordvpn"
+# VPN client for secure internet access and private browsing
+# https://nordvpn.com/
+
 cask "proton-mail"
 # Client for Proton Mail and Proton Calendar
 # https://proton.me/mail
-
-cask "protonvpn"
-# VPN client focusing on security
-# https://protonvpn.com/
 
 cask "rapidapi"
 # HTTP client that helps testing and describing APIs
