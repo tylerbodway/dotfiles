@@ -72,6 +72,10 @@
       description: Installing herdr plugins
       quiet: true
     - command: >-
+        curl -fsSL https://plannotator.ai/install.sh | bash
+      description: Installing plannotator for AI review/feedback
+      quiet: true
+    - command: >-
         source="$DOT/opencode/opencode.company.jsonc";
         for dir in ~/Code/ ~/Code/*/; do
           mkdir -p "$dir.opencode" && ln -sf "$source" "$dir.opencode/opencode.jsonc";
