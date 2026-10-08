@@ -82,7 +82,8 @@
       quiet: true
     - command: >-
         source="$DOT/opencode/opencode.company.jsonc";
-        for dir in ~/Code/ ~/Code/*/; do
+        company_repos=(~/Code ~/Code/* ~/pco-box);
+        for dir in "${company_repos[@]}/"; do
           mkdir -p "$dir.opencode" && ln -sf "$source" "$dir.opencode/opencode.jsonc";
         done
       description: Symlinking company opencode config into projects
