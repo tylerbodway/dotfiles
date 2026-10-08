@@ -1,0 +1,15 @@
+# Third-party agent skills, installed by ./install via the skills CLI
+# (see dotbot-plugins/skills.py). The CLI picks the correct per-agent
+# install location; `npx skills update -g -y` upgrades everything.
+#
+# - `repo` accepts owner/repo shorthand or any git URL (private repos use
+#   your normal git credentials).
+# - `skills` names specific skills to enable; omit to install every skill
+#   in the repo.
+# - `agents` defaults to [opencode]; add e.g. `claude-code`, `codex`.
+#
+# Discover more at https://skills.sh or with `npx skills find <query>`.
+
+- repo: vercel-labs/skills
+  skills:
+    - find-skills

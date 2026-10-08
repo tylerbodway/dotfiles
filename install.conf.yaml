@@ -30,6 +30,10 @@
       path: opencode/**
       glob: true
       exclude: [opencode/opencode.company.jsonc]
+    ~/.agents/skills/:
+      path: agents/skills/**
+      glob: true
+      exclude: [agents/skills/company, agents/skills/external.yml]
     ~/.config/posting/config.yaml: posting/config.yaml
     ~/.local/share/posting/themes/vague.yaml: posting/themes/vague.yaml
     ~/.config/process-compose/:
@@ -58,6 +62,9 @@
 
 - gem:
     - Gemfile
+
+- skills:
+    - agents/skills/external.yml
 
 - shell:
     - command: chmod +x bin/*

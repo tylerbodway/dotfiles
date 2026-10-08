@@ -9,6 +9,7 @@
     "vscode-langservers-extracted": "latest",
     "chrome-devtools-mcp": "latest",
     "opkg": "latest",
+    "skills": "latest",
     "yaml-language-server": "latest"
   }
 }

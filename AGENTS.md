@@ -35,12 +35,25 @@ It configures applications, command-line tools, and development environment sett
 ├── dotbot-plugins/      # Custom dotbot plugins (Python)
 ├── nvim/                # Neovim configuration (Lua)
 ├── zsh/                 # Zsh shell configuration
+├── agents/              # Cross-agent skills
+│   └── skills/          # Personal skills + external.yml manifest
 ├── git/                 # Git configuration
 ├── ghostty/             # Ghostty terminal config
 ├── opencode/            # OpenCode AI agent config
 ├── zellij/              # Zellij terminal multiplexer
 └── [other app configs]
 ```
+
+### Agent skills
+
+- **Personal skills** live in `agents/skills/<skill>/` and are glob-linked into
+  `~/.agents/skills/` (excluding `company/` and `external.yml`), which OpenCode
+  and other agents search by default.
+- **Third-party skills** are declared in `agents/skills/external.yml` (repo,
+  optional skill list, optional agents). The `skills` dotbot plugin
+  (`dotbot-plugins/skills.py`) shells out to the globally installed skills CLI
+  (`skills add`), which installs to the right per-agent location. Upgrade with
+  `skills update -g -y`. Nothing is vendored into this repo.
 
 ## File Organization Patterns
 
