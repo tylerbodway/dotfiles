@@ -13,3 +13,5 @@
 - repo: vercel-labs/skills
   skills:
     - find-skills
+
+- repo: github/gh-stack
