@@ -1,0 +1,3 @@
+# Herdr plugins installed by the `herdr` dotbot plugin via `herdr plugin install`.
+# Each entry: repo (owner/repo[/subdir]), with an optional ref to pin a revision.
+- repo: qu8n/herdr-automatic-rename
