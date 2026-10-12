@@ -3,7 +3,7 @@ background-opacity = 0.90
 background-blur = true
 
 font-family = GeistMono Nerd Font
-font-size = 13
+font-size = 14
 font-thicken = true
 adjust-cell-height = 10%
 
