@@ -218,10 +218,6 @@ cask "nordvpn"
 # VPN client for secure internet access and private browsing
 # https://nordvpn.com/
 
-cask "proton-mail"
-# Client for Proton Mail and Proton Calendar
-# https://proton.me/mail
-
 cask "rapidapi"
 # HTTP client that helps testing and describing APIs
 # https://paw.cloud/
