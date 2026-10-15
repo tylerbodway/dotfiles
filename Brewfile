@@ -265,4 +265,6 @@ cask "zoom"
 
 # === Fonts ===
 
+cask "font-sf-pro"
+cask "font-sf-mono"
 cask "font-geist-mono-nerd-font"
