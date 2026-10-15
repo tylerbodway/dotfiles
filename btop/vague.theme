@@ -1,0 +1,86 @@
+# Theme: vague
+# Based on the vague palette (https://github.com/vague-theme)
+
+# Main bg
+theme[main_bg]="#141415"
+
+# Main text color
+theme[main_fg]="#cdcdcd"
+
+# Title color for boxes
+theme[title]="#cdcdcd"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#f3be7c"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#333738"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#f3be7c"
+
+# Color of inactive/disabled text
+theme[inactive_fg]="#606079"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#aeaed1"
+
+# Cpu box outline color
+theme[cpu_box]="#405065"
+
+# Memory/disks box outline color
+theme[mem_box]="#405065"
+
+# Net up/down box outline color
+theme[net_box]="#405065"
+
+# Processes box outline color
+theme[proc_box]="#405065"
+
+# Box divider line and small boxes line color
+theme[div_line]="#252530"
+
+# Temperature graph colors
+theme[temp_start]="#7fa563"
+theme[temp_mid]="#f3be7c"
+theme[temp_end]="#d8647e"
+
+# CPU graph colors
+theme[cpu_start]="#7fa563"
+theme[cpu_mid]="#f3be7c"
+theme[cpu_end]="#d8647e"
+
+# Mem/Disk free meter
+theme[free_start]="#7fa563"
+theme[free_mid]="#f3be7c"
+theme[free_end]="#d8647e"
+
+# Mem/Disk cached meter
+theme[cached_start]="#9bb4bc"
+theme[cached_mid]="#b4d4cf"
+theme[cached_end]="#aeaed1"
+
+# Mem/Disk available meter
+theme[available_start]="#6e94b2"
+theme[available_mid]="#90a0b5"
+theme[available_end]="#aeaed1"
+
+# Mem/Disk used meter
+theme[used_start]="#9bb4bc"
+theme[used_mid]="#aeaed1"
+theme[used_end]="#b4d4cf"
+
+# Download graph colors
+theme[download_start]="#6e94b2"
+theme[download_mid]="#90a0b5"
+theme[download_end]="#c3c3d5"
+
+# Upload graph colors
+theme[upload_start]="#e0a363"
+theme[upload_mid]="#e8b589"
+theme[upload_end]="#f3be7c"
+
+# Process box color gradient for threads, mem and cpu usage
+theme[process_start]="#7fa563"
+theme[process_mid]="#f3be7c"
+theme[process_end]="#d8647e"

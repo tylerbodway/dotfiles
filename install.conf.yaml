@@ -12,6 +12,7 @@
 
 - link:
     ~/.config/bat/themes/vague.tmTheme: bat/vague.tmTheme
+    ~/.config/btop/themes/vague.theme: btop/vague.theme
     ~/.config/bat/config: bat/config
     ~/.config/direnv/direnv.toml: direnv/direnv.toml
     ~/.config/ghostty:
