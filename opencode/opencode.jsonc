@@ -96,9 +96,7 @@
       "devtools": {
         "type": "local",
         "command": [
-          "npx",
-          "-y",
-          "chrome-devtools-mcp@latest",
+          "chrome-devtools-mcp",
           "--executable-path=/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
           "--headless",
           "--no-usage-statistics",
