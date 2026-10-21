@@ -87,6 +87,7 @@
     { "action": "shell", "resource": "pco console *", "effect": "deny" },
     { "action": "shell", "resource": "pco dbconnect *", "effect": "deny" },
     { "action": "shell", "resource": "pco ssm *", "effect": "deny" },
+    { "action": "skill", "resource": "ruthless-pr-edit", "effect": "deny" },
   ],
   "mcp": {
     "servers": {
