@@ -8,6 +8,7 @@
     "prettier": "latest",
     "vscode-langservers-extracted": "latest",
     "chrome-devtools-mcp": "latest",
+    "xcodebuildmcp": "latest",
     "opkg": "latest",
     "skills": "latest",
     "yaml-language-server": "latest"

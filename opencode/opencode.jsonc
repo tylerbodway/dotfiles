@@ -104,6 +104,11 @@
         ],
         "disabled": true,
       },
+      "xcode": {
+        "type": "local",
+        "command": ["xcodebuildmcp"],
+        "disabled": true,
+      },
     },
   },
 }
