@@ -64,8 +64,13 @@
       "effect": "allow",
     },
     { "action": "edit", "resource": "*/var/folders/*/T/**", "effect": "allow" },
+    { "action": "read", "resource": ".agents/**", "effect": "allow" },
+    { "action": "edit", "resource": ".agents/**", "effect": "allow" },
+    { "action": "read", "resource": "opencode/*", "effect": "allow" },
     { "action": "edit", "resource": "opencode/*", "effect": "allow" },
+    { "action": "read", "resource": ".opencode/**", "effect": "allow" },
     { "action": "edit", "resource": ".opencode/**", "effect": "allow" },
+    { "action": "read", "resource": ".docs/**", "effect": "allow" },
     { "action": "edit", "resource": ".docs/**", "effect": "allow" },
   ],
   "agents": {
