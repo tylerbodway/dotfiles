@@ -81,6 +81,7 @@
       "effect": "allow",
     },
     { "action": "shell", "resource": "box *", "effect": "ask" },
+    { "action": "shell", "resource": "box logs *", "effect": "allow" },
     { "action": "shell", "resource": "box uninstall *", "effect": "deny" },
     { "action": "shell", "resource": "pco *", "effect": "ask" },
     { "action": "shell", "resource": "pco connect *", "effect": "deny" },
