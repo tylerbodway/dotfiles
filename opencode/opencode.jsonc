@@ -64,6 +64,7 @@
       "effect": "allow",
     },
     { "action": "edit", "resource": "*/var/folders/*/T/**", "effect": "allow" },
+    { "action": "edit", "resource": "~/Downloads", "effect": "allow" },
     { "action": "read", "resource": ".agents/**", "effect": "allow" },
     { "action": "edit", "resource": ".agents/**", "effect": "allow" },
     { "action": "read", "resource": "opencode/*", "effect": "allow" },
