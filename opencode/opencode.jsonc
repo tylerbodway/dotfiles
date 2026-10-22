@@ -112,7 +112,7 @@
       },
       "xcode": {
         "type": "local",
-        "command": ["xcodebuildmcp"],
+        "command": ["xcodebuildmcp", "mcp"],
         "disabled": true,
       },
     },
