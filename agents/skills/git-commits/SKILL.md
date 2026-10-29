@@ -25,7 +25,7 @@ Commits are how reviewers read a branch and how future maintainers learn why cha
 ## Branch name
 
 When creating a new branch, always use the format: `tb/<slug>[/issue-ID]`
-Examples: `tb/add-feature` or `tb/fix-bug/eng-123`
+Examples: `tb/add-feature` or `tb/fix-bug/eng-123`. Always lowercase.
 
 The issue ID in the branch name is what links the work to the tracker, so
 there's no need to repeat it in commit messages.

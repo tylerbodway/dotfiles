@@ -13,7 +13,6 @@
 
 ## Git
 
-- Branches: `tb/<slug>/<issue-ID>` when an issue applies.
 - Use the `git-commits` skill when committing. One commit per change;
   refactor/format/cleanup commits never mix with behavior changes.
 - When direction changes mid-session: on un-pushed branches, fold
