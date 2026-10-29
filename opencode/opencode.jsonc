@@ -85,6 +85,9 @@
       "command": ["herb-format", "$FILE"],
       "extensions": [".erb"],
     },
+    "prettier": {
+      "command": ["npx", "--no", "prettier", "--write", "$FILE"],
+    },
     "rubocop": {
       "disabled": true, // avoids conflict with rubotree
     },
