@@ -112,7 +112,7 @@
           "--no-usage-statistics",
           "--user-data-dir={env:XDG_STATE_HOME}/opencode/brave-profile",
         ],
-        "disabled": true,
+        "disabled": false,
       },
       "xcode": {
         "type": "local",

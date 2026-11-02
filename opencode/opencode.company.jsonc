@@ -100,7 +100,7 @@
       "linear": {
         "type": "remote",
         "url": "https://mcp.linear.app/mcp",
-        "disabled": true,
+        "disabled": false,
       },
       "notion": {
         "type": "remote",
