@@ -218,10 +218,6 @@ cask "nordvpn"
 # VPN client for secure internet access and private browsing
 # https://nordvpn.com/
 
-cask "rapidapi"
-# HTTP client that helps testing and describing APIs
-# https://paw.cloud/
-
 cask "synology-drive"
 # Sync and backup service to Synology NAS drives
 # https://www.synology.com/
