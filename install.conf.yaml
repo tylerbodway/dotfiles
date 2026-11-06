@@ -23,6 +23,7 @@
       glob: true
     ~/.config/herdr/config.toml: herdr/config.toml
     ~/.config/herdr-automatic-rename/config.sh: herdr/plugins/automatic-rename/config.sh
+    ~/.config/herdr-app/settings.json: herdr-app/settings.json
     ~/.config/lazygit/config.yml: lazygit/config.yml
     ~/.config/nvim/:
       path: nvim/**

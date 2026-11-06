@@ -194,6 +194,10 @@ cask "ghostty"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 # https://ghostty.org
 
+cask "herdr-app"
+# Desktop app for terminals and coding agents
+# https://herdr.dev/
+
 cask "hiddenbar"
 # Utility to hide menu bar items
 # https://github.com/dwarvesf/hidden/
