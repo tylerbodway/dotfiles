@@ -22,7 +22,7 @@ git rev-parse --verify --quiet origin/<branch>
 ```
 
 - **Base branch:** use the repo default unless the branch was clearly cut from another feature branch (stacked PR). If `git log <default>..HEAD` includes commits that belong to a different branch, ask which base to use.
-- **Pushed?** The compare page only works once the branch exists on the remote. If `origin/<branch>` is missing, or local is ahead of it (`git status -sb`), tell the user and ask them to push (or push for them if they approve). Wait until it's pushed before opening the URL, or the form will show the wrong diff.
+- **Pushed?** The compare page only works once the branch exists on the remote, so push if necessary, and wait until it's pushed before opening the URL, or the form will show the wrong diff.
 - **Nothing to propose?** If there are no commits between base and HEAD, say so and stop.
 
 ### 2. Write the title and description
