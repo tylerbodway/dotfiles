@@ -63,8 +63,14 @@ new default shortcuts into an untouched keys file on every app upgrade,
 and a first edit freezes that behavior for good. Until there's a
 customization you care about, leave it out.
 
-## 4. Commit
+## 4. Verify with the user, then commit
 
-Commit the dotfiles change with the git-commits skill. Done when `git
-status` is clean (or shows only pending user work), the new symlink is in
-place, and re-running `./install --only=link` is idempotent.
+Present the finished customization to the user — what changed, where the
+files live in the repo, and how it looks/behaves in the app — and wait for
+them to confirm it is complete and working as they want. Do not commit
+before that confirmation.
+
+Once the user has verified, commit the dotfiles change with the
+git-commits skill. Done when `git status` is clean (or shows only pending
+user work), the new symlink is in place, and re-running
+`./install --only=link` is idempotent.
