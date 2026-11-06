@@ -12,6 +12,9 @@
     "mode": "dark"
   },
   "animations": true,
+  "tabs": {
+    "mode": "off"
+  },
   "session": {
     "sidebar": "hide"
   },
