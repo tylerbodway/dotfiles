@@ -30,6 +30,8 @@
     ~/.config/herdr-app/mods/tabs-plus/mod.json: herdr-app/mods/tabs-plus/mod.json
     ~/.config/herdr-app/mods/tabs-plus/gpui-kit.d.ts: herdr-app/mods/tabs-plus/gpui-kit.d.ts
     ~/.config/herdr-app/mods/tabs-plus/jsconfig.json: herdr-app/mods/tabs-plus/jsconfig.json
+    ~/.config/herdr-app/mods/agents-plus/main.js: herdr-app/mods/agents-plus/main.js
+    ~/.config/herdr-app/mods/agents-plus/mod.json: herdr-app/mods/agents-plus/mod.json
     ~/.config/lazygit/config.yml: lazygit/config.yml
     ~/.config/nvim/:
       path: nvim/**
