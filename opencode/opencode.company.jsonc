@@ -74,6 +74,9 @@
       "model": "planning-center/claude-sonnet#low",
     },
   },
+  "worktree": {
+    "directory": "../worktrees",
+  },
   "permissions": [
     {
       "action": "external_directory",

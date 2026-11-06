@@ -9,6 +9,8 @@ description: Implement a piece of work based on a plan, spec, or issue.
 
 3. Break the work into commit-sized tasks, use the `git-commits` skill.
 
-4. Implement each task, use the `tdd` skill where possible, committing to a dedicated work branch.
+4. Use a dedicated worktree and branch for the changes.
 
-5. Repeat until the requirements are satisfied.
+5. Implement each task, use the `tdd` skill where possible.
+
+6. Repeat until the requirements are satisfied.
