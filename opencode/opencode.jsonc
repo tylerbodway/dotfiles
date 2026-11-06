@@ -64,6 +64,8 @@
       "resource": "*/var/folders/*/T/**",
       "effect": "allow",
     },
+    { "action": "external_directory", "resource": "~/.config/*", "effect": "allow" },
+    { "action": "external_directory", "resource": "~/.config", "effect": "allow" },
     { "action": "edit", "resource": "*/var/folders/*/T/**", "effect": "allow" },
     { "action": "edit", "resource": "~/Downloads", "effect": "allow" },
     { "action": "read", "resource": ".agents/**", "effect": "allow" },
