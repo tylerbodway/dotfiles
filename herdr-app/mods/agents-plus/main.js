@@ -440,7 +440,14 @@ export default class Agents extends View {
     // Read the pane snapshot once: every host read copies the whole list into JS.
     const leads = leadPanes(panes());
     const tabLabels = new Map(spaces().flatMap(s => s.tabs).map(tab => [tab.id, title(tab, leads.get(tab.id))]));
-    const labels = new Map(list.map(a => [a.address, tabLabels.get(a.tab) ?? (a.title || a.program?.name || "")]));
+    // A tab holding more than one agent can't name them all after its lead pane:
+    // both cards came out as the first agent's session. Those fall to their own title.
+    const perTab = new Map();
+    for (const a of list) perTab.set(a.tab, (perTab.get(a.tab) ?? 0) + 1);
+    const labels = new Map(list.map((a) => [a.address,
+      perTab.get(a.tab) > 1
+        ? clean(a.title) || a.program?.name || tabLabels.get(a.tab) || ""
+        : tabLabels.get(a.tab) ?? (a.title || a.program?.name || "")]));
     const label = (a) => labels.get(a.address);
 
     const row = (a, i, subs = []) => {
