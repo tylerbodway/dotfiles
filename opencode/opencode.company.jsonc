@@ -99,16 +99,19 @@
         "type": "remote",
         "url": "https://mcp.datadoghq.com/v1/mcp",
         "disabled": true,
+        "pool": true,
       },
       "linear": {
         "type": "remote",
         "url": "https://mcp.linear.app/mcp",
         "disabled": false,
+        "pool": true,
       },
       "notion": {
         "type": "remote",
         "url": "https://mcp.notion.com/mcp",
         "disabled": true,
+        "pool": true,
       },
       "redshift": {
         "type": "local",
@@ -125,11 +128,13 @@
           "FASTMCP_LOG_LEVEL": "WARNING",
         },
         "disabled": true,
+        "pool": true,
       },
       "sentry": {
         "type": "remote",
         "url": "https://mcp.sentry.dev/mcp",
         "disabled": true,
+        "pool": true,
       },
     },
   },
