@@ -123,13 +123,11 @@
           "--user-data-dir={env:XDG_STATE_HOME}/opencode/brave-profile",
         ],
         "disabled": false,
-        "pool": true,
       },
       "xcode": {
         "type": "local",
         "command": ["xcodebuildmcp", "mcp"],
         "disabled": true,
-        "pool": true,
       },
     },
   },
