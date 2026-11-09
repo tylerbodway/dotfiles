@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "opencode/glm-5.3-flash",
+  "model": "openrouter/glm-5.3-flash",
   "permissions": [
     // global rules
     { "action": "question", "resource": "*", "effect": "deny" },
