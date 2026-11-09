@@ -3,7 +3,7 @@
 
 import { View, div, image, svg } from "gpui-kit";
 import { v_flex, h_flex } from "gpui-base";
-import { agents, terminals, panes, focused, spaces, run, theme, shared, setShared, setAgentOrder, openOverlay, closeOverlay, props, window, layout } from "herdr";
+import { agents, terminals, panes, focused, spaces, run, theme, shared, setShared, setAgentOrder, openOverlay, closeOverlay, props, window, layout, nextCommand } from "herdr";
 
 function find(node, id) {
   if (node?.id === id) return node;
@@ -223,6 +223,17 @@ export default class Agents extends View {
     this.migratingPins = new Set();
     this.looks = JSON.parse(localStorage.getItem("looks") ?? '{"next":0,"of":{}}');
     cx.timer.every(30000, (cx) => cx.notify());
+    // Numbered keys (agents-plus.focus:N) focus the Nth row: same order as the list.
+    cx.spawn(async (cx) => {
+      for (;;) {
+        const c = await nextCommand();
+        const m = /^focus\b[:\s]*(\d*)$/.exec(c);
+        if (!m) continue;
+        const addr = this.ordered?.[Number(m[1]) - 1];
+        if (addr) run("agent.focus", { terminal: addr });
+        cx.notify();
+      }
+    });
   }
 
   // Stamps agents whose state changed. Done and idle count as one: looking at a
@@ -389,7 +400,9 @@ export default class Agents extends View {
     const pinned = list.filter((a) => a.pinned);
     const rest = list.filter((a) => !a.pinned);
     list = [...pinned, ...rest];
-    setAgentOrder(list.map((a) => a.address));
+    const order = list.map((a) => a.address);
+    setAgentOrder(order);
+    this.ordered = order;
 
     const withKids = (a, i) => {
       const subs = collapsed ? [] : this.tree(all, a.address);
