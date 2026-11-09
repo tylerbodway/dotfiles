@@ -117,10 +117,11 @@
         "type": "local",
         "command": [
           "chrome-devtools-mcp",
-          "--executable-path=/Applications/Brave Browser.app/Contents/MacOS/Brave Browser",
+          "--executable-path=/Applications/Chromium.app/Contents/MacOS/Chromium",
           "--headless",
           "--no-usage-statistics",
-          "--user-data-dir={env:XDG_STATE_HOME}/opencode/brave-profile",
+          "--no-performance-crux",
+          "--user-data-dir={env:XDG_STATE_HOME}/opencode/chromium-profile",
         ],
         "disabled": false,
       },
