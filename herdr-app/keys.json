@@ -5,6 +5,7 @@
     "cmd-alt-h": "app.hide_others",
     "cmd-t": "tab.new",
     "cmd-e": { "command": "tab.new", "args": { "argv": ["nvim"] } },
+    "cmd-a": { "command": "tab.new", "args": { "argv": ["opencode"] } },
     "cmd-g": { "command": "tab.new", "args": { "argv": ["lazygit"] } },
     "cmd-w": "tab.close",
     "ctrl-tab": "tab.next",

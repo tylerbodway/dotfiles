@@ -99,6 +99,7 @@ export default class Tabs extends View {
       .on_scroll_wheel(e => { if (Math.abs(e.delta.y) >= 1) run(e.delta.y > 0 ? "tab.prev" : "tab.next"); })
       .child(h_flex().id("tab-scroll").flex_1().min_w(0).h_full().items_center().gap(3).overflow_x_scrollbar().children(shown.map(item)))
       .child(button("tab-new", "+", () => openOverlay({ mod: "new-menu", kind: "popup", width: 250, height: 512 })))
+      .child(toolButton("tool-agent", "Agent", "icons/opencode.svg", ["opencode"]))
       .child(toolButton("tool-editor", "Editor", "mods/tabs-plus/editor-icon.svg", ["nvim"]))
       .child(toolButton("tool-git", "Git", "mods/tabs-plus/git-icon.svg", ["lazygit"]))
       .when(enabled.includes("files"), el => el.child(panelButton("files", "Files", "mods/files/file.svg")))
