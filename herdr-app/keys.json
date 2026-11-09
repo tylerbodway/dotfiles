@@ -27,7 +27,7 @@
     "cmd-,": "app.settings",
     "cmd-d": "pane.split:right",
     "cmd-shift-d": "pane.split:down",
-    "cmd-shift-w": "pane.close",
+    "cmd-x": "pane.close",
     "cmd-shift-enter": "pane.zoom",
     "cmd-left": "pane.go:left",
     "cmd-right": "pane.go:right",
