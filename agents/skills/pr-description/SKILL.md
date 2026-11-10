@@ -33,9 +33,9 @@ The title is the short summary of the change. It stands alone in a merge log a y
 git ls-files | grep -i 'pull_request_template'
 ```
 
-When one exists, fill in its sections in its order. Treat HTML comments as instructions: follow them, then remove them. Keep the template's markup as written, and leave checklists as checklists, only checking what is actually true. Then starve it: one sentence per heading, never invent content to fill one. "None." when a section genuinely has nothing to say.
+When one exists, fill in its sections in its order. Treat HTML comments as instructions: follow them, then remove them. Keep the surviving markup as written, and leave checklists as checklists, only checking what is actually true. Then starve it: one sentence per heading, never invent content to fill one — and a heading with nothing to say is cut outright, never left holding a bare "None.".
 
-**Default shape: Why / How / Notes / Preview.** With no repo template, assemble the body from these sections — and every section is omitted unless it earns its place. There is no Summary section: the title did that job.
+**Default shape: Why / How / Notes / Preview.** With no repo template, assemble the body from these sections — and every section is omitted unless it earns its place, heading and all; no "None." placeholders. There is no Summary section: the title did that job.
 
 - **Why** — why the change is necessary and what problem it solves: the intent that rarely lives in the diff. This is the section reviewers turn to when the diff doesn't speak for itself, and it earns its place more often than any other.
 - **How** — verification steps a reviewer can follow, only when verification isn't obvious from the diff: an obscure flow, an edge case, a migration step.
