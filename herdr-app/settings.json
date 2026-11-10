@@ -3,8 +3,8 @@
   "sounds": {
     "enabled": true
   },
-  "font": "Paper Mono",
+  "font": "SF Mono",
   "font_size": 13,
-  "ui_font": "Paper Mono",
+  "ui_font": "SF Mono",
   "telemetry": false
 }
