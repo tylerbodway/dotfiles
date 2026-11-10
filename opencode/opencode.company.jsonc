@@ -5,6 +5,25 @@
       "name": "Planning Center / Anthropic",
       "package": "@opencode/ai/providers/anthropic",
       "models": {
+        "claude-fable": {
+          "modelID": "claude-fable-5-2",
+          "name": "Claude Fable 5.2",
+          "capabilities": {
+            "tools": true,
+            "input": ["text", "image", "pdf"],
+            "output": ["text"],
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 128000,
+          },
+          "cost": {
+            "input": 8,
+            "output": 40,
+            "cache_read": 0.2,
+            "cache_write": 10,
+          },
+        },
         "claude-opus": {
           "modelID": "claude-opus-5-5",
           "name": "Claude Opus 5.5",
