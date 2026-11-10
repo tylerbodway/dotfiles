@@ -9,7 +9,9 @@ Commits are how reviewers read a branch and how future maintainers learn why cha
 
 ## Principles
 
-- **One commit, one change.** If the subject needs "and," split it.
+- **One commit, one change.** If the subject needs "and," split it. API
+  changes travel with the callers that adapt to them, so no commit leaves
+  things broken.
 - **Tests ship with the change.** Behavior and its test coverage belong in
   the same commit. Backfilled or characterization tests are the exception
   and go in their own commit.
@@ -17,10 +19,42 @@ Commits are how reviewers read a branch and how future maintainers learn why cha
   behavior changes. Land prep work first, behavior on top. A reviewer can
   skim a pure refactor, but a refactor hiding a behavior change forces them
   to scrutinize every line.
-- **The branch tells a story.** Commits progress in review order: backfill,
-  refactors, behavior change, cleanup.
 - **Every commit should pass.** Each one should build and pass tests on its
   own, so the history stays bisectable and revertable.
+
+### Ordering
+
+The branch tells a story. Commits progress in review order: prep, behavior
+change, polish. These rules decide the sequence.
+
+- **Make the change easy, then make the easy change.** Refactors land
+  before the commits that use them, so feature diffs stay small. An
+  extracted utility (code that already existed inline, now moved) gets a
+  prep commit before its consumers — the move is verifiable on its own. A
+  brand-new utility ships in the same commit as its first consumer; a
+  standalone commit of unused code makes a reviewer ask "why?" Component
+  extractions follow the new-utility rule: pull the code out and wire in
+  its first usage in one diff.
+- **Add, add, delete.** Introduce new code before removing what it
+  replaces, so every intermediate commit still works. When replacing A
+  with B: add B first, delete A last.
+- **Polish comes last.** Accessibility, style tweaks, token swaps, and
+  minor fixes follow the core work, so reviewers evaluate the architecture
+  before the fine-tuning.
+- **Opportunistic improvements go near the end.** A nearby typo or lint
+  fix, or a test for shared code you only happened to touch, gets its own
+  commit alongside polish. The dividing line from the tests rule: does the
+  test cover the thing you're building (ships with it), or something you
+  passed through (opportunistic)?
+
+### Convergence
+
+- **No line added just to be rewritten.** Trace each line a commit
+  introduces forward: if a later commit modifies or deletes it, put the
+  final version in the earlier commit instead. Add-then-delete and
+  intentional extract-then-polish rewrites are the exceptions.
+- When a commit needs a file's intermediate state, re-run the formatter on
+  it before staging, so formatter drift doesn't read as a later change.
 
 ## Branch name
 
@@ -37,13 +71,21 @@ there's no need to repeat it in commit messages.
    changed, not just the file names.
 2. **Plan the commits.** Group hunks by the principles above and order them
    in review order. Unrelated changes (a stray fix, a formatting pass) get
-   their own commit or get left out.
+   their own commit or get left out. Default to more granular splits:
+   merging commits later is easy, splitting them isn't.
 3. **Check in when it matters.** If the plan is a single obvious commit,
    just commit. If it spans multiple commits and the user is in the loop,
    show the plan (subjects plus which changes go where) and wait for a go
    ahead. If the user isn't available, such as in an unattended or
-   background run, commit following the plan.
-4. **Verify, then commit each slice.** Stage one slice, run the relevant
+   background run, commit following the plan. When ordering principles
+   conflict — extract-then-polish and add-add-delete can suggest different
+   sequences for the same work — show the options instead of picking one.
+4. **Establish a green baseline.** Before committing anything, run the
+   project's formatter, linter, and test suite on the working tree. Fix
+   failures now, so they don't get misattributed to whichever commit
+   happens to touch that line. If something was already failing before
+   these changes, say so and ask rather than folding in a fix.
+5. **Verify, then commit each slice.** Stage one slice, run the relevant
    tests and linters, then commit. Repeat.
 
 ## Pre-commit
