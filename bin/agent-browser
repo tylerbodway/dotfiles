@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# agent-browser — Open and drive a browser from agent sessions, splitting the
+# right way for the current environment.
+#
+# Opening (`agent-browser <target>` or `agent-browser open <target>`):
+# Herdr GUI panes (HC_TERMINAL_ID set) must be split by herdr-core via
+# `herdr-app do terminal.open` — the underlying CLI's own --split requires
+# HERDR_PANE_ID, which herdr-core terminals don't carry, so it always fails
+# there. Everywhere else --split is used directly, falling back to a plain
+# open when pane detection fails. The herdr-app result
+# ({"pane":...,"terminal":...}) prints in the Herdr GUI path — keep the
+# terminal address for cleanup.
+# Every other subcommand passes through to terminal-browser unchanged.
+#
+# Usage:
+#   agent-browser <url|port|html-file> [--place right|left|up|down] [--no-merge]
+#   agent-browser open <target> [--split DIR | --place DIR] [--no-merge]
+#   agent-browser <terminal-browser subcommand> [...]   (ls, action, config, ...)
+
+usage() {
+  echo "usage: agent-browser <url|port|html-file> [--place right|left|up|down] [--no-merge]"
+  echo "       agent-browser <terminal-browser subcommand> [...]   e.g. ls --all, action ..."
+}
+
+open_browser() {
+  local url="" place="right"
+  local argv=(terminal-browser open)
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --place|--split) place="${2:?--place needs a direction}"; shift 2 ;;
+      --no-merge) argv+=(--no-merge); shift ;;
+      -h|--help) usage; exit 0 ;;
+      *) if [[ -z "$url" ]]; then url="$1"; else argv+=("$1"); fi; shift ;;
+    esac
+  done
+  [[ -n "$url" ]] || { usage >&2; exit 2; }
+
+  if [[ -n "${HC_TERMINAL_ID:-}" ]]; then
+    case "$place" in
+      right|down) ;;
+      *) echo "agent-browser: herdr GUI place must be right or down (got $place)" >&2; exit 2 ;;
+    esac
+    local payload
+    payload=$(printf '%s\n' "${argv[@]}" "$url" |
+      jq -R . | jq -sc --arg place "$place" --arg name browser '{argv: ., place: $place, name: $name}')
+    herdr-app do terminal.open "$payload"
+  else
+    if ! "${argv[@]}" "$url" --split "$place"; then
+      echo "agent-browser: --split $place failed; opening without a split" >&2
+      exec "${argv[@]}" "$url"
+    fi
+  fi
+}
+
+case "${1:-}" in
+  "") usage >&2; exit 2 ;;
+  -h|--help) usage; exit 0 ;;
+  open) shift; open_browser "$@" ;;
+  ls|new-tab|setup|upgrade|clear-browsing-data|apps|register-app|unregister-app|shutdown|config|action)
+    exec terminal-browser "$@" ;;
+  *) open_browser "$@" ;;
+esac
