@@ -206,10 +206,6 @@ cask "herdr-app"
 # Desktop app for terminals and coding agents
 # https://herdr.dev/
 
-cask "hiddenbar"
-# Utility to hide menu bar items
-# https://github.com/dwarvesf/hidden/
-
 cask "linear"
 # App to manage software development and track bugs
 # https://linear.app/
