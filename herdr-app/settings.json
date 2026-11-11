@@ -3,7 +3,7 @@
   "sounds": {
     "enabled": true
   },
-  "font": "SF Mono",
+  "font": "GeistMono Nerd Font",
   "font_size": 13,
   "ui_font": "SF Mono",
   "telemetry": false
