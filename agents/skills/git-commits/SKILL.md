@@ -64,6 +64,10 @@ Examples: `tb/add-feature` or `tb/fix-bug/eng-123`. Always lowercase.
 The issue ID in the branch name is what links the work to the tracker, so
 there's no need to repeat it in commit messages.
 
+## Worktrees
+
+If a worktree is requested, use the format `<repo>/<branch-slug>`.
+
 ## Workflow
 
 1. **Survey the changes.** Run `git status` and `git diff` (plus
