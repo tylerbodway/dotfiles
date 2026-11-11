@@ -31,6 +31,8 @@ export HOMEBREW_NO_ANALYTICS=1
 
 export DISABLE_TELEMETRY=1
 
+export AGENT_BROWSER_EXECUTABLE_PATH="/Applications/Chromium.app/Contents/MacOS/Chromium"
+
 # fzf theme: vague
 export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdcdcd \

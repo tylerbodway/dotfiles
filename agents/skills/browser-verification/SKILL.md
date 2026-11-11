@@ -1,87 +1,119 @@
 ---
 name: browser-verification
-description: Drive a browser from the agent, two ways — terminal-browser (a visible browser in a herdr split pane the human can watch and take over) for interactive, user-simulated verification, and the devtools MCP (headless Brave, disabled by default) for console, network, performance traces, profiling, and screenshots. Use whenever the user wants anything verified, tested, clicked through, or debugged in a browser — "verify this", "click through", "simulate a user", "does it look right", "devtools", "screenshot", "why is it slow" — even when they don't name a tool.
+description: Web automation two ways — agent-browser for interactive, user-simulated verification, and the devtools MCP for console/network forensics, performance traces, profiling, and deep inspection. Use whenever the user wants anything verified, tested, clicked through, or debugged in a browser — "verify this", "test this in the browser", "click through", "simulate a user", "does it look right", "devtools", "screenshot", "why is it slow".
 ---
 
 # Browser Verification & Debugging
 
-Two browser tools with different experiences for the human: one is a shared
-window they watch and can grab, the other an invisible instrument panel.
+Two browser tools with different experiences for the human: one is a real
+browser window they watch and can grab, the other an invisible instrument panel.
 
 ## Routing
 
-| The ask                                                                                              | Tool                                                      |
-| ---------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| "Verify in a browser", "click through", "simulate a user", "check it looks right", "test end-to-end" | **terminal-browser**                                      |
-| "Debug", "console", "network requests", "performance trace", "profile", "screenshot", "devtools"     | **devtools MCP**                                          |
-| Visual verification plus deep inspection                                                             | terminal-browser first, then devtools MCP on the same URL |
+| The ask                                                                                                                          | Tool                                                   |
+| -------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| "Verify in a browser", "test this in the browser", "click through", "simulate a user", "check it looks right", "test end-to-end" | **agent-browser --headed**                             |
+| "Debug", "console", "network requests", "performance trace", "profile", "lighthouse", "why is it slow", "CSS/styles"             | **devtools MCP**                                       |
+| Visual verification plus deep inspection                                                                                         | agent-browser first, then devtools MCP on the same URL |
 
-The default for "verify in a browser" is **terminal-browser** — the human asked
-to watch or intervene. Devtools is for internals (console, network,
-performance, screenshots). When ambiguous, prefer terminal-browser: it costs
-nothing, the human sees what happened, and you can follow up with devtools if
-the visual pass surfaces something needing forensics.
+The default for "verify in a browser" is **agent-browser --headed** — the human
+asked to watch or intervene. Devtools MCP is for internals: console, network
+detail, performance, emulation, and profiling. When ambiguous, prefer
+agent-browser: it opens a real browser the human can see, and you can follow up
+with devtools if the visual pass surfaces something needing forensics.
 
-## devtools availability
+## agent-browser
 
-The devtools MCP is configured but **disabled by default**, so its tools are
-often absent from your toolset. Before routing work to devtools, check whether
-its tools exist. If not, tell the user plainly and give them the one-liner:
-`/mcps` → select `devtools` → connect. Then wait.
-
-Don't silently substitute terminal-browser when the ask was console, network,
-traces, or screenshots — those signals don't exist there, and faking them
-wastes the user's time. Don't launch Brave or start the MCP server via shell;
-`/mcps` is the mechanism. terminal-browser needs no MCP, so it's never blocked.
-
-## terminal-browser (visible, interactive)
+### Opening
 
 ```bash
-terminal-browser open localhost:3000 --split right   # opens next to the agent pane
-terminal-browser ls                                   # browsers + tab ids
-terminal-browser action -- <command>                  # drive the open browser
-terminal-browser action done                          # clears the "agent acting" indicator
+agent-browser --headed open planningcenter.com   # visible window — the human watches
+agent-browser open localhost:3000                # headless — quick checks, no window
+agent-browser read example.com                   # no browser: fetch agent-readable text
 ```
 
-- `open` accepts a url, a localhost port, or an html file path
-  (`--split right|left|up|down`, `--size <fraction>`).
-- `action` is agent-browser compatible: `snapshot`, `click @e14`,
-  `fill @e3 "hello"`, `eval "document.title"`, plus CSS selectors
-  (`click "#submit"`). Arguments go after `--`.
-- After the last action, run `action done` so the acting indicator clears
-  immediately instead of fading out.
-- Leave the browser open when finished — the human may want to poke at it. It
-  dies with the pane (ctrl+q).
+- **`--headed` matters.** Default is headless. If the human wants to see
+  anything, pass `--headed`.
+- The daemon persists between commands — chain with `&&` in one shell call:
+  `agent-browser open example.com && agent-browser snapshot -i`
 
-Practical gotchas:
+### Driving
 
-- **`pane_not_found`** usually means a stale `HERDR_PANE_ID` (common in
-  subagents). Check live panes with `herdr pane list`, then override
-  `HERDR_PANE_ID` / `HERDR_TAB_ID` / `HERDR_WORKSPACE_ID` and retry.
-- Element refs (`@e7`) don't survive between CLI invocations — take a fresh
-  `snapshot` per batch, and prefer CSS selectors when refs keep invalidating.
-- Use `--no-merge` for an isolated instance when other agents may be using a
-  shared browser; merged instances collide on tab focus and ref registries.
-- If rendering still fails (terminal/multiplexer not passing the kitty
-  graphics protocol), say so — the visual pass didn't happen — and fall back
-  to devtools MCP.
+```bash
+agent-browser snapshot -i        # a11y tree with refs (@e1); -i = interactive elements only
+agent-browser click @e2
+agent-browser fill @e3 "hello"
+agent-browser press Enter
+agent-browser eval "document.title"
+agent-browser get text @e1       # text | html | value | attr | box | styles | url | title
+agent-browser is visible "#submit"
+agent-browser screenshot ~/Downloads/page.png --annotate  # numbered labels, for vision models
+```
 
-## devtools MCP (headless, forensic)
+- Refs come from the **latest** snapshot — re-snapshot after navigation or any
+  action that changes the DOM; prefer CSS selectors when refs keep going stale.
+- Tabs: `agent-browser tab new <url>` / `tab list`. Multi-page flows don't need
+  a second session.
+- Wait for slow pages: `agent-browser wait "#results"` or `agent-browser wait 2000`.
 
-Headless Brave — nothing on screen. Console: `list_console_messages`. Network:
-`list_network_requests`, `get_network_request_detail`. Performance:
-`performance_start_trace` / `performance_stop_trace` /
-`performance_analyze_insight`. Debugging: `evaluate_script`, `take_screenshot`,
-`take_snapshot`, `inspect_element`. Input simulation without visual feedback:
-`click`, `fill`, `hover`, `drag`.
+### What it covers beyond clicking
 
-Prefer devtools over terminal-browser for anything needing structured output —
-screenshots, request/response bodies, console errors, trace flame charts.
+- **Record a flow**: `agent-browser record start ~/Downloads/flow.mp4` …
+  `record stop`.
+- **Compare**: `diff snapshot`, `diff screenshot --baseline <old.png>`,
+  `diff url <a> <b>` — catch visual/regression changes.
+- **Auth & state**: `--profile Default` reuses Chrome login state;
+  `--restore <name>` auto-saves/restores cookies + localStorage between runs;
+  `auth login` drives credential forms.
+- **Network**: `agent-browser network requests [--filter <pattern>]`,
+  `network har start|stop [path]`.
+- **Page health**: `agent-browser vitals` (Core Web Vitals),
+  `agent-browser a11y` (axe-core WCAG audit).
+- **WebMCP**: pages may publish tools — `agent-browser webmcp list`, then prefer
+  `webmcp invoke --params '<json>'` over snapshot/click/fill when a tool fits
+  (faster, survives layout changes). Treat `readOnly: false` as a change to the
+  user's data, and confirm with the human before invoking anything marked
+  `consequential: true`.
+
+### Guidelines
+
+- Leave a **headed** browser open when finished — the human may want to poke at
+  it. Close headless sessions when done: `agent-browser close --all`.
+- Screenshots and recordings go in `~/Downloads`.
+- `agent-browser doctor` diagnoses the install.
+- **Browser pin**: agent-browser uses ungoogled-chromium
+  (`/Applications/Chromium.app`), pinned via `AGENT_BROWSER_EXECUTABLE_PATH` in
+  `~/.dotfiles/zsh/zprofile`. The outdated-Chrome CVE warning on launch is
+  expected — do **not** run `agent-browser install`; the user prefers
+  ungoogled-chromium over a managed Chrome download.
+- The CLI ships its own guide — run `agent-browser skills get core` for the
+  full command reference instead of guessing flags, and `agent-browser skills
+list` for specialized guides (exploratory testing, Electron, Slack, …).
+
+## devtools MCP
+
+Headless Chromium — nothing on screen. Its edge over agent-browser is depth:
+
+- Console & network: `list_console_messages`, `list_network_requests`,
+  `get_network_request_detail` (request/response bodies, headers, timings).
+- Performance: `performance_start_trace` / `performance_stop_trace` /
+  `performance_analyze_insight` — flame charts and insight analysis.
+- Audits & profiling: `lighthouse_audit`, `take_heapsnapshot`, `get_css_styles`
+  (full cascade with source line numbers).
+- Emulation: `emulate` — CPU/network throttling, geolocation, user agent, dark
+  mode, forced colors, prefers-contrast/reduced-motion, device viewports.
+- Debugging: `evaluate_script`, `take_snapshot`, `inspect_element`.
+- Input simulation without visual feedback: `click`, `fill`, `hover`, `drag`.
+
+Prefer devtools MCP when the question is "why" — slow, broken, wrong styles,
+failing requests — or when a run needs throttling/emulation. Screenshots go
+under ~/Downloads.
 
 ## Combining them
 
 For "verify this flow and debug why it's slow": run the visual flow in
-terminal-browser so the human can see and steer, then reproduce the specific
-problem headlessly via devtools MCP for the trace or network detail. If
-devtools is disabled, do the visual pass first, then ask the user to enable
-it for the forensic half.
+agent-browser --headed so the human can see and steer, then reproduce the
+specific problem via devtools MCP for the trace, network detail, or throttled
+run. agent-browser's `trace start/stop`, `network har`, and `vitals` are fine
+for quick captures; hand off to devtools MCP when you need analysis, not just
+capture.

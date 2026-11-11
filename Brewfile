@@ -3,6 +3,10 @@
 
 # === Packages ===
 
+brew "agent-browser"
+# Browser automation CLI for AI agents
+# https://agent-browser.dev/
+
 brew "awscli"
 # Official Amazon AWS command-line interface
 # https://aws.amazon.com/cli/
@@ -42,6 +46,10 @@ brew "eza"
 brew "fd" # (neovim dependency)
 # Simple, fast and user-friendly alternative to find
 # https://github.com/sharkdp/fd
+
+brew "ffmpeg" # (agent-browser dependency)
+# Play, record, convert, and stream select audio and video codecs
+# https://ffmpeg.org/
 
 brew "fzf" # (neovim dependency)
 # Command-line fuzzy finder written in Go
@@ -229,10 +237,6 @@ cask "synology-drive"
 cask "tailscale-app"
 # Mesh VPN based on WireGuard
 # https://tailscale.com/
-
-cask "terminal-browser"
-# A browser that runs inside your terminal, renders via the kitty graphics protocol
-# https://github.com/zenbu-labs/terminal-browser
 
 cask "ungoogled-chromium" # (devtools MCP browser)
 # Google Chromium, sans integration with Google
