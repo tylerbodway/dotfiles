@@ -42,7 +42,7 @@ const SCHEMA_DENIAL_MESSAGE =
 export default Plugin.define({
   id: "rails.migrations",
   async setup(ctx) {
-    await ctx.permission.hook("evaluate", (event) => {
+    await ctx.permission.hook("evaluate", async (event) => {
       // Only guard file edits; a configured deny is already final.
       if (event.action !== "edit" || event.effect === "deny") return;
 
@@ -69,7 +69,12 @@ export default Plugin.define({
 
       // "Creating" = the migration file does not exist yet on disk. Editing
       // an existing migration is legitimate (with human approval) and passes.
-      const base = ctx.location.project.canonical ?? ctx.location.directory;
+      // Resolve against the session's directory, not ctx.location: that is
+      // where the plugin loaded, which differs for worktrees and moved sessions.
+      const session = await ctx.session
+        .get({ sessionID: event.sessionID })
+        .catch(() => undefined);
+      const base = session?.location.directory ?? ctx.location.directory;
       const creating = targets.some((resource) => {
         const path = isAbsolute(resource) ? resource : resolve(base, resource);
         return !existsSync(path);
