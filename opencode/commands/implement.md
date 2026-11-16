@@ -5,7 +5,7 @@ description: Implement a piece of work based on a plan, spec, or issue.
 
 1. Review the user-provided plan, spec, or issue.
 
-2. If the issue is tracked with a status, update the status to "In Progress".
+2. If the issue is tracked, assign to me, and ensure the status is "In Progress".
 
 3. Break the work into commit-sized tasks, use the `git-commits` skill.
 
