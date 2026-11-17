@@ -1,3 +1,5 @@
 __pycache__/
 *.pak
 herdr-app/.tmp.*
+*.d.ts
+jsconfig.json
