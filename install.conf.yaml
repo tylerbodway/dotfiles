@@ -23,19 +23,22 @@
       glob: true
     ~/.config/herdr/config.toml: herdr/config.toml
     ~/.config/herdr-automatic-rename/config.sh: herdr/plugins/automatic-rename/config.sh
-    ~/.config/herdr-app/settings.json: herdr-app/settings.json
-    ~/.config/herdr-app/keys.json: herdr-app/keys.json
-    ~/.config/herdr-app/layouts/main-plus.json: herdr-app/layouts/main-plus.json
-    ~/.config/herdr-app/mods/tabs-plus/main.js: herdr-app/mods/tabs-plus/main.js
-    ~/.config/herdr-app/mods/tabs-plus/mod.json: herdr-app/mods/tabs-plus/mod.json
-    ~/.config/herdr-app/mods/tabs-plus/gpui-kit.d.ts: herdr-app/mods/tabs-plus/gpui-kit.d.ts
-    ~/.config/herdr-app/mods/tabs-plus/jsconfig.json: herdr-app/mods/tabs-plus/jsconfig.json
-    ~/.config/herdr-app/mods/agents-plus/main.js: herdr-app/mods/agents-plus/main.js
-    ~/.config/herdr-app/mods/agents-plus/mod.json: herdr-app/mods/agents-plus/mod.json
-    ~/.config/herdr-app/mods/space-picker/main.js: herdr-app/mods/space-picker/main.js
-    ~/.config/herdr-app/mods/space-picker/mod.json: herdr-app/mods/space-picker/mod.json
-    ~/.config/herdr-app/mods/space-picker/gpui-kit.d.ts: herdr-app/mods/space-picker/gpui-kit.d.ts
-    ~/.config/herdr-app/mods/space-picker/jsconfig.json: herdr-app/mods/space-picker/jsconfig.json
+    ~/.config/herdr-app:
+      path: herdr-app/*.json
+      glob: true
+      create: true
+    ~/.config/herdr-app/layouts:
+      path: herdr-app/layouts/*
+      glob: true
+      create: true
+    ~/.config/herdr-app/themes:
+      path: herdr-app/themes/*
+      glob: true
+      create: true
+    ~/.config/herdr-app/mods:
+      path: herdr-app/mods/*
+      glob: true
+      create: true
     ~/.config/lazygit/config.yml: lazygit/config.yml
     ~/.config/nvim/:
       path: nvim/**

@@ -41,22 +41,26 @@ Layouts, mods, themes and `programs.json` you author join
 
 1. Copy the file(s) into `~/.dotfiles/herdr-app/` at the mirrored
    relative path. The repo copy is the canonical one from here on.
-2. Add an explicit entry to the `link:` section of
-   `~/.dotfiles/install.conf.yaml`:
-   `~/.config/herdr-app/<path>: herdr-app/<path>`
-   Explicit links, never globs — shipped file names shift between app
-   versions; yours don't.
+2. Nothing to add to `install.conf.yaml`: per-directory globs already
+   link everything the repo holds (`herdr-app/*.json`, `layouts/*`,
+   `themes/*`, `mods/*`). Globs expand the repo side only, so shipped
+   files and runtime state — which never exist in the repo — can't be
+   linked. The hazard to avoid is linking a whole directory the app
+   also writes into; link contents (`dir/*`), never the dir itself.
 3. Run `./install --only=link` in `~/.dotfiles` and verify
    `ls -la ~/.config/herdr-app/<path>` shows a symlink. Working file is
    identical on both sides.
 4. Apply it in the app per its own docs (mods hot-reload; a layout takes
    `layout.switch`).
 
-Never track: shipped files (`AGENTS.md`, `*.d.ts`, `frame/`, `icons/`,
-shipped mods and layouts), and runtime state (`view.json`, `window.json`,
-`shared.json`, `seen.json`, `installed.json`, `data/`, `update-notes*`,
-`herdr-app.sock`). On a fresh machine the app rebuilds every one of those
-itself before you get involved.
+Never track: shipped files (`AGENTS.md`, `*.d.ts`, `jsconfig.json`,
+`frame/`, `icons/`, shipped mods and layouts), and runtime state
+(`view.json`, `window.json`, `shared.json`, `seen.json`,
+`installed.json`, `data/`, `update-notes*`, `herdr-app.sock`). On a
+fresh machine the app rebuilds every one of those itself before you get
+involved — it writes mod folders' `gpui-kit.d.ts` and `jsconfig.json`
+through the links, so they appear in the repo untracked; keep them
+ignored.
 
 `keys.json` gets tracking only when deliberately customized: Herdr merges
 new default shortcuts into an untouched keys file on every app upgrade,
