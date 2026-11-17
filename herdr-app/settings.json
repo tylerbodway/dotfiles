@@ -5,6 +5,8 @@
   },
   "font": "GeistMono Nerd Font",
   "font_size": 14,
+  "terminal_line_height": 1.2,
+  "font_ligatures": true,
   "ui_font": "SF Mono",
   "telemetry": false
 }
