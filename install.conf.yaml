@@ -82,9 +82,6 @@
     - agents/skills/external.yml
 
 - shell:
-    - command: chmod +x bin/*
-      description: Making bin/ scripts executable
-      quiet: true
     - command: bat cache --build
       description: Building bat cache for custom theme
       quiet: true
