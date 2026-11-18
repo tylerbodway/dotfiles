@@ -77,6 +77,10 @@ agent-browser screenshot ~/Downloads/page.png --annotate  # numbered labels, for
 
 ### Guidelines
 
+- When opening a **headed** browser, follow it with the Raycast layout so
+  Herdr and Chromium tile for the human:
+  `agent-browser --headed open <url> && open "raycast://extensions/raycast/window-management/browser-testing"`
+  The layout places existing windows, so it must run *after* the open.
 - Leave a **headed** browser open when finished — the human may want to poke at
   it. Close headless sessions when done: `agent-browser close --all`.
 - Screenshots and recordings go in `~/Downloads`.
