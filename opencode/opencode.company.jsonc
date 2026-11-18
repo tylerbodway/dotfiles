@@ -158,7 +158,7 @@
     },
   },
   "skills": [
-    "~/Code/pco-box/skills",
+    "~/pco-box/skills",
     "~/Code/cloud-agent-cli/skills/cloud-agent-work",
   ],
 }
