@@ -44,8 +44,9 @@
     ~/.config/opencode/:
       path: opencode/**
       glob: true
-      exclude: [opencode/opencode.company.jsonc]
+      exclude: [opencode/opencode.company.jsonc, opencode/plugins/box-worktrees.ts]
     ~/Code/.opencode/opencode.jsonc: opencode/opencode.company.jsonc
+    ~/Code/.opencode/plugins/box-worktrees.ts: opencode/plugins/box-worktrees.ts
     ~/pco-box/.opencode/opencode.jsonc: opencode/opencode.company.jsonc
     ~/.agents/skills/:
       path: agents/skills/**
