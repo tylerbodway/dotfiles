@@ -1,5 +1,3 @@
-import hashlib
-import json
 import os
 import subprocess
 
@@ -9,20 +7,18 @@ import yaml
 
 class Skills(dotbot.Plugin):
     """
-    Install third-party agent skills via the skills CLI from a manifest.
+    Install third-party agent skills via the gh skill CLI from a manifest.
 
-    Reads declarative entries (repo, optional skills, optional agents) and
-    runs `skills add <repo> -g` so the CLI installs each skill to the right
-    per-agent location. Re-runs are idempotent; upgrade everything with
-    `skills update -g -y`.
+    Reads declarative entries (repo, optional skills, optional dir, optional
+    pin) and runs `gh skill install` for each. Skills land in `dir` as plain
+    directories the agents already scan. --force overwrites in place with the
+    latest ref, so re-running ./install doubles as an upgrade.
     """
 
     _directive = "skills"
 
-    DEFAULT_AGENTS = ["opencode"]
-    # Where the skills CLI installs for the opencode agent. Used to detect
-    # whether a skill is new, upgraded, or unchanged between installs.
-    INSTALL_DIR = os.path.expanduser("~/.agents/skills")
+    DEFAULT_AGENT = "opencode"
+    DEFAULT_DIR = os.path.expanduser("~/.agents/skills")
 
     def can_handle(self, directive):
         return directive == self._directive
@@ -36,9 +32,6 @@ class Skills(dotbot.Plugin):
         """Process a list of manifest files containing skill entries."""
         cwd = self._context.base_directory()
         success = True
-        installed = 0
-        upgraded = 0
-        unchanged = 0
 
         for manifest in files:
             full_path = os.path.join(cwd, manifest)
@@ -62,100 +55,50 @@ class Skills(dotbot.Plugin):
                 continue
 
             for entry in entries:
-                counts = self._install_entry(entry, cwd)
-                if counts is None:
+                if not self._install_entry(entry, cwd):
                     success = False
-                    continue
-                installed += counts["installed"]
-                upgraded += counts["upgraded"]
-                unchanged += counts["unchanged"]
 
-        total = installed + upgraded + unchanged
         if success:
-            self._log.action(f"Skills complete! {total} external skills now installed ")
+            self._log.action("External skills installed")
         else:
             self._log.error("Some external skills were not successfully installed")
 
         return success
 
     def _install_entry(self, entry, cwd):
-        """Install one manifest entry. Returns per-skill counts, or None on failure."""
+        """Install one manifest entry. Returns True on success."""
         if not isinstance(entry, dict) or "repo" not in entry:
             self._log.error(f"Invalid manifest entry: {entry}")
-            return None
+            return False
 
-        command = ["skills", "add", entry["repo"], "-g", "-y", "--json"]
-        for agent in entry.get("agents") or self.DEFAULT_AGENTS:
-            command += ["-a", agent]
+        target = os.path.expanduser(entry.get("dir") or self.DEFAULT_DIR)
+        command = [
+            "gh",
+            "skill",
+            "install",
+            entry["repo"],
+            "--agent",
+            self.DEFAULT_AGENT,
+            "--dir",
+            target,
+            "--force",
+        ]
+        if entry.get("pin"):
+            command += ["--pin", entry["pin"]]
 
+        # gh takes at most one skill per invocation, so a `skills` list becomes
+        # one command per name; omitting it installs the whole repo via --all.
         skills = entry.get("skills")
         if skills:
-            for skill in skills:
-                command += ["--skill", skill]
+            commands = [command + [skill] for skill in skills]
         else:
-            command += ["--skill", "*"]
+            commands = [command + ["--all"]]
 
-        before = self._snapshot(skills)
-
-        self._log.info(f"Installing from {entry['repo']}")
-        result = subprocess.run(command, cwd=cwd, capture_output=True, text=True)
-
-        if result.returncode != 0:
-            self._log.error(f"Failed to install {entry['repo']}")
-            if result.stdout.strip():
-                self._log.error(result.stdout.strip())
-            if result.stderr.strip():
-                self._log.error(result.stderr.strip())
-            return None
-
-        counts = {"installed": 0, "upgraded": 0, "unchanged": 0}
-        try:
-            payload = json.loads(result.stdout[result.stdout.index("[") :])
-        except (ValueError, json.JSONDecodeError):
-            self._log.action(f"Installed skills from {entry['repo']}")
-            return counts
-
-        for skill in payload:
-            name = skill.get("name")
-            was = before.get(name)
-            now = self._dir_hash(skill.get("path", ""))
-            if was is None:
-                self._log.action(f"Installing {name}")
-                counts["installed"] += 1
-            elif was == now:
-                print(f"Using {name}")
-                counts["unchanged"] += 1
-            else:
-                self._log.action(f"Upgrading {name}")
-                counts["upgraded"] += 1
-
-        return counts
-
-    # change detection
-
-    def _snapshot(self, skills):
-        """Hash the current state of each skill dir before an install."""
-        names = skills
-        if names is None:
-            # '*' — snapshot every installed skill dir
-            names = (
-                os.listdir(self.INSTALL_DIR) if os.path.isdir(self.INSTALL_DIR) else []
-            )
-        return {
-            name: self._dir_hash(os.path.join(self.INSTALL_DIR, name)) for name in names
-        }
-
-    def _dir_hash(self, path):
-        """Content hash of a skill directory, or None if it doesn't exist."""
-        if not os.path.isdir(path):
-            return None
-        digest = hashlib.sha256()
-        for root, dirs, files in os.walk(path):
-            dirs.sort()
-            for name in sorted(files):
-                file_path = os.path.join(root, name)
-                digest.update(os.path.relpath(file_path, path).encode())
-                with open(file_path, "rb") as f:
-                    for chunk in iter(lambda: f.read(65536), b""):
-                        digest.update(chunk)
-        return digest.hexdigest()
+        self._log.action(f"Installing {entry['repo']} -> {target}")
+        ok = True
+        for cmd in commands:
+            result = subprocess.run(cmd, cwd=cwd)
+            if result.returncode != 0:
+                self._log.error(f"Failed to install {entry['repo']}")
+                ok = False
+        return ok

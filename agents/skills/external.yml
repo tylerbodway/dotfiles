@@ -1,17 +1,18 @@
-# Third-party agent skills, installed by ./install via the skills CLI
-# (see dotbot-plugins/skills.py). The CLI picks the correct per-agent
-# install location; `npx skills update -g -y` upgrades everything.
+# Third-party agent skills, installed by ./install via `gh skill`
+# (see dotbot-plugins/skills.py). Each entry installs into `dir` as a plain
+# directory the agents already scan; re-runs overwrite in place with the
+# latest ref, so `./install --only=skills` also refreshes everything.
 #
-# - `repo` accepts owner/repo shorthand or any git URL (private repos use
-#   your normal git credentials).
-# - `skills` names specific skills to enable; omit to install every skill
+# - `repo` is OWNER/REPO (private repos use your gh auth).
+# - `skills` names specific skills to install; omit to install every skill
 #   in the repo.
-# - `agents` defaults to [opencode]; add e.g. `claude-code`, `codex`.
+# - `dir` overrides the install target (default ~/.agents/skills), e.g.
+#   scoping company skills to ~/Code.
+# - `pin` locks the install to a tag or commit SHA.
 #
-# Discover more at https://skills.sh or with `npx skills find <query>`.
+# Discover more with `gh skill search <query>`.
 
-- repo: vercel-labs/skills
-  skills:
-    - find-skills
-
+- repo: planningcenter/pco-box
+  dir: ~/Code/.agents/skills
 - repo: github/gh-stack
+- repo: nikships/claude-artifact-cli

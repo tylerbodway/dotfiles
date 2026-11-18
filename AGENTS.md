@@ -49,11 +49,9 @@ It configures applications, command-line tools, and development environment sett
 - **Personal skills** live in `agents/skills/<skill>/` and are glob-linked into
   `~/.agents/skills/` (excluding `company/` and `external.yml`), which OpenCode
   and other agents search by default.
-- **Third-party skills** are declared in `agents/skills/external.yml` (repo,
-  optional skill list, optional agents). The `skills` dotbot plugin
-  (`dotbot-plugins/skills.py`) shells out to the globally installed skills CLI
-  (`skills add`), which installs to the right per-agent location. Upgrade with
-  `skills update -g -y`. Nothing is vendored into this repo.
+- **Third-party skills** are declared in `agents/skills/external.yml`. The
+  `skills` dotbot plugin (`dotbot-plugins/skills.py`) shells out to
+  `gh skill install`.
 
 ## File Organization Patterns
 
