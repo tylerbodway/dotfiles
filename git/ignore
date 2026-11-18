@@ -5,6 +5,7 @@ Icon?
 .Trashes
 
 node_modules/
+.npm-cache/
 dist
 /log/*
 /tmp/*
