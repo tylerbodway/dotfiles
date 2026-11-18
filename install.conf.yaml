@@ -21,8 +21,6 @@
     ~/.config/git/:
       path: git/**
       glob: true
-    ~/.config/herdr/config.toml: herdr/config.toml
-    ~/.config/herdr-automatic-rename/config.sh: herdr/plugins/automatic-rename/config.sh
     ~/.config/herdr-app:
       path: herdr-app/*.json
       glob: true
@@ -79,9 +77,6 @@
 
 - gem:
     - Gemfile
-
-- herdr:
-    - herdr/plugins.yml
 
 - skills:
     - agents/skills/external.yml

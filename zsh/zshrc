@@ -33,7 +33,6 @@ alias llr="ll --git-repos"
 alias grep="rg"
 alias find="fd"
 
-alias mx="herdr"
 alias r="bin/rails"
 alias oc="opencode"
 alias gg="lazygit"
@@ -52,9 +51,4 @@ fi
 if command -v fzf &> /dev/null; then
   eval "$(fzf --zsh)"
 fi
-
-# Renames herdr tabs as soon as a command starts (herdr-automatic-rename plugin)
-for _f in $HOME/.config/herdr/plugins/github/herdr-automatic-rename-*/shell/hook.zsh(N); do
-  source $_f; break
-done
 
