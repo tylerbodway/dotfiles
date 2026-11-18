@@ -135,7 +135,8 @@
       },
       "xcode": {
         "type": "local",
-        "command": ["xcodebuildmcp", "mcp"],
+        "command": ["env", "-u", "DEVELOPER_DIR", "-u", "SDKROOT", "xcodebuildmcp", "mcp"],
+        "environment": { "XCODEBUILDMCP_ENABLED_WORKFLOWS": "simulator,ui-automation" },
         "disabled": true,
       },
     },
