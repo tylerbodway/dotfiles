@@ -18,6 +18,9 @@
   "session": {
     "sidebar": "hide"
   },
+  "prompt": {
+    "paste": "full"
+  },
   "attention": {
     "notifications": true,
     "sound": true
