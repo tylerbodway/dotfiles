@@ -21,6 +21,9 @@
   rewriting history.
 - Commit messages: imperative subject, why-oriented body. Reasoning
   and alternatives belong in the message, not held only in code.
+- Create worktrees with OpenCode's `worktree_create` tool, not
+  `git worktree add`. Move the session into it with `session_move`,
+  then create the branch with `git switch -c`.
 
 ## Contributions & discussions
 
