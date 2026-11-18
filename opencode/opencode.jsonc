@@ -125,6 +125,14 @@
         ],
         "disabled": false,
       },
+      "raycast": {
+        "type": "remote",
+        "url": "http://127.0.0.1:8267/mcp",
+        "oauth": false,
+        "headers": { "Authorization": "Bearer {file:~/.local/share/raycast/mcp-token}" },
+        "disabled": true,
+        "pool": true,
+      },
       "xcode": {
         "type": "local",
         "command": ["xcodebuildmcp", "mcp"],
